@@ -1,0 +1,85 @@
+import { useTranslations } from 'next-intl';
+
+export default function TermsAndConditionsPage() {
+  return (
+    <div className="min-h-screen bg-charcoal-50 py-24 px-6 sm:px-12">
+      <div className="max-w-3xl mx-auto bg-white border-2 border-charcoal-900 p-8 sm:p-16 shadow-lg">
+        
+        {/* Header */}
+        <div className="mb-16">
+          <h1 className="text-3xl sm:text-4xl font-bold text-charcoal-900 uppercase tracking-widest mb-4">
+            Terms & Conditions
+          </h1>
+          <div className="w-16 h-1 bg-charcoal-900 mb-6"></div>
+          <p className="text-sm text-charcoal-500 uppercase tracking-wider font-medium">
+            Effective Date: March 2026
+          </p>
+        </div>
+
+        {/* Content */}
+        <div className="space-y-10 text-charcoal-800 font-light leading-relaxed">
+          
+          <section>
+            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+              1. Reservations & Payment
+            </h2>
+            <p className="mb-4">
+              All reservations are subject to availability. To secure your booking, a valid credit card is required. By providing your payment details, you authorize Batumi Boutique Hotel to charge the applicable deposit or full amount depending on the selected rate.
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>All prices are quoted in local currency (GEL) or USD, including applicable taxes.</li>
+              <li>A pre-authorization may be placed on your card prior to arrival.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+              2. Check-in & Check-out
+            </h2>
+            <p className="mb-4">
+              To ensure a smooth transition for all guests, we strictly adhere to the following times:
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong>Check-in:</strong> Available from 15:00 onwards. Early check-in is subject to availability and may incur an additional fee.</li>
+              <li><strong>Check-out:</strong> Strictly until 12:00 (noon). Late check-out requests must be arranged with the concierge in advance and are subject to availability.</li>
+            </ul>
+            <p className="mt-4">
+              A valid government-issued photo ID or passport is required upon check-in.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+              3. Cancellation Policy
+            </h2>
+            <p>
+              Standard reservations may be cancelled or modified without penalty up to 48 hours prior to the scheduled arrival date. Cancellations made within 48 hours, or no-shows, will be charged the equivalent of the first night's stay. Non-refundable rates, promotional bookings, and group reservations have specific terms that supersede this standard policy.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+              4. Guest Responsibilities & Damages
+            </h2>
+            <p className="mb-4">
+              We aim to provide a pristine environment for all guests. Therefore, Batumi Boutique Hotel is a strictly non-smoking property (including balconies). A deep-cleaning fee will be charged to any guest found smoking on the premises.
+            </p>
+            <p>
+              Guests are responsible for any damage caused to the hotel property, furnishings, or equipment during their stay. The hotel reserves the right to charge the credit card on file for the cost of repairs or replacements.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+              5. Liability
+            </h2>
+            <p>
+              Batumi Boutique Hotel is not liable for loss, damage, or theft of personal property. We highly recommend using the electronic safe provided in your room for valuables. The hotel's liability is limited to the extent permitted by Georgian law.
+            </p>
+          </section>
+
+        </div>
+      </div>
+    </div>
+  );
+}

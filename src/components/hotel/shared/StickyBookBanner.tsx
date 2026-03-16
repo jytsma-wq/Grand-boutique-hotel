@@ -1,0 +1,88 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Gift, Shield, Clock } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { type Locale } from '@/i18n/config';
+
+interface StickyBookBannerProps {
+  locale: Locale;
+}
+
+export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
+  const tNav = useTranslations('nav');
+  const [isVisible, setIsVisible] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show banner after scrolling past 500px
+      if (window.scrollY > 500 && !isDismissed) {
+        setIsVisible(true);
+      } else if (window.scrollY <= 500) {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isDismissed]);
+
+  const handleDismiss = () => {
+    setIsDismissed(true);
+    setIsVisible(false);
+  };
+
+  const benefits = [
+    { icon: Gift, text: 'Free Breakfast' },
+    { icon: Clock, text: 'Late Checkout' },
+    { icon: Shield, text: 'Best Price' },
+  ];
+
+  return (
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
+        >
+          <div className="bg-charcoal-900 text-white px-4 py-3 shadow-2xl border-t border-charcoal-700">
+            <div className="flex items-center justify-between gap-4">
+              {/* Benefits - scrollable on mobile */}
+              <div className="flex-1 overflow-x-auto scrollbar-hide">
+                <div className="flex items-center gap-4 min-w-max">
+                  {benefits.map((benefit, i) => (
+                    <div key={i} className="flex items-center gap-1.5 text-xs text-charcoal-200">
+                      <benefit.icon size={14} className="text-gold-400 flex-shrink-0" />
+                      <span>{benefit.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <Link href={`/${locale}/booking`}>
+                <Button className="btn-luxury px-6 py-2 text-sm whitespace-nowrap">
+                  {tNav('bookNow')}
+                </Button>
+              </Link>
+
+              {/* Dismiss Button */}
+              <button
+                onClick={handleDismiss}
+                className="p-1 text-charcoal-400 hover:text-white transition-colors"
+              >
+                <X size={18} />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}

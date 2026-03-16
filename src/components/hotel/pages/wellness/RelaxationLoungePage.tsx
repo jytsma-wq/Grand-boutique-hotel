@@ -1,0 +1,104 @@
+'use client';
+
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Heart, Sparkles, Waves, Wind, ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { type Locale } from '@/i18n/config';
+
+interface RelaxationLoungePageProps {
+  locale: Locale;
+}
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
+};
+
+export default function RelaxationLoungePage({ locale }: RelaxationLoungePageProps) {
+  const highlights = [
+    { icon: Heart, title: 'Quiet Zones', desc: 'Soft seating designed for deep relaxation' },
+    { icon: Sparkles, title: 'Aromatherapy', desc: 'Calming signature scents throughout the lounge' },
+    { icon: Waves, title: 'Sea Views', desc: 'Panoramic views over Batumi and the Black Sea' },
+    { icon: Wind, title: 'Breathing Corner', desc: 'Guided breathing and mindfulness sessions daily' }
+  ];
+
+  return (
+    <main className="min-h-screen pt-20">
+      <section className="relative h-[65vh] min-h-[520px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
+            alt="Relaxation Lounge"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal-900/60 via-charcoal-900/40 to-charcoal-900/80" />
+        </div>
+
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+          <motion.div {...fadeInUp}>
+            <Heart className="w-16 h-16 text-white mb-6 mx-auto" />
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Relaxation Lounge</h1>
+            <p className="text-xl text-white/85 max-w-3xl mx-auto font-light">
+              A calm retreat between treatments, crafted for stillness, comfort, and recovery.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Wellness Detail</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">Space to Unwind</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {highlights.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="bg-white border-2 border-charcoal-900 p-8 text-center"
+              >
+                <div className="w-16 h-16 bg-charcoal-900 mx-auto mb-6 flex items-center justify-center">
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-bold text-charcoal-900 mb-3 uppercase tracking-wide">{item.title}</h3>
+                <p className="text-sm text-charcoal-600 font-light">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-charcoal-900 text-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div {...fadeInUp}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Continue Your Wellness Journey</h2>
+            <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto font-light">
+              Explore all wellness areas or reserve your stay for full access to our facilities.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Link href={`/${locale}/wellness`}>
+                <Button className="btn-architectural px-12 py-6 text-base">
+                  Back to Wellness
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link href={`/${locale}/booking`}>
+                <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                  Book Your Stay
+                </Button>
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}

@@ -1,0 +1,382 @@
+/* Font imports - Brutalist Architecture */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Brutalist Architecture - Deep Luxury Palette */
+:root {
+  /* Base Colors - No rounded corners */
+  --radius: 0rem;
+  
+  /* Charcoal & Concrete */
+  --charcoal-50: oklch(0.95 0.005 240);
+  --charcoal-100: oklch(0.88 0.008 240);
+  --charcoal-200: oklch(0.75 0.01 240);
+  --charcoal-300: oklch(0.60 0.012 240);
+  --charcoal-400: oklch(0.45 0.015 240);
+  --charcoal-500: oklch(0.35 0.015 240);
+  --charcoal-600: oklch(0.28 0.012 240);
+  --charcoal-700: oklch(0.22 0.01 240);
+  --charcoal-800: oklch(0.16 0.008 240);
+  --charcoal-900: oklch(0.12 0.005 240);
+  --charcoal-950: oklch(0.08 0.003 240);
+  
+  /* Brass & Copper Accent */
+  --brass-50: oklch(0.96 0.015 75);
+  --brass-100: oklch(0.90 0.025 75);
+  --brass-200: oklch(0.82 0.04 75);
+  --brass-300: oklch(0.72 0.055 75);
+  --brass-400: oklch(0.62 0.065 75);
+  --brass-500: oklch(0.55 0.07 75);
+  --brass-600: oklch(0.48 0.065 75);
+  --brass-700: oklch(0.40 0.055 75);
+  --brass-800: oklch(0.32 0.04 75);
+  --brass-900: oklch(0.25 0.025 75);
+  
+  /* Theme Variables */
+  --background: oklch(0.98 0.005 240);
+  --foreground: oklch(0.12 0.005 240);
+  --card: oklch(0.95 0.005 240);
+  --card-foreground: oklch(0.12 0.005 240);
+  --popover: oklch(0.95 0.005 240);
+  --popover-foreground: oklch(0.12 0.005 240);
+  
+  /* Primary: Deep Charcoal */
+  --primary: oklch(0.16 0.008 240);
+  --primary-foreground: oklch(0.98 0.005 240);
+  
+  /* Secondary: Concrete */
+  --secondary: oklch(0.75 0.01 240);
+  --secondary-foreground: oklch(0.12 0.005 240);
+  
+  /* Accent: Muted Brass */
+  --accent: oklch(0.55 0.07 75);
+  --accent-foreground: oklch(0.98 0.005 240);
+  
+  --muted: oklch(0.88 0.008 240);
+  --muted-foreground: oklch(0.45 0.015 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.28 0.012 240);
+  --input: oklch(0.88 0.008 240);
+  --ring: oklch(0.28 0.012 240);
+  
+  /* Chart Colors */
+  --chart-1: oklch(0.16 0.008 240);
+  --chart-2: oklch(0.55 0.07 75);
+  --chart-3: oklch(0.35 0.015 240);
+  --chart-4: oklch(0.62 0.065 75);
+  --chart-5: oklch(0.22 0.01 240);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.16 0.008 240);
+  --sidebar-foreground: oklch(0.95 0.005 240);
+  --sidebar-primary: oklch(0.55 0.07 75);
+  --sidebar-primary-foreground: oklch(0.12 0.005 240);
+  --sidebar-accent: oklch(0.28 0.012 240);
+  --sidebar-accent-foreground: oklch(0.95 0.005 240);
+  --sidebar-border: oklch(0.22 0.01 240);
+  --sidebar-ring: oklch(0.55 0.07 75);
+  
+  /* Brutalist Effects - No glassmorphism */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.08 0.003 240 / 70%));
+}
+
+.dark {
+  --background: oklch(0.08 0.003 240);
+  --foreground: oklch(0.95 0.005 240);
+  --card: oklch(0.12 0.005 240);
+  --card-foreground: oklch(0.95 0.005 240);
+  --popover: oklch(0.12 0.005 240);
+  --popover-foreground: oklch(0.95 0.005 240);
+  
+  /* Primary: Lighter Charcoal for dark mode */
+  --primary: oklch(0.75 0.01 240);
+  --primary-foreground: oklch(0.08 0.003 240);
+  
+  --secondary: oklch(0.22 0.01 240);
+  --secondary-foreground: oklch(0.95 0.005 240);
+  
+  /* Accent: Brighter Brass for dark mode */
+  --accent: oklch(0.62 0.065 75);
+  --accent-foreground: oklch(0.08 0.003 240);
+  
+  --muted: oklch(0.22 0.01 240);
+  --muted-foreground: oklch(0.60 0.012 240);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.28 0.012 240);
+  --input: oklch(0.22 0.01 240);
+  --ring: oklch(0.62 0.065 75);
+  
+  --chart-1: oklch(0.75 0.01 240);
+  --chart-2: oklch(0.62 0.065 75);
+  --chart-3: oklch(0.45 0.015 240);
+  --chart-4: oklch(0.55 0.07 75);
+  --chart-5: oklch(0.35 0.015 240);
+  
+  --sidebar: oklch(0.12 0.005 240);
+  --sidebar-foreground: oklch(0.95 0.005 240);
+  --sidebar-primary: oklch(0.62 0.065 75);
+  --sidebar-primary-foreground: oklch(0.08 0.003 240);
+  --sidebar-accent: oklch(0.28 0.012 240);
+  --sidebar-accent-foreground: oklch(0.95 0.005 240);
+  --sidebar-border: oklch(0.22 0.01 240);
+  --sidebar-ring: oklch(0.62 0.065 75);
+  
+  /* Dark mode - No glassmorphism */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.08 0.003 240 / 85%));
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Space Grotesk', var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Charcoal Scale */
+  --color-charcoal-50: var(--charcoal-50);
+  --color-charcoal-100: var(--charcoal-100);
+  --color-charcoal-200: var(--charcoal-200);
+  --color-charcoal-300: var(--charcoal-300);
+  --color-charcoal-400: var(--charcoal-400);
+  --color-charcoal-500: var(--charcoal-500);
+  --color-charcoal-600: var(--charcoal-600);
+  --color-charcoal-700: var(--charcoal-700);
+  --color-charcoal-800: var(--charcoal-800);
+  --color-charcoal-900: var(--charcoal-900);
+  --color-charcoal-950: var(--charcoal-950);
+  
+  /* Brass Scale */
+  --color-brass-50: var(--brass-50);
+  --color-brass-100: var(--brass-100);
+  --color-brass-200: var(--brass-200);
+  --color-brass-300: var(--brass-300);
+  --color-brass-400: var(--brass-400);
+  --color-brass-500: var(--brass-500);
+  --color-brass-600: var(--brass-600);
+  --color-brass-700: var(--brass-700);
+  --color-brass-800: var(--brass-800);
+  --color-brass-900: var(--brass-900);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  --radius-sm: 0;
+  --radius-md: 0;
+  --radius-lg: 0;
+  --radius-xl: 0;
+  --radius-2xl: 0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Overlay - Brutalist */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Architectural Button - Ultra-luxury, solid, sharp edges */
+  .btn-architectural {
+    @apply px-10 py-5 font-medium tracking-[0.25em] uppercase;
+    background: var(--charcoal-900);
+    color: var(--charcoal-50);
+    border: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .btn-architectural:hover {
+    opacity: 0.85;
+  }
+  
+  /* Architectural Button - Concrete variant */
+  .btn-architectural-concrete {
+    @apply px-10 py-5 font-medium tracking-[0.25em] uppercase;
+    background: var(--charcoal-700);
+    color: var(--charcoal-50);
+    border: none;
+    transition: opacity 0.2s ease;
+  }
+  
+  .btn-architectural-concrete:hover {
+    opacity: 0.85;
+  }
+  
+  /* Architectural Link - Pure typography with refined border interaction */
+  .link-architectural {
+    @apply inline-block font-medium tracking-[0.2em] uppercase;
+    color: var(--charcoal-900);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    padding-bottom: 2px;
+  }
+  
+  .link-architectural:hover {
+    border-bottom-color: var(--charcoal-900);
+  }
+  
+  /* Architectural Link - Light variant for dark backgrounds */
+  .link-architectural-light {
+    @apply inline-block font-medium tracking-[0.2em] uppercase;
+    color: var(--charcoal-50);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+    padding-bottom: 2px;
+  }
+  
+  .link-architectural-light:hover {
+    border-bottom-color: var(--charcoal-50);
+  }
+  
+  /* Legacy support - maps to new architectural button */
+  .btn-luxury {
+    @apply px-8 py-4 font-medium tracking-[0.2em] uppercase;
+    background: var(--charcoal-900);
+    color: var(--charcoal-50);
+    border: 2px solid var(--charcoal-900);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-luxury:hover {
+    background: transparent;
+    color: var(--charcoal-900);
+  }
+  
+  /* Section Title - Architectural */
+  .section-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase;
+    color: var(--charcoal-900);
+    letter-spacing: -0.02em;
+  }
+  
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+  }
+  
+  /* Decorative Line - Brass */
+  .gold-line {
+    @apply w-20 h-0.5 mx-auto my-6;
+    background: var(--brass-500);
+  }
+  
+  /* Card Hover Effect - Minimal */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px oklch(0 0 0 / 20%);
+  }
+  
+  /* Image Overlay - Deep charcoal */
+  .image-overlay {
+    @apply absolute inset-0;
+    background: linear-gradient(180deg, transparent 0%, oklch(0.08 0.003 240 / 70%) 100%);
+  }
+  
+  /* Custom Scrollbar - Brutalist */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--charcoal-200);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--charcoal-700);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--charcoal-900);
+  }
+  
+  /* Text Accent - Brass */
+  .text-gradient {
+    color: var(--brass-500);
+  }
+}
+
+@layer utilities {
+  /* RTL Utilities */
+  .rtl-flip {
+    [dir="rtl"] & {
+      transform: scaleX(-1);
+    }
+  }
+  
+  /* Aspect Ratios for Hero */
+  .aspect-hero {
+    aspect-ratio: 16/9;
+  }
+  
+  @media (min-width: 768px) {
+    .aspect-hero {
+      aspect-ratio: 21/9;
+    }
+  }
+  
+  /* Safe area for mobile */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
