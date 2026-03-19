@@ -410,7 +410,9 @@ function SidebarGroupLabel({
         className
       )}
       {...props}
-    />
+    >
+      {props.children as React.ReactNode}
+    </Comp>
   )
 }
 
@@ -433,7 +435,9 @@ function SidebarGroupAction({
         className
       )}
       {...props}
-    />
+    >
+      {props.children as React.ReactNode}
+    </Comp>
   )
 }
 
@@ -519,7 +523,9 @@ function SidebarMenuButton({
       data-active={isActive}
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
       {...props}
-    />
+    >
+      {props.children as React.ReactNode}
+    </Comp>
   )
 
   if (!tooltip) {
@@ -573,7 +579,9 @@ function SidebarMenuAction({
         className
       )}
       {...props}
-    />
+    >
+      {props.children as React.ReactNode}
+    </Comp>
   )
 }
 
@@ -694,7 +702,9 @@ function SidebarMenuSubButton({
         className
       )}
       {...props}
-    />
+    >
+      {props.children as React.ReactNode}
+    </Comp>
   )
 }
 
