@@ -42,7 +42,7 @@ function SelectTrigger({
       )}
       {...props}
     >
-      {children as React.ReactNode}
+      {children}
       <SelectPrimitive.Icon asChild>
         <ChevronDownIcon className="size-4 opacity-50" />
       </SelectPrimitive.Icon>
@@ -77,7 +77,7 @@ function SelectContent({
               "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1"
           )}
         >
-          {children as React.ReactNode}
+          {children}
         </SelectPrimitive.Viewport>
         <SelectScrollDownButton />
       </SelectPrimitive.Content>
@@ -117,7 +117,7 @@ function SelectItem({
           <CheckIcon className="size-4" />
         </SelectPrimitive.ItemIndicator>
       </span>
-      <SelectPrimitive.ItemText>{children as React.ReactNode}</SelectPrimitive.ItemText>
+      <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
     </SelectPrimitive.Item>
   )
 }
