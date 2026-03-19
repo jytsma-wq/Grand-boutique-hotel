@@ -8,7 +8,7 @@ import WhatsAppButton from '@/components/hotel/WhatsAppButton';
 export default function LunchDinner({ params }: { params: Promise<{ locale: Locale }> }) {
   return params.then(({ locale }) => (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <LunchDinnerPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

@@ -11,6 +11,7 @@ import { locales, localeNames, localeFlags, type Locale } from '@/i18n/config';
 
 interface NavigationProps {
   locale: Locale;
+  siteSettings?: any;
 }
 
 const flagImages: Record<string, string> = {
@@ -22,7 +23,7 @@ const flagImages: Record<string, string> = {
   ar: '/flags/sa.svg',
 };
 
-export default function Navigation({ locale }: NavigationProps) {
+export default function Navigation({ locale, siteSettings }: NavigationProps) {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);

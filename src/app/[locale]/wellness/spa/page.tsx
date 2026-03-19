@@ -9,7 +9,7 @@ export default async function Spa({ params }: { params: Promise<{ locale: Locale
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <SpaPage locale={locale} />
       <Footer locale={locale} />
       <StickyBookBanner locale={locale} />

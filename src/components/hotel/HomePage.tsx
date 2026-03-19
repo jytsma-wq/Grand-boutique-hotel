@@ -58,6 +58,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
         { icon: Sparkles, label: 'Spa & Wellness' },
       ];
 
+  // Get rooms from CMS data or use empty array
+  const cmsRooms = data?.rooms || [];
+  const rooms = cmsRooms.length > 0 
+    ? cmsRooms.map((room: any) => ({
+        name: room[`name_${locale}`] || room.name || 'Room',
+        image: room.image ? urlFor(room.image).url() : '/placeholder-room.jpg',
+        price: room.price || 0,
+        description: room[`description_${locale}`] || room.description || '',
+      }))
+    : [];
+
   const experiences = [
     {
       name: 'Batumi Boulevard',

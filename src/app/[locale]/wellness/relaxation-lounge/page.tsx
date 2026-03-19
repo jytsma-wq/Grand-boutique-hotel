@@ -8,7 +8,7 @@ export default async function RelaxationLounge({ params }: { params: Promise<{ l
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <RelaxationLoungePage locale={locale} />
       <Footer locale={locale} />
     </>

@@ -8,7 +8,7 @@ export default async function Jacuzzi({ params }: { params: Promise<{ locale: Lo
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <JacuzziPage locale={locale} />
       <Footer locale={locale} />
     </>

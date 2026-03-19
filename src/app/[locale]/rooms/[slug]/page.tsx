@@ -9,7 +9,7 @@ export default async function RoomDetail({ params }: { params: Promise<{ locale:
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <RoomDetailPage locale={locale} slug={slug} />
       <Footer locale={locale} />
       <StickyBookBanner locale={locale} />

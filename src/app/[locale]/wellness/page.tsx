@@ -10,7 +10,7 @@ export default async function Wellness({ params }: { params: Promise<{ locale: L
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <WellnessPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

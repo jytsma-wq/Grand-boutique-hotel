@@ -8,7 +8,7 @@ import WhatsAppButton from '@/components/hotel/WhatsAppButton';
 export default function Rooms({ params }: { params: Promise<{ locale: Locale }> }) {
   return params.then(({ locale }) => (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <RoomsPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

@@ -10,7 +10,7 @@ export default async function Spirits({ params }: { params: Promise<{ locale: Lo
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <SpiritsPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

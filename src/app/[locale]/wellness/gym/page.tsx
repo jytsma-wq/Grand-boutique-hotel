@@ -8,7 +8,7 @@ export default async function Gym({ params }: { params: Promise<{ locale: Locale
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <GymPage locale={locale} />
       <Footer locale={locale} />
     </>

@@ -10,7 +10,7 @@ export default async function RestaurantMenu({ params }: { params: Promise<{ loc
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <RestaurantMenuPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

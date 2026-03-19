@@ -10,7 +10,7 @@ export default async function Offers({ params }: { params: Promise<{ locale: Loc
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <OffersPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />
