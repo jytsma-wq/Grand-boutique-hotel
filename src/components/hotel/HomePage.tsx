@@ -19,9 +19,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
 import HeroSection from './HeroSection';
+import { urlFor } from '@/lib/sanity';
 
 interface HomePageProps {
   locale: Locale;
+  data?: any;
 }
 
 const fadeInUp = {
@@ -31,49 +33,30 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
-export default function HomePage({ locale }: HomePageProps) {
+export default function HomePage({ locale, data }: HomePageProps) {
   const t = useTranslations();
   const tHome = useTranslations('home');
 
-  const rooms = [
-    {
-      name: 'Standard Room',
-      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&q=80',
-      price: 120,
-      size: '28 m²',
-      guests: 2,
-    },
-    {
-      name: 'Superior Room',
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600&q=80',
-      price: 160,
-      size: '35 m²',
-      guests: 2,
-    },
-    {
-      name: 'Deluxe Room',
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600&q=80',
-      price: 200,
-      size: '42 m²',
-      guests: 3,
-    },
-    {
-      name: 'Junior Suite',
-      image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=600&q=80',
-      price: 280,
-      size: '55 m²',
-      guests: 2,
-    },
-  ];
-
-  const amenities = [
-    { icon: Wifi, label: 'High-Speed WiFi' },
-    { icon: Car, label: 'Free Parking' },
-    { icon: Utensils, label: 'Fine Dining' },
-    { icon: Waves, label: 'Infinity Pool' },
-    { icon: Dumbbell, label: 'Fitness Center' },
-    { icon: Sparkles, label: 'Spa & Wellness' },
-  ];
+  // Use CMS data if available, otherwise use translations as fallback
+  const heroTitle = data?.heroTitleLocalized || tHome('hero.title');
+  const heroSubtitle = data?.heroSubtitleLocalized || tHome('hero.subtitle');
+  const welcomeTitle = data?.welcomeSection?.title || tHome('welcome.title');
+  const welcomeDescription = data?.welcomeSection?.description || tHome('welcome.description');
+  
+  // Get amenities from CMS or use defaults
+  const amenities = data?.amenities?.length > 0 
+    ? data.amenities.map((a: any) => ({
+        icon: a.icon || 'Wifi',
+        label: a[`label_${locale}`] || a.label || 'Amenity'
+      }))
+    : [
+        { icon: Wifi, label: 'High-Speed WiFi' },
+        { icon: Car, label: 'Free Parking' },
+        { icon: Utensils, label: 'Fine Dining' },
+        { icon: Waves, label: 'Infinity Pool' },
+        { icon: Dumbbell, label: 'Fitness Center' },
+        { icon: Sparkles, label: 'Spa & Wellness' },
+      ];
 
   const experiences = [
     {
@@ -93,19 +76,25 @@ export default function HomePage({ locale }: HomePageProps) {
     },
   ];
 
+  // Map icon names to Lucide components
+  const getIconComponent = (iconName: string) => {
+    const icons: Record<string, any> = { Wifi, Car, Utensils, Waves, Dumbbell, Sparkles, MapPin, Clock };
+    return icons[iconName] || Wifi;
+  };
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <HeroSection locale={locale} />
+      <HeroSection locale={locale} data={data} />
 
       {/* Welcome Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-gold-600 text-sm tracking-widest uppercase">Welcome</span>
-            <h2 className="section-title mt-4">{tHome('welcome.title')}</h2>
+            <h2 className="section-title mt-4">{welcomeTitle}</h2>
             <div className="gold-line" />
-            <p className="section-subtitle">{tHome('welcome.description')}</p>
+            <p className="section-subtitle">{welcomeDescription}</p>
           </motion.div>
 
           {/* Amenities Grid */}
@@ -113,17 +102,20 @@ export default function HomePage({ locale }: HomePageProps) {
             {...fadeInUp}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
           >
-            {amenities.map((amenity, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-charcoal-50/50 hover:bg-charcoal-100/50 transition-colors group"
-              >
-                <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <amenity.icon className="w-6 h-6 text-white" />
+            {amenities.map((amenity, index) => {
+              const IconComponent = typeof amenity.icon === 'string' ? getIconComponent(amenity.icon) : amenity.icon;
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-charcoal-50/50 hover:bg-charcoal-100/50 transition-colors group"
+                >
+                  <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-sm font-medium text-charcoal-900 text-center">{amenity.label}</span>
                 </div>
-                <span className="text-sm font-medium text-charcoal-900 text-center">{amenity.label}</span>
-              </div>
-            ))}
+              );
+            })}
           </motion.div>
         </div>
       </section>

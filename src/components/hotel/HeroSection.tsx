@@ -7,33 +7,42 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { urlFor } from '@/lib/sanity';
 
 interface HeroSectionProps {
   locale: Locale;
+  data?: any;
 }
 
-export default function HeroSection({ locale }: HeroSectionProps) {
+export default function HeroSection({ locale, data }: HeroSectionProps) {
   const t = useTranslations('hero');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const slides = [
-    {
-      image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80',
-      title: t('title'),
-      subtitle: t('subtitle'),
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80',
-      title: 'Refined Luxury',
-      subtitle: 'By The Black Sea',
-    },
-    {
-      image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80',
-      title: 'Modern Luxury',
-      subtitle: 'Timeless Comfort',
-    },
-  ];
+  // Use CMS slides if available, otherwise use defaults
+  const slides = data?.heroImage 
+    ? [{
+        image: urlFor(data.heroImage).url(),
+        title: data.heroTitleLocalized || t('title'),
+        subtitle: data.heroSubtitleLocalized || t('subtitle'),
+      }]
+    : [
+        {
+          image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80',
+          title: t('title'),
+          subtitle: t('subtitle'),
+        },
+        {
+          image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80',
+          title: 'Refined Luxury',
+          subtitle: 'By The Black Sea',
+        },
+        {
+          image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80',
+          title: 'Modern Luxury',
+          subtitle: 'Timeless Comfort',
+        },
+      ];
 
   useEffect(() => {
     if (!isAutoPlaying) return;
