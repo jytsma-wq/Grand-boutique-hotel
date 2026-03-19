@@ -396,6 +396,7 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<"div">) {
 function SidebarGroupLabel({
   className,
   asChild = false,
+  children,
   ...props
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div"
@@ -411,7 +412,7 @@ function SidebarGroupLabel({
       )}
       {...props}
     >
-      {props.children as React.ReactNode}
+      {children}
     </Comp>
   )
 }
