@@ -9,7 +9,7 @@ export default async function About({ params }: { params: Promise<{ locale: Loca
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <AboutPage locale={locale} />
       <Footer locale={locale} />
       <StickyBookBanner locale={locale} />

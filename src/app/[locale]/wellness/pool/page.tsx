@@ -8,7 +8,7 @@ export default async function Pool({ params }: { params: Promise<{ locale: Local
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <PoolPage locale={locale} />
       <Footer locale={locale} />
     </>

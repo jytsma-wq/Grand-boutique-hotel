@@ -8,7 +8,7 @@ export default async function SteamRoom({ params }: { params: Promise<{ locale: 
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <SteamRoomPage locale={locale} />
       <Footer locale={locale} />
     </>

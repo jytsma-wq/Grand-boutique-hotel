@@ -9,7 +9,7 @@ export default async function Membership({ params }: { params: Promise<{ locale:
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <MembershipPage locale={locale} />
       <Footer locale={locale} />
       <StickyBookBanner locale={locale} />

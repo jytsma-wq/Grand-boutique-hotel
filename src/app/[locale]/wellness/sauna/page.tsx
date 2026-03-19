@@ -8,7 +8,7 @@ export default async function Sauna({ params }: { params: Promise<{ locale: Loca
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <SaunaPage locale={locale} />
       <Footer locale={locale} />
     </>

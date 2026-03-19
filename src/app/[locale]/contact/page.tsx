@@ -10,7 +10,7 @@ export default async function Contact({ params }: { params: Promise<{ locale: Lo
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <ContactPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

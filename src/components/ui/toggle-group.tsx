@@ -65,7 +65,7 @@ function ToggleGroupItem({
       )}
       {...props}
     >
-      {children}
+      {children as React.ReactNode}
     </ToggleGroupPrimitive.Item>
   )
 }

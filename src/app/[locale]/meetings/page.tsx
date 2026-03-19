@@ -10,7 +10,7 @@ export default async function Meetings({ params }: { params: Promise<{ locale: L
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <MeetingsPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />

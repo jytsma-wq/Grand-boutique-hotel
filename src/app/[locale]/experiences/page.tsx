@@ -10,7 +10,7 @@ export default async function Experiences({ params }: { params: Promise<{ locale
 
   return (
     <>
-      <Navigation locale={locale} />
+      <Navigation locale={locale} siteSettings={undefined} />
       <ExperiencesPage locale={locale} />
       <Footer locale={locale} />
       <MariamChatbot locale={locale} />
