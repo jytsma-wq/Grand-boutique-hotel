@@ -1,10 +1,8 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { MessageCircle, X, Send, Loader2 } from 'lucide-react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { X, Send, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/config';
 
@@ -17,6 +15,16 @@ interface Message {
   content: string;
 }
 
+// Telegraph Hotel color palette
+const colors = {
+  primary: '#27331d',      // Dark green
+  primaryAlt: '#baa363',   // Gold/brass accent
+  primaryTeal: '#22372b',  // Teal green
+  secondary: '#e0dfd3',    // Light neutral
+  white: '#ffffff',
+  black: '#222222',
+};
+
 export default function MariamChatbot({ locale }: MariamChatbotProps) {
   const t = useTranslations('chatbot');
   const [isOpen, setIsOpen] = useState(false);
@@ -25,18 +33,29 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [questionsAsked, setQuestionsAsked] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  // Initialize greeting when chat opens
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       setMessages([{ role: 'assistant', content: t('greeting') }]);
     }
   }, [isOpen, messages.length, t]);
 
+  // Auto-scroll to latest message
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const sendMessage = async () => {
+  // Focus input when chat opens
+  useEffect(() => {
+    if (isOpen && inputRef.current) {
+      setTimeout(() => inputRef.current?.focus(), 300);
+    }
+  }, [isOpen]);
+
+  // Optimized send message with useCallback
+  const sendMessage = useCallback(async () => {
     if (!input.trim() || isLoading || questionsAsked >= 4) return;
 
     const userMessage = input.trim();
@@ -56,9 +75,8 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
       });
 
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Server fout:', response.status, errorText);
-        throw new Error(`Server status: ${response.status}`);
+        console.error('Chat API error:', response.status);
+        throw new Error(`Server error: ${response.status}`);
       }
 
       const data = await response.json();
@@ -69,7 +87,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
       }]);
       setQuestionsAsked(prev => prev + 1);
     } catch (error) {
-      console.error('Fetch fout:', error);
+      console.error('Chat error:', error);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: t('error')
@@ -77,123 +95,203 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
     } finally {
       setIsLoading(false);
     }
+  }, [input, isLoading, questionsAsked, locale, messages, t]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
   };
 
   const remainingQuestions = Math.max(0, 4 - questionsAsked);
+  const isDisabled = isLoading || questionsAsked >= 4;
 
   return (
     <>
+      {/* Chat Toggle Button */}
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         className="fixed bottom-6 left-6 z-50 flex flex-col items-center gap-2 group/chat"
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-3 border-charcoal-900 shadow-xl transition-all hover:scale-105 active:scale-95 relative"
+          aria-label={isOpen ? 'Close chat' : 'Open chat'}
+          className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 relative"
+          style={{ 
+            border: `2px solid ${colors.primaryAlt}`,
+          }}
         >
           {isOpen ? (
-            <div className="w-full h-full bg-charcoal-900 flex items-center justify-center">
-              <X className="w-7 h-7 md:w-9 md:h-9 text-white" strokeWidth={1.5} />
+            <div 
+              className="w-full h-full flex items-center justify-center"
+              style={{ backgroundColor: colors.primary }}
+            >
+              <X className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={1.5} />
             </div>
           ) : (
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face"
               alt="Concierge"
               className="w-full h-full object-cover"
+              loading="lazy"
             />
           )}
         </button>
+        
+        {/* Tooltip */}
         {!isOpen && (
-          <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 bg-charcoal-900 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/chat:opacity-100 transition-opacity duration-200 pointer-events-none">
+          <div 
+            className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/chat:opacity-100 transition-opacity duration-200 pointer-events-none rounded-[20px_0_0_20px]"
+            style={{ backgroundColor: colors.primary }}
+          >
             Hello, how can I help you?
-            <div className="absolute right-full top-1/2 -translate-y-1/2 border-4 border-transparent border-r-charcoal-900" />
           </div>
         )}
-        <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal-900">
+        
+        {/* Label */}
+        <span 
+          className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-medium"
+          style={{ color: colors.primary }}
+        >
           CONCIERGE
         </span>
       </motion.div>
 
+      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-44 left-6 z-50 w-80 sm:w-96 bg-white shadow-2xl overflow-hidden border-2 border-charcoal-900"
+            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+            className="fixed bottom-40 left-6 z-50 w-80 sm:w-96 shadow-2xl overflow-hidden"
+            style={{ 
+              backgroundColor: colors.white,
+              borderRadius: '20px 0 0 20px',
+              border: `1px solid ${colors.secondary}`,
+            }}
           >
-            <div className="bg-charcoal-900 p-5 text-white border-b-2 border-white">
+            {/* Header */}
+            <div 
+              className="p-4 border-b"
+              style={{ 
+                backgroundColor: colors.primary,
+                borderColor: `${colors.white}33`,
+              }}
+            >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-white border-2 border-charcoal-900 flex items-center justify-center">
+                <div 
+                  className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0"
+                  style={{ border: `2px solid ${colors.primaryAlt}` }}
+                >
                   <img 
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
                     alt="Mariam"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
                 <div>
-                  <div className="font-bold uppercase tracking-wide text-sm">{t('name')}</div>
-                  <div className="text-xs text-white/70 uppercase tracking-wider font-light">Digital Concierge</div>
+                  <div className="font-medium text-sm text-white tracking-wide">{t('name')}</div>
+                  <div className="text-xs text-white/70 uppercase tracking-wider">Digital Concierge</div>
                 </div>
               </div>
             </div>
 
-            <div className="h-80 overflow-y-auto p-5 space-y-4 custom-scrollbar bg-charcoal-50">
+            {/* Messages */}
+            <div 
+              className="h-80 overflow-y-auto p-4 space-y-3 custom-scrollbar"
+              style={{ backgroundColor: colors.secondary }}
+            >
               {messages.map((msg, i) => (
                 <div
                   key={i}
                   className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
-                    className={`max-w-[80%] px-4 py-3 border-2 ${
-                      msg.role === 'user'
-                        ? 'bg-charcoal-900 text-white border-charcoal-900'
-                        : 'bg-white text-charcoal-900 border-charcoal-200'
+                    className={`max-w-[80%] px-4 py-2.5 rounded-2xl ${
+                      msg.role === 'user' ? 'rounded-tr-sm' : 'rounded-tl-sm'
                     }`}
+                    style={{
+                      backgroundColor: msg.role === 'user' ? colors.primary : colors.white,
+                      color: msg.role === 'user' ? colors.white : colors.black,
+                      border: msg.role === 'user' ? 'none' : `1px solid ${colors.primaryAlt}40`,
+                    }}
                   >
-                    <p className="text-sm font-light leading-relaxed">{msg.content}</p>
+                    <p className="text-sm font-normal leading-relaxed">{msg.content}</p>
                   </div>
                 </div>
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-white border-2 border-charcoal-200 px-4 py-3">
-                    <Loader2 className="w-5 h-5 animate-spin text-charcoal-900" />
+                  <div 
+                    className="px-4 py-2.5 rounded-2xl rounded-tl-sm"
+                    style={{ 
+                      backgroundColor: colors.white,
+                      border: `1px solid ${colors.primaryAlt}40`,
+                    }}
+                  >
+                    <Loader2 className="w-5 h-5 animate-spin" style={{ color: colors.primary }} />
                   </div>
                 </div>
               )}
               <div ref={messagesEndRef} />
             </div>
 
-            <div className="px-5 py-3 bg-white border-t-2 border-charcoal-200 text-center text-xs text-charcoal-600 uppercase tracking-wider font-medium">
+            {/* Questions Remaining */}
+            <div 
+              className="px-4 py-2 text-center text-xs uppercase tracking-wider font-medium"
+              style={{ 
+                backgroundColor: colors.white,
+                color: `${colors.black}60`,
+                borderBottom: `1px solid ${colors.secondary}`,
+              }}
+            >
               {t('questionsRemaining', { count: remainingQuestions })}
             </div>
 
-            <div className="p-5 border-t-2 border-charcoal-900 bg-white">
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  sendMessage();
+            {/* Input Form */}
+            <div 
+              className="p-4 flex gap-2"
+              style={{ 
+                backgroundColor: colors.white,
+                borderTop: `1px solid ${colors.secondary}`,
+              }}
+            >
+              <input
+                ref={inputRef}
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={handleKeyDown}
+                placeholder={t('placeholder')}
+                disabled={isDisabled}
+                className="flex-1 px-4 py-2.5 text-sm outline-none transition-all duration-200 disabled:opacity-50"
+                style={{
+                  backgroundColor: colors.secondary,
+                  borderRadius: '20px 0 0 20px',
+                  border: `1px solid transparent`,
+                  fontFamily: '"DM Sans", sans-serif',
                 }}
-                className="flex gap-2"
+                onFocus={(e) => e.target.style.borderColor = colors.primaryAlt}
+                onBlur={(e) => e.target.style.borderColor = 'transparent'}
+              />
+              <button
+                onClick={sendMessage}
+                disabled={!input.trim() || isDisabled}
+                className="px-4 py-2.5 rounded-r-2xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-90 active:scale-95"
+                style={{
+                  backgroundColor: colors.primaryAlt,
+                  color: colors.black,
+                }}
+                aria-label="Send message"
               >
-                <Input
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  placeholder={t('placeholder')}
-                  disabled={isLoading || questionsAsked >= 4}
-                  className="flex-1 border-2 border-charcoal-300 focus:border-charcoal-900 font-light"
-                />
-                <Button
-                  type="submit"
-                  size="icon"
-                  disabled={!input.trim() || isLoading || questionsAsked >= 4}
-                  className="bg-charcoal-900 hover:bg-charcoal-800 border-2 border-charcoal-900 transition-colors"
-                >
-                  <Send className="w-4 h-4" />
-                </Button>
-              </form>
+                <Send className="w-4 h-4" />
+              </button>
             </div>
           </motion.div>
         )}
