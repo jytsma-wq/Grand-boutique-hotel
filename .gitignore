@@ -35,13 +35,11 @@ __pycache__/
 *.pyd
 .Python
 env/
-venv/
 .venv/
 pip-log.txt
 pip-delete-this-directory.txt
 .tox/
 .coverage
-.coverage.*
 .cache
 nosetests.xml
 coverage.xml
@@ -56,10 +54,10 @@ coverage.xml
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-node_modules/
 jspm_packages/
 *.min.js
 *.min.css
+node_modules/*.json
 
 # TypeScript
 *.tsbuildinfo
@@ -123,10 +121,6 @@ test-report.xml
 .travis.yml
 circle.yml
 appveyor.yml
-```
-```
+
 /.next/dev/cache/turbopack/0ca967b8
 /.next/dev/cache
-*.json
-*.meta
-*.meta
