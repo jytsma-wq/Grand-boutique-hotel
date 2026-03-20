@@ -5,6 +5,11 @@ import { notFound } from 'next/navigation';
 import { locales, type Locale, isRtlLocale } from '@/i18n/config';
 import { ThemeProvider } from 'next-themes';
 import { Toaster } from '@/components/ui/toaster';
+import Navigation from '@/components/hotel/Navigation';
+import TopBar from '@/components/hotel/TopBar';
+import Footer from '@/components/hotel/Footer';
+import MariamChatbot from '@/components/hotel/MariamChatbot';
+import WhatsAppButton from '@/components/hotel/WhatsAppButton';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -90,7 +95,14 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <TopBar locale={locale} />
+            <Navigation locale={locale} siteSettings={null} />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+            <MariamChatbot locale={locale} />
+            <WhatsAppButton />
             <Toaster />
           </ThemeProvider>
         </NextIntlClientProvider>
