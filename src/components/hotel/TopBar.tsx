@@ -32,27 +32,28 @@ export default function TopBar({ locale }: TopBarProps) {
   };
 
   return (
-    <div className="bg-forest-950 text-white/70 text-[10px] uppercase tracking-[0.15em]">
+    <div className="bg-forest-900 text-white/80 text-[10px] uppercase tracking-[0.15em] border-b border-forest-800">
       <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-10">
           
-          {/* Left: Contact Info */}
-          <div className="hidden md:flex items-center gap-6">
-            <div className="flex items-center gap-2 hover:text-brass-400 transition-colors">
+          {/* Left: Contact Info - Always Visible */}
+          <div className="flex items-center gap-4 md:gap-6">
+            <div className="flex items-center gap-2 text-brass-300 hover:text-brass-200 transition-colors">
               <MapPin size={10} strokeWidth={1.5} />
-              <span>Rustaveli Ave 123, Batumi</span>
+              <span className="hidden sm:inline">Rustaveli Ave 123, Batumi</span>
+              <span className="sm:hidden">Batumi</span>
             </div>
-            <div className="flex items-center gap-2 hover:text-brass-400 transition-colors">
+            <div className="hidden md:flex items-center gap-2 text-brass-300 hover:text-brass-200 transition-colors">
               <Phone size={10} strokeWidth={1.5} />
-              <span>+995 422 00 00 00</span>
+              <a href="tel:+995422000000" className="hover:text-brass-200">+995 422 00 00 00</a>
             </div>
           </div>
 
           {/* Right: Email + Language */}
-          <div className="flex items-center gap-6 ml-auto">
+          <div className="flex items-center gap-4 md:gap-6">
             <a 
               href="mailto:info@batumiboutique.com" 
-              className="hidden sm:flex items-center gap-2 hover:text-brass-400 transition-colors"
+              className="hidden md:flex items-center gap-2 text-brass-300 hover:text-brass-200 transition-colors"
             >
               <Mail size={10} strokeWidth={1.5} />
               <span>info@batumiboutique.com</span>
@@ -93,14 +94,14 @@ export default function TopBar({ locale }: TopBarProps) {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -4 }}
                     transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 bg-forest-900 border border-forest-800 shadow-xl min-w-[140px] z-[120]"
+                    className="absolute right-0 top-full mt-2 bg-forest-900 border border-forest-700 shadow-xl min-w-[140px] z-[120]"
                   >
                     {locales.map((loc) => (
                       <button
                         key={loc}
                         onClick={() => { switchLocale(loc); setLangOpen(false); }}
                         className={`w-full flex items-center gap-3 px-4 py-2.5 text-[10px] uppercase tracking-[0.15em] hover:bg-forest-800 transition-colors ${
-                          loc === locale ? 'text-brass-400 bg-forest-800' : 'text-white/70'
+                          loc === locale ? 'text-brass-300 bg-forest-800' : 'text-white/80'
                         }`}
                       >
                         {loc === 'en' && (

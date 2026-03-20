@@ -13,18 +13,18 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
-  			charcoal: {
-  				'50': 'var(--charcoal-50)',
-  				'100': 'var(--charcoal-100)',
-  				'200': 'var(--charcoal-200)',
-  				'300': 'var(--charcoal-300)',
-  				'400': 'var(--charcoal-400)',
-  				'500': 'var(--charcoal-500)',
-  				'600': 'var(--charcoal-600)',
-  				'700': 'var(--charcoal-700)',
-  				'800': 'var(--charcoal-800)',
-  				'900': 'var(--charcoal-900)',
-  				'950': 'var(--charcoal-950)',
+  			forest: {
+  				'50': 'var(--forest-50)',
+  				'100': 'var(--forest-100)',
+  				'200': 'var(--forest-200)',
+  				'300': 'var(--forest-300)',
+  				'400': 'var(--forest-400)',
+  				'500': 'var(--forest-500)',
+  				'600': 'var(--forest-600)',
+  				'700': 'var(--forest-700)',
+  				'800': 'var(--forest-800)',
+  				'900': 'var(--forest-900)',
+  				'950': 'var(--forest-950)',
   			},
   			brass: {
   				'50': 'var(--brass-50)',
@@ -37,6 +37,11 @@ const config: Config = {
   				'700': 'var(--brass-700)',
   				'800': 'var(--brass-800)',
   				'900': 'var(--brass-900)',
+  			},
+  			cream: {
+  				'50': 'var(--cream-50)',
+  				'100': 'var(--cream-100)',
+  				'200': 'var(--cream-200)',
   			},
   			card: {
   				DEFAULT: 'hsl(var(--card))',
