@@ -99,10 +99,8 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white shadow-md'
-            : 'bg-white'
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${
+          isScrolled ? 'shadow-md' : ''
         }`}
       >
         <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
