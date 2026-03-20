@@ -818,10 +818,6 @@
     visibility: hidden;
   }
 
-  .visible {
-    visibility: visible;
-  }
-
   .sr-only {
     clip-path: inset(50%);
     white-space: nowrap;
@@ -1483,10 +1479,6 @@
 
   .h-3 {
     height: calc(var(--spacing) * 3);
-  }
-
-  .h-3\.5 {
-    height: calc(var(--spacing) * 3.5);
   }
 
   .h-4 {
@@ -5096,13 +5088,6 @@
   }
 
   @media (min-width: 48rem) {
-    .md\:text-3xl {
-      font-size: var(--text-3xl);
-      line-height: var(--tw-leading, var(--text-3xl--line-height));
-    }
-  }
-
-  @media (min-width: 48rem) {
     .md\:text-4xl {
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -5141,13 +5126,6 @@
     .md\:text-9xl {
       font-size: var(--text-9xl);
       line-height: var(--tw-leading, var(--text-9xl--line-height));
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:text-lg {
-      font-size: var(--text-lg);
-      line-height: var(--tw-leading, var(--text-lg--line-height));
     }
   }
 
@@ -5360,13 +5338,6 @@
     .lg\:text-7xl {
       font-size: var(--text-7xl);
       line-height: var(--tw-leading, var(--text-7xl--line-height));
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .lg\:text-9xl {
-      font-size: var(--text-9xl);
-      line-height: var(--tw-leading, var(--text-9xl--line-height));
     }
   }
 

@@ -664,7 +664,7 @@ function Navigation({ locale, siteSettings }) {
                 animate: {
                     y: 0
                 },
-                className: `fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-white'}`,
+                className: `fixed left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${isScrolled ? 'shadow-md' : ''}`,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "max-w-[1800px] mx-auto px-6 lg:px-12",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -687,13 +687,13 @@ function Navigation({ locale, siteSettings }) {
                                                         className: "ml-0.5"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                        lineNumber: 128,
+                                                        lineNumber: 126,
                                                         columnNumber: 39
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 117,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -720,28 +720,28 @@ function Navigation({ locale, siteSettings }) {
                                                             children: child.label
                                                         }, child.href, false, {
                                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                            lineNumber: 142,
+                                                            lineNumber: 140,
                                                             columnNumber: 27
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                    lineNumber: 134,
+                                                    lineNumber: 132,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 132,
+                                                lineNumber: 130,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, link.href, true, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 111,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 111,
+                                lineNumber: 109,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -752,12 +752,12 @@ function Navigation({ locale, siteSettings }) {
                                     children: "Batumi Boutique"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                    lineNumber: 159,
+                                    lineNumber: 157,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 158,
+                                lineNumber: 156,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -778,13 +778,13 @@ function Navigation({ locale, siteSettings }) {
                                                             className: "ml-0.5"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                            lineNumber: 182,
+                                                            lineNumber: 180,
                                                             columnNumber: 39
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                    lineNumber: 173,
+                                                    lineNumber: 171,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -811,23 +811,23 @@ function Navigation({ locale, siteSettings }) {
                                                                 children: child.label
                                                             }, child.href, false, {
                                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                                lineNumber: 196,
+                                                                lineNumber: 194,
                                                                 columnNumber: 27
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                        lineNumber: 188,
+                                                        lineNumber: 186,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                    lineNumber: 186,
+                                                    lineNumber: 184,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, link.href, true, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 167,
+                                            lineNumber: 165,
                                             columnNumber: 17
                                         }, this)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -842,7 +842,7 @@ function Navigation({ locale, siteSettings }) {
                                                         children: locale.toUpperCase()
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                        lineNumber: 216,
+                                                        lineNumber: 214,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
@@ -850,13 +850,13 @@ function Navigation({ locale, siteSettings }) {
                                                         className: `transition-transform ${langOpen ? 'rotate-180' : ''}`
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                        lineNumber: 217,
+                                                        lineNumber: 215,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 212,
+                                                lineNumber: 210,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -887,28 +887,28 @@ function Navigation({ locale, siteSettings }) {
                                                                 children: loc.toUpperCase()
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                                lineNumber: 236,
+                                                                lineNumber: 234,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, loc, false, {
                                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                            lineNumber: 229,
+                                                            lineNumber: 227,
                                                             columnNumber: 25
                                                         }, this))
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                    lineNumber: 221,
+                                                    lineNumber: 219,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 219,
+                                                lineNumber: 217,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 211,
+                                        lineNumber: 209,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -922,23 +922,23 @@ function Navigation({ locale, siteSettings }) {
                                                 children: t('bookNow')
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 252,
+                                                lineNumber: 250,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 251,
+                                            lineNumber: 249,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 245,
+                                        lineNumber: 243,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 165,
+                                lineNumber: 163,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -949,30 +949,30 @@ function Navigation({ locale, siteSettings }) {
                                     strokeWidth: 1.5
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                    lineNumber: 262,
+                                    lineNumber: 260,
                                     columnNumber: 35
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                     size: 24,
                                     strokeWidth: 1.5
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                    lineNumber: 262,
+                                    lineNumber: 260,
                                     columnNumber: 71
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 258,
+                                lineNumber: 256,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                        lineNumber: 109,
+                        lineNumber: 107,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                    lineNumber: 108,
+                    lineNumber: 106,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
@@ -1007,7 +1007,7 @@ function Navigation({ locale, siteSettings }) {
                                             children: link.label
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 280,
+                                            lineNumber: 278,
                                             columnNumber: 19
                                         }, this),
                                         link.children && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1019,18 +1019,18 @@ function Navigation({ locale, siteSettings }) {
                                                     children: child.label
                                                 }, child.href, false, {
                                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 288,
                                                     columnNumber: 25
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 288,
+                                            lineNumber: 286,
                                             columnNumber: 21
                                         }, this)
                                     ]
                                 }, link.href, true, {
                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                    lineNumber: 279,
+                                    lineNumber: 277,
                                     columnNumber: 17
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1046,22 +1046,22 @@ function Navigation({ locale, siteSettings }) {
                                             children: t('bookNow')
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 312,
+                                            lineNumber: 310,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 311,
+                                        lineNumber: 309,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                    lineNumber: 305,
+                                    lineNumber: 303,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 304,
+                                lineNumber: 302,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1075,7 +1075,7 @@ function Navigation({ locale, siteSettings }) {
                                                 children: locale.toUpperCase()
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 323,
+                                                lineNumber: 321,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
@@ -1083,13 +1083,13 @@ function Navigation({ locale, siteSettings }) {
                                                 className: `transition-transform ${mobileLangOpen ? 'rotate-180' : ''}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 324,
+                                                lineNumber: 322,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 319,
+                                        lineNumber: 317,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1120,401 +1120,57 @@ function Navigation({ locale, siteSettings }) {
                                                             children: loc.toUpperCase()
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                            lineNumber: 346,
+                                                            lineNumber: 344,
                                                             columnNumber: 29
                                                         }, this)
                                                     }, loc, false, {
                                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                        lineNumber: 336,
+                                                        lineNumber: 334,
                                                         columnNumber: 27
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                                lineNumber: 334,
+                                                lineNumber: 332,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                            lineNumber: 328,
+                                            lineNumber: 326,
                                             columnNumber: 21
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                        lineNumber: 326,
+                                        lineNumber: 324,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                                lineNumber: 318,
+                                lineNumber: 316,
                                 columnNumber: 15
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/hotel/Navigation.tsx",
-                        lineNumber: 277,
+                        lineNumber: 275,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/hotel/Navigation.tsx",
-                    lineNumber: 271,
+                    lineNumber: 269,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/hotel/Navigation.tsx",
-                lineNumber: 269,
+                lineNumber: 267,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true);
 }
 }),
-"[project]/src/components/hotel/TopBar.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
+"[project]/src/components/hotel/TopBar.tsx [app-ssr] (ecmascript)", ((__turbopack_context__, module, exports) => {
 
-__turbopack_context__.s([
-    "default",
-    ()=>TopBar
-]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/mail.js [app-ssr] (ecmascript) <export default as Mail>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/phone.js [app-ssr] (ecmascript) <export default as Phone>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-ssr] (ecmascript) <export default as MapPin>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/chevron-down.js [app-ssr] (ecmascript) <export default as ChevronDown>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$i18n$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/i18n/config.ts [app-ssr] (ecmascript)");
-'use client';
-;
-;
-;
-;
-;
-;
-const flagImages = {
-    en: '/flags/gb.svg',
-    ka: '/flags/ge.svg',
-    ru: '/flags/ru.svg',
-    tr: '/flags/tr.svg',
-    he: '/flags/il.svg',
-    ar: '/flags/sa.svg'
-};
-function TopBar({ locale }) {
-    const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["usePathname"])();
-    const [langOpen, setLangOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const switchLocale = (newLocale)=>{
-        const segments = pathname.split('/');
-        segments[1] = newLocale;
-        const newPath = segments.join('/');
-        window.location.assign(newPath);
-    };
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-forest-950 text-white/70 text-[10px] uppercase tracking-[0.15em]",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "max-w-[1800px] mx-auto px-6 lg:px-12",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex items-center justify-between h-10",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "hidden md:flex items-center gap-6",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-2 hover:text-brass-400 transition-colors",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPin$3e$__["MapPin"], {
-                                        size: 10,
-                                        strokeWidth: 1.5
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 42,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "Rustaveli Ave 123, Batumi"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 43,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                lineNumber: 41,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "flex items-center gap-2 hover:text-brass-400 transition-colors",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$phone$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Phone$3e$__["Phone"], {
-                                        size: 10,
-                                        strokeWidth: 1.5
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 46,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "+995 422 00 00 00"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 47,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                lineNumber: 45,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                        lineNumber: 40,
-                        columnNumber: 11
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-6 ml-auto",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                                href: "mailto:info@batumiboutique.com",
-                                className: "hidden sm:flex items-center gap-2 hover:text-brass-400 transition-colors",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$mail$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Mail$3e$__["Mail"], {
-                                        size: 10,
-                                        strokeWidth: 1.5
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 57,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        children: "info@batumiboutique.com"
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 58,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                lineNumber: 53,
-                                columnNumber: 13
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "relative",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                        onClick: ()=>setLangOpen(!langOpen),
-                                        className: "flex items-center gap-2 hover:text-brass-400 transition-colors",
-                                        children: [
-                                            locale === 'en' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/gb.svg",
-                                                alt: "EN",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 68,
-                                                columnNumber: 19
-                                            }, this),
-                                            locale === 'ka' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/ge.svg",
-                                                alt: "KA",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 71,
-                                                columnNumber: 19
-                                            }, this),
-                                            locale === 'ru' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/ru.svg",
-                                                alt: "RU",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 74,
-                                                columnNumber: 19
-                                            }, this),
-                                            locale === 'tr' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/tr.svg",
-                                                alt: "TR",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 77,
-                                                columnNumber: 19
-                                            }, this),
-                                            locale === 'he' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/il.svg",
-                                                alt: "HE",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 80,
-                                                columnNumber: 19
-                                            }, this),
-                                            locale === 'ar' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: "/flags/sa.svg",
-                                                alt: "AR",
-                                                className: "w-4 h-3 object-cover"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 83,
-                                                columnNumber: 19
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                children: locale.toUpperCase()
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 85,
-                                                columnNumber: 17
-                                            }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$down$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronDown$3e$__["ChevronDown"], {
-                                                size: 8,
-                                                className: `transition-transform ${langOpen ? 'rotate-180' : ''}`
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                lineNumber: 86,
-                                                columnNumber: 17
-                                            }, this)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 63,
-                                        columnNumber: 15
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
-                                        children: langOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
-                                            initial: {
-                                                opacity: 0,
-                                                y: -4
-                                            },
-                                            animate: {
-                                                opacity: 1,
-                                                y: 0
-                                            },
-                                            exit: {
-                                                opacity: 0,
-                                                y: -4
-                                            },
-                                            transition: {
-                                                duration: 0.15
-                                            },
-                                            className: "absolute right-0 top-full mt-2 bg-forest-900 border border-forest-800 shadow-xl min-w-[140px] z-[120]",
-                                            children: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$i18n$2f$config$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["locales"].map((loc)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>{
-                                                        switchLocale(loc);
-                                                        setLangOpen(false);
-                                                    },
-                                                    className: `w-full flex items-center gap-3 px-4 py-2.5 text-[10px] uppercase tracking-[0.15em] hover:bg-forest-800 transition-colors ${loc === locale ? 'text-brass-400 bg-forest-800' : 'text-white/70'}`,
-                                                    children: [
-                                                        loc === 'en' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/gb.svg",
-                                                            alt: "EN",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 107,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        loc === 'ka' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/ge.svg",
-                                                            alt: "KA",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 110,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        loc === 'ru' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/ru.svg",
-                                                            alt: "RU",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 113,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        loc === 'tr' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/tr.svg",
-                                                            alt: "TR",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 116,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        loc === 'he' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/il.svg",
-                                                            alt: "HE",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 119,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        loc === 'ar' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                            src: "/flags/sa.svg",
-                                                            alt: "AR",
-                                                            className: "w-4 h-3 object-cover"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 122,
-                                                            columnNumber: 27
-                                                        }, this),
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: loc.toUpperCase()
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                            lineNumber: 124,
-                                                            columnNumber: 25
-                                                        }, this)
-                                                    ]
-                                                }, loc, true, {
-                                                    fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                                    lineNumber: 99,
-                                                    columnNumber: 23
-                                                }, this))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                            lineNumber: 91,
-                                            columnNumber: 19
-                                        }, this)
-                                    }, void 0, false, {
-                                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                        lineNumber: 89,
-                                        columnNumber: 15
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                                lineNumber: 62,
-                                columnNumber: 13
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/src/components/hotel/TopBar.tsx",
-                        lineNumber: 52,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/src/components/hotel/TopBar.tsx",
-                lineNumber: 37,
-                columnNumber: 9
-            }, this)
-        }, void 0, false, {
-            fileName: "[project]/src/components/hotel/TopBar.tsx",
-            lineNumber: 36,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
-        fileName: "[project]/src/components/hotel/TopBar.tsx",
-        lineNumber: 35,
-        columnNumber: 5
-    }, this);
-}
 }),
 "[project]/src/components/hotel/MariamChatbot.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
