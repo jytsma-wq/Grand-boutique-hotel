@@ -70,7 +70,7 @@
     "perNight": "لليلة",
     "viewDetails": "عرض التفاصيل",
     "bookNow": "احجز الآن",
-    "otaComparison": "وفّر {{savings}} بالحجز المباشر",
+    "otaComparison": "وفّر {savings} بالحجز المباشر",
     "amenities": {
       "title": "المرافق والخدمات",
       "wifi": "واي فاي عالي السرعة",
@@ -165,7 +165,7 @@
     "treatments": {
       "title": "علاجات السبا",
       "bookNow": "حجز علاج",
-      "duration": "{{minutes}} دقيقة",
+      "duration": "{minutes} دقيقة",
       "benefits": "الفوائد"
     },
     "membership": {
@@ -194,7 +194,7 @@
     "description": "أقيموا فعاليتكم المؤسسية أو مؤتمركم أو احتفالكم القادم في قاعاتنا متعددة الاستخدامات، المجهزة بأحدث التقنيات وبدعم من فريق الفعاليات المتفاني لدينا.",
     "venues": {
       "title": "قاعاتنا",
-      "capacity": "السعة: {{count}} ضيف"
+      "capacity": "السعة: {count} ضيف"
     },
     "packages": {
       "title": "باقات الفعاليات",
@@ -213,7 +213,7 @@
   "experiences": {
     "title": "أماكن للزيارة",
     "subtitle": "اكتشفوا باتومي والمنطقة المحيطة",
-    "distance": "{{km}} كم من الفندق",
+    "distance": "{km} كم من الفندق",
     "learnMore": "اعرف المزيد"
   },
   "gallery": {

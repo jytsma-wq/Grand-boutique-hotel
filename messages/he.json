@@ -70,7 +70,7 @@
     "perNight": "ללילה",
     "viewDetails": "פרטים נוספים",
     "bookNow": "הזמן עכשיו",
-    "otaComparison": "חסכו {{savings}} בהזמנה ישירה",
+    "otaComparison": "חסכו {savings} בהזמנה ישירה",
     "amenities": {
       "title": "שירותים ומתקנים",
       "wifi": "WiFi מהיר",
@@ -165,7 +165,7 @@
     "treatments": {
       "title": "טיפולי ספא",
       "bookNow": "הזמנת טיפול",
-      "duration": "{{minutes}} דק׳",
+      "duration": "{minutes} דק׳",
       "benefits": "יתרונות"
     },
     "membership": {
@@ -194,7 +194,7 @@
     "description": "קיימו את האירוע הארגוני, הכנס או החגיגה הבאים שלכם בחללים הרב-תכליתיים שלנו, המצוידים בטכנולוגיה מתקדמת ונתמכים על ידי צוות האירועים המסור שלנו.",
     "venues": {
       "title": "האולמות שלנו",
-      "capacity": "קיבולת: {{count}} אורחים"
+      "capacity": "קיבולת: {count} אורחים"
     },
     "packages": {
       "title": "חבילות אירועים",
@@ -213,7 +213,7 @@
   "experiences": {
     "title": "מה לעשות",
     "subtitle": "גלו את באטומי והסביבה",
-    "distance": "{{km}} ק״מ מהמלון",
+    "distance": "{km} ק״מ מהמלון",
     "learnMore": "למידע נוסף"
   },
   "gallery": {
