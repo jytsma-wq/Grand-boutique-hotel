@@ -111,19 +111,19 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Lunch & Dinner
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl mb-8 font-light">
               Experience culinary excellence with our carefully curated lunch and dinner menus
             </p>
             
             {/* Status Badge */}
             <div className={`inline-flex items-center gap-3 px-6 py-3 border-2 ${
-              currentMeal !== 'closed' ? 'border-white text-white' : 'border-white/50 text-white/50'
+              currentMeal !== 'closed' ? 'border-white text-cream-50' : 'border-white/50 text-cream-50/50'
             }`}>
               <div className={`w-2 h-2 ${currentMeal !== 'closed' ? 'bg-white' : 'bg-white/50'}`} />
               <span className="uppercase tracking-wider text-sm font-medium">
@@ -137,27 +137,27 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       </section>
 
       {/* Opening Hours Banner */}
-      <section className="bg-charcoal-900 text-white py-10 border-t-2 border-charcoal-950">
+      <section className="bg-forest-900 text-cream-50 py-10 border-t-2 border-forest-950">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
             <div className="flex items-center gap-4">
-              <Utensils className="text-white/70" size={28} />
+              <Utensils className="text-cream-50/70" size={28} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">Lunch Service</div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Lunch Service</div>
                 <div className="text-2xl font-bold tracking-wide">12:00 PM - 3:00 PM</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <div className="flex items-center gap-4">
-              <Wine className="text-white/70" size={28} />
+              <Wine className="text-cream-50/70" size={28} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">Dinner Service</div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Dinner Service</div>
                 <div className="text-2xl font-bold tracking-wide">6:00 PM - 11:00 PM</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-architectural">
+              <Button className="btn-telegraph">
                 Reserve Table
               </Button>
             </Link>
@@ -169,7 +169,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Our Menus</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menus</span>
             <h2 className="section-title mt-4">Culinary Excellence</h2>
           </motion.div>
 
@@ -181,7 +181,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                className={`border-2 ${section.active ? 'border-charcoal-900' : 'border-charcoal-300'} overflow-hidden group`}
+                className={`border-2 ${section.active ? 'border-forest-900' : 'border-forest-300'} overflow-hidden group`}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -189,29 +189,29 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                     alt={section.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <Clock size={16} className="text-white/70" />
-                      <span className="text-white/70 text-sm">{section.time}</span>
+                      <Clock size={16} className="text-cream-50/70" />
+                      <span className="text-cream-50/70 text-sm">{section.time}</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white uppercase tracking-wide">
+                    <h3 className="text-3xl font-bold text-cream-50 uppercase tracking-wide">
                       {section.title}
                     </h3>
                     {section.active && (
-                      <span className="inline-block mt-2 px-3 py-1 bg-white text-charcoal-900 text-xs uppercase tracking-wider font-bold">
+                      <span className="inline-block mt-2 px-3 py-1 bg-white text-forest-900 text-xs uppercase tracking-wider font-bold">
                         Now Serving
                       </span>
                     )}
                   </div>
                 </div>
                 <div className="p-8">
-                  <p className="text-charcoal-600 font-light mb-6">{section.description}</p>
+                  <p className="text-forest-600 font-light mb-6">{section.description}</p>
                   <ul className="space-y-3 mb-8">
                     {section.highlights.map((highlight, i) => (
                       <li key={i} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-charcoal-900" />
-                        <span className="text-charcoal-700 text-sm">{highlight}</span>
+                        <div className="w-2 h-2 bg-forest-900" />
+                        <span className="text-forest-700 text-sm">{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -219,7 +219,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                     href={section.cmsLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-charcoal-900 font-medium uppercase tracking-wider text-sm hover:opacity-70 transition-opacity"
+                    className="inline-flex items-center gap-2 text-forest-900 font-medium uppercase tracking-wider text-sm hover:opacity-70 transition-opacity"
                   >
                     View Full Menu
                     <ExternalLink size={16} />
@@ -232,10 +232,10 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       </section>
 
       {/* Featured Dishes */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Signature</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature</span>
             <h2 className="section-title mt-4">Featured Dishes</h2>
           </motion.div>
 
@@ -247,7 +247,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-charcoal-900 overflow-hidden group"
+                className="bg-white border-2 border-forest-900 overflow-hidden group"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -255,13 +255,13 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                     alt={dish.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 right-4 bg-white px-3 py-1 text-charcoal-900 font-bold text-sm">
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 text-forest-900 font-bold text-sm">
                     {dish.price}
                   </div>
                 </div>
                 <div className="p-5">
-                  <div className="text-xs text-charcoal-500 uppercase tracking-wider mb-1">{dish.category}</div>
-                  <h3 className="font-bold text-charcoal-900 uppercase tracking-wide">{dish.name}</h3>
+                  <div className="text-xs text-forest-500 uppercase tracking-wider mb-1">{dish.category}</div>
+                  <h3 className="font-bold text-forest-900 uppercase tracking-wide">{dish.name}</h3>
                 </div>
               </motion.div>
             ))}
@@ -270,13 +270,13 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       </section>
 
       {/* Wine Pairing Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Sommelier Selection</span>
+              <span className="text-cream-50/50 text-xs tracking-[0.3em] uppercase font-light">Sommelier Selection</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">Wine Pairings</h2>
-              <p className="text-white/70 text-lg mb-8 font-light leading-relaxed">
+              <p className="text-cream-50/70 text-lg mb-8 font-light leading-relaxed">
                 Our sommelier has curated an exceptional wine list featuring over 500 labels, 
                 with a special focus on Georgian qvevri wines. Let us guide you through the 
                 perfect pairing for your meal.
@@ -284,19 +284,19 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
               <div className="flex flex-col gap-4 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-white/80">500+ Wine Selection</span>
+                  <span className="text-cream-50/80">500+ Wine Selection</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-white/80">Georgian Qvevri Wines</span>
+                  <span className="text-cream-50/80">Georgian Qvevri Wines</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-white/80">Expert Sommelier Service</span>
+                  <span className="text-cream-50/80">Expert Sommelier Service</span>
                 </div>
               </div>
               <Link href={`/${locale}/bar/wine-list`}>
-                <Button className="btn-architectural">
+                <Button className="btn-telegraph">
                   View Wine List
                 </Button>
               </Link>
@@ -320,20 +320,20 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-charcoal-900">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
               Reserve Your Table
             </h2>
-            <p className="text-charcoal-600 text-lg mb-10 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 text-lg mb-10 max-w-2xl mx-auto font-light">
               Experience the finest dining in Batumi. Private dining rooms available for special occasions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-architectural px-12 py-5">
+                <Button className="btn-telegraph px-12 py-5">
                   Make Reservation
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-5 border-2 border-charcoal-900 text-charcoal-900 hover:bg-charcoal-900 hover:text-white uppercase tracking-wider">
+                <Button variant="outline" className="px-12 py-5 border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-cream-50 uppercase tracking-wider">
                   <Phone className="mr-2 w-4 h-4" />
                   +995 422 00 00 00
                 </Button>

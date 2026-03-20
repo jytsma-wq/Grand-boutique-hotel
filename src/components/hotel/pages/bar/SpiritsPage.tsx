@@ -86,9 +86,9 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors">
+            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Bar</span>
             </Link>
@@ -96,7 +96,7 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
               Premium Spirits
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               A curated selection of the world's finest spirits and liqueurs
             </p>
           </motion.div>
@@ -107,10 +107,10 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Whiskey & Bourbon
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               From Scottish Highlands to American bourbon country
             </p>
           </motion.div>
@@ -123,21 +123,21 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="border-2 border-charcoal-900 p-6 bg-charcoal-50"
+                className="border-2 border-forest-900 p-6 bg-forest-50"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
                   <div>
-                    <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base mb-1">
+                    <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base mb-1">
                       {spirit.name}
                     </h3>
-                    <p className="text-xs text-charcoal-500 uppercase tracking-wider">{spirit.origin}</p>
+                    <p className="text-xs text-forest-500 uppercase tracking-wider">{spirit.origin}</p>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="font-bold text-charcoal-900">{spirit.price}</div>
-                    <div className="text-xs text-charcoal-500">{spirit.priceGel}</div>
+                    <div className="font-bold text-forest-900">{spirit.price}</div>
+                    <div className="text-xs text-forest-500">{spirit.priceGel}</div>
                   </div>
                 </div>
-                <p className="text-sm text-charcoal-600 font-light">{spirit.desc}</p>
+                <p className="text-sm text-forest-600 font-light">{spirit.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -145,13 +145,13 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
       </section>
 
       {/* Vodka Section */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Vodka
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Premium vodkas from around the world
             </p>
           </motion.div>
@@ -164,21 +164,21 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="bg-white border-2 border-charcoal-900 p-6"
+                className="bg-white border-2 border-forest-900 p-6"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
                   <div>
-                    <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base mb-1">
+                    <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base mb-1">
                       {spirit.name}
                     </h3>
-                    <p className="text-xs text-charcoal-500 uppercase tracking-wider">{spirit.origin}</p>
+                    <p className="text-xs text-forest-500 uppercase tracking-wider">{spirit.origin}</p>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <div className="font-bold text-charcoal-900">{spirit.price}</div>
-                    <div className="text-xs text-charcoal-500">{spirit.priceGel}</div>
+                    <div className="font-bold text-forest-900">{spirit.price}</div>
+                    <div className="text-xs text-forest-500">{spirit.priceGel}</div>
                   </div>
                 </div>
-                <p className="text-sm text-charcoal-600 font-light">{spirit.desc}</p>
+                <p className="text-sm text-forest-600 font-light">{spirit.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -192,8 +192,8 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
             {/* Gin */}
             <div>
               <motion.div {...fadeInUp} className="mb-8">
-                <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal-900 mb-2">Gin</h2>
-                <p className="text-charcoal-600 text-sm font-light">Botanical excellence</p>
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-forest-900 mb-2">Gin</h2>
+                <p className="text-forest-600 text-sm font-light">Botanical excellence</p>
               </motion.div>
               <div className="space-y-4">
                 {gin.map((spirit, index) => (
@@ -203,16 +203,16 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="border-b-2 border-charcoal-200 pb-4"
+                    className="border-b-2 border-forest-200 pb-4"
                   >
                     <div className="flex justify-between items-start gap-2 mb-1">
-                      <h3 className="font-bold text-charcoal-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
+                      <h3 className="font-bold text-forest-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
                       <div className="text-right flex-shrink-0">
-                        <div className="font-bold text-charcoal-900 text-sm">{spirit.price}</div>
+                        <div className="font-bold text-forest-900 text-sm">{spirit.price}</div>
                       </div>
                     </div>
-                    <p className="text-xs text-charcoal-500 mb-1">{spirit.origin}</p>
-                    <p className="text-xs text-charcoal-600 font-light">{spirit.desc}</p>
+                    <p className="text-xs text-forest-500 mb-1">{spirit.origin}</p>
+                    <p className="text-xs text-forest-600 font-light">{spirit.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -221,8 +221,8 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
             {/* Rum */}
             <div>
               <motion.div {...fadeInUp} className="mb-8">
-                <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal-900 mb-2">Rum</h2>
-                <p className="text-charcoal-600 text-sm font-light">Caribbean treasures</p>
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-forest-900 mb-2">Rum</h2>
+                <p className="text-forest-600 text-sm font-light">Caribbean treasures</p>
               </motion.div>
               <div className="space-y-4">
                 {rum.map((spirit, index) => (
@@ -232,16 +232,16 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="border-b-2 border-charcoal-200 pb-4"
+                    className="border-b-2 border-forest-200 pb-4"
                   >
                     <div className="flex justify-between items-start gap-2 mb-1">
-                      <h3 className="font-bold text-charcoal-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
+                      <h3 className="font-bold text-forest-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
                       <div className="text-right flex-shrink-0">
-                        <div className="font-bold text-charcoal-900 text-sm">{spirit.price}</div>
+                        <div className="font-bold text-forest-900 text-sm">{spirit.price}</div>
                       </div>
                     </div>
-                    <p className="text-xs text-charcoal-500 mb-1">{spirit.origin}</p>
-                    <p className="text-xs text-charcoal-600 font-light">{spirit.desc}</p>
+                    <p className="text-xs text-forest-500 mb-1">{spirit.origin}</p>
+                    <p className="text-xs text-forest-600 font-light">{spirit.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -250,8 +250,8 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
             {/* Tequila */}
             <div>
               <motion.div {...fadeInUp} className="mb-8">
-                <h2 className="text-3xl font-bold uppercase tracking-tight text-charcoal-900 mb-2">Tequila</h2>
-                <p className="text-charcoal-600 text-sm font-light">Mexican heritage</p>
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-forest-900 mb-2">Tequila</h2>
+                <p className="text-forest-600 text-sm font-light">Mexican heritage</p>
               </motion.div>
               <div className="space-y-4">
                 {tequila.map((spirit, index) => (
@@ -261,16 +261,16 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="border-b-2 border-charcoal-200 pb-4"
+                    className="border-b-2 border-forest-200 pb-4"
                   >
                     <div className="flex justify-between items-start gap-2 mb-1">
-                      <h3 className="font-bold text-charcoal-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
+                      <h3 className="font-bold text-forest-900 text-sm uppercase tracking-wide">{spirit.name}</h3>
                       <div className="text-right flex-shrink-0">
-                        <div className="font-bold text-charcoal-900 text-sm">{spirit.price}</div>
+                        <div className="font-bold text-forest-900 text-sm">{spirit.price}</div>
                       </div>
                     </div>
-                    <p className="text-xs text-charcoal-500 mb-1">{spirit.origin}</p>
-                    <p className="text-xs text-charcoal-600 font-light">{spirit.desc}</p>
+                    <p className="text-xs text-forest-500 mb-1">{spirit.origin}</p>
+                    <p className="text-xs text-forest-600 font-light">{spirit.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -280,14 +280,14 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
       </section>
 
       {/* Cognac & Special Spirits */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             {/* Cognac */}
             <div>
               <motion.div {...fadeInUp} className="mb-8">
                 <h2 className="text-3xl font-bold uppercase tracking-tight mb-2">Cognac & Brandy</h2>
-                <p className="text-white/70 text-sm font-light">French elegance</p>
+                <p className="text-cream-50/70 text-sm font-light">French elegance</p>
               </motion.div>
               <div className="space-y-4">
                 {cognac.map((spirit, index) => (
@@ -297,19 +297,19 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-charcoal-800 border-2 border-white/20 p-5"
+                    className="bg-forest-800 border-2 border-white/20 p-5"
                   >
                     <div className="flex justify-between items-start gap-4 mb-2">
                       <div>
                         <h3 className="font-bold uppercase tracking-wide text-base mb-1">{spirit.name}</h3>
-                        <p className="text-xs text-white/60 uppercase tracking-wider">{spirit.origin}</p>
+                        <p className="text-xs text-cream-50/60 uppercase tracking-wider">{spirit.origin}</p>
                       </div>
                       <div className="text-right flex-shrink-0">
                         <div className="font-bold">{spirit.price}</div>
-                        <div className="text-xs text-white/60">{spirit.priceGel}</div>
+                        <div className="text-xs text-cream-50/60">{spirit.priceGel}</div>
                       </div>
                     </div>
-                    <p className="text-sm text-white/80 font-light">{spirit.desc}</p>
+                    <p className="text-sm text-cream-50/80 font-light">{spirit.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -319,7 +319,7 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
             <div>
               <motion.div {...fadeInUp} className="mb-8">
                 <h2 className="text-3xl font-bold uppercase tracking-tight mb-2">Special Spirits</h2>
-                <p className="text-white/70 text-sm font-light">Unique selections</p>
+                <p className="text-cream-50/70 text-sm font-light">Unique selections</p>
               </motion.div>
               <div className="space-y-4">
                 {specialSpirits.map((spirit, index) => (
@@ -329,19 +329,19 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.05 }}
-                    className="bg-charcoal-800 border-2 border-white/20 p-5"
+                    className="bg-forest-800 border-2 border-white/20 p-5"
                   >
                     <div className="flex justify-between items-start gap-4 mb-2">
                       <div>
                         <h3 className="font-bold uppercase tracking-wide text-base mb-1">{spirit.name}</h3>
-                        <p className="text-xs text-white/60 uppercase tracking-wider">{spirit.origin}</p>
+                        <p className="text-xs text-cream-50/60 uppercase tracking-wider">{spirit.origin}</p>
                       </div>
                       <div className="text-right flex-shrink-0">
                         <div className="font-bold">{spirit.price}</div>
-                        <div className="text-xs text-white/60">{spirit.priceGel}</div>
+                        <div className="text-xs text-cream-50/60">{spirit.priceGel}</div>
                       </div>
                     </div>
-                    <p className="text-sm text-white/80 font-light">{spirit.desc}</p>
+                    <p className="text-sm text-cream-50/80 font-light">{spirit.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -354,14 +354,14 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-charcoal-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
               Explore Our Collection
             </h2>
-            <p className="text-charcoal-600 text-lg mb-12 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 text-lg mb-12 max-w-2xl mx-auto font-light">
               Visit our bar to discover our full selection of premium spirits and expert recommendations
             </p>
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+              <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                 Reserve Your Table
               </Button>
             </Link>

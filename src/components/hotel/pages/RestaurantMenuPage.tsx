@@ -66,16 +66,16 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <Link href={`/${locale}/restaurant`} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors">
+            <Link href={`/${locale}/restaurant`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Restaurant</span>
             </Link>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
               Our Menu
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               A culinary journey through Georgian heritage and international excellence
             </p>
           </motion.div>
@@ -86,11 +86,11 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <Utensils className="w-12 h-12 mx-auto mb-4 text-charcoal-900" />
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <Utensils className="w-12 h-12 mx-auto mb-4 text-forest-900" />
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Starters
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Begin your culinary journey with our carefully crafted appetizers
             </p>
           </motion.div>
@@ -104,18 +104,18 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="border-b-2 border-charcoal-200 pb-6"
+                  className="border-b-2 border-forest-200 pb-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
-                    <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base">
+                    <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
                       {item.name}
                     </h3>
                     <div className="text-right flex-shrink-0">
-                      <div className="font-bold text-charcoal-900">{item.price}</div>
-                      <div className="text-xs text-charcoal-500">{item.priceGel}</div>
+                      <div className="font-bold text-forest-900">{item.price}</div>
+                      <div className="text-xs text-forest-500">{item.priceGel}</div>
                     </div>
                   </div>
-                  <p className="text-sm text-charcoal-600 font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -124,14 +124,14 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       </section>
 
       {/* Main Dishes Section */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <Wine className="w-12 h-12 mx-auto mb-4 text-charcoal-900" />
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <Wine className="w-12 h-12 mx-auto mb-4 text-forest-900" />
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Main Dishes
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Signature dishes showcasing the best of Georgian and international cuisine
             </p>
           </motion.div>
@@ -145,18 +145,18 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-white border-2 border-charcoal-900 p-6"
+                  className="bg-white border-2 border-forest-900 p-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
-                    <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base">
+                    <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
                       {item.name}
                     </h3>
                     <div className="text-right flex-shrink-0">
-                      <div className="font-bold text-charcoal-900">{item.price}</div>
-                      <div className="text-xs text-charcoal-500">{item.priceGel}</div>
+                      <div className="font-bold text-forest-900">{item.price}</div>
+                      <div className="text-xs text-forest-500">{item.priceGel}</div>
                     </div>
                   </div>
-                  <p className="text-sm text-charcoal-600 font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -168,11 +168,11 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <Coffee className="w-12 h-12 mx-auto mb-4 text-charcoal-900" />
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <Coffee className="w-12 h-12 mx-auto mb-4 text-forest-900" />
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Desserts
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Sweet endings to complete your dining experience
             </p>
           </motion.div>
@@ -186,18 +186,18 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="border-b-2 border-charcoal-200 pb-6"
+                  className="border-b-2 border-forest-200 pb-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
-                    <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base">
+                    <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
                       {item.name}
                     </h3>
                     <div className="text-right flex-shrink-0">
-                      <div className="font-bold text-charcoal-900">{item.price}</div>
-                      <div className="text-xs text-charcoal-500">{item.priceGel}</div>
+                      <div className="font-bold text-forest-900">{item.price}</div>
+                      <div className="text-xs text-forest-500">{item.priceGel}</div>
                     </div>
                   </div>
-                  <p className="text-sm text-charcoal-600 font-light leading-relaxed">{item.desc}</p>
+                  <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -206,23 +206,23 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Reserve Your Table
             </h2>
-            <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
               Experience our culinary excellence. Book your table today.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                   Make Reservation
                 </Button>
               </Link>
               <Link href={`/${locale}/restaurant`}>
-                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   Back to Restaurant
                 </Button>
               </Link>

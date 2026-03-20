@@ -138,9 +138,9 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">World-Class</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">World-Class</span>
             <h2 className="section-title mt-4">{t('wellness.facilities.title')}</h2>
-            <p className="text-charcoal-600 mt-4 text-sm uppercase tracking-[0.15em]">Open a subpage for each facility</p>
+            <p className="text-forest-600 mt-4 text-sm uppercase tracking-[0.15em]">Open a subpage for each facility</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -151,14 +151,14 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="bg-white border-2 border-charcoal-900 text-center"
+                className="bg-white border-2 border-forest-900 text-center"
               >
-                <Link href={`/${locale}${facility.href}`} className="block p-6 h-full hover:bg-charcoal-50 transition-colors">
-                  <div className="w-16 h-16 bg-charcoal-900 mx-auto mb-4 flex items-center justify-center">
+                <Link href={`/${locale}${facility.href}`} className="block p-6 h-full hover:bg-forest-50 transition-colors">
+                  <div className="w-16 h-16 bg-forest-900 mx-auto mb-4 flex items-center justify-center">
                     <facility.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="font-bold text-charcoal-900 mb-2 uppercase tracking-wide text-sm">{facility.name}</h3>
-                  <p className="text-xs text-charcoal-600 font-light">{facility.desc}</p>
+                  <h3 className="font-bold text-forest-900 mb-2 uppercase tracking-wide text-sm">{facility.name}</h3>
+                  <p className="text-xs text-forest-600 font-light">{facility.desc}</p>
                 </Link>
               </motion.div>
             ))}
@@ -167,10 +167,10 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       </section>
 
       {/* Spa Treatments - Brutalist Menu Format */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Pamper Yourself</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Pamper Yourself</span>
             <h2 className="section-title mt-4">{t('wellness.treatments.title')}</h2>
           </motion.div>
 
@@ -182,25 +182,25 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="bg-white border-t-2 border-charcoal-900 first:border-t-0 py-8 px-8 hover:bg-charcoal-50 transition-colors"
+                className="bg-white border-t-2 border-forest-900 first:border-t-0 py-8 px-8 hover:bg-forest-50 transition-colors"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                   <div className="flex-1">
                     <div className="flex items-baseline gap-4 mb-3">
-                      <h3 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide">{treatment.name}</h3>
-                      <span className="text-sm text-charcoal-500 font-light flex items-center gap-1">
+                      <h3 className="text-xl font-bold text-forest-900 uppercase tracking-wide">{treatment.name}</h3>
+                      <span className="text-sm text-forest-500 font-light flex items-center gap-1">
                         <Clock size={14} />
                         {treatment.duration} min
                       </span>
                     </div>
-                    <p className="text-sm text-charcoal-600 font-light mb-4">{treatment.desc}</p>
+                    <p className="text-sm text-forest-600 font-light mb-4">{treatment.desc}</p>
                     <div className="flex items-center gap-6">
                       <div className="text-right">
-                        <div className="text-2xl font-bold text-charcoal-900">${treatment.price}</div>
-                        <div className="text-xs text-charcoal-500">{treatment.priceGel}₾</div>
+                        <div className="text-2xl font-bold text-forest-900">${treatment.price}</div>
+                        <div className="text-xs text-forest-500">{treatment.priceGel}₾</div>
                       </div>
                       <Link href={`/${locale}/booking`}>
-                        <Button size="sm" className="btn-architectural-concrete rounded-none py-3 px-8">
+                        <Button size="sm" className="btn-telegraph-concrete rounded-none py-3 px-8">
                           {t('wellness.treatments.bookNow')}
                         </Button>
                       </Link>
@@ -214,7 +214,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       </section>
 
       {/* Membership - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Exclusive Access</span>
@@ -230,27 +230,27 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className={`p-10 border-2 ${index === 2 ? 'bg-white text-charcoal-900 border-white' : 'bg-charcoal-800 border-white/20'}`}
+                className={`p-10 border-2 ${index === 2 ? 'bg-white text-forest-900 border-white' : 'bg-forest-800 border-white/20'}`}
               >
                 <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">{tier.name}</h3>
-                <div className="flex items-baseline gap-2 mb-8 pb-6 border-b ${index === 2 ? 'border-charcoal-200' : 'border-white/20'}">
+                <div className="flex items-baseline gap-2 mb-8 pb-6 border-b ${index === 2 ? 'border-forest-200' : 'border-white/20'}">
                   <span className="text-4xl font-bold">
                     ${tier.price}
                   </span>
-                  <span className={`text-sm font-light ${index === 2 ? 'text-charcoal-600' : 'text-white/60'}`}>
+                  <span className={`text-sm font-light ${index === 2 ? 'text-forest-600' : 'text-white/60'}`}>
                     /{t('wellness.membership.tiers.basic.price')}
                   </span>
                 </div>
                 <ul className="space-y-4 mb-10">
                   {tier.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <div className={`w-1 h-1 mt-2 ${index === 2 ? 'bg-charcoal-900' : 'bg-white'}`} />
-                      <span className={`text-sm font-light ${index === 2 ? 'text-charcoal-700' : 'text-white/80'}`}>{benefit}</span>
+                      <div className={`w-1 h-1 mt-2 ${index === 2 ? 'bg-forest-900' : 'bg-white'}`} />
+                      <span className={`text-sm font-light ${index === 2 ? 'text-forest-700' : 'text-white/80'}`}>{benefit}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full ${index === 2 ? 'btn-architectural' : 'bg-white text-charcoal-900 hover:opacity-85 transition-opacity px-10 py-5 font-medium tracking-[0.25em] uppercase'}`}
+                  className={`w-full ${index === 2 ? 'btn-telegraph' : 'bg-white text-forest-900 hover:opacity-85 transition-opacity px-10 py-5 font-medium tracking-[0.25em] uppercase'}`}
                 >
                   {t('wellness.membership.joinNow')}
                 </Button>
@@ -261,7 +261,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       </section>
 
       {/* CTA - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white border-t-4 border-charcoal-950">
+      <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
@@ -272,12 +272,12 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                   {t('wellness.treatments.bookNow')}
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   Call Spa Directly
                 </Button>
               </a>

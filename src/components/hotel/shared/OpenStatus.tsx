@@ -20,14 +20,14 @@ export default function OpenStatus({ isOpen, openTime, closeTime, className = ''
       animate={{ opacity: 1, scale: 1 }}
       className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
         isOpen
-          ? 'bg-charcoal-100 text-charcoal-700'
+          ? 'bg-forest-100 text-forest-700'
           : 'bg-red-50 text-red-600'
       } ${className}`}
     >
       <Clock size={16} />
       {isOpen ? (
         <>
-          <CheckCircle size={16} className="text-charcoal-600" />
+          <CheckCircle size={16} className="text-forest-600" />
           <span className="font-medium">{t('open')}</span>
           {closeTime && (
             <span className="text-sm opacity-70">until {closeTime}</span>

@@ -58,9 +58,9 @@ export default function WineListPage({ locale }: WineListPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors">
+            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Bar</span>
             </Link>
@@ -68,7 +68,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
               Wine List
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               8,000 years of Georgian winemaking tradition meets world-class selections
             </p>
           </motion.div>
@@ -79,10 +79,10 @@ export default function WineListPage({ locale }: WineListPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Georgian Wines
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Discover the ancient winemaking heritage of Georgia, the cradle of wine
             </p>
           </motion.div>
@@ -90,11 +90,11 @@ export default function WineListPage({ locale }: WineListPageProps) {
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b-2 border-charcoal-900">
-                  <th className="text-left py-5 text-charcoal-900 font-bold uppercase tracking-wider text-sm">Region</th>
-                  <th className="text-left py-5 text-charcoal-900 font-bold uppercase tracking-wider text-sm">Wine</th>
-                  <th className="text-left py-5 text-charcoal-900 font-bold uppercase tracking-wider text-sm">Year</th>
-                  <th className="text-right py-5 text-charcoal-900 font-bold uppercase tracking-wider text-sm">Price</th>
+                <tr className="border-b-2 border-forest-900">
+                  <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Region</th>
+                  <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Wine</th>
+                  <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Year</th>
+                  <th className="text-right py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,17 +105,17 @@ export default function WineListPage({ locale }: WineListPageProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="border-b border-charcoal-200 hover:bg-charcoal-50 transition-colors"
+                    className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
                   >
-                    <td className="py-5 text-charcoal-600 font-light">{wine.region}</td>
+                    <td className="py-5 text-forest-600 font-light">{wine.region}</td>
                     <td className="py-5">
-                      <div className="font-bold text-charcoal-900 uppercase tracking-wide text-sm">{wine.type}</div>
-                      <div className="text-xs text-charcoal-500 mt-1">{wine.desc}</div>
+                      <div className="font-bold text-forest-900 uppercase tracking-wide text-sm">{wine.type}</div>
+                      <div className="text-xs text-forest-500 mt-1">{wine.desc}</div>
                     </td>
-                    <td className="py-5 text-charcoal-600 font-light">{wine.year}</td>
+                    <td className="py-5 text-forest-600 font-light">{wine.year}</td>
                     <td className="py-5 text-right">
-                      <span className="text-charcoal-900 font-bold">{wine.price}</span>
-                      <span className="text-charcoal-500 text-sm ml-2">{wine.priceGel}</span>
+                      <span className="text-forest-900 font-bold">{wine.price}</span>
+                      <span className="text-forest-500 text-sm ml-2">{wine.priceGel}</span>
                     </td>
                   </motion.tr>
                 ))}
@@ -126,21 +126,21 @@ export default function WineListPage({ locale }: WineListPageProps) {
       </section>
 
       {/* International Wines */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               International Selection
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Premium wines from the world's finest vineyards
             </p>
           </motion.div>
 
           <div className="max-w-5xl mx-auto overflow-x-auto">
-            <table className="w-full bg-white border-2 border-charcoal-900">
+            <table className="w-full bg-white border-2 border-forest-900">
               <thead>
-                <tr className="border-b-2 border-charcoal-900 bg-charcoal-900 text-white">
+                <tr className="border-b-2 border-forest-900 bg-forest-900 text-cream-50">
                   <th className="text-left py-5 px-6 font-bold uppercase tracking-wider text-sm">Region</th>
                   <th className="text-left py-5 px-6 font-bold uppercase tracking-wider text-sm">Wine</th>
                   <th className="text-left py-5 px-6 font-bold uppercase tracking-wider text-sm">Year</th>
@@ -155,17 +155,17 @@ export default function WineListPage({ locale }: WineListPageProps) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="border-b border-charcoal-200 hover:bg-charcoal-50 transition-colors"
+                    className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
                   >
-                    <td className="py-5 px-6 text-charcoal-600 font-light">{wine.region}</td>
+                    <td className="py-5 px-6 text-forest-600 font-light">{wine.region}</td>
                     <td className="py-5 px-6">
-                      <div className="font-bold text-charcoal-900 uppercase tracking-wide text-sm">{wine.type}</div>
-                      <div className="text-xs text-charcoal-500 mt-1">{wine.desc}</div>
+                      <div className="font-bold text-forest-900 uppercase tracking-wide text-sm">{wine.type}</div>
+                      <div className="text-xs text-forest-500 mt-1">{wine.desc}</div>
                     </td>
-                    <td className="py-5 px-6 text-charcoal-600 font-light">{wine.year}</td>
+                    <td className="py-5 px-6 text-forest-600 font-light">{wine.year}</td>
                     <td className="py-5 px-6 text-right">
-                      <span className="text-charcoal-900 font-bold">{wine.price}</span>
-                      <span className="text-charcoal-500 text-sm ml-2">{wine.priceGel}</span>
+                      <span className="text-forest-900 font-bold">{wine.price}</span>
+                      <span className="text-forest-500 text-sm ml-2">{wine.priceGel}</span>
                     </td>
                   </motion.tr>
                 ))}
@@ -179,10 +179,10 @@ export default function WineListPage({ locale }: WineListPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Sparkling & Champagne
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Celebrate with our selection of fine bubbles
             </p>
           </motion.div>
@@ -195,17 +195,17 @@ export default function WineListPage({ locale }: WineListPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-charcoal-50 border-2 border-charcoal-900 p-8"
+                className="bg-forest-50 border-2 border-forest-900 p-8"
               >
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-lg">{wine.name}</h3>
+                  <h3 className="font-bold text-forest-900 uppercase tracking-wide text-lg">{wine.name}</h3>
                   <div className="text-right">
-                    <div className="font-bold text-charcoal-900">{wine.price}</div>
-                    <div className="text-xs text-charcoal-500">{wine.priceGel}</div>
+                    <div className="font-bold text-forest-900">{wine.price}</div>
+                    <div className="text-xs text-forest-500">{wine.priceGel}</div>
                   </div>
                 </div>
-                <p className="text-sm text-charcoal-600 mb-2 font-light">{wine.origin}</p>
-                <p className="text-sm text-charcoal-500 font-light italic">{wine.desc}</p>
+                <p className="text-sm text-forest-600 mb-2 font-light">{wine.origin}</p>
+                <p className="text-sm text-forest-500 font-light italic">{wine.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -213,17 +213,17 @@ export default function WineListPage({ locale }: WineListPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Wine Tasting Experience
             </h2>
-            <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
               Join us for a guided wine tasting journey through Georgian and international selections
             </p>
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+              <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                 Reserve Your Table
               </Button>
             </Link>

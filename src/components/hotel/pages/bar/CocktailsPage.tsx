@@ -100,9 +100,9 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-6 transition-colors">
+            <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Bar</span>
             </Link>
@@ -110,7 +110,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
               Cocktail Menu
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               Handcrafted cocktails blending Georgian traditions with modern mixology
             </p>
           </motion.div>
@@ -118,13 +118,13 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       </section>
 
       {/* Signature Cocktails */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
               Signature Cocktails
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 max-w-2xl mx-auto font-light">
               Exclusive creations by our master mixologists
             </p>
           </motion.div>
@@ -137,7 +137,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-charcoal-800 overflow-hidden border-2 border-white/20 group"
+                className="bg-forest-800 overflow-hidden border-2 border-white/20 group"
               >
                 <div className="relative h-56">
                   <img
@@ -145,20 +145,20 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                     alt={cocktail.name}
                     className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex justify-between items-end">
                       <h3 className="text-xl font-bold uppercase tracking-wide">{cocktail.name}</h3>
                       <div className="text-right">
                         <div className="font-bold text-lg">{cocktail.price}</div>
-                        <div className="text-xs text-white/60">{cocktail.priceGel}</div>
+                        <div className="text-xs text-cream-50/60">{cocktail.priceGel}</div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="p-6">
-                  <p className="text-sm text-white/80 mb-3 font-light leading-relaxed">{cocktail.desc}</p>
-                  <p className="text-xs text-white/50 uppercase tracking-wider font-light">{cocktail.ingredients}</p>
+                  <p className="text-sm text-cream-50/80 mb-3 font-light leading-relaxed">{cocktail.desc}</p>
+                  <p className="text-xs text-cream-50/50 uppercase tracking-wider font-light">{cocktail.ingredients}</p>
                 </div>
               </motion.div>
             ))}
@@ -170,10 +170,10 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Classic Cocktails
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Timeless favorites, expertly crafted
             </p>
           </motion.div>
@@ -186,18 +186,18 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="border-2 border-charcoal-900 p-6 bg-charcoal-50"
+                className="border-2 border-forest-900 p-6 bg-forest-50"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
-                  <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base">
+                  <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
                     {cocktail.name}
                   </h3>
                   <div className="text-right flex-shrink-0">
-                    <div className="font-bold text-charcoal-900">{cocktail.price}</div>
-                    <div className="text-xs text-charcoal-500">{cocktail.priceGel}</div>
+                    <div className="font-bold text-forest-900">{cocktail.price}</div>
+                    <div className="text-xs text-forest-500">{cocktail.priceGel}</div>
                   </div>
                 </div>
-                <p className="text-sm text-charcoal-600 font-light">{cocktail.desc}</p>
+                <p className="text-sm text-forest-600 font-light">{cocktail.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -205,13 +205,13 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       </section>
 
       {/* Non-Alcoholic */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Non-Alcoholic Cocktails
             </h2>
-            <p className="text-charcoal-600 max-w-2xl mx-auto font-light">
+            <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Sophisticated mocktails for every occasion
             </p>
           </motion.div>
@@ -224,18 +224,18 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-charcoal-900 p-6"
+                className="bg-white border-2 border-forest-900 p-6"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
-                  <h3 className="font-bold text-charcoal-900 uppercase tracking-wide text-base">
+                  <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
                     {drink.name}
                   </h3>
                   <div className="text-right flex-shrink-0">
-                    <div className="font-bold text-charcoal-900">{drink.price}</div>
-                    <div className="text-xs text-charcoal-500">{drink.priceGel}</div>
+                    <div className="font-bold text-forest-900">{drink.price}</div>
+                    <div className="text-xs text-forest-500">{drink.priceGel}</div>
                   </div>
                 </div>
-                <p className="text-sm text-charcoal-600 font-light">{drink.desc}</p>
+                <p className="text-sm text-forest-600 font-light">{drink.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -243,17 +243,17 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Happy Hour Special
             </h2>
-            <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
               Join us daily from 5:00 PM to 7:00 PM for 50% off all cocktails
             </p>
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+              <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                 Reserve Your Table
               </Button>
             </Link>

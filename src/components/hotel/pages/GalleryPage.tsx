@@ -82,18 +82,18 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-gold-400 text-sm tracking-widest uppercase">Visual Journey</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">Visual Journey</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('gallery.title')}</h1>
-            <div className="gold-line" />
-            <p className="text-xl text-white/80 max-w-2xl mt-4">{t('gallery.subtitle')}</p>
+            <div className="brass-line" />
+            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('gallery.subtitle')}</p>
           </motion.div>
         </div>
       </section>
 
       {/* Category Filters */}
-      <section className="py-8 bg-white border-b border-charcoal-100 sticky top-20 z-30">
+      <section className="py-8 bg-white border-b border-forest-100 sticky top-20 z-30">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
@@ -103,8 +103,8 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
                 variant={activeCategory === category.id ? 'default' : 'outline'}
                 className={`rounded-full px-6 ${
                   activeCategory === category.id 
-                    ? 'btn-luxury' 
-                    : 'border-charcoal-200 text-charcoal-700 hover:bg-charcoal-50'
+                    ? 'btn-telegraph' 
+                    : 'border-forest-200 text-forest-700 hover:bg-forest-50'
                 }`}
               >
                 {category.label}
@@ -115,7 +115,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
       </section>
 
       {/* Gallery Grid */}
-      <section className="py-16 bg-charcoal-50">
+      <section className="py-16 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div 
             layout
@@ -140,9 +140,9 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
                     alt={image.alt}
                     className="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-charcoal-950/0 group-hover:bg-charcoal-950/30 transition-colors" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-charcoal-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-white text-sm">{image.alt}</p>
+                  <div className="absolute inset-0 bg-forest-950/0 group-hover:bg-forest-950/30 transition-colors" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-forest-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-cream-50 text-sm">{image.alt}</p>
                   </div>
                 </motion.div>
               ))}
@@ -158,13 +158,13 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+            className="fixed inset-0 z-50 bg-forest-950/95 flex items-center justify-center"
             onClick={() => setLightboxOpen(false)}
           >
             {/* Close Button */}
             <button
               onClick={() => setLightboxOpen(false)}
-              className="absolute top-6 right-6 text-white hover:text-gold-400 transition-colors"
+              className="absolute top-6 right-6 text-cream-50 hover:text-brass-400 transition-colors"
             >
               <X size={32} />
             </button>
@@ -172,13 +172,13 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             {/* Navigation */}
             <button
               onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}
-              className="absolute left-6 text-white hover:text-gold-400 transition-colors"
+              className="absolute left-6 text-cream-50 hover:text-brass-400 transition-colors"
             >
               <ChevronLeft size={48} />
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}
-              className="absolute right-6 text-white hover:text-gold-400 transition-colors"
+              className="absolute right-6 text-cream-50 hover:text-brass-400 transition-colors"
             >
               <ChevronRight size={48} />
             </button>
@@ -196,7 +196,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             />
 
             {/* Image Counter */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm">
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream-50 text-sm">
               {currentImage + 1} / {filteredImages.length}
             </div>
           </motion.div>

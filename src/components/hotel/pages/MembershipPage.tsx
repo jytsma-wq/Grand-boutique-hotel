@@ -66,13 +66,13 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Exclusive Access</span>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Exclusive Access</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Membership
             </h1>
-            <p className="text-xl text-white/70 max-w-2xl mt-6 font-light">
+            <p className="text-xl text-cream-50/70 max-w-2xl mt-6 font-light">
               Join our wellness community and enjoy exclusive benefits
             </p>
           </motion.div>
@@ -83,7 +83,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Choose Your Plan</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Choose Your Plan</span>
             <h2 className="section-title mt-4">Membership Tiers</h2>
           </motion.div>
 
@@ -95,23 +95,23 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className={`p-10 border-2 ${tier.featured ? 'bg-charcoal-900 text-white border-charcoal-900' : 'bg-white border-charcoal-200'}`}
+                className={`p-10 border-2 ${tier.featured ? 'bg-forest-900 text-cream-50 border-forest-900' : 'bg-white border-forest-200'}`}
               >
-                <div className={`w-14 h-14 mb-6 flex items-center justify-center ${tier.featured ? 'bg-white' : 'bg-charcoal-900'}`}>
-                  <tier.icon className={`w-7 h-7 ${tier.featured ? 'text-charcoal-900' : 'text-white'}`} />
+                <div className={`w-14 h-14 mb-6 flex items-center justify-center ${tier.featured ? 'bg-white' : 'bg-forest-900'}`}>
+                  <tier.icon className={`w-7 h-7 ${tier.featured ? 'text-forest-900' : 'text-cream-50'}`} />
                 </div>
                 <h3 className="text-2xl font-bold mb-2 uppercase tracking-wide">{tier.name}</h3>
                 <div className="flex items-baseline gap-2 mb-8 pb-6 border-b border-current/20">
                   <span className="text-4xl font-bold">${tier.price}</span>
-                  <span className={`text-sm font-light ${tier.featured ? 'text-white/60' : 'text-charcoal-500'}`}>
+                  <span className={`text-sm font-light ${tier.featured ? 'text-cream-50/60' : 'text-forest-500'}`}>
                     /month
                   </span>
                 </div>
                 <ul className="space-y-4 mb-10">
                   {tier.benefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.featured ? 'text-gold-400' : 'text-charcoal-600'}`} />
-                      <span className={`text-sm font-light ${tier.featured ? 'text-white/80' : 'text-charcoal-700'}`}>
+                      <Check className={`w-4 h-4 mt-0.5 flex-shrink-0 ${tier.featured ? 'text-brass-400' : 'text-forest-600'}`} />
+                      <span className={`text-sm font-light ${tier.featured ? 'text-cream-50/80' : 'text-forest-700'}`}>
                         {benefit}
                       </span>
                     </li>
@@ -119,7 +119,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                 </ul>
                 <Link href={`/${locale}/contact`}>
                   <Button 
-                    className={`w-full ${tier.featured ? 'bg-white text-charcoal-900 hover:bg-white/90' : 'btn-luxury'}`}
+                    className={`w-full ${tier.featured ? 'bg-white text-forest-900 hover:bg-white/90' : 'btn-telegraph'}`}
                   >
                     Join Now
                   </Button>
@@ -131,24 +131,24 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Questions About Membership?
             </h2>
-            <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
               Our wellness team is happy to help you choose the right plan.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-luxury px-12 py-6 text-base">
+                <Button className="btn-telegraph px-12 py-6 text-base">
                   <span>Contact Us</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href={`/${locale}/wellness`}>
-                <Button variant="outline" className="px-12 py-6 text-base border-2 border-white text-white hover:bg-white hover:text-charcoal-900 uppercase tracking-wider">
+                <Button variant="outline" className="px-12 py-6 text-base border-2 border-white text-cream-50 hover:bg-white hover:text-forest-900 uppercase tracking-wider">
                   Back to Wellness
                 </Button>
               </Link>

@@ -105,13 +105,13 @@ export default function SpaPage({ locale }: SpaPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div {...fadeInUp}>
-              <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
               <h2 className="section-title mt-4 mb-8">Holistic Wellness</h2>
-              <p className="text-lg text-charcoal-700 mb-6 font-light leading-relaxed">
+              <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
                 Our spa combines ancient Georgian wellness traditions with modern therapeutic techniques. 
                 Each treatment is designed to restore balance, promote healing, and nurture your well-being.
               </p>
-              <p className="text-charcoal-600 font-light leading-relaxed">
+              <p className="text-forest-600 font-light leading-relaxed">
                 Using premium organic products and mineral-rich ingredients from the Black Sea region, 
                 our expert therapists create personalized experiences that transcend ordinary spa treatments.
               </p>
@@ -121,10 +121,10 @@ export default function SpaPage({ locale }: SpaPageProps) {
       </section>
 
       {/* Spa Packages - Brutalist Menu Format */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Curated Experiences</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Curated Experiences</span>
             <h2 className="section-title mt-4">Spa Packages</h2>
           </motion.div>
 
@@ -136,25 +136,25 @@ export default function SpaPage({ locale }: SpaPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="bg-white border-t-2 border-charcoal-900 first:border-t-0 py-10 px-10 hover:bg-charcoal-50 transition-colors"
+                className="bg-white border-t-2 border-forest-900 first:border-t-0 py-10 px-10 hover:bg-forest-50 transition-colors"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
                   <div className="flex-1">
                     <div className="flex items-baseline gap-4 mb-3">
-                      <h3 className="text-2xl font-bold text-charcoal-900 uppercase tracking-wide">{pkg.name}</h3>
-                      <span className="text-sm text-charcoal-500 font-light flex items-center gap-1">
+                      <h3 className="text-2xl font-bold text-forest-900 uppercase tracking-wide">{pkg.name}</h3>
+                      <span className="text-sm text-forest-500 font-light flex items-center gap-1">
                         <Clock size={14} />
                         {pkg.duration} min
                       </span>
                     </div>
-                    <p className="text-sm text-charcoal-600 font-light mb-6">{pkg.desc}</p>
+                    <p className="text-sm text-forest-600 font-light mb-6">{pkg.desc}</p>
                     
                     <div className="mb-6">
-                      <h4 className="text-xs text-charcoal-500 uppercase tracking-wider font-bold mb-3">Includes:</h4>
+                      <h4 className="text-xs text-forest-500 uppercase tracking-wider font-bold mb-3">Includes:</h4>
                       <ul className="space-y-2">
                         {pkg.includes.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2 text-sm text-charcoal-700">
-                            <div className="w-1 h-1 bg-charcoal-900 mt-2 flex-shrink-0" />
+                          <li key={i} className="flex items-start gap-2 text-sm text-forest-700">
+                            <div className="w-1 h-1 bg-forest-900 mt-2 flex-shrink-0" />
                             <span className="font-light">{item}</span>
                           </li>
                         ))}
@@ -163,11 +163,11 @@ export default function SpaPage({ locale }: SpaPageProps) {
 
                     <div className="flex items-center gap-6">
                       <div>
-                        <div className="text-3xl font-bold text-charcoal-900">${pkg.price}</div>
-                        <div className="text-xs text-charcoal-500">{pkg.priceGel}₾</div>
+                        <div className="text-3xl font-bold text-forest-900">${pkg.price}</div>
+                        <div className="text-xs text-forest-500">{pkg.priceGel}₾</div>
                       </div>
                       <Link href={`/${locale}/booking`}>
-                        <Button className="btn-architectural-concrete rounded-none py-3 px-10">
+                        <Button className="btn-telegraph-concrete rounded-none py-3 px-10">
                           Book Now
                         </Button>
                       </Link>
@@ -184,7 +184,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Enhance Your Experience</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Enhance Your Experience</span>
             <h2 className="section-title mt-4">Add-On Services</h2>
           </motion.div>
 
@@ -197,13 +197,13 @@ export default function SpaPage({ locale }: SpaPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05, duration: 0.4 }}
-                  className="bg-white border-2 border-charcoal-900 p-6 hover:bg-charcoal-50 transition-colors"
+                  className="bg-white border-2 border-forest-900 p-6 hover:bg-forest-50 transition-colors"
                 >
                   <div className="flex justify-between items-start">
-                    <h3 className="text-base font-bold text-charcoal-900 uppercase tracking-wide flex-1">{service.name}</h3>
+                    <h3 className="text-base font-bold text-forest-900 uppercase tracking-wide flex-1">{service.name}</h3>
                     <div className="text-right ml-4">
-                      <div className="text-xl font-bold text-charcoal-900">${service.price}</div>
-                      <div className="text-xs text-charcoal-500">{service.priceGel}₾</div>
+                      <div className="text-xl font-bold text-forest-900">${service.price}</div>
+                      <div className="text-xs text-forest-500">{service.priceGel}₾</div>
                     </div>
                   </div>
                 </motion.div>
@@ -214,7 +214,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       </section>
 
       {/* Spa Etiquette - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="mb-12">
@@ -267,7 +267,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Visual Journey</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Journey</span>
             <h2 className="section-title mt-4">Spa Gallery</h2>
           </motion.div>
 
@@ -348,7 +348,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       </section>
 
       {/* CTA - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white border-t-4 border-charcoal-950">
+      <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
@@ -359,12 +359,12 @@ export default function SpaPage({ locale }: SpaPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                   Make Reservation
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   <Phone className="mr-2 w-5 h-5" />
                   Call Spa: +995 422 00 00 00
                 </Button>

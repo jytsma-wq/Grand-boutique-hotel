@@ -130,7 +130,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       </section>
 
       {/* Opening Hours Bar - Brutalist */}
-      <section className="bg-charcoal-900 text-white py-8 border-t-2 border-charcoal-950">
+      <section className="bg-forest-900 text-white py-8 border-t-2 border-forest-950">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <div className="flex items-center gap-3">
@@ -158,7 +158,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             </div>
             <div className="hidden md:block w-px h-10 bg-white/20" />
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-architectural rounded-none">
+              <Button className="btn-telegraph rounded-none">
                 Reserve Table
               </Button>
             </Link>
@@ -171,14 +171,14 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
               <h2 className="section-title mt-4">Farm to Table Excellence</h2>
-              <p className="text-lg text-charcoal-700 mb-6 font-light leading-relaxed">
+              <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
                 At Azure Restaurant, we celebrate Georgia's rich culinary heritage while embracing 
                 modern techniques. Our chefs work closely with local farmers and fishermen to bring 
                 you the freshest ingredients from the Black Sea coast and Adjara highlands.
               </p>
-              <p className="text-charcoal-600 mb-8 font-light leading-relaxed">
+              <p className="text-forest-600 mb-8 font-light leading-relaxed">
                 Every dish tells a story - from ancient qvevri wines to contemporary interpretations 
                 of traditional recipes passed down through generations. Our dining room offers 
                 panoramic views of the Black Sea, creating the perfect backdrop for an 
@@ -186,16 +186,16 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               </p>
               
               <div className="flex flex-col gap-3">
-                <div className="flex items-center gap-3 text-charcoal-700">
-                  <Star className="text-charcoal-900" size={18} />
+                <div className="flex items-center gap-3 text-forest-700">
+                  <Star className="text-forest-900" size={18} />
                   <span className="uppercase tracking-wide text-sm font-medium">Fine Dining</span>
                 </div>
-                <div className="flex items-center gap-3 text-charcoal-700">
-                  <Utensils className="text-charcoal-900" size={18} />
+                <div className="flex items-center gap-3 text-forest-700">
+                  <Utensils className="text-forest-900" size={18} />
                   <span className="uppercase tracking-wide text-sm font-medium">Georgian & International</span>
                 </div>
-                <div className="flex items-center gap-3 text-charcoal-700">
-                  <Wine className="text-charcoal-900" size={18} />
+                <div className="flex items-center gap-3 text-forest-700">
+                  <Wine className="text-forest-900" size={18} />
                   <span className="uppercase tracking-wide text-sm font-medium">500+ Wine Selection</span>
                 </div>
               </div>
@@ -233,10 +233,10 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       </section>
 
       {/* Dining Experiences - Subpage Navigation */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Explore</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Explore</span>
             <h2 className="section-title mt-4">Our Dining Experiences</h2>
           </motion.div>
 
@@ -248,13 +248,13 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               transition={{ delay: 0 }}
             >
               <Link href={`/${locale}/restaurant/breakfast`} className="group block">
-                <div className="relative h-80 overflow-hidden border-2 border-charcoal-900">
+                <div className="relative h-80 overflow-hidden border-2 border-forest-900">
                   <img
                     src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80"
                     alt="Breakfast"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="text-xs text-white/60 uppercase tracking-[0.3em] font-light mb-2">Daily 7:00 AM — 11:00 AM</div>
                     <h3 className="text-3xl font-bold text-white uppercase tracking-tight mb-3">Breakfast</h3>
@@ -274,13 +274,13 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               transition={{ delay: 0.1 }}
             >
               <Link href={`/${locale}/restaurant/lunch-dinner`} className="group block">
-                <div className="relative h-80 overflow-hidden border-2 border-charcoal-900">
+                <div className="relative h-80 overflow-hidden border-2 border-forest-900">
                   <img
                     src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
                     alt="Lunch & Dinner"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="text-xs text-white/60 uppercase tracking-[0.3em] font-light mb-2">Lunch 12:00 PM — 3:00 PM · Dinner 6:00 PM — 11:00 PM</div>
                     <h3 className="text-3xl font-bold text-white uppercase tracking-tight mb-3">Lunch & Dinner</h3>
@@ -300,7 +300,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Our Menu</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menu</span>
             <h2 className="section-title mt-4">Culinary Offerings</h2>
           </motion.div>
 
@@ -312,7 +312,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-charcoal-900"
+                className="bg-white border-2 border-forest-900"
               >
                 <div className="relative h-56">
                   <img
@@ -320,7 +320,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     alt={category.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent" />
                   <h3 className="absolute bottom-6 left-6 text-2xl font-bold text-white uppercase tracking-tight">
                     {category.name}
                   </h3>
@@ -328,15 +328,15 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 <div className="p-8">
                   <ul className="space-y-6">
                     {category.items.map((item, i) => (
-                      <li key={i} className="border-b border-charcoal-200 pb-4 last:border-0 last:pb-0">
+                      <li key={i} className="border-b border-forest-200 pb-4 last:border-0 last:pb-0">
                         <div className="flex justify-between items-start gap-4 mb-2">
-                          <div className="font-bold text-charcoal-900 uppercase tracking-wide text-sm">{item.name}</div>
+                          <div className="font-bold text-forest-900 uppercase tracking-wide text-sm">{item.name}</div>
                           <div className="text-right flex-shrink-0">
-                            <div className="font-bold text-charcoal-900">{item.price}</div>
-                            <div className="text-xs text-charcoal-500">{item.priceGel}</div>
+                            <div className="font-bold text-forest-900">{item.price}</div>
+                            <div className="text-xs text-forest-500">{item.priceGel}</div>
                           </div>
                         </div>
-                        <div className="text-sm text-charcoal-600 font-light">{item.desc}</div>
+                        <div className="text-sm text-forest-600 font-light">{item.desc}</div>
                       </li>
                     ))}
                   </ul>
@@ -354,7 +354,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       </section>
 
       {/* Chef's Specials - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Exclusive</span>
@@ -367,7 +367,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 key={special.name}
                 {...fadeInUp}
                 transition={{ delay: index * 0.1 }}
-                className="bg-charcoal-800 p-10 border-2 border-white/20"
+                className="bg-forest-800 p-10 border-2 border-white/20"
               >
                 <div className="flex justify-between items-start mb-6 pb-6 border-b border-white/20">
                   <h3 className="text-xl font-bold uppercase tracking-wide">{special.name}</h3>
@@ -379,7 +379,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 <div className="text-sm text-white/70 mb-4 uppercase tracking-wider font-light">{special.courses}</div>
                 <p className="text-white/80 mb-8 font-light leading-relaxed">{special.desc}</p>
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-architectural rounded-none w-full">
+                  <Button className="btn-telegraph rounded-none w-full">
                     Reserve This Experience
                   </Button>
                 </Link>
@@ -393,7 +393,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-12">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Gallery</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Gallery</span>
             <h2 className="section-title mt-4">Azure in Pictures</h2>
           </motion.div>
 
@@ -412,7 +412,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       </section>
 
       {/* Reservation CTA - Brutalist */}
-      <section className="py-24 bg-charcoal-900 text-white border-t-4 border-charcoal-950">
+      <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
@@ -424,12 +424,12 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-architectural rounded-none px-14 py-6 text-base">
+                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
                   Make Reservation
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   <Phone className="mr-2 w-5 h-5" />
                   Call: +995 422 00 00 00
                 </Button>

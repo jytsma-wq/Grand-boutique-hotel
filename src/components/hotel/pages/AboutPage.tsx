@@ -98,10 +98,10 @@ export default function AboutPage({ locale }: AboutPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-gold-400 text-sm tracking-widest uppercase mb-4 block">Our Story</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase mb-4 block">Our Story</span>
             <h1 className="text-5xl md:text-7xl font-light mb-4">{tNav('about')}</h1>
-            <div className="gold-line" />
-            <p className="text-xl text-charcoal-200 max-w-2xl mx-auto mt-6">
+            <div className="brass-line" />
+            <p className="text-xl text-forest-200 max-w-2xl mx-auto mt-6">
               A masterpiece of modern architecture on Georgia&apos;s stunning Black Sea coast
             </p>
           </motion.div>
@@ -113,16 +113,16 @@ export default function AboutPage({ locale }: AboutPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-gold-600 text-sm tracking-widest uppercase">Est. 2026</span>
+              <span className="text-brass-600 text-sm tracking-widest uppercase">Est. 2026</span>
               <h2 className="section-title mt-4">Where Vision Meets Reality</h2>
-              <div className="gold-line !mx-0" />
-              <p className="text-charcoal-700 text-lg leading-relaxed mb-6 mt-6">
+              <div className="brass-line !mx-0" />
+              <p className="text-forest-700 text-lg leading-relaxed mb-6 mt-6">
                 Batumi Boutique Hotel was born from a dream to create something extraordinary on the shores of the Black Sea. 
                 Our 2026 modern architecture design represents the pinnacle of contemporary elegance, seamlessly blending 
                 with the natural beauty of Georgia&apos;s coastal gem.
               </p>
-              <p className="text-charcoal-600 leading-relaxed mb-6">
-                Every corner of our hotel tells a story of meticulous craftsmanship, from the charcoal green facades that 
+              <p className="text-forest-600 leading-relaxed mb-6">
+                Every corner of our hotel tells a story of meticulous craftsmanship, from the forest green facades that 
                 mirror the sea to the golden accents that capture the warmth of Georgian hospitality. We&apos;ve created more 
                 than a hotel—we&apos;ve created a destination where memories are made.
               </p>
@@ -137,7 +137,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                     />
                   ))}
                 </div>
-                <span className="text-sm text-charcoal-600">Meet our leadership team</span>
+                <span className="text-sm text-forest-600">Meet our leadership team</span>
               </div>
             </motion.div>
 
@@ -154,12 +154,12 @@ export default function AboutPage({ locale }: AboutPageProps) {
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full gradient-gold flex items-center justify-center">
-                    <Award className="w-8 h-8 text-charcoal-900" />
+                  <div className="w-16 h-16 rounded-full gradient-brass flex items-center justify-center">
+                    <Award className="w-8 h-8 text-forest-900" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-charcoal-900">5-Star</div>
-                    <div className="text-sm text-charcoal-600">Luxury Rating</div>
+                    <div className="text-2xl font-bold text-forest-900">5-Star</div>
+                    <div className="text-sm text-forest-600">Luxury Rating</div>
                   </div>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-charcoal-900 text-white">
+      <section className="py-16 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -181,8 +181,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="text-4xl md:text-5xl font-light text-gold-400 mb-2">{stat.value}</div>
-                <div className="text-charcoal-200 text-sm uppercase tracking-wider">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-light text-brass-400 mb-2">{stat.value}</div>
+                <div className="text-forest-200 text-sm uppercase tracking-wider">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -190,12 +190,12 @@ export default function AboutPage({ locale }: AboutPageProps) {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Our Philosophy</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Our Philosophy</span>
             <h2 className="section-title mt-4">What We Stand For</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -208,11 +208,11 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 transition={{ delay: index * 0.1 }}
                 className="glass-card rounded-2xl p-8 text-center card-hover"
               >
-                <div className="w-16 h-16 rounded-full gradient-primary mx-auto mb-6 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full gradient-forest mx-auto mb-6 flex items-center justify-center">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-charcoal-900 mb-3">{value.title}</h3>
-                <p className="text-charcoal-600 text-sm leading-relaxed">{value.description}</p>
+                <h3 className="text-xl font-semibold text-forest-900 mb-3">{value.title}</h3>
+                <p className="text-forest-600 text-sm leading-relaxed">{value.description}</p>
               </motion.div>
             ))}
           </div>
@@ -223,9 +223,9 @@ export default function AboutPage({ locale }: AboutPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Our Team</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Our Team</span>
             <h2 className="section-title mt-4">Meet the People Behind the Experience</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -239,7 +239,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 className="group text-center"
               >
                 <div className="relative mb-6 inline-block">
-                  <div className="w-48 h-48 rounded-full overflow-hidden mx-auto border-4 border-charcoal-100 group-hover:border-gold-400 transition-colors">
+                  <div className="w-48 h-48 rounded-full overflow-hidden mx-auto border-4 border-forest-100 group-hover:border-brass-400 transition-colors">
                     <img
                       src={member.image}
                       alt={member.name}
@@ -247,11 +247,11 @@ export default function AboutPage({ locale }: AboutPageProps) {
                     />
                   </div>
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 glass-card px-4 py-1 rounded-full">
-                    <Star className="w-4 h-4 text-gold-500 inline" />
+                    <Star className="w-4 h-4 text-brass-500 inline" />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-charcoal-900">{member.name}</h3>
-                <p className="text-gold-600">{member.role}</p>
+                <h3 className="text-xl font-semibold text-forest-900">{member.name}</h3>
+                <p className="text-brass-600">{member.role}</p>
               </motion.div>
             ))}
           </div>
@@ -259,16 +259,16 @@ export default function AboutPage({ locale }: AboutPageProps) {
       </section>
 
       {/* Architecture Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-gold-400 text-sm tracking-widest uppercase">Architecture</span>
+              <span className="text-brass-400 text-sm tracking-widest uppercase">Architecture</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
                 2026 Modern Design
               </h2>
-              <div className="gold-line !mx-0" />
-              <p className="text-charcoal-200 text-lg mb-8 mt-6">
+              <div className="brass-line !mx-0" />
+              <p className="text-forest-200 text-lg mb-8 mt-6">
                 Our building represents the future of hospitality design. Floor-to-ceiling windows frame 
                 breathtaking Black Sea views, while sustainable materials and innovative climate systems 
                 ensure comfort with minimal environmental impact.
@@ -283,8 +283,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
                   'Rainwater collection and recycling'
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gold-400 rounded-full" />
-                    <span className="text-charcoal-100">{item}</span>
+                    <div className="w-2 h-2 bg-brass-400 rounded-full" />
+                    <span className="text-forest-100">{item}</span>
                   </div>
                 ))}
               </div>
@@ -322,30 +322,30 @@ export default function AboutPage({ locale }: AboutPageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-charcoal-800 to-charcoal-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-white relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-charcoal-700/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gold-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-forest-700/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brass-500/20 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
-            <Building2 className="w-16 h-16 text-gold-400 mx-auto mb-6" />
+            <Building2 className="w-16 h-16 text-brass-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Experience {tSite('name')}
             </h2>
-            <p className="text-charcoal-200 text-lg mb-10">
+            <p className="text-forest-200 text-lg mb-10">
               Discover why guests from around the world choose Batumi Boutique Hotel 
               for their Black Sea getaway.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/rooms`}>
-                <Button className="btn-luxury px-12 py-6 text-lg">
+                <Button className="btn-telegraph px-12 py-6 text-lg">
                   Explore Rooms
                 </Button>
               </Link>
               <Link href={`/${locale}/contact`}>
-                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-forest-900">
                   Contact Us
                 </Button>
               </Link>

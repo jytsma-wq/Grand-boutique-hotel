@@ -109,12 +109,12 @@ export default function OffersPage({ locale }: OffersPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-gold-400 text-sm tracking-widest uppercase">Exclusive</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">Exclusive</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('offers.title')}</h1>
-            <div className="gold-line" />
-            <p className="text-xl text-white/80 max-w-2xl mt-4">{t('offers.subtitle')}</p>
+            <div className="brass-line" />
+            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('offers.subtitle')}</p>
           </motion.div>
         </div>
       </section>
@@ -139,38 +139,38 @@ export default function OffersPage({ locale }: OffersPageProps) {
                     alt={offer.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 to-transparent" />
                   
                   {/* Savings Badge */}
-                  <div className="absolute top-4 right-4 bg-gold-500 text-charcoal-950 px-4 py-2 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 right-4 bg-brass-500 text-forest-950 px-4 py-2 rounded-full text-sm font-semibold">
                     <Tag className="w-4 h-4 inline mr-1" />
                     {offer.savings}
                   </div>
                   
                   {/* Title Overlay */}
                   <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-gold-400 text-sm">{offer.subtitle}</div>
-                    <h3 className="text-2xl font-semibold text-white">{offer.title}</h3>
+                    <div className="text-brass-400 text-sm">{offer.subtitle}</div>
+                    <h3 className="text-2xl font-semibold text-cream-50">{offer.title}</h3>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <p className="text-charcoal-600 mb-4">{offer.description}</p>
+                  <p className="text-forest-600 mb-4">{offer.description}</p>
                   
                   {/* Price */}
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="text-2xl font-bold text-gold-600">{offer.price}</span>
-                    <span className="text-charcoal-400 line-through">{offer.originalPrice}</span>
+                    <span className="text-2xl font-bold text-brass-600">{offer.price}</span>
+                    <span className="text-forest-400 line-through">{offer.originalPrice}</span>
                   </div>
 
                   {/* Includes */}
                   <div className="mb-4">
-                    <div className="text-sm font-medium text-charcoal-900 mb-2">{t('offers.includes')}</div>
+                    <div className="text-sm font-medium text-forest-900 mb-2">{t('offers.includes')}</div>
                     <div className="grid grid-cols-2 gap-2">
                       {offer.includes.slice(0, 4).map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-charcoal-600">
-                          <Check className="w-4 h-4 text-charcoal-500" />
+                        <div key={i} className="flex items-center gap-2 text-sm text-forest-600">
+                          <Check className="w-4 h-4 text-forest-500" />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -178,14 +178,14 @@ export default function OffersPage({ locale }: OffersPageProps) {
                   </div>
 
                   {/* Valid Until */}
-                  <div className="flex items-center gap-2 text-sm text-charcoal-500 mb-4">
+                  <div className="flex items-center gap-2 text-sm text-forest-500 mb-4">
                     <Calendar className="w-4 h-4" />
                     <span>{t('offers.validUntil')}: {offer.validUntil}</span>
                   </div>
 
                   {/* CTA */}
                   <Link href={`/${locale}/booking?offer=${offer.id}`}>
-                    <Button className="btn-luxury w-full">
+                    <Button className="btn-telegraph w-full">
                       <span>{t('offers.bookNow')}</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -198,22 +198,22 @@ export default function OffersPage({ locale }: OffersPageProps) {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp} className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-light mb-6">
-              Get <span className="text-gold-400">Exclusive</span> Offers
+              Get <span className="text-brass-400">Exclusive</span> Offers
             </h2>
-            <p className="text-charcoal-200 mb-8">
+            <p className="text-forest-200 mb-8">
               Subscribe to our newsletter and be the first to know about special promotions and seasonal offers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-charcoal-300 focus:outline-none focus:border-gold-400"
+                className="px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-cream-50 placeholder:text-forest-300 focus:outline-none focus:border-brass-400"
               />
-              <Button className="btn-luxury px-8 py-4">
+              <Button className="btn-telegraph px-8 py-4">
                 <span>Subscribe</span>
               </Button>
             </div>

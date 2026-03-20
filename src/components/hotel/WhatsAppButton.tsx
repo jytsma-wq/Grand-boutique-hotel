@@ -29,11 +29,11 @@ export default function WhatsAppButton() {
         <WhatsAppIcon className="w-7 h-7 md:w-9 md:h-9 text-white" />
       </div>
       {/* Hover tooltip */}
-      <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-charcoal-900 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/wa:opacity-100 transition-opacity duration-200 pointer-events-none">
+      <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-forest-900 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/wa:opacity-100 transition-opacity duration-200 pointer-events-none">
         Call us please
-        <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-charcoal-900" />
+        <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-forest-900" />
       </div>
-      <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal-900">
+      <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-forest-900">
         WHATSAPP
       </span>
     </motion.a>

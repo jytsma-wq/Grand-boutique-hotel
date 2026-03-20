@@ -111,12 +111,12 @@ export default function LocationPage({ locale }: LocationPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-gold-400 text-sm tracking-widest uppercase">Find Us</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">Find Us</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('location.title')}</h1>
-            <div className="gold-line" />
-            <p className="text-xl text-white/80 max-w-2xl mt-4">{t('location.subtitle')}</p>
+            <div className="brass-line" />
+            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('location.subtitle')}</p>
           </motion.div>
         </div>
       </section>
@@ -127,18 +127,18 @@ export default function LocationPage({ locale }: LocationPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Address Info */}
             <motion.div {...fadeInUp}>
-              <span className="text-gold-600 text-sm tracking-widest uppercase">Our Address</span>
+              <span className="text-brass-600 text-sm tracking-widest uppercase">Our Address</span>
               <h2 className="section-title mt-4">Batumi Boutique Hotel</h2>
-              <div className="gold-line !mx-0" />
+              <div className="brass-line !mx-0" />
               
               <div className="mt-8 space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-white" />
+                    <MapPin className="w-5 h-5 text-cream-50" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal-900">Address</h3>
-                    <p className="text-charcoal-600">
+                    <h3 className="font-semibold text-forest-900">Address</h3>
+                    <p className="text-forest-600">
                       Rustaveli Avenue 123<br />
                       Batumi, Adjara<br />
                       Georgia 6000
@@ -147,22 +147,22 @@ export default function LocationPage({ locale }: LocationPageProps) {
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full gradient-gold flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-charcoal-900" />
+                  <div className="w-12 h-12 rounded-full gradient-brass flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-forest-900" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal-900">Phone</h3>
-                    <p className="text-charcoal-600">+995 422 00 00 00</p>
+                    <h3 className="font-semibold text-forest-900">Phone</h3>
+                    <p className="text-forest-600">+995 422 00 00 00</p>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-white" />
+                    <Clock className="w-5 h-5 text-cream-50" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-charcoal-900">Front Desk</h3>
-                    <p className="text-charcoal-600">24/7 Available</p>
+                    <h3 className="font-semibold text-forest-900">Front Desk</h3>
+                    <p className="text-forest-600">24/7 Available</p>
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Button className="btn-luxury">
+                  <Button className="btn-telegraph">
                     <Navigation className="mr-2 w-4 h-4" />
                     {t('location.directions')}
                   </Button>
@@ -186,7 +186,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative h-96 lg:h-auto rounded-2xl overflow-hidden shadow-xl border-2 border-charcoal-200"
+              className="relative h-96 lg:h-auto rounded-2xl overflow-hidden shadow-xl border-2 border-forest-200"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23726.15869140033!2d41.62!3d41.6168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406786544e107d3b%3A0x9f604c5f7d4e1c5e!2sBatumi%2C%20Georgia!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
@@ -205,18 +205,18 @@ export default function LocationPage({ locale }: LocationPageProps) {
       </section>
 
       {/* Transportation */}
-      <section className="py-16 bg-charcoal-900 text-white">
+      <section className="py-16 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {transportation.map((trans, index) => (
               <div key={index} className="flex items-center gap-4">
                 <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center">
-                  <trans.icon className="w-6 h-6 text-gold-400" />
+                  <trans.icon className="w-6 h-6 text-brass-400" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">{trans.name}</h3>
-                  <p className="text-charcoal-300 text-base font-medium">{trans.distance} • {trans.time}</p>
-                  <p className="text-charcoal-400 text-sm">{trans.details}</p>
+                  <p className="text-forest-300 text-base font-medium">{trans.distance} • {trans.time}</p>
+                  <p className="text-forest-400 text-sm">{trans.details}</p>
                 </div>
               </div>
             ))}
@@ -225,12 +225,12 @@ export default function LocationPage({ locale }: LocationPageProps) {
       </section>
 
       {/* Nearby Attractions */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Explore</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
             <h2 className="section-title mt-4">{t('location.nearby.title')}</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -247,15 +247,15 @@ export default function LocationPage({ locale }: LocationPageProps) {
                     alt={attraction.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute top-4 right-4 bg-white/90 text-charcoal-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
+                  <div className="absolute top-4 right-4 bg-white/90 text-forest-900 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">
                     <MapPin size={14} />
                     {attraction.distance}
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-lg font-semibold text-charcoal-900 mb-1">{attraction.name}</h3>
-                  <p className="text-sm text-charcoal-600 mb-2">{attraction.desc}</p>
-                  <div className="flex items-center gap-2 text-sm text-charcoal-500">
+                  <h3 className="text-lg font-semibold text-forest-900 mb-1">{attraction.name}</h3>
+                  <p className="text-sm text-forest-600 mb-2">{attraction.desc}</p>
+                  <div className="flex items-center gap-2 text-sm text-forest-500">
                     <Clock size={14} />
                     <span>{attraction.time}</span>
                   </div>
@@ -267,23 +267,23 @@ export default function LocationPage({ locale }: LocationPageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-gradient-to-br from-charcoal-800 to-charcoal-950 text-white">
+      <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl font-light mb-6">
-              Need <span className="text-gold-400">Transfer Service</span>?
+              Need <span className="text-brass-400">Transfer Service</span>?
             </h2>
-            <p className="text-charcoal-200 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-forest-200 text-lg mb-10 max-w-2xl mx-auto">
               We offer airport transfers and private chauffeur services. Contact us to arrange your transportation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-luxury px-12 py-6 text-lg">
+                <Button className="btn-telegraph px-12 py-6 text-lg">
                   Arrange Transfer
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-cream-50 hover:bg-white hover:text-forest-900">
                   <Phone className="mr-2 w-5 h-5" />
                   Call Us
                 </Button>

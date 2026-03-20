@@ -44,14 +44,14 @@ export default function PoolPage({ locale }: PoolPageProps) {
             alt="Infinity Pool"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal-900/60 via-charcoal-900/40 to-charcoal-900/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-forest-900/60 via-forest-900/40 to-forest-900/80" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <Waves className="w-16 h-16 text-white mb-6 mx-auto" />
+            <Waves className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Infinity Pool</h1>
-            <p className="text-xl text-white/90 max-w-2xl mx-auto font-light">
+            <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
               Where the pool meets the horizon, creating an endless vista of blue
             </p>
           </motion.div>
@@ -59,20 +59,20 @@ export default function PoolPage({ locale }: PoolPageProps) {
       </section>
 
       {/* Opening Hours */}
-      <section className="py-12 bg-charcoal-900 text-white border-y-4 border-charcoal-950">
+      <section className="py-12 bg-forest-900 text-cream-50 border-y-4 border-forest-950">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <div className="flex items-center gap-4">
-              <Clock className="w-8 h-8 text-gold-400" />
+              <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-white/60">Opening Hours</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
                 <div className="text-2xl font-bold">6:00 AM - 10:00 PM</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <Droplets className="w-8 h-8 text-gold-400" />
+              <Droplets className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-white/60">Water Temperature</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">Water Temperature</div>
                 <div className="text-2xl font-bold">28°C (82°F)</div>
               </div>
             </div>
@@ -85,23 +85,23 @@ export default function PoolPage({ locale }: PoolPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Signature Feature</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature Feature</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
                 Breathtaking Infinity Pool
               </h2>
-              <p className="text-charcoal-700 text-lg leading-relaxed mb-6">
+              <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our rooftop infinity pool is the crown jewel of Batumi Boutique Hotel. Stretching 25 meters with 
                 an infinity edge that seemingly merges with the Black Sea, this architectural masterpiece offers 
                 an unparalleled swimming experience.
               </p>
-              <p className="text-charcoal-600 leading-relaxed mb-8">
+              <p className="text-forest-600 leading-relaxed mb-8">
                 Floor-to-ceiling glass walls provide 180-degree panoramic views while you swim. The heated water 
                 maintains a perfect 28°C year-round, making it comfortable in any season. Underwater LED lighting 
                 creates a magical ambiance for evening swims.
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-architectural">Book Your Stay</Button>
+                  <Button className="btn-telegraph">Book Your Stay</Button>
                 </Link>
               </div>
             </motion.div>
@@ -115,7 +115,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
               <img
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80"
                 alt="Pool View"
-                className="w-full aspect-[4/3] object-cover border-4 border-charcoal-900"
+                className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
             </motion.div>
           </div>
@@ -123,10 +123,10 @@ export default function PoolPage({ locale }: PoolPageProps) {
       </section>
 
       {/* Features */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
             <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Pool Features</h2>
           </motion.div>
 
@@ -138,13 +138,13 @@ export default function PoolPage({ locale }: PoolPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-charcoal-900 p-8 text-center"
+                className="bg-white border-2 border-forest-900 p-8 text-center"
               >
-                <div className="w-16 h-16 bg-charcoal-900 mx-auto mb-6 flex items-center justify-center">
-                  <feature.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-forest-900 mx-auto mb-6 flex items-center justify-center">
+                  <feature.icon className="w-8 h-8 text-cream-50" />
                 </div>
-                <h3 className="font-bold text-charcoal-900 mb-3 uppercase tracking-wide">{feature.title}</h3>
-                <p className="text-sm text-charcoal-600 font-light">{feature.desc}</p>
+                <h3 className="font-bold text-forest-900 mb-3 uppercase tracking-wide">{feature.title}</h3>
+                <p className="text-sm text-forest-600 font-light">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -155,7 +155,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-charcoal-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
             <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Pool Gallery</h2>
           </motion.div>
 
@@ -167,7 +167,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="relative aspect-[4/3] overflow-hidden border-2 border-charcoal-900 group"
+                className="relative aspect-[4/3] overflow-hidden border-2 border-forest-900 group"
               >
                 <img
                   src={image}
@@ -181,24 +181,24 @@ export default function PoolPage({ locale }: PoolPageProps) {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Experience Our Infinity Pool
             </h2>
-            <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto font-light">
+            <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
               Complimentary access for all hotel guests. Day passes available for non-guests.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
-                <Button className="btn-architectural px-12 py-6 text-base">
+                <Button className="btn-telegraph px-12 py-6 text-base">
                   Explore All Wellness Facilities
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider">
+                <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   Call for Day Pass
                 </Button>
               </a>

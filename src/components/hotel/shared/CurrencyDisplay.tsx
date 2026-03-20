@@ -43,12 +43,12 @@ export default function CurrencyDisplay({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <span className={`font-semibold text-gold-600 ${sizeClasses[size]}`}>
+      <span className={`font-semibold text-brass-600 ${sizeClasses[size]}`}>
         ${usdAmount.toLocaleString()}
       </span>
       <button
         onClick={() => setShowGel(!showGel)}
-        className="text-xs text-charcoal-500 hover:text-gold-500 transition-colors underline decoration-dotted"
+        className="text-xs text-forest-500 hover:text-brass-500 transition-colors underline decoration-dotted"
       >
         {showGel ? `₾${gelAmount.toLocaleString()}` : '+ GEL'}
       </button>
