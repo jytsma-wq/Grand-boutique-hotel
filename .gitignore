@@ -124,3 +124,9 @@ test-report.xml
 circle.yml
 appveyor.yml
 ```
+```
+/.next/dev/cache/turbopack/0ca967b8
+/.next/dev/cache
+*.json
+*.meta
+*.meta

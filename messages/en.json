@@ -33,6 +33,10 @@
     "explore": "Explore Rooms"
   },
   "home": {
+    "hero": {
+      "title": "Discover Elegance",
+      "subtitle": "On the Shores of the Black Sea"
+    },
     "welcome": {
       "title": "Welcome to Paradise",
       "subtitle": "A New Era of Hospitality",
