@@ -77,7 +77,7 @@ module.exports = {
         "perNight": "per night",
         "viewDetails": "View Details",
         "bookNow": "Book Now",
-        "otaComparison": "Save {{savings}} by booking direct",
+        "otaComparison": "Save {savings} by booking direct",
         "amenities": {
             "title": "Amenities",
             "wifi": "High-Speed WiFi",
@@ -172,7 +172,7 @@ module.exports = {
         "treatments": {
             "title": "Spa Treatments",
             "bookNow": "Book Treatment",
-            "duration": "{{minutes}} min",
+            "duration": "{minutes} min",
             "benefits": "Benefits"
         },
         "membership": {
@@ -201,7 +201,7 @@ module.exports = {
         "description": "Host your next corporate event, conference, or celebration in our versatile event spaces, equipped with state-of-the-art technology and supported by our dedicated events team.",
         "venues": {
             "title": "Our Venues",
-            "capacity": "Capacity: {{count}} guests"
+            "capacity": "Capacity: {count} guests"
         },
         "packages": {
             "title": "Event Packages",
@@ -220,7 +220,7 @@ module.exports = {
     "experiences": {
         "title": "Things To Do",
         "subtitle": "Discover Batumi and Beyond",
-        "distance": "{{km}} km from hotel",
+        "distance": "{km} km from hotel",
         "learnMore": "Learn More"
     },
     "gallery": {

@@ -73,7 +73,7 @@ module.exports = {
         "perNight": "gecelik",
         "viewDetails": "Detayları Gör",
         "bookNow": "Rezervasyon Yap",
-        "otaComparison": "Doğrudan rezervasyonla {{savings}} tasarruf edin",
+        "otaComparison": "Doğrudan rezervasyonla {savings} tasarruf edin",
         "amenities": {
             "title": "Olanaklar",
             "wifi": "Yüksek Hızlı WiFi",
@@ -168,7 +168,7 @@ module.exports = {
         "treatments": {
             "title": "Spa Uygulamaları",
             "bookNow": "Uygulama Rezervasyonu",
-            "duration": "{{minutes}} dk",
+            "duration": "{minutes} dk",
             "benefits": "Faydaları"
         },
         "membership": {
@@ -197,7 +197,7 @@ module.exports = {
         "description": "Bir sonraki kurumsal etkinliğinizi, konferansınızı veya kutlamanızı en son teknolojiyle donatılmış çok amaçlı mekanlarımızda ve özel etkinlik ekibimizin desteğiyle gerçekleştirin.",
         "venues": {
             "title": "Mekanlarımız",
-            "capacity": "Kapasite: {{count}} misafir"
+            "capacity": "Kapasite: {count} misafir"
         },
         "packages": {
             "title": "Etkinlik Paketleri",
@@ -216,7 +216,7 @@ module.exports = {
     "experiences": {
         "title": "Gezilecek Yerler",
         "subtitle": "Batumi ve çevresini keşfedin",
-        "distance": "Otelden {{km}} km",
+        "distance": "Otelden {km} km",
         "learnMore": "Daha Fazla Bilgi"
     },
     "gallery": {
