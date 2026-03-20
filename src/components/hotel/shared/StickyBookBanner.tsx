@@ -51,14 +51,14 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
         >
-          <div className="bg-charcoal-900 text-white px-4 py-3 shadow-2xl border-t border-charcoal-700">
+          <div className="bg-forest-900 text-cream-50 px-4 py-3 shadow-2xl border-t border-forest-700">
             <div className="flex items-center justify-between gap-4">
               {/* Benefits - scrollable on mobile */}
               <div className="flex-1 overflow-x-auto scrollbar-hide">
                 <div className="flex items-center gap-4 min-w-max">
                   {benefits.map((benefit, i) => (
-                    <div key={i} className="flex items-center gap-1.5 text-xs text-charcoal-200">
-                      <benefit.icon size={14} className="text-gold-400 flex-shrink-0" />
+                    <div key={i} className="flex items-center gap-1.5 text-xs text-forest-200">
+                      <benefit.icon size={14} className="text-brass-400 flex-shrink-0" />
                       <span>{benefit.text}</span>
                     </div>
                   ))}
@@ -67,7 +67,7 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
 
               {/* CTA Button */}
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-luxury px-6 py-2 text-sm whitespace-nowrap">
+                <Button className="btn-telegraph px-6 py-2 text-sm whitespace-nowrap">
                   {tNav('bookNow')}
                 </Button>
               </Link>
@@ -75,7 +75,7 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
               {/* Dismiss Button */}
               <button
                 onClick={handleDismiss}
-                className="p-1 text-charcoal-400 hover:text-white transition-colors"
+                className="p-1 text-forest-400 hover:text-cream-50 transition-colors"
               >
                 <X size={18} />
               </button>

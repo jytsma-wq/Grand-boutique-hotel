@@ -72,7 +72,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 to-transparent" />
                 
                 {/* Badge */}
-                <div className="absolute top-4 left-4 flex items-center gap-2 bg-gold-500 text-emerald-950 px-4 py-2 rounded-full text-sm font-semibold">
+                <div className="absolute top-4 left-4 flex items-center gap-2 bg-brass-500 text-emerald-950 px-4 py-2 rounded-full text-sm font-semibold">
                   <Gift className="w-4 h-4" />
                   Special Offer
                 </div>
@@ -91,7 +91,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link href={`/${locale}/booking`} onClick={closePopup} className="flex-1">
-                    <Button className="w-full btn-luxury">
+                    <Button className="w-full btn-telegraph">
                       <span>Book Now</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

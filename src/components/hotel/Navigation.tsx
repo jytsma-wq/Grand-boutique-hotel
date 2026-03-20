@@ -96,18 +96,18 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
   return (
     <>
       {/* Top Utility Bar - Contact + Location (Telegraph style) */}
-      <div className="hidden lg:block bg-charcoal-950 text-white/70 text-xs uppercase tracking-[0.15em] z-[70] relative">
+      <div className="hidden lg:block bg-forest-900 text-white/70 text-xs uppercase tracking-[0.15em] z-[70] relative">
         <div className="container mx-auto px-8 flex items-center justify-between h-9">
           <div className="flex items-center gap-6">
-            <Link href={`/${locale}/contact`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Link href={`/${locale}/contact`} className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
               <Mail size={12} />
               <span>{t('contact')}</span>
             </Link>
-            <Link href={`/${locale}/location`} className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <Link href={`/${locale}/location`} className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
               <MapPin size={12} />
               <span>{t('location')}</span>
             </Link>
-            <a href="tel:+995422000000" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:+995422000000" className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
               <Phone size={12} />
               <span>+995 422 00 00 00</span>
             </a>
@@ -117,7 +117,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
           <div className="relative" ref={langRef}>
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-2 hover:text-white transition-colors"
+              className="flex items-center gap-2 hover:text-brass-400 transition-colors"
             >
               <img src={flagImages[locale]} alt="" className="w-7 h-5 object-cover border border-white/20" />
               <span>{localeNames[locale]}</span>
@@ -130,7 +130,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-full mt-1 bg-charcoal-900 border border-white/10 shadow-xl min-w-[160px] z-[120]"
+                  className="absolute right-0 top-full mt-1 bg-forest-800 border border-white/10 shadow-xl min-w-[160px] z-[120]"
                 >
                   {locales.map((loc) => (
                     <button
@@ -157,16 +157,16 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
         animate={{ y: 0 }}
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'top-0 bg-white/95 backdrop-blur-sm shadow-lg border-b-2 border-charcoal-900'
-            : 'lg:top-9 top-0 bg-charcoal-900/80 backdrop-blur-sm'
+            ? 'top-0 bg-white/95 backdrop-blur-sm shadow-lg border-b border-forest-900'
+            : 'lg:top-9 top-0 bg-forest-900/80 backdrop-blur-sm'
         }`}
       >
         <div className="container mx-auto px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <Link href={`/${locale}`} className="flex items-center">
-              <div className={`font-bold text-2xl tracking-[0.2em] uppercase ${
-                isScrolled ? 'text-charcoal-900' : 'text-white'
+              <div className={`font-normal text-2xl tracking-[0.2em] uppercase ${
+                isScrolled ? 'text-forest-900' : 'text-white'
               }`}>
                 BOUTIQUE HOTEL
               </div>
@@ -187,7 +187,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                       pathname.includes(link.href)
                         ? 'opacity-100'
                         : 'opacity-70 hover:opacity-100'
-                    } ${isScrolled ? 'text-charcoal-900' : 'text-white'}`}
+                    } ${isScrolled ? 'text-forest-900' : 'text-white'}`}
                   >
                     {link.label}
                     {link.children && <ChevronDown size={10} className="ml-0.5" />}
@@ -201,7 +201,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full bg-charcoal-900 border border-white/10 shadow-xl min-w-[180px] z-50"
+                        className="absolute left-0 top-full bg-forest-900 border border-white/10 shadow-xl min-w-[180px] z-50"
                       >
                         {link.children.map((child) => (
                           <Link
@@ -227,7 +227,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button className="btn-architectural hidden sm:flex px-6 py-2 text-sm uppercase tracking-[0.15em]">
+                <Button className="btn-telegraph hidden sm:flex px-6 py-2 text-sm uppercase tracking-[0.15em]">
                   <span>{t('bookNow')}</span>
                 </Button>
               </a>
@@ -235,7 +235,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`xl:hidden p-2 transition-colors ${isScrolled ? 'text-charcoal-900' : 'text-white'}`}
+                className={`xl:hidden p-2 transition-colors ${isScrolled ? 'text-forest-900' : 'text-white'}`}
               >
                 {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
               </button>
@@ -251,7 +251,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-charcoal-900 pt-16 px-6 xl:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-forest-900 pt-16 px-6 xl:hidden overflow-y-auto"
           >
             <nav className="flex flex-col gap-0">
               {/* Contact + Location at top of mobile menu */}
@@ -259,7 +259,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 <Link
                   href={`/${locale}/contact`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-white uppercase tracking-wider"
+                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-brass-400 uppercase tracking-wider"
                 >
                   <Mail size={14} />
                   {t('contact')}
@@ -267,7 +267,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 <Link
                   href={`/${locale}/location`}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-white uppercase tracking-wider"
+                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-brass-400 uppercase tracking-wider"
                 >
                   <MapPin size={14} />
                   {t('location')}
@@ -284,13 +284,13 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                     {link.label}
                   </Link>
                   {link.children && (
-                    <div className="pl-6 bg-charcoal-950/50">
+                    <div className="pl-6 bg-forest-950/50">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={`/${locale}${child.href}`}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-3 text-sm text-white/60 border-b border-white/5 hover:text-white transition-colors uppercase tracking-[0.12em] font-light"
+                          className="block py-3 text-sm text-white/60 border-b border-white/5 hover:text-brass-400 transition-colors uppercase tracking-[0.12em] font-light"
                         >
                           {child.label}
                         </Link>
@@ -307,7 +307,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   rel="noopener noreferrer"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  <Button className="btn-architectural w-full">
+                  <Button className="btn-telegraph w-full">
                     <span>{t('bookNow')}</span>
                   </Button>
                 </a>

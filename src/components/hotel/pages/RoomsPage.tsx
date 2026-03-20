@@ -183,11 +183,11 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-gold-400 text-sm tracking-widest uppercase">Accommodations</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">Accommodations</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">
               Rooms & Suites
             </h1>
-            <div className="gold-line" />
+            <div className="brass-line" />
             <p className="text-xl text-white/80 max-w-2xl">
               Each room a sanctuary of modern elegance, designed for the discerning traveler
             </p>
@@ -196,10 +196,10 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* OTA Killer Banner */}
-      <section className="bg-charcoal-900 text-white py-4">
+      <section className="bg-forest-900 text-white py-4">
         <div className="container mx-auto px-6 text-center">
           <p className="text-sm">
-            <span className="text-gold-400 font-semibold">BEST PRICE GUARANTEE:</span>{' '}
+            <span className="text-brass-400 font-semibold">BEST PRICE GUARANTEE:</span>{' '}
             Book direct and save up to 20% compared to OTAs. Plus enjoy exclusive benefits!
           </p>
         </div>
@@ -241,32 +241,32 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-charcoal-900 mb-2">{room.name}</h3>
-                    <p className="text-charcoal-600 text-sm mb-4 line-clamp-2">{room.shortDescription}</p>
+                    <h3 className="text-xl font-semibold text-forest-900 mb-2">{room.name}</h3>
+                    <p className="text-forest-600 text-sm mb-4 line-clamp-2">{room.shortDescription}</p>
                     
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {room.features.slice(0, 3).map((feature, i) => (
-                        <span key={i} className="text-xs bg-charcoal-50 text-charcoal-700 px-2 py-1 rounded-full">
+                        <span key={i} className="text-xs bg-forest-50 text-forest-700 px-2 py-1 rounded-full">
                           {feature}
                         </span>
                       ))}
                     </div>
 
                     {/* Price Comparison */}
-                    <div className="border-t border-charcoal-100 pt-4 mt-4">
+                    <div className="border-t border-forest-100 pt-4 mt-4">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm text-charcoal-500">OTA Price:</span>
-                        <span className="text-sm line-through text-charcoal-400">${room.otaPrice}</span>
+                        <span className="text-sm text-forest-500">OTA Price:</span>
+                        <span className="text-sm line-through text-forest-400">${room.otaPrice}</span>
                       </div>
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm font-medium text-charcoal-700">Direct Price:</span>
+                        <span className="text-sm font-medium text-forest-700">Direct Price:</span>
                         <div>
-                          <span className="text-xl font-bold text-gold-600">${room.priceUsd}</span>
-                          <span className="text-sm text-charcoal-500 ml-1">/ {room.priceGel} ₾</span>
+                          <span className="text-xl font-bold text-brass-600">${room.priceUsd}</span>
+                          <span className="text-sm text-forest-500 ml-1">/ {room.priceGel} ₾</span>
                         </div>
                       </div>
-                      <div className="bg-charcoal-100 text-charcoal-700 text-center text-sm py-2 rounded-lg">
+                      <div className="bg-forest-100 text-forest-700 text-center text-sm py-2 rounded-lg">
                         💰 Save ${room.otaPrice - room.priceUsd} by booking direct!
                       </div>
                     </div>
@@ -274,12 +274,12 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                     {/* CTA */}
                     <div className="flex gap-3 mt-4">
                       <Link href={`/${locale}/rooms/${room.slug}`} className="flex-1">
-                        <Button variant="outline" className="w-full border-charcoal-200 text-charcoal-700 hover:bg-charcoal-50">
+                        <Button variant="outline" className="w-full border-forest-200 text-forest-700 hover:bg-forest-50">
                           View Details
                         </Button>
                       </Link>
                       <Link href={`/${locale}/booking?room=${room.slug}`} className="flex-1">
-                        <Button className="w-full btn-luxury py-2">
+                        <Button className="w-full btn-telegraph py-2">
                           <span>Book Now</span>
                         </Button>
                       </Link>
@@ -293,12 +293,12 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* Amenities Overview */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">In Every Room</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">In Every Room</span>
             <h2 className="section-title mt-4">Room Amenities</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -319,7 +319,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center text-white">
                   {amenity.icon}
                 </div>
-                <span className="text-sm text-charcoal-700">{amenity.label}</span>
+                <span className="text-sm text-forest-700">{amenity.label}</span>
               </motion.div>
             ))}
           </div>
@@ -327,13 +327,13 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* Book Direct Benefits */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Book Direct, <span className="text-gold-400">Save More</span>
+              Book Direct, <span className="text-brass-400">Save More</span>
             </h2>
-            <p className="text-charcoal-200 text-lg mb-10">
+            <p className="text-forest-200 text-lg mb-10">
               When you book directly through our website, you enjoy exclusive benefits not available anywhere else.
             </p>
             
@@ -346,15 +346,15 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                 { title: 'Late Check-out', desc: 'Until 2 PM on request' },
                 { title: 'Spa Discount', desc: '20% off all treatments' },
               ].map((benefit, i) => (
-                <div key={i} className="bg-charcoal-800/50 rounded-xl p-6">
-                  <h4 className="text-gold-400 font-semibold mb-2">{benefit.title}</h4>
-                  <p className="text-sm text-charcoal-200">{benefit.desc}</p>
+                <div key={i} className="bg-forest-800/50 rounded-xl p-6">
+                  <h4 className="text-brass-400 font-semibold mb-2">{benefit.title}</h4>
+                  <p className="text-sm text-forest-200">{benefit.desc}</p>
                 </div>
               ))}
             </div>
 
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-luxury mt-10 px-12 py-6 text-lg">
+              <Button className="btn-telegraph mt-10 px-12 py-6 text-lg">
                 <span>Book Your Stay</span>
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

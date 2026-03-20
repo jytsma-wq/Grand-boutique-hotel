@@ -109,14 +109,14 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
           {/* CTA Buttons - Brutalist */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-luxury px-12 py-6 text-base">
+              <Button className="btn-telegraph px-12 py-6 text-base">
                 <span>{t('cta')}</span>
               </Button>
             </Link>
             <Link href={`/${locale}/rooms`}>
               <Button 
                 variant="outline" 
-                className="px-12 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-charcoal-900 transition-all uppercase tracking-wider"
+                className="px-12 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider"
               >
                 {t('explore')}
               </Button>
@@ -172,7 +172,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
         transition={{ delay: 1 }}
         className="absolute top-1/2 right-0 -translate-y-1/2 hidden lg:block"
       >
-        <div className="bg-charcoal-900 px-8 py-6 border-l-4 border-white">
+        <div className="bg-forest-900 px-8 py-6 border-l-4 border-white">
           <div className="text-left">
             <div className="text-white text-xs tracking-[0.3em] uppercase mb-2 font-light">Guaranteed</div>
             <div className="text-white font-bold text-lg uppercase tracking-tight">Best Price</div>

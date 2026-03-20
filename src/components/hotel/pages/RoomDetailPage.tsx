@@ -190,9 +190,9 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
     return (
       <main className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-light text-charcoal-900 mb-4">Room Not Found</h1>
+          <h1 className="text-4xl font-light text-forest-900 mb-4">Room Not Found</h1>
           <Link href={`/${locale}/rooms`}>
-            <Button className="btn-luxury">Back to Rooms</Button>
+            <Button className="btn-telegraph">Back to Rooms</Button>
           </Link>
         </div>
       </main>
@@ -209,12 +209,12 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
             alt={room.name}
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-charcoal-950/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
         </div>
         
         <div className="absolute top-6 left-6 z-10">
           <Link href={`/${locale}/rooms`}>
-            <Button variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+            <Button variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
               <ArrowLeft className="w-4 h-4 mr-2" />
               All Rooms
             </Button>
@@ -222,10 +222,10 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
         </div>
 
         <div className="absolute top-6 right-6 z-10 flex gap-2">
-          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
             <Heart className="w-4 h-4" />
           </Button>
-          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
             <Share2 className="w-4 h-4" />
           </Button>
         </div>
@@ -238,41 +238,41 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
               transition={{ duration: 0.8 }}
             >
               <div className="flex items-center gap-3 mb-4">
-                <Badge className="bg-gold-500 text-charcoal-950">{room.views}</Badge>
+                <Badge className="bg-brass-500 text-forest-950">{room.views}</Badge>
                 <Badge variant="outline" className="border-white/30 text-white">{room.size}</Badge>
               </div>
               <h1 className="text-5xl md:text-7xl font-light mb-4">{room.name}</h1>
-              <p className="text-xl text-charcoal-200 max-w-2xl">{room.description}</p>
+              <p className="text-xl text-forest-200 max-w-2xl">{room.description}</p>
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Quick Info Bar */}
-      <section className="bg-charcoal-900 text-white py-6">
+      <section className="bg-forest-900 text-white py-6">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2">
-                <Users size={20} className="text-gold-400" />
+                <Users size={20} className="text-brass-400" />
                 <span>{room.guests} Guests</span>
               </div>
               <div className="flex items-center gap-2">
-                <Maximize size={20} className="text-gold-400" />
+                <Maximize size={20} className="text-brass-400" />
                 <span>{room.size}</span>
               </div>
               <div className="flex items-center gap-2">
-                <BedDouble size={20} className="text-gold-400" />
+                <BedDouble size={20} className="text-brass-400" />
                 <span>{room.bed}</span>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-2xl font-bold">
                 <CurrencyDisplay usdAmount={room.price} size="lg" />
-                <span className="text-charcoal-300 text-sm font-normal ml-2">/night</span>
+                <span className="text-forest-300 text-sm font-normal ml-2">/night</span>
               </div>
               <Link href={`/${locale}/booking?room=${room.id}`}>
-                <Button className="btn-luxury">
+                <Button className="btn-telegraph">
                   <Calendar className="w-4 h-4 mr-2" />
                   Book Now
                 </Button>
@@ -290,13 +290,13 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <motion.div {...fadeInUp}>
-                <h2 className="text-2xl font-semibold text-charcoal-900 mb-4">About This Room</h2>
-                <p className="text-charcoal-700 leading-relaxed">{room.longDescription}</p>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">About This Room</h2>
+                <p className="text-forest-700 leading-relaxed">{room.longDescription}</p>
               </motion.div>
 
               {/* Gallery */}
               <motion.div {...fadeInUp}>
-                <h2 className="text-2xl font-semibold text-charcoal-900 mb-4">Gallery</h2>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Gallery</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.images.map((img, index) => (
                     <div key={index} className="aspect-[4/3] rounded-xl overflow-hidden">
@@ -312,7 +312,7 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
 
               {/* Amenities */}
               <motion.div {...fadeInUp}>
-                <h2 className="text-2xl font-semibold text-charcoal-900 mb-4">Amenities</h2>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Amenities</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.amenities.map((amenity) => {
                     const Icon = amenityIcons[amenity];
@@ -332,9 +332,9 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
                       jacuzzi: 'Private Jacuzzi'
                     };
                     return (
-                      <div key={amenity} className="flex items-center gap-3 p-3 bg-charcoal-50 rounded-lg">
-                        {Icon && <Icon size={20} className="text-charcoal-600" />}
-                        <span className="text-charcoal-700">{labels[amenity] || amenity}</span>
+                      <div key={amenity} className="flex items-center gap-3 p-3 bg-forest-50 rounded-lg">
+                        {Icon && <Icon size={20} className="text-forest-600" />}
+                        <span className="text-forest-700">{labels[amenity] || amenity}</span>
                       </div>
                     );
                   })}
@@ -343,11 +343,11 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
 
               {/* Features */}
               <motion.div {...fadeInUp}>
-                <h2 className="text-2xl font-semibold text-charcoal-900 mb-4">Special Features</h2>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Special Features</h2>
                 <ul className="space-y-3">
                   {room.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-3 text-charcoal-700">
-                      <div className="w-2 h-2 bg-gold-400 rounded-full" />
+                    <li key={index} className="flex items-center gap-3 text-forest-700">
+                      <div className="w-2 h-2 bg-brass-400 rounded-full" />
                       {feature}
                     </li>
                   ))}
@@ -366,51 +366,51 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
 
                 {/* Booking Card */}
                 <div className="glass-card rounded-2xl p-6">
-                  <h3 className="text-xl font-semibold text-charcoal-900 mb-4">Book This Room</h3>
+                  <h3 className="text-xl font-semibold text-forest-900 mb-4">Book This Room</h3>
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between">
-                      <span className="text-charcoal-600">Room Size:</span>
-                      <span className="font-medium text-charcoal-900">{room.size}</span>
+                      <span className="text-forest-600">Room Size:</span>
+                      <span className="font-medium text-forest-900">{room.size}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-charcoal-600">Max Guests:</span>
-                      <span className="font-medium text-charcoal-900">{room.guests}</span>
+                      <span className="text-forest-600">Max Guests:</span>
+                      <span className="font-medium text-forest-900">{room.guests}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-charcoal-600">Bed Type:</span>
-                      <span className="font-medium text-charcoal-900">{room.bed}</span>
+                      <span className="text-forest-600">Bed Type:</span>
+                      <span className="font-medium text-forest-900">{room.bed}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-charcoal-600">View:</span>
-                      <span className="font-medium text-charcoal-900">{room.views}</span>
+                      <span className="text-forest-600">View:</span>
+                      <span className="font-medium text-forest-900">{room.views}</span>
                     </div>
                   </div>
                   
                   <Link href={`/${locale}/booking?room=${room.id}`} className="block">
-                    <Button className="btn-luxury w-full">
+                    <Button className="btn-telegraph w-full">
                       Check Availability
                     </Button>
                   </Link>
                 </div>
 
                 {/* Direct Booking Benefits */}
-                <div className="bg-gradient-to-br from-charcoal-800 to-charcoal-950 rounded-2xl p-6 text-white">
-                  <h4 className="font-semibold text-gold-400 mb-3">Book Direct Benefits</h4>
-                  <ul className="space-y-2 text-sm text-charcoal-200">
+                <div className="bg-gradient-to-br from-forest-800 to-forest-950 rounded-2xl p-6 text-white">
+                  <h4 className="font-semibold text-brass-400 mb-3">Book Direct Benefits</h4>
+                  <ul className="space-y-2 text-sm text-forest-200">
                     <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gold-400 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
                       Complimentary breakfast
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gold-400 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
                       Early check-in & late check-out
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gold-400 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
                       Free room upgrade (when available)
                     </li>
                     <li className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gold-400 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
                       10% spa discount
                     </li>
                   </ul>
@@ -422,9 +422,9 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
       </section>
 
       {/* Other Rooms */}
-      <section className="py-16 bg-charcoal-50">
+      <section className="py-16 bg-forest-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl font-semibold text-charcoal-900 mb-8">Explore Other Rooms</h2>
+          <h2 className="text-2xl font-semibold text-forest-900 mb-8">Explore Other Rooms</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {Object.values(roomsData)
               .filter(r => r.id !== room.id)
@@ -440,10 +440,10 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-charcoal-900">{otherRoom.name}</h3>
+                      <h3 className="font-semibold text-forest-900">{otherRoom.name}</h3>
                       <div className="flex justify-between items-center mt-2">
-                        <span className="text-sm text-charcoal-600">{otherRoom.size}</span>
-                        <span className="text-gold-600 font-semibold">${otherRoom.price}/night</span>
+                        <span className="text-sm text-forest-600">{otherRoom.size}</span>
+                        <span className="text-brass-600 font-semibold">${otherRoom.price}/night</span>
                       </div>
                     </div>
                   </div>

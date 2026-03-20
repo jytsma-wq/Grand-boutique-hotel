@@ -1,6 +1,5 @@
-/* Font imports - Brutalist Architecture */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* Font imports - Telegraph Hotel Style */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap');
@@ -10,147 +9,152 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Brutalist Architecture - Deep Luxury Palette */
+/* Telegraph Hotel - Luxury Forest Green & Brass Palette */
 :root {
-  /* Base Colors - No rounded corners */
+  /* Base Colors - Asymmetric luxury */
   --radius: 0rem;
   
-  /* Charcoal & Concrete */
-  --charcoal-50: oklch(0.95 0.005 240);
-  --charcoal-100: oklch(0.88 0.008 240);
-  --charcoal-200: oklch(0.75 0.01 240);
-  --charcoal-300: oklch(0.60 0.012 240);
-  --charcoal-400: oklch(0.45 0.015 240);
-  --charcoal-500: oklch(0.35 0.015 240);
-  --charcoal-600: oklch(0.28 0.012 240);
-  --charcoal-700: oklch(0.22 0.01 240);
-  --charcoal-800: oklch(0.16 0.008 240);
-  --charcoal-900: oklch(0.12 0.005 240);
-  --charcoal-950: oklch(0.08 0.003 240);
+  /* Forest Green Scale - Primary brand color from telegraphhotel.com */
+  --forest-50: oklch(0.96 0.01 145);
+  --forest-100: oklch(0.88 0.02 145);
+  --forest-200: oklch(0.78 0.035 145);
+  --forest-300: oklch(0.65 0.05 145);
+  --forest-400: oklch(0.52 0.065 145);
+  --forest-500: oklch(0.40 0.07 145);
+  --forest-600: oklch(0.32 0.065 145);
+  --forest-700: oklch(0.26 0.055 145);
+  --forest-800: oklch(0.20 0.045 145);
+  --forest-900: oklch(0.15 0.035 145);
+  --forest-950: oklch(0.10 0.025 145);
   
-  /* Brass & Copper Accent */
-  --brass-50: oklch(0.96 0.015 75);
-  --brass-100: oklch(0.90 0.025 75);
-  --brass-200: oklch(0.82 0.04 75);
-  --brass-300: oklch(0.72 0.055 75);
-  --brass-400: oklch(0.62 0.065 75);
-  --brass-500: oklch(0.55 0.07 75);
-  --brass-600: oklch(0.48 0.065 75);
-  --brass-700: oklch(0.40 0.055 75);
-  --brass-800: oklch(0.32 0.04 75);
-  --brass-900: oklch(0.25 0.025 75);
+  /* Brass/Gold Accent Scale - From telegraphhotel.com */
+  --brass-50: oklch(0.97 0.02 85);
+  --brass-100: oklch(0.92 0.035 85);
+  --brass-200: oklch(0.85 0.05 85);
+  --brass-300: oklch(0.76 0.065 85);
+  --brass-400: oklch(0.68 0.075 85);
+  --brass-500: oklch(0.60 0.08 85);
+  --brass-600: oklch(0.52 0.075 85);
+  --brass-700: oklch(0.44 0.065 85);
+  --brass-800: oklch(0.36 0.05 85);
+  --brass-900: oklch(0.28 0.035 85);
+  
+  /* Warm Off-White Backgrounds */
+  --cream-50: oklch(0.98 0.005 95);
+  --cream-100: oklch(0.95 0.008 95);
+  --cream-200: oklch(0.90 0.012 95);
   
   /* Theme Variables */
-  --background: oklch(0.98 0.005 240);
-  --foreground: oklch(0.12 0.005 240);
-  --card: oklch(0.95 0.005 240);
-  --card-foreground: oklch(0.12 0.005 240);
-  --popover: oklch(0.95 0.005 240);
-  --popover-foreground: oklch(0.12 0.005 240);
+  --background: oklch(0.98 0.005 95);
+  --foreground: oklch(0.13 0.01 145);
+  --card: oklch(0.98 0.005 95);
+  --card-foreground: oklch(0.13 0.01 145);
+  --popover: oklch(0.98 0.005 95);
+  --popover-foreground: oklch(0.13 0.01 145);
   
-  /* Primary: Deep Charcoal */
-  --primary: oklch(0.16 0.008 240);
-  --primary-foreground: oklch(0.98 0.005 240);
+  /* Primary: Deep Forest Green (#27331d equivalent) */
+  --primary: oklch(0.20 0.045 145);
+  --primary-foreground: oklch(0.98 0.005 95);
   
-  /* Secondary: Concrete */
-  --secondary: oklch(0.75 0.01 240);
-  --secondary-foreground: oklch(0.12 0.005 240);
+  /* Secondary: Lighter Forest */
+  --secondary: oklch(0.78 0.035 145);
+  --secondary-foreground: oklch(0.13 0.01 145);
   
-  /* Accent: Muted Brass */
-  --accent: oklch(0.55 0.07 75);
-  --accent-foreground: oklch(0.98 0.005 240);
+  /* Accent: Muted Brass (#baa363 equivalent) */
+  --accent: oklch(0.68 0.075 85);
+  --accent-foreground: oklch(0.13 0.01 145);
   
-  --muted: oklch(0.88 0.008 240);
-  --muted-foreground: oklch(0.45 0.015 240);
+  --muted: oklch(0.92 0.008 95);
+  --muted-foreground: oklch(0.45 0.02 145);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.28 0.012 240);
-  --input: oklch(0.88 0.008 240);
-  --ring: oklch(0.28 0.012 240);
+  --border: oklch(0.85 0.012 145);
+  --input: oklch(0.92 0.008 95);
+  --ring: oklch(0.60 0.08 85);
   
   /* Chart Colors */
-  --chart-1: oklch(0.16 0.008 240);
-  --chart-2: oklch(0.55 0.07 75);
-  --chart-3: oklch(0.35 0.015 240);
-  --chart-4: oklch(0.62 0.065 75);
-  --chart-5: oklch(0.22 0.01 240);
+  --chart-1: oklch(0.20 0.045 145);
+  --chart-2: oklch(0.60 0.08 85);
+  --chart-3: oklch(0.40 0.07 145);
+  --chart-4: oklch(0.68 0.075 85);
+  --chart-5: oklch(0.26 0.055 145);
   
   /* Sidebar */
-  --sidebar: oklch(0.16 0.008 240);
-  --sidebar-foreground: oklch(0.95 0.005 240);
-  --sidebar-primary: oklch(0.55 0.07 75);
-  --sidebar-primary-foreground: oklch(0.12 0.005 240);
-  --sidebar-accent: oklch(0.28 0.012 240);
-  --sidebar-accent-foreground: oklch(0.95 0.005 240);
-  --sidebar-border: oklch(0.22 0.01 240);
-  --sidebar-ring: oklch(0.55 0.07 75);
+  --sidebar: oklch(0.20 0.045 145);
+  --sidebar-foreground: oklch(0.98 0.005 95);
+  --sidebar-primary: oklch(0.60 0.08 85);
+  --sidebar-primary-foreground: oklch(0.13 0.01 145);
+  --sidebar-accent: oklch(0.32 0.065 145);
+  --sidebar-accent-foreground: oklch(0.98 0.005 95);
+  --sidebar-border: oklch(0.26 0.055 145);
+  --sidebar-ring: oklch(0.60 0.08 85);
   
-  /* Brutalist Effects - No glassmorphism */
-  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.08 0.003 240 / 70%));
+  /* Elegant Gradients */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.15 0.035 145 / 75%));
 }
 
 .dark {
-  --background: oklch(0.08 0.003 240);
-  --foreground: oklch(0.95 0.005 240);
-  --card: oklch(0.12 0.005 240);
-  --card-foreground: oklch(0.95 0.005 240);
-  --popover: oklch(0.12 0.005 240);
-  --popover-foreground: oklch(0.95 0.005 240);
+  --background: oklch(0.10 0.025 145);
+  --foreground: oklch(0.95 0.005 95);
+  --card: oklch(0.13 0.035 145);
+  --card-foreground: oklch(0.95 0.005 95);
+  --popover: oklch(0.13 0.035 145);
+  --popover-foreground: oklch(0.95 0.005 95);
   
-  /* Primary: Lighter Charcoal for dark mode */
-  --primary: oklch(0.75 0.01 240);
-  --primary-foreground: oklch(0.08 0.003 240);
+  /* Primary: Lighter Forest for dark mode */
+  --primary: oklch(0.78 0.035 145);
+  --primary-foreground: oklch(0.10 0.025 145);
   
-  --secondary: oklch(0.22 0.01 240);
-  --secondary-foreground: oklch(0.95 0.005 240);
+  --secondary: oklch(0.26 0.055 145);
+  --secondary-foreground: oklch(0.95 0.005 95);
   
   /* Accent: Brighter Brass for dark mode */
-  --accent: oklch(0.62 0.065 75);
-  --accent-foreground: oklch(0.08 0.003 240);
+  --accent: oklch(0.76 0.065 85);
+  --accent-foreground: oklch(0.10 0.025 145);
   
-  --muted: oklch(0.22 0.01 240);
-  --muted-foreground: oklch(0.60 0.012 240);
+  --muted: oklch(0.26 0.055 145);
+  --muted-foreground: oklch(0.65 0.05 145);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.28 0.012 240);
-  --input: oklch(0.22 0.01 240);
-  --ring: oklch(0.62 0.065 75);
+  --border: oklch(0.26 0.055 145);
+  --input: oklch(0.26 0.055 145);
+  --ring: oklch(0.76 0.065 85);
   
-  --chart-1: oklch(0.75 0.01 240);
-  --chart-2: oklch(0.62 0.065 75);
-  --chart-3: oklch(0.45 0.015 240);
-  --chart-4: oklch(0.55 0.07 75);
-  --chart-5: oklch(0.35 0.015 240);
+  --chart-1: oklch(0.78 0.035 145);
+  --chart-2: oklch(0.76 0.065 85);
+  --chart-3: oklch(0.52 0.065 145);
+  --chart-4: oklch(0.68 0.075 85);
+  --chart-5: oklch(0.40 0.07 145);
   
-  --sidebar: oklch(0.12 0.005 240);
-  --sidebar-foreground: oklch(0.95 0.005 240);
-  --sidebar-primary: oklch(0.62 0.065 75);
-  --sidebar-primary-foreground: oklch(0.08 0.003 240);
-  --sidebar-accent: oklch(0.28 0.012 240);
-  --sidebar-accent-foreground: oklch(0.95 0.005 240);
-  --sidebar-border: oklch(0.22 0.01 240);
-  --sidebar-ring: oklch(0.62 0.065 75);
+  --sidebar: oklch(0.13 0.035 145);
+  --sidebar-foreground: oklch(0.95 0.005 95);
+  --sidebar-primary: oklch(0.76 0.065 85);
+  --sidebar-primary-foreground: oklch(0.10 0.025 145);
+  --sidebar-accent: oklch(0.32 0.065 145);
+  --sidebar-accent-foreground: oklch(0.95 0.005 95);
+  --sidebar-border: oklch(0.26 0.055 145);
+  --sidebar-ring: oklch(0.76 0.065 85);
   
-  /* Dark mode - No glassmorphism */
-  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.08 0.003 240 / 85%));
+  /* Dark mode - Elegant gradient */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.10 0.025 145 / 85%));
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: 'Space Grotesk', var(--font-geist-sans);
+  --font-sans: 'DM Sans', var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   
-  /* Charcoal Scale */
-  --color-charcoal-50: var(--charcoal-50);
-  --color-charcoal-100: var(--charcoal-100);
-  --color-charcoal-200: var(--charcoal-200);
-  --color-charcoal-300: var(--charcoal-300);
-  --color-charcoal-400: var(--charcoal-400);
-  --color-charcoal-500: var(--charcoal-500);
-  --color-charcoal-600: var(--charcoal-600);
-  --color-charcoal-700: var(--charcoal-700);
-  --color-charcoal-800: var(--charcoal-800);
-  --color-charcoal-900: var(--charcoal-900);
-  --color-charcoal-950: var(--charcoal-950);
+  /* Forest Green Scale */
+  --color-forest-50: var(--forest-50);
+  --color-forest-100: var(--forest-100);
+  --color-forest-200: var(--forest-200);
+  --color-forest-300: var(--forest-300);
+  --color-forest-400: var(--forest-400);
+  --color-forest-500: var(--forest-500);
+  --color-forest-600: var(--forest-600);
+  --color-forest-700: var(--forest-700);
+  --color-forest-800: var(--forest-800);
+  --color-forest-900: var(--forest-900);
+  --color-forest-950: var(--forest-950);
   
   /* Brass Scale */
   --color-brass-50: var(--brass-50);
@@ -163,6 +167,11 @@
   --color-brass-700: var(--brass-700);
   --color-brass-800: var(--brass-800);
   --color-brass-900: var(--brass-900);
+  
+  /* Cream Scale */
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
   
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -224,131 +233,185 @@
 }
 
 @layer components {
-  /* Hero Gradient Overlay - Brutalist */
+  /* Hero Gradient Overlay - Telegraph style */
   .hero-gradient {
     background: var(--gradient-hero);
   }
   
-  /* Architectural Button - Ultra-luxury, solid, sharp edges */
-  .btn-architectural {
-    @apply px-10 py-5 font-medium tracking-[0.25em] uppercase;
-    background: var(--charcoal-900);
-    color: var(--charcoal-50);
+  /* Telegraph Button - Asymmetric border-radius (rounded left, sharp right) */
+  .btn-telegraph {
+    @apply px-10 py-5 font-medium tracking-[0.2em] uppercase;
+    background: var(--forest-900);
+    color: var(--cream-50);
     border: none;
-    transition: opacity 0.2s ease;
+    border-radius: 20px 0 0 20px;
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
   }
   
-  .btn-architectural:hover {
-    opacity: 0.85;
+  .btn-telegraph:hover {
+    background: var(--brass-600);
+    transform: translateX(4px);
   }
   
-  /* Architectural Button - Concrete variant */
-  .btn-architectural-concrete {
-    @apply px-10 py-5 font-medium tracking-[0.25em] uppercase;
-    background: var(--charcoal-700);
-    color: var(--charcoal-50);
+  /* Telegraph Button - Brass variant */
+  .btn-telegraph-brass {
+    @apply px-10 py-5 font-medium tracking-[0.2em] uppercase;
+    background: var(--brass-500);
+    color: var(--forest-900);
     border: none;
-    transition: opacity 0.2s ease;
+    border-radius: 20px 0 0 20px;
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
   }
   
-  .btn-architectural-concrete:hover {
-    opacity: 0.85;
+  .btn-telegraph-brass:hover {
+    background: var(--forest-700);
+    color: var(--cream-50);
+    transform: translateX(4px);
   }
   
-  /* Architectural Link - Pure typography with refined border interaction */
-  .link-architectural {
-    @apply inline-block font-medium tracking-[0.2em] uppercase;
-    color: var(--charcoal-900);
+  /* Telegraph Button - Outline variant */
+  .btn-telegraph-outline {
+    @apply px-10 py-5 font-medium tracking-[0.2em] uppercase bg-transparent;
+    border: 1px solid var(--forest-900);
+    border-radius: 20px 0 0 20px;
+    color: var(--forest-900);
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
+  }
+  
+  .btn-telegraph-outline:hover {
+    background: var(--forest-900);
+    color: var(--cream-50);
+    transform: translateX(4px);
+  }
+  
+  /* Telegraph Link - Elegant typography with brass underline */
+  .link-telegraph {
+    @apply inline-block font-medium tracking-[0.15em] uppercase;
+    color: var(--forest-900);
     border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    transition: all 0.5s cubic-bezier(.28,0,.23,1.01);
     padding-bottom: 2px;
   }
   
-  .link-architectural:hover {
-    border-bottom-color: var(--charcoal-900);
+  .link-telegraph:hover {
+    border-bottom-color: var(--brass-500);
+    color: var(--brass-600);
   }
   
-  /* Architectural Link - Light variant for dark backgrounds */
-  .link-architectural-light {
-    @apply inline-block font-medium tracking-[0.2em] uppercase;
-    color: var(--charcoal-50);
+  /* Telegraph Link - Light variant for dark backgrounds */
+  .link-telegraph-light {
+    @apply inline-block font-medium tracking-[0.15em] uppercase;
+    color: var(--cream-50);
     border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
+    transition: all 0.5s cubic-bezier(.28,0,.23,1.01);
     padding-bottom: 2px;
   }
   
-  .link-architectural-light:hover {
-    border-bottom-color: var(--charcoal-50);
+  .link-telegraph-light:hover {
+    border-bottom-color: var(--brass-400);
+    color: var(--brass-300);
   }
   
-  /* Legacy support - maps to new architectural button */
+  /* Legacy support - maps to telegraph button */
   .btn-luxury {
     @apply px-8 py-4 font-medium tracking-[0.2em] uppercase;
-    background: var(--charcoal-900);
-    color: var(--charcoal-50);
-    border: 2px solid var(--charcoal-900);
-    transition: all 0.2s ease;
+    background: var(--forest-900);
+    color: var(--cream-50);
+    border: 2px solid var(--forest-900);
+    border-radius: 20px 0 0 20px;
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
   }
   
   .btn-luxury:hover {
     background: transparent;
-    color: var(--charcoal-900);
+    color: var(--forest-900);
+    transform: translateX(4px);
   }
   
-  /* Section Title - Architectural */
+  /* Section Title - Telegraph style with negative letter-spacing */
   .section-title {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight uppercase;
-    color: var(--charcoal-900);
+    @apply text-4xl md:text-5xl lg:text-6xl font-normal uppercase;
+    color: var(--forest-900);
     letter-spacing: -0.02em;
   }
   
   .section-subtitle {
-    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto;
+    @apply text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-light;
   }
   
   /* Decorative Line - Brass */
-  .gold-line {
+  .brass-line {
     @apply w-20 h-0.5 mx-auto my-6;
     background: var(--brass-500);
   }
   
-  /* Card Hover Effect - Minimal */
+  /* Card Hover Effect - Minimal with smooth transition */
   .card-hover {
-    @apply transition-all duration-300;
+    @apply transition-all duration-[800ms] ease-[cubic-bezier(.28,0,.23,1.01)];
   }
   
   .card-hover:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px oklch(0 0 0 / 20%);
+    box-shadow: 0 12px 32px oklch(0.15 0.035 145 / 15%);
   }
   
-  /* Image Overlay - Deep charcoal */
+  /* Image Overlay - Forest green gradient */
   .image-overlay {
     @apply absolute inset-0;
-    background: linear-gradient(180deg, transparent 0%, oklch(0.08 0.003 240 / 70%) 100%);
+    background: linear-gradient(180deg, transparent 0%, var(--forest-900 / 70%) 100%);
   }
   
-  /* Custom Scrollbar - Brutalist */
+  /* Custom Scrollbar - Telegraph minimal */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: var(--charcoal-200);
+    background: var(--cream-100);
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--charcoal-700);
+    background: var(--brass-400);
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: var(--charcoal-900);
+    background: var(--forest-700);
   }
   
   /* Text Accent - Brass */
-  .text-gradient {
+  .text-accent {
     color: var(--brass-500);
+  }
+  
+  /* Telegraph heading styles */
+  .heading-display {
+    @apply text-5xl md:text-7xl lg:text-8xl font-normal uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  
+  .heading-large {
+    @apply text-3xl md:text-5xl lg:text-6xl font-normal uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  
+  .heading-medium {
+    @apply text-2xl md:text-3xl lg:text-4xl font-normal uppercase;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  
+  .heading-small {
+    @apply text-lg md:text-xl lg:text-2xl font-normal uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  
+  /* Telegraph detail text - small uppercase */
+  .text-detail {
+    @apply text-xs uppercase tracking-[0.2em] font-medium;
   }
 }
 

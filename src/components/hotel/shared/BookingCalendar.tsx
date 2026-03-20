@@ -44,7 +44,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
 
   return (
     <div className="glass-card rounded-2xl p-6">
-      <h3 className="text-xl font-semibold text-charcoal-900 mb-6">
+      <h3 className="text-xl font-semibold text-forest-900 mb-6">
         {type === 'spa' ? 'Book Spa Treatment' : 'Reserve a Table'}
       </h3>
 
@@ -54,7 +54,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           <div
             key={s}
             className={`flex-1 h-1 rounded-full ${
-              s <= step ? 'bg-gold-400' : 'bg-charcoal-100'
+              s <= step ? 'bg-brass-400' : 'bg-forest-100'
             }`}
           />
         ))}
@@ -66,7 +66,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
         >
-          <Label className="text-sm font-medium text-charcoal-700 mb-3 block">
+          <Label className="text-sm font-medium text-forest-700 mb-3 block">
             Select Date
           </Label>
           <Calendar
@@ -77,7 +77,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
               setStep(2);
             }}
             disabled={(date) => date < new Date()}
-            className="rounded-xl border border-charcoal-100"
+            className="rounded-xl border border-forest-100"
           />
         </motion.div>
       )}
@@ -90,7 +90,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           className="space-y-6"
         >
           <div>
-            <Label className="text-sm font-medium text-charcoal-700 mb-3 block flex items-center gap-2">
+            <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
               <Clock size={16} />
               Select Time
             </Label>
@@ -104,8 +104,8 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
                   }}
                   className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${
                     time === slot
-                      ? 'bg-charcoal-600 text-white'
-                      : 'bg-charcoal-50 text-charcoal-700 hover:bg-charcoal-100'
+                      ? 'bg-forest-600 text-cream-50'
+                      : 'bg-forest-50 text-forest-700 hover:bg-forest-100'
                   }`}
                 >
                   {slot}
@@ -116,7 +116,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           <Button
             variant="ghost"
             onClick={() => setStep(1)}
-            className="text-charcoal-600"
+            className="text-forest-600"
           >
             ← Back to date
           </Button>
@@ -131,7 +131,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           className="space-y-6"
         >
           <div>
-            <Label className="text-sm font-medium text-charcoal-700 mb-3 block flex items-center gap-2">
+            <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
               <Users size={16} />
               Number of {type === 'spa' ? 'Guests' : 'People'}
             </Label>
@@ -150,27 +150,27 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           </div>
 
           {/* Summary */}
-          <div className="bg-charcoal-50 rounded-xl p-4 space-y-2">
+          <div className="bg-forest-50 rounded-xl p-4 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-charcoal-600">Date:</span>
-              <span className="font-medium text-charcoal-900">
+              <span className="text-forest-600">Date:</span>
+              <span className="font-medium text-forest-900">
                 {date?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
               </span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-charcoal-600">Time:</span>
-              <span className="font-medium text-charcoal-900">{time}</span>
+              <span className="text-forest-600">Time:</span>
+              <span className="font-medium text-forest-900">{time}</span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-charcoal-600">
+              <span className="text-forest-600">
                 {type === 'spa' ? 'Guests:' : 'Party Size:'}
               </span>
-              <span className="font-medium text-charcoal-900">{guests}</span>
+              <span className="font-medium text-forest-900">{guests}</span>
             </div>
           </div>
 
           {/* Submit */}
-          <Button onClick={handleSubmit} className="btn-luxury w-full">
+          <Button onClick={handleSubmit} className="btn-telegraph w-full">
             <Phone className="w-4 h-4 mr-2" />
             Confirm via WhatsApp
           </Button>
@@ -178,7 +178,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           <Button
             variant="ghost"
             onClick={() => setStep(2)}
-            className="w-full text-charcoal-600"
+            className="w-full text-forest-600"
           >
             ← Back to time
           </Button>

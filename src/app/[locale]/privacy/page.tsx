@@ -2,25 +2,25 @@ import { useTranslations } from 'next-intl';
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="min-h-screen bg-charcoal-50 py-24 px-6 sm:px-12">
-      <div className="max-w-3xl mx-auto bg-white border-2 border-charcoal-900 p-8 sm:p-16 shadow-lg">
+    <div className="min-h-screen bg-forest-50 py-24 px-6 sm:px-12">
+      <div className="max-w-3xl mx-auto bg-white border-2 border-forest-900 p-8 sm:p-16 shadow-lg">
         
         {/* Header */}
         <div className="mb-16">
-          <h1 className="text-3xl sm:text-4xl font-bold text-charcoal-900 uppercase tracking-widest mb-4">
+          <h1 className="text-3xl sm:text-4xl font-bold text-forest-900 uppercase tracking-widest mb-4">
             Privacy Policy
           </h1>
-          <div className="w-16 h-1 bg-charcoal-900 mb-6"></div>
-          <p className="text-sm text-charcoal-500 uppercase tracking-wider font-medium">
+          <div className="w-16 h-1 bg-forest-900 mb-6"></div>
+          <p className="text-sm text-forest-500 uppercase tracking-wider font-medium">
             Effective Date: March 2026
           </p>
         </div>
 
         {/* Content */}
-        <div className="space-y-10 text-charcoal-800 font-light leading-relaxed">
+        <div className="space-y-10 text-forest-800 font-light leading-relaxed">
           
           <section>
-            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+            <h2 className="text-xl font-bold text-forest-900 uppercase tracking-wide mb-4">
               1. Information We Collect
             </h2>
             <p className="mb-4">
@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+            <h2 className="text-xl font-bold text-forest-900 uppercase tracking-wide mb-4">
               2. How We Use Your Information
             </h2>
             <p>
@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+            <h2 className="text-xl font-bold text-forest-900 uppercase tracking-wide mb-4">
               3. Information Sharing & Third Parties
             </h2>
             <p>
@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+            <h2 className="text-xl font-bold text-forest-900 uppercase tracking-wide mb-4">
               4. Data Security
             </h2>
             <p>
@@ -62,13 +62,13 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-charcoal-900 uppercase tracking-wide mb-4">
+            <h2 className="text-xl font-bold text-forest-900 uppercase tracking-wide mb-4">
               5. Contact Us
             </h2>
             <p>
               If you have any questions or concerns regarding this Privacy Policy or how your data is handled, please contact our management team:
             </p>
-            <div className="mt-4 p-4 bg-charcoal-50 border-l-4 border-charcoal-900">
+            <div className="mt-4 p-4 bg-forest-50 border-l-4 border-forest-900">
               <p>Email: privacy@batumiboutique.com</p>
               <p>Address: Rustaveli Avenue 123, Batumi, Adjara, Georgia 6000</p>
             </div>

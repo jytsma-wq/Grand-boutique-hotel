@@ -102,9 +102,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Welcome</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Welcome</span>
             <h2 className="section-title mt-4">{welcomeTitle}</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
             <p className="section-subtitle">{welcomeDescription}</p>
           </motion.div>
 
@@ -118,12 +118,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
               return (
                 <div
                   key={index}
-                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-charcoal-50/50 hover:bg-charcoal-100/50 transition-colors group"
+                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-forest-50/50 hover:bg-forest-100/50 transition-colors group"
                 >
-                  <div className="w-14 h-14 rounded-full gradient-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-14 h-14 rounded-full gradient-forest flex items-center justify-center group-hover:scale-110 transition-transform">
                     <IconComponent className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-sm font-medium text-charcoal-900 text-center">{amenity.label}</span>
+                  <span className="text-sm font-medium text-forest-900 text-center">{amenity.label}</span>
                 </div>
               );
             })}
@@ -132,12 +132,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
       </section>
 
       {/* Rooms Section */}
-      <section className="py-24 bg-charcoal-50">
+      <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Accommodations</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Accommodations</span>
             <h2 className="section-title mt-4">{tHome('rooms.title')}</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
             <p className="section-subtitle">{tHome('rooms.subtitle')}</p>
           </motion.div>
 
@@ -171,24 +171,24 @@ export default function HomePage({ locale, data }: HomePageProps) {
 
                     {/* Content */}
                     <div className="p-6">
-                      <h3 className="text-xl font-semibold text-charcoal-900 mb-2">{room.name}</h3>
-                      <div className="flex items-center gap-4 text-sm text-charcoal-600">
+                      <h3 className="text-xl font-semibold text-forest-900 mb-2">{room.name}</h3>
+                      <div className="flex items-center gap-4 text-sm text-forest-600">
                         <span>{room.size}</span>
                         <span>•</span>
                         <span>{room.guests} guests</span>
                       </div>
                       
                       {/* OTA Comparison */}
-                      <div className="mt-4 pt-4 border-t border-charcoal-100">
+                      <div className="mt-4 pt-4 border-t border-forest-100">
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-charcoal-600">OTA Price:</span>
-                          <span className="line-through text-charcoal-400">${room.price + 30}</span>
+                          <span className="text-forest-600">OTA Price:</span>
+                          <span className="line-through text-forest-400">${room.price + 30}</span>
                         </div>
                         <div className="flex items-center justify-between text-sm">
-                          <span className="text-charcoal-600">Direct Price:</span>
-                          <span className="text-gold-600 font-semibold">${room.price}</span>
+                          <span className="text-forest-600">Direct Price:</span>
+                          <span className="text-brass-600 font-semibold">${room.price}</span>
                         </div>
-                        <div className="mt-2 text-xs text-center text-charcoal-500 bg-charcoal-100 rounded-full py-1">
+                        <div className="mt-2 text-xs text-center text-forest-500 bg-forest-100 rounded-full py-1">
                           Save $30 by booking direct!
                         </div>
                       </div>
@@ -201,7 +201,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
 
           <div className="text-center mt-12">
             <Link href={`/${locale}/rooms`}>
-              <Button className="btn-luxury">
+              <Button className="btn-telegraph">
                 <span>{tHome('rooms.viewAll')}</span>
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -214,9 +214,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Culinary</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Culinary</span>
             <h2 className="section-title mt-4">{tHome('dining.title')}</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
             <p className="section-subtitle">{tHome('dining.subtitle')}</p>
           </motion.div>
 
@@ -233,13 +233,13 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 via-charcoal-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-5 h-5 text-gold-400 fill-gold-400" />
-                  <Star className="w-5 h-5 text-gold-400 fill-gold-400" />
-                  <Star className="w-5 h-5 text-gold-400 fill-gold-400" />
-                  <Star className="w-5 h-5 text-gold-400 fill-gold-400" />
+                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
+                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
+                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
+                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-2">
                   {tHome('dining.restaurant.name')}
@@ -248,7 +248,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   {tHome('dining.restaurant.description')}
                 </p>
                 <Link href={`/${locale}/restaurant`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
                     View Restaurant
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -269,7 +269,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 via-charcoal-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="text-2xl font-semibold text-white mb-2">
                   {tHome('dining.bar.name')}
@@ -278,7 +278,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   {tHome('dining.bar.description')}
                 </p>
                 <Link href={`/${locale}/bar`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
                     View Bar
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -290,15 +290,15 @@ export default function HomePage({ locale, data }: HomePageProps) {
       </section>
 
       {/* Wellness Section */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-gold-400 text-sm tracking-widest uppercase">Relaxation</span>
+              <span className="text-brass-400 text-sm tracking-widest uppercase">Relaxation</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
                 {tHome('wellness.title')}
               </h2>
-              <div className="gold-line" />
+              <div className="brass-line" />
               <p className="text-white/70 text-lg mb-8">
                 {tHome('wellness.description')}
               </p>
@@ -306,7 +306,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {['Infinity Pool', 'Finnish Sauna', 'Turkish Hammam', 'Fitness Center'].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-gold-400 rounded-full" />
+                    <div className="w-2 h-2 bg-brass-400 rounded-full" />
                     <span className="text-white/80">{item}</span>
                   </div>
                 ))}
@@ -314,12 +314,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
 
               <div className="flex gap-4">
                 <Link href={`/${locale}/wellness`}>
-                  <Button className="btn-luxury">
+                  <Button className="btn-telegraph">
                     <span>Explore Wellness</span>
                   </Button>
                 </Link>
                 <Link href={`/${locale}/wellness/spa`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
                     Book Spa Treatment
                   </Button>
                 </Link>
@@ -339,12 +339,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full gradient-gold flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-charcoal-900" />
+                  <div className="w-16 h-16 rounded-full gradient-brass flex items-center justify-center">
+                    <Sparkles className="w-8 h-8 text-forest-900" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-charcoal-900">50+</div>
-                    <div className="text-sm text-charcoal-600">Spa Treatments</div>
+                    <div className="text-2xl font-bold text-forest-900">50+</div>
+                    <div className="text-sm text-forest-600">Spa Treatments</div>
                   </div>
                 </div>
               </div>
@@ -357,9 +357,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-gold-600 text-sm tracking-widest uppercase">Explore</span>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
             <h2 className="section-title mt-4">{tHome('experiences.title')}</h2>
-            <div className="gold-line" />
+            <div className="brass-line" />
             <p className="section-subtitle">{tHome('experiences.subtitle')}</p>
           </motion.div>
 
@@ -380,9 +380,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/90 via-charcoal-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-2 text-gold-400 text-sm mb-2">
+                  <div className="flex items-center gap-2 text-brass-400 text-sm mb-2">
                     <MapPin size={14} />
                     <span>{exp.distance}</span>
                   </div>
@@ -394,7 +394,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
 
           <div className="text-center mt-12">
             <Link href={`/${locale}/experiences`}>
-              <Button className="btn-luxury">
+              <Button className="btn-telegraph">
                 <span>View All Experiences</span>
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
@@ -404,17 +404,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-charcoal-800 to-charcoal-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-white relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-charcoal-700/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-gold-500/20 rounded-full blur-3xl" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-forest-700/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brass-500/20 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Ready to Experience <span className="text-gold-400">True Luxury</span>?
+              Ready to Experience <span className="text-brass-400">True Luxury</span>?
             </h2>
             <p className="text-white/70 text-lg mb-10">
               Book direct and enjoy exclusive benefits: complimentary breakfast, 
@@ -422,12 +422,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-luxury px-12 py-6 text-lg">
+                <Button className="btn-telegraph px-12 py-6 text-lg">
                   <span>Book Your Stay</span>
                 </Button>
               </Link>
               <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-charcoal-900">
+                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-forest-900">
                   <span>Call Us: +995 422 00 00 00</span>
                 </Button>
               </a>
@@ -440,10 +440,10 @@ export default function HomePage({ locale, data }: HomePageProps) {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
-            <h3 className="text-2xl font-semibold text-charcoal-900 mb-4">
-              Follow Us <span className="text-gold-600">@batumiboutique</span>
+            <h3 className="text-2xl font-semibold text-forest-900 mb-4">
+              Follow Us <span className="text-brass-600">@batumiboutique</span>
             </h3>
-            <p className="text-charcoal-600 mb-8">Share your moments with #BatumiBoutique</p>
+            <p className="text-forest-600 mb-8">Share your moments with #BatumiBoutique</p>
             
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
               {[1, 2, 3, 4, 5, 6].map((i) => (

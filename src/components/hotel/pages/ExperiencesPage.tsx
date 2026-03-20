@@ -120,25 +120,25 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
           <div className="absolute inset-0 hero-gradient" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-gold-400 text-sm tracking-widest uppercase">Discover</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">Discover</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('experiences.title')}</h1>
-            <div className="gold-line" />
-            <p className="text-xl text-white/80 max-w-2xl mt-4">{t('experiences.subtitle')}</p>
+            <div className="brass-line" />
+            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('experiences.subtitle')}</p>
           </motion.div>
         </div>
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white border-b border-charcoal-100 sticky top-20 z-30">
+      <section className="py-8 bg-white border-b border-forest-100 sticky top-20 z-30">
         <div className="container mx-auto px-6">
           <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant="outline"
-                className="rounded-full px-6 border-charcoal-200 text-charcoal-700 hover:bg-charcoal-50"
+                className="rounded-full px-6 border-forest-200 text-forest-700 hover:bg-forest-50"
               >
                 {category}
               </Button>
@@ -168,35 +168,35 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                       alt={exp.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-transparent to-transparent" />
                     
                     {/* Category Badge */}
-                    <div className="absolute top-4 left-4 bg-white/90 text-charcoal-900 px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 bg-white/90 text-forest-900 px-3 py-1 rounded-full text-sm font-medium">
                       {exp.category}
                     </div>
                     
                     {/* Distance */}
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="flex items-center gap-2 text-gold-400 text-sm">
+                      <div className="flex items-center gap-2 text-brass-400 text-sm">
                         <MapPin size={14} />
                         <span>{t('experiences.distance', { km: exp.distance.replace(' km', '').replace('On-site', '0') })}</span>
                       </div>
-                      <h3 className="text-xl font-semibold text-white mt-1">{exp.name}</h3>
+                      <h3 className="text-xl font-semibold text-cream-50 mt-1">{exp.name}</h3>
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
-                    <p className="text-charcoal-600 text-sm mb-4">{exp.description}</p>
+                    <p className="text-forest-600 text-sm mb-4">{exp.description}</p>
                     
                     {/* Duration */}
-                    <div className="flex items-center gap-2 text-sm text-charcoal-500 mb-4">
+                    <div className="flex items-center gap-2 text-sm text-forest-500 mb-4">
                       <Clock size={14} />
                       <span>{exp.duration}</span>
                     </div>
 
                     {/* CTA */}
-                    <Button variant="outline" className="w-full border-charcoal-200 text-charcoal-700 hover:bg-charcoal-50 group-hover:border-gold-400 group-hover:text-gold-600">
+                    <Button variant="outline" className="w-full border-forest-200 text-forest-700 hover:bg-forest-50 group-hover:border-brass-400 group-hover:text-brass-600">
                       {t('experiences.learnMore')}
                       <ExternalLink className="ml-2 w-4 h-4" />
                     </Button>
@@ -209,18 +209,18 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
       </section>
 
       {/* Concierge CTA */}
-      <section className="py-24 bg-charcoal-900 text-white">
+      <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl font-light mb-6">
-              Let Our <span className="text-gold-400">Concierge</span> Help
+              Let Our <span className="text-brass-400">Concierge</span> Help
             </h2>
-            <p className="text-charcoal-200 text-lg mb-10 max-w-2xl mx-auto">
+            <p className="text-forest-200 text-lg mb-10 max-w-2xl mx-auto">
               Our concierge team can arrange tours, transfers, and unique experiences tailored to your interests.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-luxury px-12 py-6 text-lg">
+                <Button className="btn-telegraph px-12 py-6 text-lg">
                   <span>Contact Concierge</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
