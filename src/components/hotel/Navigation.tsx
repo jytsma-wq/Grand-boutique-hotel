@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, MapPin, Phone, Mail } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { locales, localeNames, localeFlags, type Locale } from '@/i18n/config';
 
@@ -95,86 +95,21 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
 
   return (
     <>
-      {/* Top Utility Bar - Contact + Location (Telegraph style) */}
-      <div className="hidden lg:block bg-forest-900 text-white/70 text-xs uppercase tracking-[0.15em] z-[70] relative">
-        <div className="container mx-auto px-8 flex items-center justify-between h-9">
-          <div className="flex items-center gap-6">
-            <Link href={`/${locale}/contact`} className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
-              <Mail size={12} />
-              <span>{t('contact')}</span>
-            </Link>
-            <Link href={`/${locale}/location`} className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
-              <MapPin size={12} />
-              <span>{t('location')}</span>
-            </Link>
-            <a href="tel:+995422000000" className="flex items-center gap-1.5 hover:text-brass-400 transition-colors">
-              <Phone size={12} />
-              <span>+995 422 00 00 00</span>
-            </a>
-          </div>
-
-          {/* Desktop Language Switcher - Rectangle flags dropdown */}
-          <div className="relative" ref={langRef}>
-            <button
-              onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-2 hover:text-brass-400 transition-colors"
-            >
-              <img src={flagImages[locale]} alt="" className="w-7 h-5 object-cover border border-white/20" />
-              <span>{localeNames[locale]}</span>
-              <ChevronDown size={12} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
-            </button>
-            <AnimatePresence>
-              {langOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -4 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute right-0 top-full mt-1 bg-forest-800 border border-white/10 shadow-xl min-w-[160px] z-[120]"
-                >
-                  {locales.map((loc) => (
-                    <button
-                      key={loc}
-                      onClick={() => { switchLocale(loc); setLangOpen(false); }}
-                      className={`w-full flex items-center gap-3 px-4 py-2.5 text-[11px] uppercase tracking-[0.15em] hover:bg-white/10 transition-colors ${
-                        loc === locale ? 'text-white bg-white/5' : 'text-white/60'
-                      }`}
-                    >
-                      <img src={flagImages[loc]} alt="" className="w-7 h-5 object-cover border border-white/20" />
-                      <span>{localeNames[loc]}</span>
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navigation */}
+      {/* Main Navigation - Telegraph Style Layout */}
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'top-0 bg-white/95 backdrop-blur-sm shadow-lg border-b border-forest-900'
-            : 'lg:top-9 top-0 bg-forest-900/80 backdrop-blur-sm'
+            ? 'bg-white shadow-md'
+            : 'bg-white'
         }`}
       >
-        <div className="container mx-auto px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <Link href={`/${locale}`} className="flex items-center">
-              <div className={`font-normal text-2xl tracking-[0.2em] uppercase ${
-                isScrolled ? 'text-forest-900' : 'text-white'
-              }`}>
-                BOUTIQUE HOTEL
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden xl:flex items-center gap-0.5">
-              {navLinks.map((link) => (
+        <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between h-20 lg:h-24">
+            {/* Left Navigation */}
+            <nav className="hidden lg:flex items-center gap-0.5 flex-1">
+              {navLinks.slice(0, 4).map((link) => (
                 <div
                   key={link.href}
                   className="relative"
@@ -183,11 +118,11 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 >
                   <Link
                     href={`/${locale}${link.href}`}
-                    className={`flex items-center gap-1 px-3 py-2 text-xs font-medium uppercase tracking-[0.15em] transition-all duration-200 ${
+                    className={`flex items-center gap-1 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-200 ${
                       pathname.includes(link.href)
-                        ? 'opacity-100'
-                        : 'opacity-70 hover:opacity-100'
-                    } ${isScrolled ? 'text-forest-900' : 'text-white'}`}
+                        ? 'text-forest-900'
+                        : 'text-forest-900/70 hover:text-forest-900'
+                    }`}
                   >
                     {link.label}
                     {link.children && <ChevronDown size={10} className="ml-0.5" />}
@@ -201,13 +136,13 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute left-0 top-full bg-forest-900 border border-white/10 shadow-xl min-w-[180px] z-50"
+                        className="absolute left-0 top-full bg-white border border-gray-100 shadow-xl min-w-[220px] z-50"
                       >
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={`/${locale}${child.href}`}
-                            className="block px-5 py-3 text-[11px] text-white/70 hover:text-white hover:bg-white/10 uppercase tracking-[0.15em] transition-colors"
+                            className="block px-8 py-3.5 text-[11px] text-forest-900/70 hover:text-forest-900 hover:bg-forest-50 uppercase tracking-[0.2em] transition-colors"
                           >
                             {child.label}
                           </Link>
@@ -219,27 +154,113 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
               ))}
             </nav>
 
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-4">
-              {/* Book Now - Opens external booking in new tab */}
+            {/* Logo - Centered */}
+            <Link href={`/${locale}`} className="z-50 flex-shrink-0 mx-8 lg:mx-12">
+              <div className="font-normal text-lg lg:text-xl tracking-[0.35em] uppercase text-forest-900 text-center">
+                Batumi Boutique
+              </div>
+            </Link>
+
+            {/* Right Navigation + Book Now */}
+            <div className="hidden lg:flex items-center gap-0.5 flex-1 justify-end">
+              {navLinks.slice(4).map((link) => (
+                <div
+                  key={link.href}
+                  className="relative"
+                  onMouseEnter={() => link.children && handleDropdownEnter(link.href)}
+                  onMouseLeave={() => link.children && handleDropdownLeave()}
+                >
+                  <Link
+                    href={`/${locale}${link.href}`}
+                    className={`flex items-center gap-1 px-5 py-2 text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-200 ${
+                      pathname.includes(link.href)
+                        ? 'text-forest-900'
+                        : 'text-forest-900/70 hover:text-forest-900'
+                    }`}
+                  >
+                    {link.label}
+                    {link.children && <ChevronDown size={10} className="ml-0.5" />}
+                  </Link>
+
+                  {/* Dropdown submenu */}
+                  <AnimatePresence>
+                    {link.children && openDropdown === link.href && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -4 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -4 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute right-0 top-full bg-white border border-gray-100 shadow-xl min-w-[220px] z-50"
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={`/${locale}${child.href}`}
+                            className="block px-8 py-3.5 text-[11px] text-forest-900/70 hover:text-forest-900 hover:bg-forest-50 uppercase tracking-[0.2em] transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+              
+              {/* Language Switcher */}
+              <div className="relative ml-6" ref={langRef}>
+                <button
+                  onClick={() => setLangOpen(!langOpen)}
+                  className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-forest-900/70 hover:text-forest-900 transition-colors px-4 py-2"
+                >
+                  <span>{locale.toUpperCase()}</span>
+                  <ChevronDown size={10} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {langOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -4 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-2 bg-white border border-gray-100 shadow-xl min-w-[140px] z-[120]"
+                    >
+                      {locales.map((loc) => (
+                        <button
+                          key={loc}
+                          onClick={() => { switchLocale(loc); setLangOpen(false); }}
+                          className={`w-full flex items-center gap-3 px-6 py-3 text-[11px] uppercase tracking-[0.2em] hover:bg-forest-50 transition-colors ${
+                            loc === locale ? 'text-forest-900 bg-forest-50' : 'text-forest-900/70'
+                          }`}
+                        >
+                          <span>{loc.toUpperCase()}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Book Now Button */}
               <a
                 href="https://mediator.com.ge/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="ml-6"
               >
-                <Button className="btn-telegraph hidden sm:flex px-6 py-2 text-sm uppercase tracking-[0.15em]">
+                <Button className="btn-telegraph px-9 py-2.5 text-[11px] uppercase tracking-[0.2em]">
                   <span>{t('bookNow')}</span>
                 </Button>
               </a>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`xl:hidden p-2 transition-colors ${isScrolled ? 'text-forest-900' : 'text-white'}`}
-              >
-                {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
-              </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-forest-900"
+            >
+              {isMobileMenuOpen ? <X size={24} strokeWidth={1.5} /> : <Menu size={24} strokeWidth={1.5} />}
+            </button>
           </div>
         </div>
       </motion.header>
@@ -251,46 +272,26 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-forest-900 pt-16 px-6 xl:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-white pt-24 px-6 lg:hidden overflow-y-auto"
           >
             <nav className="flex flex-col gap-0">
-              {/* Contact + Location at top of mobile menu */}
-              <div className="flex items-center gap-4 py-4 border-b border-white/10">
-                <Link
-                  href={`/${locale}/contact`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-brass-400 uppercase tracking-wider"
-                >
-                  <Mail size={14} />
-                  {t('contact')}
-                </Link>
-                <Link
-                  href={`/${locale}/location`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center gap-1.5 text-xs text-white/60 hover:text-brass-400 uppercase tracking-wider"
-                >
-                  <MapPin size={14} />
-                  {t('location')}
-                </Link>
-              </div>
-
               {navLinks.map((link) => (
                 <div key={link.href}>
                   <Link
                     href={`/${locale}${link.href}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-4 text-base text-white border-b border-white/10 hover:opacity-70 transition-opacity uppercase tracking-[0.15em] font-light"
+                    className="block py-4 text-sm text-forest-900 border-b border-gray-100 hover:opacity-70 transition-opacity uppercase tracking-[0.15em] font-medium"
                   >
                     {link.label}
                   </Link>
                   {link.children && (
-                    <div className="pl-6 bg-forest-950/50">
+                    <div className="pl-6 bg-forest-50/50">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
                           href={`/${locale}${child.href}`}
                           onClick={() => setIsMobileMenuOpen(false)}
-                          className="block py-3 text-sm text-white/60 border-b border-white/5 hover:text-brass-400 transition-colors uppercase tracking-[0.12em] font-light"
+                          className="block py-3 text-xs text-forest-900/70 border-b border-gray-100 hover:text-forest-900 transition-colors uppercase tracking-[0.12em] font-light"
                         >
                           {child.label}
                         </Link>
@@ -313,14 +314,13 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 </a>
               </div>
 
-              {/* Mobile Language Switcher - Round flags dropdown */}
-              <div className="pt-4 pb-8 border-t border-white/10">
+              {/* Mobile Language Switcher */}
+              <div className="pt-4 pb-8 border-t border-gray-100">
                 <button
                   onClick={() => setMobileLangOpen(!mobileLangOpen)}
-                  className="flex items-center gap-3 text-sm text-white/70 uppercase tracking-wider w-full justify-center"
+                  className="flex items-center gap-3 text-sm text-forest-900/70 uppercase tracking-wider w-full justify-center"
                 >
-                  <img src={flagImages[locale]} alt="" className="w-8 h-8 rounded-full object-cover border border-white/20" />
-                  <span>{localeNames[locale]}</span>
+                  <span>{locale.toUpperCase()}</span>
                   <ChevronDown size={14} className={`transition-transform ${mobileLangOpen ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>
@@ -339,12 +339,11 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                               switchLocale(loc);
                               setIsMobileMenuOpen(false);
                             }}
-                            className={`flex items-center gap-2 px-3 py-2 transition-opacity ${
+                            className={`px-4 py-2 transition-opacity ${
                               loc === locale ? 'opacity-100' : 'opacity-50 hover:opacity-100'
                             }`}
                           >
-                            <img src={flagImages[loc]} alt="" className="w-9 h-9 rounded-full object-cover border-2 border-white/30" />
-                            <span className="text-xs text-white uppercase tracking-wider">{loc.toUpperCase()}</span>
+                            <span className="text-xs text-forest-900 uppercase tracking-wider">{loc.toUpperCase()}</span>
                           </button>
                         ))}
                       </div>
