@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
+import type { Locale } from '@/i18n/config';
 
-export default function Footer() {
+interface FooterProps {
+  locale: Locale;
+}
+
+export default function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (

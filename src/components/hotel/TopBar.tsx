@@ -2,8 +2,13 @@ import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import type { Locale } from '@/i18n/config';
 
-export default function TopBar() {
+interface TopBarProps {
+  locale: Locale;
+}
+
+export default function TopBar({ locale }: TopBarProps) {
   const t = useTranslations('common');
 
   return (
