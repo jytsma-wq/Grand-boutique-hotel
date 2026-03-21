@@ -7,7 +7,7 @@ export default function TopBar() {
   const t = useTranslations('common');
 
   return (
-    <div className="bg-charcoal-900 text-cream-100 py-2 text-xs border-b border-brass-600/30">
+    <div className="bg-charcoal-950 text-cream-100 py-2 text-xs border-b border-brass-600/30">
       <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2">
         
         {/* Left: Location Link */}
