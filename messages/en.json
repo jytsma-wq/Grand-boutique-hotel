@@ -320,5 +320,59 @@
     "free": "Free",
     "usd": "USD",
     "gel": "GEL"
+  },
+  "Rooms": {
+    "accommodations": "Accommodations",
+    "title": "Rooms & Suites",
+    "description": "Discover your sanctuary of modern elegance, where every detail is crafted for your comfort and every view tells a story of the Black Sea.",
+    "priceLabel": "From",
+    "night": "night",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now",
+    "inEveryRoom": "In Every Room",
+    "roomAmenities": "Premium Amenities",
+    "highSpeedWifi": "High-Speed WiFi",
+    "climateControl": "Climate Control",
+    "smartTv": "Smart TV",
+    "nespressoMachine": "Nespresso Machine",
+    "inRoomSafe": "In-Room Safe",
+    "roomService": "24h Room Service",
+    "bookDirectTitle": "Book Direct &",
+    "saveMore": "Save More",
+    "bookDirectDescription": "Experience the best rates and exclusive benefits when you book directly with us. Our commitment to exceptional service begins before your arrival.",
+    "bestPrice": "Best Price Guarantee",
+    "bestPriceDesc": "Lowest rates available, guaranteed",
+    "freeBreakfast": "Complimentary Breakfast",
+    "freeBreakfastDesc": "Start your day with our lavish breakfast spread",
+    "roomUpgrade": "Complimentary Upgrade",
+    "roomUpgradeDesc": "Subject to availability at check-in",
+    "earlyCheckIn": "Early Check-In",
+    "earlyCheckInDesc": "Arrive at your convenience, subject to availability",
+    "lateCheckOut": "Late Check-Out",
+    "lateCheckOutDesc": "Extend your stay until 2 PM",
+    "spaDiscount": "Exclusive Spa Discount",
+    "spaDiscountDesc": "Enjoy 15% off all spa treatments",
+    "bookYourStay": "Book Your Stay"
+  },
+  "Meetings": {
+    "title": "Meetings & Events",
+    "subtitle": "Where Business Meets Elegance on the Black Sea",
+    "description": "Elevate your corporate gatherings with our sophisticated event spaces, cutting-edge technology, and impeccable service that reflects the grandeur of Batumi's architectural renaissance.",
+    "venues": {
+      "title": "Our Venues",
+      "capacity": "Up to {count} guests"
+    },
+    "packages": {
+      "title": "Conference Packages"
+    },
+    "inquire": "Request Proposal"
+  },
+  "Restaurant": {
+    "title": "Azure Restaurant",
+    "subtitle": "A Culinary Journey Through Georgia",
+    "description": "Experience the art of Georgian hospitality fused with contemporary gastronomy. Our chefs honor centuries-old traditions while crafting innovative dishes that celebrate the bounty of the Black Sea coast.",
+    "reserve": "Reserve Your Table",
+    "privateEvents": "Private Dining",
+    "chefTable": "Chef's Table Experience"
   }
 }
