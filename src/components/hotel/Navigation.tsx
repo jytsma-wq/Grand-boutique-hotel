@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -79,8 +79,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
   ];
 
   const switchLocale = (newLocale: Locale) => {
-    const currentPath = pathname.replace(`/${locale}`, '') || '/';
-    router.push(`/${newLocale}${currentPath}`);
+    router.push(pathname, { locale: newLocale });
   };
 
   const handleDropdownEnter = (href: string) => {

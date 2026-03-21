@@ -2,71 +2,43 @@
 # Dependencies
 node_modules/
 
-# Build artifacts
+# Build outputs
+.next/
 dist/
 build/
-.next/
-.nuxt/
 out/
-
-# Logs
-*.log
 
 # Environment variables
 .env.local
-.env
-!.env.example
-
-# IDE specific
-.vscode/
-.idea/
-*.swp
-*.swo
+*.env.*
 
 # OS generated
 .DS_Store
 Thumbs.db
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Python specific
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
 *.so
-*.egg-info/
-.eggs/
 
-# Compiled binary files
-*.exe
-*.dll
-*.so
-*.dylib
+# Coverage
+coverage/
+htmlcov/
+.coverage
 
-# Compressed archives
-*.zip
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.gz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.tgz
-*.Z
-*.lz
-*.lzo
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.zst
+# Cache
+.cache/
+.mypy_cache/
+.pytest_cache/
+.nyc_output/
+coverage/
 ```

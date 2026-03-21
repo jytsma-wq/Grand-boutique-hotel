@@ -72,17 +72,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
   const experiences = [
     {
       name: 'Batumi Boulevard',
-      image: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?q=80&w=400&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=400&auto=format&fit=crop',
       distance: '0.5 km',
     },
     {
       name: 'Old Batumi',
-      image: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=400&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=400&auto=format&fit=crop',
       distance: '1.2 km',
     },
     {
       name: 'Batumi Botanical Garden',
-      image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400&auto=format&fit=crop',
+      image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=400&auto=format&fit=crop',
       distance: '8 km',
     },
   ];
@@ -160,6 +160,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                         alt={room.name}
                         width={800}
                         height={600}
+                        unoptimized
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         unoptimized
                       />
@@ -231,10 +232,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
             >
               <div className="aspect-[16/10]">
                 <Image
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop"
                   alt="Azure Restaurant"
                   width={800}
                   height={600}
+                  unoptimized
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   unoptimized
                 />
@@ -270,10 +272,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
             >
               <div className="aspect-[16/10]">
                 <Image
-                  src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop"
+                  src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop"
                   alt="Lounge Bar"
                   width={800}
                   height={600}
+                  unoptimized
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   unoptimized
                 />
@@ -342,10 +345,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
               className="relative"
             >
               <Image
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800&auto=format&fit=crop"
                 alt="Spa"
                 width={800}
                 height={600}
+                unoptimized
                 className="rounded-3xl w-full aspect-[4/3] object-cover"
                 unoptimized
               />
@@ -391,6 +395,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     alt={exp.name}
                     width={800}
                     height={600}
+                    unoptimized
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     unoptimized
                   />
@@ -470,10 +475,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   className="aspect-square overflow-hidden group"
                 >
                   <Image
-                    src={`https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=200&h=200&auto=format&fit=crop`}
+                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=200&auto=format&fit=crop"
                     alt="Instagram"
                     width={800}
                     height={600}
+                    unoptimized
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     unoptimized
                   />
