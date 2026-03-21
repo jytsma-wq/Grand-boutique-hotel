@@ -25,16 +25,16 @@ const config: Config = {
         
         // Telegraph Palette - Exact Matches
         charcoal: {
-          50: '#f4f4f4',
-          100: '#e8e8e8',
-          200: '#d1d1d1',
-          300: '#adadad',
-          400: '#818181',
-          500: '#636363',
-          600: '#4f4f4f',
-          700: '#424242',
-          800: '#383838',
-          900: '#1a1a1a', // Deep Charcoal Background
+          50: '#fdfcf8',
+          100: '#faf9f3',
+          200: '#f5f3e7',
+          300: '#ede9d6',
+          400: '#e0dbbc',
+          500: '#d0c9a5',
+          600: '#bba886',
+          700: '#96866b',
+          800: '#7b6e5a',
+          900: '#1a2218', // Deep Forest Green (using forest-950)
           950: '#0d0d0d',
         },
         brass: {

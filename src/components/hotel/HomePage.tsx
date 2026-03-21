@@ -162,6 +162,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                         height={600}
                         unoptimized
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        unoptimized
                       />
                       <div className="absolute inset-0 image-overlay" />
                       
@@ -237,6 +238,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   height={600}
                   unoptimized
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  unoptimized
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
@@ -276,6 +278,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   height={600}
                   unoptimized
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  unoptimized
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
@@ -348,6 +351,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 height={600}
                 unoptimized
                 className="rounded-3xl w-full aspect-[4/3] object-cover"
+                unoptimized
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-4">
@@ -393,6 +397,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     height={600}
                     unoptimized
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    unoptimized
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent" />
@@ -476,6 +481,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     height={600}
                     unoptimized
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    unoptimized
                   />
                 </a>
               ))}
