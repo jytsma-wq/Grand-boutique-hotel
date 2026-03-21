@@ -29,17 +29,17 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
       }]
     : [
         {
-          image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80',
+          image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1920&auto=format&fit=crop',
           title: t('title'),
           subtitle: t('subtitle'),
         },
         {
-          image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1920&q=80',
+          image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1920&auto=format&fit=crop',
           title: 'Refined Luxury',
           subtitle: 'By The Black Sea',
         },
         {
-          image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80',
+          image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1920&auto=format&fit=crop',
           title: 'Modern Luxury',
           subtitle: 'Timeless Comfort',
         },
@@ -72,6 +72,8 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
             alt=""
             fill
             className="object-cover"
+            priority={index === 0}
+            unoptimized
           />
         </motion.div>
       ))}
