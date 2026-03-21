@@ -22,7 +22,7 @@ const fadeInUp = {
 };
 
 export default function RoomsPage({ locale }: RoomsPageProps) {
-  const t = useTranslations();
+  const t = useTranslations('Rooms');
   const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
 
   const rooms: Room[] = [
@@ -107,13 +107,13 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Accommodations</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">{t('accommodations')}</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">
-              Rooms & Suites
+              {t('title')}
             </h1>
             <div className="brass-line" />
             <p className="text-xl text-white/80 max-w-2xl">
-              Each room a sanctuary of modern elegance, designed for the discerning traveler
+              {t('description')}
             </p>
           </motion.div>
         </div>
@@ -172,10 +172,10 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                     {/* Price */}
                     <div className="border-t border-forest-100 pt-4 mt-4">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm font-medium text-forest-700">Price:</span>
+                        <span className="text-sm font-medium text-forest-700">{t('priceLabel')}:</span>
                         <div>
                           <span className="text-xl font-bold text-brass-600">${room.price}</span>
-                          <span className="text-sm text-forest-500 ml-1">/ night</span>
+                          <span className="text-sm text-forest-500 ml-1">/ {t('night')}</span>
                         </div>
                       </div>
                     </div>
@@ -184,12 +184,12 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                     <div className="flex gap-3 mt-4">
                       <Link href={`/${locale}/rooms/${room.slug.current}`} className="flex-1">
                         <Button variant="outline" className="w-full border-forest-200 text-forest-700 hover:bg-forest-50">
-                          View Details
+                          {t('viewDetails')}
                         </Button>
                       </Link>
                       <Link href={`/${locale}/booking?room=${room.slug.current}`} className="flex-1">
                         <Button className="w-full btn-telegraph py-2">
-                          <span>Book Now</span>
+                          <span>{t('bookNow')}</span>
                         </Button>
                       </Link>
                     </div>
@@ -205,19 +205,19 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">In Every Room</span>
-            <h2 className="section-title mt-4">Room Amenities</h2>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">{t('inEveryRoom')}</span>
+            <h2 className="section-title mt-4">{t('roomAmenities')}</h2>
             <div className="brass-line" />
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              { icon: <Wifi />, label: 'High-Speed WiFi' },
-              { icon: <Wind />, label: 'Climate Control' },
-              { icon: <Tv />, label: 'Smart TV' },
-              { icon: <Coffee />, label: 'Nespresso Machine' },
-              { icon: <Maximize2 />, label: 'In-Room Safe' },
-              { icon: <Users />, label: '24/7 Room Service' },
+              { icon: <Wifi />, label: t('highSpeedWifi') },
+              { icon: <Wind />, label: t('climateControl') },
+              { icon: <Tv />, label: t('smartTv') },
+              { icon: <Coffee />, label: t('nespressoMachine') },
+              { icon: <Maximize2 />, label: t('inRoomSafe') },
+              { icon: <Users />, label: t('roomService') },
             ].map((amenity, i) => (
               <motion.div
                 key={i}
@@ -240,20 +240,20 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Book Direct, <span className="text-brass-400">Save More</span>
+              {t('bookDirectTitle')} <span className="text-brass-400">{t('saveMore')}</span>
             </h2>
             <p className="text-forest-200 text-lg mb-10">
-              When you book directly through our website, you enjoy exclusive benefits not available anywhere else.
+              {t('bookDirectDescription')}
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { title: 'Best Price', desc: 'Guaranteed lowest rate' },
-                { title: 'Free Breakfast', desc: 'For all direct bookings' },
-                { title: 'Room Upgrade', desc: 'When available at check-in' },
-                { title: 'Early Check-in', desc: 'Subject to availability' },
-                { title: 'Late Check-out', desc: 'Until 2 PM on request' },
-                { title: 'Spa Discount', desc: '20% off all treatments' },
+                { title: t('bestPrice'), desc: t('bestPriceDesc') },
+                { title: t('freeBreakfast'), desc: t('freeBreakfastDesc') },
+                { title: t('roomUpgrade'), desc: t('roomUpgradeDesc') },
+                { title: t('earlyCheckIn'), desc: t('earlyCheckInDesc') },
+                { title: t('lateCheckOut'), desc: t('lateCheckOutDesc') },
+                { title: t('spaDiscount'), desc: t('spaDiscountDesc') },
               ].map((benefit, i) => (
                 <div key={i} className="bg-forest-800/50 rounded-xl p-6">
                   <h4 className="text-brass-400 font-semibold mb-2">{benefit.title}</h4>
@@ -264,7 +264,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
 
             <Link href={`/${locale}/booking`}>
               <Button className="btn-telegraph mt-10 px-12 py-6 text-lg">
-                <span>Book Your Stay</span>
+                <span>{t('bookYourStay')}</span>
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>

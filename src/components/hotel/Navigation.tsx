@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next-intl/client';
 import { useTranslations } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -25,6 +25,7 @@ const flagImages: Record<string, string> = {
 
 export default function Navigation({ locale, siteSettings }: NavigationProps) {
   const t = useTranslations('nav');
+  const router = useRouter();
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -78,10 +79,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
   ];
 
   const switchLocale = (newLocale: Locale) => {
-    const segments = pathname.split('/');
-    segments[1] = newLocale;
-    const newPath = segments.join('/');
-    window.location.assign(newPath);
+    router.push(pathname, { locale: newLocale });
   };
 
   const handleDropdownEnter = (href: string) => {
