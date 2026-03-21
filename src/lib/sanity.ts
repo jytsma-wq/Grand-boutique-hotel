@@ -1,21 +1,21 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
-export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'your-project-id',
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+export const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
   useCdn: true,
   apiVersion: '2024-01-01',
 });
 
-const builder = imageUrlBuilder(sanityClient);
+const builder = imageUrlBuilder(client);
 
 export function urlFor(source: any) {
   return builder.image(source);
 }
 
 export async function getSiteSettings(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "siteSettings"][0] {
       hotelName,
       tagline,
@@ -31,7 +31,7 @@ export async function getSiteSettings(locale: string) {
 }
 
 export async function getRooms(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "room"] | order(order asc) {
       _id,
       slug,
@@ -50,7 +50,7 @@ export async function getRooms(locale: string) {
 }
 
 export async function getRoomBySlug(slug: string, locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "room" && slug.current == $slug][0] {
       _id,
       slug,
@@ -69,7 +69,7 @@ export async function getRoomBySlug(slug: string, locale: string) {
 }
 
 export async function getHomePage(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "homePage"][0] {
       heroTitle,
       heroSubtitle,
@@ -82,7 +82,7 @@ export async function getHomePage(locale: string) {
 }
 
 export async function getRestaurantPage(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "restaurantPage"][0] {
       "title": title_${locale},
       "description": description_${locale},
@@ -95,7 +95,7 @@ export async function getRestaurantPage(locale: string) {
 }
 
 export async function getBarPage(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "barPage"][0] {
       "title": title_${locale},
       "description": description_${locale},
@@ -108,7 +108,7 @@ export async function getBarPage(locale: string) {
 }
 
 export async function getSpaTreatments(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "spaTreatment"] | order(order asc) {
       _id,
       slug,
@@ -125,7 +125,7 @@ export async function getSpaTreatments(locale: string) {
 }
 
 export async function getOffers(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "offer" && active == true] | order(order asc) {
       _id,
       slug,
@@ -143,7 +143,7 @@ export async function getOffers(locale: string) {
 }
 
 export async function getExperiences(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "experience"] | order(order asc) {
       _id,
       slug,
@@ -157,7 +157,7 @@ export async function getExperiences(locale: string) {
 }
 
 export async function getGallery() {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "galleryImage"] | order(order asc) {
       _id,
       title,
@@ -169,7 +169,7 @@ export async function getGallery() {
 }
 
 export async function getChatbotKnowledge(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "chatbotKnowledge"] {
       _id,
       "question": question_${locale},
@@ -180,7 +180,7 @@ export async function getChatbotKnowledge(locale: string) {
 }
 
 export async function getPopup(locale: string) {
-  return sanityClient.fetch(`
+  return client.fetch(`
     *[_type == "popup" && active == true][0] {
       _id,
       "title": title_${locale},
