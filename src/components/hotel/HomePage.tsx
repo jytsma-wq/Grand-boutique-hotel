@@ -155,9 +155,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   <div className="glass-card rounded-2xl overflow-hidden card-hover">
                     {/* Image */}
                     <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
+                      <Image
                         src={room.image}
                         alt={room.name}
+                        width={800}
+                        height={600}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 image-overlay" />
@@ -227,9 +229,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
               className="relative group overflow-hidden rounded-3xl"
             >
               <div className="aspect-[16/10]">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80"
                   alt="Azure Restaurant"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -263,9 +267,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
               className="relative group overflow-hidden rounded-3xl"
             >
               <div className="aspect-[16/10]">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80"
                   alt="Lounge Bar"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -332,9 +338,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
               viewport={{ once: true }}
               className="relative"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
                 alt="Spa"
+                width={800}
+                height={600}
                 className="rounded-3xl w-full aspect-[4/3] object-cover"
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
@@ -374,9 +382,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 className="group relative overflow-hidden rounded-2xl cursor-pointer"
               >
                 <div className="aspect-[3/4]">
-                  <img
+                  <Image
                     src={exp.image}
                     alt={exp.name}
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                 </div>
@@ -454,9 +464,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   rel="noopener noreferrer"
                   className="aspect-square overflow-hidden group"
                 >
-                  <img
+                  <Image
                     src={`https://images.unsplash.com/photo-${1500000000000 + i * 12345678}?w=200&h=200&fit=crop`}
                     alt="Instagram"
+                    width={800}
+                    height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </a>

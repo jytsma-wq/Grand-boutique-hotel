@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -66,10 +67,11 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
           transition={{ duration: 2.5, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="absolute inset-0"
         >
-          <img
+          <Image
             src={slide.image}
             alt=""
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
         </motion.div>
       ))}

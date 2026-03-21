@@ -104,7 +104,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-playfair)', 'serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
         body: ['var(--font-lato)', 'sans-serif'],
       },
       backgroundImage: {

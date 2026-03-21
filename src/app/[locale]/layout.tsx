@@ -10,14 +10,25 @@ import TopBar from '@/components/hotel/TopBar';
 import Footer from '@/components/hotel/Footer';
 import MariamChatbot from '@/components/hotel/MariamChatbot';
 import WhatsAppButton from '@/components/hotel/WhatsAppButton';
+import { Inter, Playfair_Display } from 'next/font/google';
 import '@/app/globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  variable: '--font-playfair',
+});
 
 export const metadata: Metadata = {
   title: {
-    default: 'Batumi Boutique Hotel | 2026 Modern Luxury on the Black Sea',
+    default: 'Batumi Boutique Hotel | Luxury Stay in Georgia',
     template: '%s | Batumi Boutique Hotel',
   },
-  description: 'Experience 2026 modern architecture at Batumi\'s premier boutique hotel. Refined luxury meets Georgian hospitality on the stunning Black Sea coast. Rooms, spa, fine dining & events.',
+  description: 'Experience modern architecture at Batumi\'s premier boutique hotel. Refined luxury meets Georgian hospitality on the stunning Black Sea coast. Rooms, spa, fine dining & events.',
   keywords: [
     'Batumi Hotel', 'Boutique Hotel Georgia', 'Black Sea Hotel', 'Luxury Hotel Batumi',
     'Batumi Accommodation', 'Georgia Beach Hotel', 'Spa Hotel Batumi', 'Fine Dining Batumi',
@@ -85,7 +96,7 @@ export default async function LocaleLayout({
   const isRtl = isRtlLocale(locale as Locale);
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-scroll-behavior="smooth" suppressHydrationWarning className={`${inter.variable} ${playfairDisplay.variable}`}>
       <head />
       <body className="antialiased min-h-screen flex flex-col font-sans bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
