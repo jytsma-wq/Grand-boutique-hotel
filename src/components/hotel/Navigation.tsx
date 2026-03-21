@@ -211,6 +211,11 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   onClick={() => setLangOpen(!langOpen)}
                   className="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-forest-900/70 hover:text-forest-900 transition-colors px-4 py-2"
                 >
+                  <img 
+                    src={flagImages[locale]} 
+                    alt={`${locale} flag`} 
+                    className="w-4 h-3 object-cover"
+                  />
                   <span>{locale.toUpperCase()}</span>
                   <ChevronDown size={10} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -231,6 +236,11 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                             loc === locale ? 'text-forest-900 bg-forest-50' : 'text-forest-900/70'
                           }`}
                         >
+                          <img 
+                            src={flagImages[loc]} 
+                            alt={`${loc} flag`} 
+                            className="w-4 h-3 object-cover"
+                          />
                           <span>{loc.toUpperCase()}</span>
                         </button>
                       ))}
@@ -318,6 +328,11 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   onClick={() => setMobileLangOpen(!mobileLangOpen)}
                   className="flex items-center gap-3 text-sm text-forest-900/70 uppercase tracking-wider w-full justify-center"
                 >
+                  <img 
+                    src={flagImages[locale]} 
+                    alt={`${locale} flag`} 
+                    className="w-4 h-3 object-cover"
+                  />
                   <span>{locale.toUpperCase()}</span>
                   <ChevronDown size={14} className={`transition-transform ${mobileLangOpen ? 'rotate-180' : ''}`} />
                 </button>
@@ -337,10 +352,15 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                               switchLocale(loc);
                               setIsMobileMenuOpen(false);
                             }}
-                            className={`px-4 py-2 transition-opacity ${
+                            className={`px-4 py-2 transition-opacity flex items-center gap-2 ${
                               loc === locale ? 'opacity-100' : 'opacity-50 hover:opacity-100'
                             }`}
                           >
+                            <img 
+                              src={flagImages[loc]} 
+                              alt={`${loc} flag`} 
+                              className="w-4 h-3 object-cover"
+                            />
                             <span className="text-xs text-forest-900 uppercase tracking-wider">{loc.toUpperCase()}</span>
                           </button>
                         ))}
