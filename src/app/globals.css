@@ -183,7 +183,10 @@
   
   /* Boutique Hotel Button - Elegant classic style */
   .btn-telegraph {
-    @apply bg-forest-900 text-white uppercase tracking-widest;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
     padding: 1.25rem 2.5rem;
     font-weight: 500;
     border-radius: 0.125rem;
@@ -191,7 +194,7 @@
   }
   
   .btn-telegraph:hover {
-    @apply bg-forest-800;
+    background-color: var(--accent);
     transform: translateY(-2px);
   }
   

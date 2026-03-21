@@ -71,8 +71,8 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
             src={slide.image}
             alt=""
             fill
-            className="object-cover"
             priority={index === 0}
+            className="object-cover"
             unoptimized
           />
         </motion.div>

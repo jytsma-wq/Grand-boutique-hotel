@@ -18,7 +18,12 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Telegraph Palette - OKLCH values matching CSS variables
+        // Boutique Hotel Custom Palette
+        'hotel-primary': '#384d2f', // Dark green
+        'hotel-secondary': '#d4af37', // Luxurious gold/bronze accent
+        'hotel-bg': '#f8f9fa', // Soft cream/off-white
+        
+        // Telegraph Palette - Exact Matches
         charcoal: {
           50: '#fdfcf8',
           100: '#faf9f3',
