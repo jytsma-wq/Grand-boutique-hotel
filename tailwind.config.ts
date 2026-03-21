@@ -19,7 +19,7 @@ const config: Config = {
     extend: {
       colors: {
         // Boutique Hotel Custom Palette
-        'hotel-primary': '#1e293b', // Deep elegant dark slate/navy
+        'hotel-primary': '#384d2f', // Dark green
         'hotel-secondary': '#d4af37', // Luxurious gold/bronze accent
         'hotel-bg': '#f8f9fa', // Soft cream/off-white
         
