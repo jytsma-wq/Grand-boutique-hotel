@@ -1,7 +1,11 @@
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  locale: 'tr' | 'en' | 'ka' | 'ru' | 'he' | 'ar';
+}
+
+export default function Footer({ locale }: FooterProps) {
   const currentYear = new Date().getFullYear();
   
   return (
@@ -27,22 +31,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 font-light text-white/60 text-xs">
               <li>
-                <Link href="/rooms" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/rooms`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Rooms & Suites
                 </Link>
               </li>
               <li>
-                <Link href="/restaurant" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/restaurant`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Dining
                 </Link>
               </li>
               <li>
-                <Link href="/wellness" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/wellness`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Wellness & Spa
                 </Link>
               </li>
               <li>
-                <Link href="/offers" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/offers`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Offers
                 </Link>
               </li>
@@ -56,22 +60,22 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 font-light text-white/60 text-xs">
               <li>
-                <Link href="/about" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/about`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/contact`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/location" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/location`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Location
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
+                <Link href={`/${locale}/gallery`} className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]">
                   Gallery
                 </Link>
               </li>
@@ -114,10 +118,10 @@ export default function Footer() {
           </p>
           
           <div className="flex gap-8">
-            <Link href="/privacy" className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]">
+            <Link href={`/${locale}/privacy`} className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]">
+            <Link href={`/${locale}/terms`} className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]">
               Terms & Conditions
             </Link>
           </div>

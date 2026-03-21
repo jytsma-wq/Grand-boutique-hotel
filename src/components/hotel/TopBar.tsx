@@ -3,7 +3,11 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
-export default function TopBar() {
+interface TopBarProps {
+  locale: 'tr' | 'en' | 'ka' | 'ru' | 'he' | 'ar';
+}
+
+export default function TopBar({ locale }: TopBarProps) {
   const t = useTranslations('common');
 
   return (
@@ -12,7 +16,7 @@ export default function TopBar() {
         
         {/* Left: Location Link */}
         <Link 
-          href="/location" 
+          href={`/${locale}/location`} 
           className="flex items-center gap-2 hover:text-brass-400 transition-colors duration-300"
         >
           <MapPin size={14} className="text-brass-500" />
@@ -25,7 +29,7 @@ export default function TopBar() {
         {/* Right: Contact Links */}
         <div className="flex items-center gap-4">
           <Link 
-            href="/contact" 
+            href={`/${locale}/contact`} 
             className="flex items-center gap-2 hover:text-brass-400 transition-colors duration-300"
           >
             <Mail size={14} className="text-brass-500" />
