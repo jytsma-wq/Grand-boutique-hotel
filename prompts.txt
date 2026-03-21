@@ -1,0 +1,54 @@
+1. 404 op WebSocket (/ws/info)
+Je ziet herhaaldelijk GET /en/ws/info 404. Dit wijst erop dat de Hot Module Replacement (HMR) van Next.js niet kan communiceren met de server.
+
+De oorzaak: De browser probeert de nieuwste wijzigingen op te halen via een 'socket', maar de verbinding wordt verbroken of niet gevonden.
+
+Gevolg: Je code is wel veranderd in het bestand, maar de browser ververst de weergave niet automatisch.
+
+2. Upstream Image Fails (Unsplash 404)
+De foutmelding ⨯ upstream image response failed voor de Unsplash-afbeeldingen betekent dat de URL's die we in de code hebben gebruikt (waarschijnlijk uit de codebase of de prompts) niet meer geldig zijn of niet bereikbaar zijn voor de Next.js Image Optimizer.
+
+Gevolg: Waar een mooie foto van het hotel hoort te staan, zie je nu waarschijnlijk een leeg vak of een broken image icoon. Dit draagt bij aan het gevoel dat de opmaak "kapot" is of niet veranderd is.
+
+3. De LCP Waarschuwing (Prestaties)
+De melding over de Largest Contentful Paint (LCP) bevestigt dat de nieuwe <Image> componenten uit Stap 1 wel actief zijn! De browser ziet ze namelijk en geeft advies over loading="eager".
+
+De oorzaak dat je niks ziet: Als de build lokaal (of op de server) vastloopt op die 404-fouten of TypeScript-fouten, blijft de oude CSS in de browser hangen.
+
+Hoe fixen we dit NU?
+We moeten Qwen een prompt geven die de "foutgevoelige" onderdelen (zoals de afbeeldingen en de routing) herstelt, zodat de build weer slaagt.
+
+De "Fix & Sync" Prompt voor Qwen 3.5 Coder
+Plak deze prompt in Qwen om de fouten uit je logbestand op te lossen:
+
+Plaintext
+Role: You are a senior Next.js developer. We need to fix build errors and 404 image responses.
+
+Task: Critical Fixes for Image Loading and Hydration.
+
+Instructions:
+1. Fix `src/components/hotel/HeroSection.tsx` and `src/components/hotel/HomePage.tsx`:
+   - Replace any Unsplash URL that is causing a 404 in the logs with a generic, high-quality placeholder that is known to work, or use: `https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1920&auto=format&fit=crop`.
+   - Add the `priority` property to the main Hero Image to fix the LCP warning: `<Image ... priority />`.
+   - Add `unoptimized` attribute temporarily to the <Image /> tags to bypass the upstream 404 errors during testing.
+
+2. Verify `next.config.mjs` (or .js):
+   - Ensure `images.remotePatterns` includes `images.unsplash.com`. If the file is missing, provide a full version that allows Unsplash images.
+
+3. Fix potential WebSocket/Hydration issues:
+   - Ensure all 'use client' directives are at the very top of the client components.
+   - Check `src/app/[locale]/layout.tsx` for any script or link that might be interfering with the `/ws` (Websocket) path.
+
+4. STRICT REQUIREMENT: Output the full code for `src/components/hotel/HeroSection.tsx` and `next.config.mjs`.
+
+Output Format:
+1. Full content of next.config.mjs
+2. Full content of src/components/hotel/HeroSection.tsx
+Wat je daarna moet doen:
+Lokaal: Stop je terminal (CTRL + C).
+
+Schoonmaken: Type rm -rf .next (dit verwijdert de oude cache die de 404's kan veroorzaken).
+
+Herstarten: Type npm run dev.
+
+Browser: Open de site in een Incognito venster.
