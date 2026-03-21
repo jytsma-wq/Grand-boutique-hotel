@@ -18,6 +18,11 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // Boutique Hotel Custom Palette
+        'hotel-primary': '#1e293b', // Deep elegant dark slate/navy
+        'hotel-secondary': '#d4af37', // Luxurious gold/bronze accent
+        'hotel-bg': '#f8f9fa', // Soft cream/off-white
+        
         // Telegraph Palette - Exact Matches
         charcoal: {
           50: '#f4f4f4',
@@ -104,7 +109,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-playfair)', 'serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-inter)', 'sans-serif'],
         body: ['var(--font-lato)', 'sans-serif'],
       },
       backgroundImage: {
