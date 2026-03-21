@@ -106,13 +106,13 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <TopBar locale={locale} />
-            <Navigation locale={locale} siteSettings={null} />
+            <TopBar locale={locale as Locale} />
+            <Navigation locale={locale as Locale} siteSettings={null} />
             <main className="flex-grow">
               {children}
             </main>
-            <Footer />
-            <MariamChatbot locale={locale} />
+            <Footer locale={locale as Locale} />
+            <MariamChatbot locale={locale as Locale} />
             <WhatsAppButton />
             <Toaster />
           </ThemeProvider>
