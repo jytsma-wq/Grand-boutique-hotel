@@ -6,12 +6,34 @@ interface Message {
   content: string;
 }
 
-export async function POST(request: NextRequest) {
+interface ChatRequestBody {
+  message?: string;
+  locale?: string;
+  history?: Message[] | string;
+}
+
+interface ChatSuccessResponse {
+  message: string;
+}
+
+interface ChatErrorResponse {
+  error: string;
+}
+
+export async function POST(request: NextRequest): Promise<NextResponse<ChatSuccessResponse | ChatErrorResponse>> {
   try {
-    const body = await request.json();
+    const body: ChatRequestBody = await request.json();
     const { message, locale, history } = body;
 
-    // Zorg ervoor dat de geschiedenis een array is
+    // Validate message is present and not empty or whitespace only
+    if (!message || typeof message !== 'string' || message.trim().length === 0) {
+      return NextResponse.json<ChatErrorResponse>(
+        { error: 'Message is required and cannot be empty.' },
+        { status: 400 }
+      );
+    }
+
+    // Parse conversation history
     let parsedHistory: Message[] = [];
     if (Array.isArray(history)) {
       parsedHistory = history;
@@ -23,13 +45,17 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Accepteer beide mogelijke namen uit het .env bestand
+    // Retrieve API key from environment variables
     const apiKey = process.env.GOOGLE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
     
     if (!apiKey) {
-      throw new Error('API-sleutel ontbreekt. Controleer of GOOGLE_GEMINI_API_KEY of GEMINI_API_KEY in je .env staat en herstart de server.');
+      return NextResponse.json<ChatErrorResponse>(
+        { error: 'Service temporarily unavailable. Please try again later.' },
+        { status: 503 }
+      );
     }
 
+    // System prompt for Mariam, the virtual concierge
     const systemPrompt = `You are Mariam, a friendly and professional virtual concierge for Batumi Boutique Hotel in Batumi, Georgia. 
     
     COMPREHENSIVE HOTEL INFORMATION:
@@ -98,39 +124,58 @@ export async function POST(request: NextRequest) {
     
     Remember: You represent the hotel's brand. Be helpful, accurate, and always hotel-focused.`;
 
-    const genAI = new GoogleGenerativeAI(apiKey);
-    
-    const model = genAI.getGenerativeModel({ 
-      model: 'gemini-2.5-flash',
-      systemInstruction: systemPrompt
-    });
+    try {
+      const genAI = new GoogleGenerativeAI(apiKey);
+      
+      const model = genAI.getGenerativeModel({ 
+        model: 'gemini-2.5-flash',
+        systemInstruction: systemPrompt
+      });
 
-    const mappedHistory = Array.isArray(parsedHistory) ? parsedHistory.map(m => ({
-      role: m.role === 'user' ? 'user' as const : 'model' as const,
-      parts: [{ text: m.content }]
-    })) : [];
-    
-    const firstUserIndex = mappedHistory.findIndex(m => m.role === 'user');
-    const conversationHistory = firstUserIndex >= 0 ? mappedHistory.slice(firstUserIndex) : [];
+      // Map history to Gemini format
+      const mappedHistory = Array.isArray(parsedHistory) ? parsedHistory.map((m: Message) => ({
+        role: m.role === 'user' ? 'user' as const : 'model' as const,
+        parts: [{ text: m.content }]
+      })) : [];
+      
+      // Find first user message and slice history from there
+      const firstUserIndex = mappedHistory.findIndex((m: { role: string }) => m.role === 'user');
+      const conversationHistory = firstUserIndex >= 0 ? mappedHistory.slice(firstUserIndex) : [];
 
-    const chat = model.startChat({
-      history: conversationHistory,
-      generationConfig: {
-        maxOutputTokens: 300,
-        temperature: 0.7,
-      },
-    });
+      const chat = model.startChat({
+        history: conversationHistory,
+        generationConfig: {
+          maxOutputTokens: 300,
+          temperature: 0.7,
+        },
+      });
 
-    const result = await chat.sendMessage(message);
-    const response = result.response.text() || 
-      'I apologize, I could not process your request. Please try again.';
+      const result = await chat.sendMessage(message);
+      const response = result.response.text() || 
+        'I apologize, I could not process your request. Please try again.';
 
-    return NextResponse.json({ message: response });
+      return NextResponse.json<ChatSuccessResponse>({ message: response });
+    } catch (geminiError) {
+      // Handle Gemini API specific errors
+      console.error('Gemini API error:', geminiError);
+      
+      // Check for API key issues or service unavailability
+      if (geminiError instanceof Error && geminiError.message.includes('API key')) {
+        return NextResponse.json<ChatErrorResponse>(
+          { error: 'Invalid API configuration. Please contact support.' },
+          { status: 503 }
+        );
+      }
+      
+      return NextResponse.json<ChatErrorResponse>(
+        { error: 'I apologize, something went wrong. Please try again later.' },
+        { status: 503 }
+      );
+    }
   } catch (error) {
-    // Deze log verschijnt in je server terminal (bijv. VS Code), niet in de browser
     console.error('Chat API error:', error);
-    return NextResponse.json(
-      { message: 'I apologize, something went wrong. Please try again later.' },
+    return NextResponse.json<ChatErrorResponse>(
+      { error: 'Failed to process your request.' },
       { status: 500 }
     );
   }
