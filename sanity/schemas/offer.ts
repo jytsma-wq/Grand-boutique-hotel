@@ -1,0 +1,152 @@
+export default {
+  name: 'offer',
+  title: 'Offers',
+  type: 'document',
+  fields: [
+    {
+      name: 'title',
+      title: 'Title (English)',
+      type: 'string',
+    },
+    {
+      name: 'title_ka',
+      title: 'Title (Georgian)',
+      type: 'string',
+    },
+    {
+      name: 'title_ru',
+      title: 'Title (Russian)',
+      type: 'string',
+    },
+    {
+      name: 'title_fr',
+      title: 'Title (French)',
+      type: 'string',
+    },
+    {
+      name: 'title_de',
+      title: 'Title (German)',
+      type: 'string',
+    },
+    {
+      name: 'title_it',
+      title: 'Title (Italian)',
+      type: 'string',
+    },
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: { source: 'title' },
+    },
+    {
+      name: 'description',
+      title: 'Description (English)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'description_ka',
+      title: 'Description (Georgian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'description_ru',
+      title: 'Description (Russian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'description_fr',
+      title: 'Description (French)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'description_de',
+      title: 'Description (German)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'description_it',
+      title: 'Description (Italian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes',
+      title: 'Includes (English)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes_ka',
+      title: 'Includes (Georgian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes_ru',
+      title: 'Includes (Russian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes_fr',
+      title: 'Includes (French)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes_de',
+      title: 'Includes (German)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'includes_it',
+      title: 'Includes (Italian)',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      options: { hotspot: true },
+    },
+    {
+      name: 'validFrom',
+      title: 'Valid From',
+      type: 'datetime',
+    },
+    {
+      name: 'validTo',
+      title: 'Valid To',
+      type: 'datetime',
+    },
+    {
+      name: 'priceUsd',
+      title: 'Price (USD)',
+      type: 'number',
+    },
+    {
+      name: 'priceGel',
+      title: 'Price (GEL)',
+      type: 'number',
+    },
+    {
+      name: 'active',
+      title: 'Active',
+      type: 'boolean',
+      initialValue: true,
+    },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    },
+  ],
+}

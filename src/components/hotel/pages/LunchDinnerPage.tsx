@@ -1,0 +1,347 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import { Clock, Utensils, Wine, ExternalLink, Phone } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { type Locale } from '@/i18n/config';
+
+interface LunchDinnerPageProps {
+  locale: Locale;
+}
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.6 }
+};
+
+export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
+  const t = useTranslations();
+  const [currentMeal, setCurrentMeal] = useState<'lunch' | 'dinner' | 'closed'>('closed');
+
+  useEffect(() => {
+    const checkMealTime = () => {
+      const now = new Date();
+      const hours = now.getHours();
+      if (hours >= 12 && hours < 15) {
+        setCurrentMeal('lunch');
+      } else if (hours >= 18 && hours < 23) {
+        setCurrentMeal('dinner');
+      } else {
+        setCurrentMeal('closed');
+      }
+    };
+    checkMealTime();
+    const interval = setInterval(checkMealTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const menuSections = [
+    {
+      title: 'Lunch Menu',
+      time: '12:00 PM - 3:00 PM',
+      description: 'A refined selection of light dishes perfect for midday dining. Fresh salads, seafood, and Georgian specialties.',
+      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
+      highlights: [
+        'Business Lunch Special - 3 courses',
+        'Fresh Black Sea Seafood',
+        'Georgian Salads & Appetizers',
+        'Light Pasta & Risotto',
+      ],
+      cmsLink: 'https://batumiboutique.sanity.studio/desk/menu;lunch',
+      active: currentMeal === 'lunch',
+    },
+    {
+      title: 'Dinner Menu',
+      time: '6:00 PM - 11:00 PM',
+      description: 'An elegant evening dining experience featuring our finest Georgian and international cuisine with premium wine pairings.',
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
+      highlights: [
+        'Chef\'s Tasting Menu - 7 courses',
+        'Premium Steaks & Grills',
+        'Traditional Georgian Feast',
+        'Sommelier Wine Pairings',
+      ],
+      cmsLink: 'https://batumiboutique.sanity.studio/desk/menu;dinner',
+      active: currentMeal === 'dinner',
+    },
+  ];
+
+  const featuredDishes = [
+    {
+      name: 'Grilled Black Sea Bass',
+      category: 'Seafood',
+      price: '$32',
+      image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80',
+    },
+    {
+      name: 'Beef Tenderloin',
+      category: 'Grill',
+      price: '$45',
+      image: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=400&q=80',
+    },
+    {
+      name: 'Adjarian Khachapuri',
+      category: 'Georgian',
+      price: '$18',
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80',
+    },
+    {
+      name: 'Lobster Risotto',
+      category: 'Italian',
+      price: '$38',
+      image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80',
+    },
+  ];
+
+  return (
+    <main className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80"
+            alt="Lunch & Dinner at Azure Restaurant"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 hero-gradient" />
+        </div>
+        
+        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
+          <motion.div {...fadeInUp}>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
+              Lunch & Dinner
+            </h1>
+            <p className="text-xl text-cream-50/70 max-w-2xl mb-8 font-light">
+              Experience culinary excellence with our carefully curated lunch and dinner menus
+            </p>
+            
+            {/* Status Badge */}
+            <div className={`inline-flex items-center gap-3 px-6 py-3 border-2 ${
+              currentMeal !== 'closed' ? 'border-white text-cream-50' : 'border-white/50 text-cream-50/50'
+            }`}>
+              <div className={`w-2 h-2 ${currentMeal !== 'closed' ? 'bg-white' : 'bg-white/50'}`} />
+              <span className="uppercase tracking-wider text-sm font-medium">
+                {currentMeal === 'lunch' && 'Now Serving Lunch'}
+                {currentMeal === 'dinner' && 'Now Serving Dinner'}
+                {currentMeal === 'closed' && 'Currently Closed'}
+              </span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Opening Hours Banner */}
+      <section className="bg-forest-900 text-cream-50 py-10 border-t-2 border-forest-950">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+            <div className="flex items-center gap-4">
+              <Utensils className="text-cream-50/70" size={28} />
+              <div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Lunch Service</div>
+                <div className="text-2xl font-bold tracking-wide">12:00 PM - 3:00 PM</div>
+              </div>
+            </div>
+            <div className="hidden md:block w-px h-16 bg-white/20" />
+            <div className="flex items-center gap-4">
+              <Wine className="text-cream-50/70" size={28} />
+              <div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Dinner Service</div>
+                <div className="text-2xl font-bold tracking-wide">6:00 PM - 11:00 PM</div>
+              </div>
+            </div>
+            <div className="hidden md:block w-px h-16 bg-white/20" />
+            <Link href={`/${locale}/booking`}>
+              <Button className="btn-telegraph">
+                Reserve Table
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Menu Sections */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-6">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menus</span>
+            <h2 className="section-title mt-4">Culinary Excellence</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {menuSections.map((section, index) => (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                className={`border-2 ${section.active ? 'border-forest-900' : 'border-forest-300'} overflow-hidden group`}
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Clock size={16} className="text-cream-50/70" />
+                      <span className="text-cream-50/70 text-sm">{section.time}</span>
+                    </div>
+                    <h3 className="text-3xl font-bold text-cream-50 uppercase tracking-wide">
+                      {section.title}
+                    </h3>
+                    {section.active && (
+                      <span className="inline-block mt-2 px-3 py-1 bg-white text-forest-900 text-xs uppercase tracking-wider font-bold">
+                        Now Serving
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="p-8">
+                  <p className="text-forest-600 font-light mb-6">{section.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {section.highlights.map((highlight, i) => (
+                      <li key={i} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-forest-900" />
+                        <span className="text-forest-700 text-sm">{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={section.cmsLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-forest-900 font-medium uppercase tracking-wider text-sm hover:opacity-70 transition-opacity"
+                  >
+                    View Full Menu
+                    <ExternalLink size={16} />
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Dishes */}
+      <section className="py-24 bg-forest-50">
+        <div className="container mx-auto px-6">
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature</span>
+            <h2 className="section-title mt-4">Featured Dishes</h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredDishes.map((dish, index) => (
+              <motion.div
+                key={dish.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white border-2 border-forest-900 overflow-hidden group"
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={dish.image}
+                    alt={dish.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 right-4 bg-white px-3 py-1 text-forest-900 font-bold text-sm">
+                    {dish.price}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <div className="text-xs text-forest-500 uppercase tracking-wider mb-1">{dish.category}</div>
+                  <h3 className="font-bold text-forest-900 uppercase tracking-wide">{dish.name}</h3>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Wine Pairing Section */}
+      <section className="py-24 bg-forest-900 text-cream-50">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <motion.div {...fadeInUp}>
+              <span className="text-cream-50/50 text-xs tracking-[0.3em] uppercase font-light">Sommelier Selection</span>
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">Wine Pairings</h2>
+              <p className="text-cream-50/70 text-lg mb-8 font-light leading-relaxed">
+                Our sommelier has curated an exceptional wine list featuring over 500 labels, 
+                with a special focus on Georgian qvevri wines. Let us guide you through the 
+                perfect pairing for your meal.
+              </p>
+              <div className="flex flex-col gap-4 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white" />
+                  <span className="text-cream-50/80">500+ Wine Selection</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white" />
+                  <span className="text-cream-50/80">Georgian Qvevri Wines</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 bg-white" />
+                  <span className="text-cream-50/80">Expert Sommelier Service</span>
+                </div>
+              </div>
+              <Link href={`/${locale}/bar/wine-list`}>
+                <Button className="btn-telegraph">
+                  View Wine List
+                </Button>
+              </Link>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80"
+                alt="Wine Selection"
+                className="w-full aspect-square object-cover"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <motion.div {...fadeInUp}>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
+              Reserve Your Table
+            </h2>
+            <p className="text-forest-600 text-lg mb-10 max-w-2xl mx-auto font-light">
+              Experience the finest dining in Batumi. Private dining rooms available for special occasions.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href={`/${locale}/booking`}>
+                <Button className="btn-telegraph px-12 py-5">
+                  Make Reservation
+                </Button>
+              </Link>
+              <a href="tel:+995422000000">
+                <Button variant="outline" className="px-12 py-5 border-2 border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-cream-50 uppercase tracking-wider">
+                  <Phone className="mr-2 w-4 h-4" />
+                  +995 422 00 00 00
+                </Button>
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}

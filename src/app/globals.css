@@ -1,0 +1,520 @@
+/* Font imports - Telegraph Hotel Style */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-forest-50: #f6f7f5;
+  --color-forest-100: #ebede9;
+  --color-forest-200: #d4dbcf;
+  --color-forest-300: #b3c2ab;
+  --color-forest-400: #8ba382;
+  --color-forest-500: #6b8563;
+  --color-forest-600: #526b4b;
+  --color-forest-700: #42553d;
+  --color-forest-800: #364532;
+  --color-forest-900: #2f3b2b;
+  --color-forest-950: #1a2218;
+}
+
+/* Telegraph Hotel - Luxury Forest Green & Brass Palette */
+:root {
+  /* Base Colors - Asymmetric luxury */
+  --radius: 0rem;
+  
+  /* Forest Green Scale - Primary brand color from telegraphhotel.com */
+  --forest-50: oklch(0.96 0.01 145);
+  --forest-100: oklch(0.88 0.02 145);
+  --forest-200: oklch(0.78 0.035 145);
+  --forest-300: oklch(0.65 0.05 145);
+  --forest-400: oklch(0.52 0.065 145);
+  --forest-500: oklch(0.40 0.07 145);
+  --forest-600: oklch(0.32 0.065 145);
+  --forest-700: oklch(0.26 0.055 145);
+  --forest-800: oklch(0.20 0.045 145);
+  --forest-900: oklch(0.15 0.035 145);
+  --forest-950: oklch(0.10 0.025 145);
+  
+  /* Brass/Gold Accent Scale - From telegraphhotel.com */
+  --brass-50: oklch(0.97 0.02 85);
+  --brass-100: oklch(0.92 0.035 85);
+  --brass-200: oklch(0.85 0.05 85);
+  --brass-300: oklch(0.76 0.065 85);
+  --brass-400: oklch(0.68 0.075 85);
+  --brass-500: oklch(0.60 0.08 85);
+  --brass-600: oklch(0.52 0.075 85);
+  --brass-700: oklch(0.44 0.065 85);
+  --brass-800: oklch(0.36 0.05 85);
+  --brass-900: oklch(0.28 0.035 85);
+  
+  /* Warm Off-White Backgrounds */
+  --cream-50: oklch(0.98 0.005 95);
+  --cream-100: oklch(0.95 0.008 95);
+  --cream-200: oklch(0.90 0.012 95);
+  
+  /* Theme Variables */
+  --background: oklch(0.98 0.005 95);
+  --foreground: oklch(0.13 0.01 145);
+  --card: oklch(0.98 0.005 95);
+  --card-foreground: oklch(0.13 0.01 145);
+  --popover: oklch(0.98 0.005 95);
+  --popover-foreground: oklch(0.13 0.01 145);
+  
+  /* Primary: Deep Forest Green (#27331d equivalent) */
+  --primary: oklch(0.20 0.045 145);
+  --primary-foreground: oklch(0.98 0.005 95);
+  
+  /* Secondary: Lighter Forest */
+  --secondary: oklch(0.78 0.035 145);
+  --secondary-foreground: oklch(0.13 0.01 145);
+  
+  /* Accent: Muted Brass (#baa363 equivalent) */
+  --accent: oklch(0.68 0.075 85);
+  --accent-foreground: oklch(0.13 0.01 145);
+  
+  --muted: oklch(0.92 0.008 95);
+  --muted-foreground: oklch(0.45 0.02 145);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.85 0.012 145);
+  --input: oklch(0.92 0.008 95);
+  --ring: oklch(0.60 0.08 85);
+  
+  /* Chart Colors */
+  --chart-1: oklch(0.20 0.045 145);
+  --chart-2: oklch(0.60 0.08 85);
+  --chart-3: oklch(0.40 0.07 145);
+  --chart-4: oklch(0.68 0.075 85);
+  --chart-5: oklch(0.26 0.055 145);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.20 0.045 145);
+  --sidebar-foreground: oklch(0.98 0.005 95);
+  --sidebar-primary: oklch(0.60 0.08 85);
+  --sidebar-primary-foreground: oklch(0.13 0.01 145);
+  --sidebar-accent: oklch(0.32 0.065 145);
+  --sidebar-accent-foreground: oklch(0.98 0.005 95);
+  --sidebar-border: oklch(0.26 0.055 145);
+  --sidebar-ring: oklch(0.60 0.08 85);
+  
+  /* Elegant Gradients */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.15 0.035 145 / 75%));
+}
+
+.dark {
+  --background: oklch(0.10 0.025 145);
+  --foreground: oklch(0.95 0.005 95);
+  --card: oklch(0.13 0.035 145);
+  --card-foreground: oklch(0.95 0.005 95);
+  --popover: oklch(0.13 0.035 145);
+  --popover-foreground: oklch(0.95 0.005 95);
+  
+  /* Primary: Lighter Forest for dark mode */
+  --primary: oklch(0.78 0.035 145);
+  --primary-foreground: oklch(0.10 0.025 145);
+  
+  --secondary: oklch(0.26 0.055 145);
+  --secondary-foreground: oklch(0.95 0.005 95);
+  
+  /* Accent: Brighter Brass for dark mode */
+  --accent: oklch(0.76 0.065 85);
+  --accent-foreground: oklch(0.10 0.025 145);
+  
+  --muted: oklch(0.26 0.055 145);
+  --muted-foreground: oklch(0.65 0.05 145);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.26 0.055 145);
+  --input: oklch(0.26 0.055 145);
+  --ring: oklch(0.76 0.065 85);
+  
+  --chart-1: oklch(0.78 0.035 145);
+  --chart-2: oklch(0.76 0.065 85);
+  --chart-3: oklch(0.52 0.065 145);
+  --chart-4: oklch(0.68 0.075 85);
+  --chart-5: oklch(0.40 0.07 145);
+  
+  --sidebar: oklch(0.13 0.035 145);
+  --sidebar-foreground: oklch(0.95 0.005 95);
+  --sidebar-primary: oklch(0.76 0.065 85);
+  --sidebar-primary-foreground: oklch(0.10 0.025 145);
+  --sidebar-accent: oklch(0.32 0.065 145);
+  --sidebar-accent-foreground: oklch(0.95 0.005 95);
+  --sidebar-border: oklch(0.26 0.055 145);
+  --sidebar-ring: oklch(0.76 0.065 85);
+  
+  /* Dark mode - Elegant gradient */
+  --gradient-hero: linear-gradient(180deg, oklch(0 0 0 / 0%), oklch(0.10 0.025 145 / 85%));
+}
+
+/* Theme variables defined in :root and .dark above */
+
+@layer base {
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Overlay - Telegraph style */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  /* Boutique Hotel Button - Elegant classic style */
+  .btn-telegraph {
+    @apply bg-forest-900 text-white uppercase tracking-widest;
+    padding: 1.25rem 2.5rem;
+    font-weight: 500;
+    border-radius: 0.125rem;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-telegraph:hover {
+    @apply bg-forest-800;
+    transform: translateY(-2px);
+  }
+  
+  /* Telegraph Button - Brass variant */
+  .btn-telegraph-brass {
+    padding: 1.25rem 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--brass-500);
+    color: var(--forest-900);
+    border: none;
+    border-radius: 20px 0 0 20px;
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
+  }
+  
+  .btn-telegraph-brass:hover {
+    background: var(--forest-700);
+    color: var(--cream-50);
+    transform: translateX(4px);
+  }
+  
+  /* Telegraph Button - Outline variant */
+  .btn-telegraph-outline {
+    padding: 1.25rem 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--forest-900);
+    border-radius: 20px 0 0 20px;
+    color: var(--forest-900);
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
+  }
+  
+  .btn-telegraph-outline:hover {
+    background: var(--forest-900);
+    color: var(--cream-50);
+    transform: translateX(4px);
+  }
+  
+  /* Telegraph Link - Elegant typography with brass underline */
+  .link-telegraph {
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--forest-900);
+    border-bottom: 1px solid transparent;
+    transition: all 0.5s cubic-bezier(.28,0,.23,1.01);
+    padding-bottom: 2px;
+  }
+  
+  .link-telegraph:hover {
+    border-bottom-color: var(--brass-500);
+    color: var(--brass-600);
+  }
+  
+  /* Telegraph Link - Light variant for dark backgrounds */
+  .link-telegraph-light {
+    display: inline-block;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-50);
+    border-bottom: 1px solid transparent;
+    transition: all 0.5s cubic-bezier(.28,0,.23,1.01);
+    padding-bottom: 2px;
+  }
+  
+  .link-telegraph-light:hover {
+    border-bottom-color: var(--brass-400);
+    color: var(--brass-300);
+  }
+  
+  /* Legacy support - maps to telegraph button */
+  .btn-luxury {
+    padding: 1rem 2rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: var(--forest-900);
+    color: var(--cream-50);
+    border: 2px solid var(--forest-900);
+    border-radius: 20px 0 0 20px;
+    transition: all 0.8s cubic-bezier(.28,0,.23,1.01);
+  }
+  
+  .btn-luxury:hover {
+    background: transparent;
+    color: var(--forest-900);
+    transform: translateX(4px);
+  }
+  
+  /* Section Title - Telegraph style with negative letter-spacing */
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--forest-900);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-title {
+      font-size: 3.75rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .section-title {
+      font-size: 4.5rem;
+    }
+  }
+  
+  .section-subtitle {
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--muted-foreground);
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 768px) {
+    .section-subtitle {
+      font-size: 1.25rem;
+    }
+  }
+  
+  /* Decorative Line - Brass */
+  .brass-line {
+    width: 5rem;
+    height: 0.125rem;
+    margin: 1.5rem auto;
+    background: var(--brass-500);
+  }
+  
+  /* Card Hover Effect - Minimal with smooth transition */
+  .card-hover {
+    transition: all 800ms cubic-bezier(.28,0,.23,1.01);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px oklch(0.15 0.035 145 / 15%);
+  }
+  
+  /* Image Overlay - Forest green gradient */
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, oklch(0.15 0.035 145 / 70%) 100%);
+  }
+  
+  /* Custom Scrollbar - Telegraph minimal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--cream-100);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--brass-400);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--forest-700);
+  }
+  
+  /* Text Accent - Brass */
+  .text-accent {
+    color: var(--brass-500);
+  }
+  
+  /* Telegraph heading styles */
+  .heading-display {
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-display {
+      font-size: 4.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-display {
+      font-size: 6rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .heading-display {
+      font-size: 7rem;
+    }
+  }
+  
+  .heading-large {
+    font-size: 1.875rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-large {
+      font-size: 3rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-large {
+      font-size: 3.75rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .heading-large {
+      font-size: 4.5rem;
+    }
+  }
+  
+  .heading-medium {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-medium {
+      font-size: 1.875rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-medium {
+      font-size: 2.25rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .heading-medium {
+      font-size: 3rem;
+    }
+  }
+  
+  .heading-small {
+    font-size: 1.125rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+  }
+  
+  @media (min-width: 768px) {
+    .heading-small {
+      font-size: 1.25rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-small {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .heading-small {
+      font-size: 1.75rem;
+    }
+  }
+  
+  /* Telegraph detail text - small uppercase */
+  .text-detail {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  /* RTL Utilities */
+  .rtl-flip {
+    [dir="rtl"] & {
+      transform: scaleX(-1);
+    }
+  }
+  
+  /* Aspect Ratios for Hero */
+  .aspect-hero {
+    aspect-ratio: 16/9;
+  }
+  
+  @media (min-width: 768px) {
+    .aspect-hero {
+      aspect-ratio: 21/9;
+    }
+  }
+  
+  /* Safe area for mobile */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+}
