@@ -3,7 +3,6 @@
     "name": "Batumi Boutique Hotel",
     "tagline": "Where Modern Luxury Meets the Black Sea",
     "description": "Experience 2026 modern architecture at Batumi's premier boutique hotel. Refined luxury meets Georgian hospitality on the stunning Black Sea coast."
-    
   },
   "nav": {
     "about": "About",
@@ -24,13 +23,6 @@
     "bookNow": "Book Direct",
     "bestPrice": "Best Price Guarantee",
     "more": "More"
-  },
-  "hero": {
-    "title": "Discover Elegance",
-    "subtitle": "On the Shores of the Black Sea",
-    "description": "A masterpiece of 2026 modern architecture, where refined luxury meets the Black Sea horizon",
-    "cta": "Book Your Stay",
-    "explore": "Explore Rooms"
   },
   "home": {
     "hero": {
@@ -68,6 +60,54 @@
       "title": "Batumi Experiences",
       "subtitle": "Discover the magic of Georgia's coastal gem"
     }
+  },
+  "hero": {
+    "title": "Discover Elegance",
+    "subtitle": "On the Shores of the Black Sea",
+    "description": "A masterpiece of 2026 modern architecture, where refined luxury meets the Black Sea horizon",
+    "cta": "Book Your Stay",
+    "explore": "Explore Rooms"
+  },
+  "chatbot": {
+    "name": "Mariam",
+    "greeting": "Hello! I'm Mariam, your personal assistant. How may I help you today?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "questionsRemaining": "{count} questions remaining",
+    "error": "I apologize, something went wrong. Please try again."
+  },
+  "Rooms": {
+    "accommodations": "Accommodations",
+    "title": "Rooms & Suites",
+    "description": "Discover your sanctuary of modern elegance, where every detail is crafted for your comfort and every view tells a story of the Black Sea.",
+    "priceLabel": "From",
+    "night": "night",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now",
+    "inEveryRoom": "In Every Room",
+    "roomAmenities": "Premium Amenities",
+    "highSpeedWifi": "High-Speed WiFi",
+    "climateControl": "Climate Control",
+    "smartTv": "Smart TV",
+    "nespressoMachine": "Nespresso Machine",
+    "inRoomSafe": "In-Room Safe",
+    "roomService": "24h Room Service",
+    "bookDirectTitle": "Book Direct &",
+    "saveMore": "Save More",
+    "bookDirectDescription": "Experience the best rates and exclusive benefits when you book directly with us. Our commitment to exceptional service begins before your arrival.",
+    "bestPrice": "Best Price Guarantee",
+    "bestPriceDesc": "Lowest rates available, guaranteed",
+    "freeBreakfast": "Complimentary Breakfast",
+    "freeBreakfastDesc": "Start your day with our lavish breakfast spread",
+    "roomUpgrade": "Complimentary Upgrade",
+    "roomUpgradeDesc": "Subject to availability at check-in",
+    "earlyCheckIn": "Early Check-In",
+    "earlyCheckInDesc": "Arrive at your convenience, subject to availability",
+    "lateCheckOut": "Late Check-Out",
+    "lateCheckOutDesc": "Extend your stay until 2 PM",
+    "spaDiscount": "Exclusive Spa Discount",
+    "spaDiscountDesc": "Enjoy 15% off all spa treatments",
+    "bookYourStay": "Book Your Stay"
   },
   "rooms": {
     "title": "Rooms & Suites",
@@ -116,43 +156,33 @@
       }
     }
   },
-  "restaurant": {
-    "title": "Azure Restaurant",
-    "subtitle": "A Gastronomic Journey",
-    "description": "Experience the finest Georgian and international cuisine in an atmosphere of contemporary elegance. Our chefs craft each dish using locally-sourced ingredients, creating a symphony of flavors that celebrate Georgia's rich culinary heritage.",
-    "hours": {
-      "title": "Opening Hours",
-      "breakfast": "Breakfast: 7:00 AM - 11:00 AM",
-      "lunch": "Lunch: 12:00 PM - 3:00 PM",
-      "dinner": "Dinner: 6:00 PM - 11:00 PM"
+  "meetings": {
+    "title": "Meetings & Events",
+    "subtitle": "Where Business Meets Elegance",
+    "description": "Host your next corporate event, conference, or celebration in our versatile event spaces, equipped with state-of-the-art technology and supported by our dedicated events team.",
+    "venues": {
+      "title": "Our Venues",
+      "capacity": "Capacity: {count} guests"
     },
-    "cuisine": {
-      "title": "Our Cuisine",
-      "georgian": "Authentic Georgian dishes reimagined with modern techniques",
-      "international": "International favorites with local flair",
-      "seafood": "Fresh Black Sea seafood, caught daily"
+    "packages": {
+      "title": "Event Packages",
+      "day": "Day Conference Package",
+      "residential": "Residential Conference Package"
     },
-    "reserve": "Reserve a Table",
-    "downloadMenu": "Download Menu"
+    "inquire": "Inquire Now"
   },
-  "bar": {
-    "name": "Lounge Bar",
-    "subtitle": "Sophistication in Every Sip",
-    "description": "An intimate haven for connoisseurs, featuring an extensive collection of premium spirits, craft cocktails, and rare Georgian wines. Watch the sunset over the Black Sea as our expert mixologists create your perfect evening.",
-    "hours": {
-      "title": "Opening Hours",
-      "daily": "Daily: 4:00 PM - 1:00 AM"
+  "Meetings": {
+    "title": "Meetings & Events",
+    "subtitle": "Where Business Meets Elegance on the Black Sea",
+    "description": "Elevate your corporate gatherings with our sophisticated event spaces, cutting-edge technology, and impeccable service that reflects the grandeur of Batumi's architectural renaissance.",
+    "venues": {
+      "title": "Our Venues",
+      "capacity": "Up to {count} guests"
     },
-    "signature": {
-      "title": "Signature Cocktails",
-      "subtitle": "Crafted exclusively for Batumi Boutique Hotel"
+    "packages": {
+      "title": "Conference Packages"
     },
-    "wines": {
-      "title": "Georgian Wine Selection",
-      "subtitle": "From ancient qvevri traditions to modern vintages"
-    },
-    "reserve": "Reserve a Table",
-    "downloadMenu": "Download Drink Menu"
+    "inquire": "Request Proposal"
   },
   "wellness": {
     "title": "Wellness & Spa",
@@ -182,7 +212,7 @@
           "price": "Monthly membership"
         },
         "premium": {
-          "name": "Premium", 
+          "name": "Premium",
           "price": "Monthly membership"
         },
         "vip": {
@@ -192,21 +222,6 @@
       },
       "joinNow": "Join Now"
     }
-  },
-  "meetings": {
-    "title": "Meetings & Events",
-    "subtitle": "Where Business Meets Elegance",
-    "description": "Host your next corporate event, conference, or celebration in our versatile event spaces, equipped with state-of-the-art technology and supported by our dedicated events team.",
-    "venues": {
-      "title": "Our Venues",
-      "capacity": "Capacity: {count} guests"
-    },
-    "packages": {
-      "title": "Event Packages",
-      "day": "Day Conference Package",
-      "residential": "Residential Conference Package"
-    },
-    "inquire": "Inquire Now"
   },
   "offers": {
     "title": "Special Offers",
@@ -272,14 +287,6 @@
       "beach": "Black Sea Beach"
     }
   },
-  "chatbot": {
-    "name": "Mariam",
-    "greeting": "Hello! I'm Mariam, your personal assistant. How may I help you today?",
-    "placeholder": "Type your message...",
-    "send": "Send",
-    "questionsRemaining": "{count} questions remaining",
-    "error": "I apologize, something went wrong. Please try again."
-  },
   "booking": {
     "title": "Book Your Stay",
     "checkIn": "Check In",
@@ -295,6 +302,52 @@
     "benefit2": "Early check-in & late check-out",
     "benefit3": "Free room upgrade (subject to availability)",
     "benefit4": "Exclusive spa discount"
+  },
+  "restaurant": {
+    "title": "Azure Restaurant",
+    "subtitle": "A Gastronomic Journey",
+    "description": "Experience the finest Georgian and international cuisine in an atmosphere of contemporary elegance. Our chefs craft each dish using locally-sourced ingredients, creating a symphony of flavors that celebrate Georgia's rich culinary heritage.",
+    "hours": {
+      "title": "Opening Hours",
+      "breakfast": "Breakfast: 7:00 AM - 11:00 AM",
+      "lunch": "Lunch: 12:00 PM - 3:00 PM",
+      "dinner": "Dinner: 6:00 PM - 11:00 PM"
+    },
+    "cuisine": {
+      "title": "Our Cuisine",
+      "georgian": "Authentic Georgian dishes reimagined with modern techniques",
+      "international": "International favorites with local flair",
+      "seafood": "Fresh Black Sea seafood, caught daily"
+    },
+    "reserve": "Reserve a Table",
+    "downloadMenu": "Download Menu"
+  },
+  "Restaurant": {
+    "title": "Azure Restaurant",
+    "subtitle": "A Culinary Journey Through Georgia",
+    "description": "Experience the art of Georgian hospitality fused with contemporary gastronomy. Our chefs honor centuries-old traditions while crafting innovative dishes that celebrate the bounty of the Black Sea coast.",
+    "reserve": "Reserve Your Table",
+    "privateEvents": "Private Dining",
+    "chefTable": "Chef's Table Experience"
+  },
+  "bar": {
+    "name": "Lounge Bar",
+    "subtitle": "Sophistication in Every Sip",
+    "description": "An intimate haven for connoisseurs, featuring an extensive collection of premium spirits, craft cocktails, and rare Georgian wines. Watch the sunset over the Black Sea as our expert mixologists create your perfect evening.",
+    "hours": {
+      "title": "Opening Hours",
+      "daily": "Daily: 4:00 PM - 1:00 AM"
+    },
+    "signature": {
+      "title": "Signature Cocktails",
+      "subtitle": "Crafted exclusively for Batumi Boutique Hotel"
+    },
+    "wines": {
+      "title": "Georgian Wine Selection",
+      "subtitle": "From ancient qvevri traditions to modern vintages"
+    },
+    "reserve": "Reserve a Table",
+    "downloadMenu": "Download Drink Menu"
   },
   "footer": {
     "description": "A masterpiece of 2026 modern architecture on Georgia's stunning Black Sea coast. Experience refined luxury and warm hospitality at Batumi's premier boutique hotel.",
@@ -320,59 +373,5 @@
     "free": "Free",
     "usd": "USD",
     "gel": "GEL"
-  },
-  "Rooms": {
-    "accommodations": "Accommodations",
-    "title": "Rooms & Suites",
-    "description": "Discover your sanctuary of modern elegance, where every detail is crafted for your comfort and every view tells a story of the Black Sea.",
-    "priceLabel": "From",
-    "night": "night",
-    "viewDetails": "View Details",
-    "bookNow": "Book Now",
-    "inEveryRoom": "In Every Room",
-    "roomAmenities": "Premium Amenities",
-    "highSpeedWifi": "High-Speed WiFi",
-    "climateControl": "Climate Control",
-    "smartTv": "Smart TV",
-    "nespressoMachine": "Nespresso Machine",
-    "inRoomSafe": "In-Room Safe",
-    "roomService": "24h Room Service",
-    "bookDirectTitle": "Book Direct &",
-    "saveMore": "Save More",
-    "bookDirectDescription": "Experience the best rates and exclusive benefits when you book directly with us. Our commitment to exceptional service begins before your arrival.",
-    "bestPrice": "Best Price Guarantee",
-    "bestPriceDesc": "Lowest rates available, guaranteed",
-    "freeBreakfast": "Complimentary Breakfast",
-    "freeBreakfastDesc": "Start your day with our lavish breakfast spread",
-    "roomUpgrade": "Complimentary Upgrade",
-    "roomUpgradeDesc": "Subject to availability at check-in",
-    "earlyCheckIn": "Early Check-In",
-    "earlyCheckInDesc": "Arrive at your convenience, subject to availability",
-    "lateCheckOut": "Late Check-Out",
-    "lateCheckOutDesc": "Extend your stay until 2 PM",
-    "spaDiscount": "Exclusive Spa Discount",
-    "spaDiscountDesc": "Enjoy 15% off all spa treatments",
-    "bookYourStay": "Book Your Stay"
-  },
-  "Meetings": {
-    "title": "Meetings & Events",
-    "subtitle": "Where Business Meets Elegance on the Black Sea",
-    "description": "Elevate your corporate gatherings with our sophisticated event spaces, cutting-edge technology, and impeccable service that reflects the grandeur of Batumi's architectural renaissance.",
-    "venues": {
-      "title": "Our Venues",
-      "capacity": "Up to {count} guests"
-    },
-    "packages": {
-      "title": "Conference Packages"
-    },
-    "inquire": "Request Proposal"
-  },
-  "Restaurant": {
-    "title": "Azure Restaurant",
-    "subtitle": "A Culinary Journey Through Georgia",
-    "description": "Experience the art of Georgian hospitality fused with contemporary gastronomy. Our chefs honor centuries-old traditions while crafting innovative dishes that celebrate the bounty of the Black Sea coast.",
-    "reserve": "Reserve Your Table",
-    "privateEvents": "Private Dining",
-    "chefTable": "Chef's Table Experience"
   }
 }
