@@ -10,18 +10,9 @@ import TopBar from '@/components/hotel/TopBar';
 import Footer from '@/components/hotel/Footer';
 import MariamChatbot from '@/components/hotel/MariamChatbot';
 import WhatsAppButton from '@/components/hotel/WhatsAppButton';
-import { Inter, Playfair_Display } from 'next/font/google';
+import { inter, playfairDisplay, lato } from '@/lib/fonts';
 import '@/app/globals.css';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-});
-
-const playfairDisplay = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-});
 
 export const metadata: Metadata = {
   title: {
@@ -96,7 +87,7 @@ export default async function LocaleLayout({
   const isRtl = isRtlLocale(locale as Locale);
 
   return (
-    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-scroll-behavior="smooth" suppressHydrationWarning className={`${inter.variable} ${playfairDisplay.variable}`}>
+    <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'} data-scroll-behavior="smooth" suppressHydrationWarning className={`${inter.variable} ${playfairDisplay.variable} ${lato.variable}`}>
       <head />
       <body className="antialiased min-h-screen flex flex-col font-sans bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
