@@ -1,6 +1,7 @@
-import Link from 'next/link';
-import { Facebook, Instagram } from 'lucide-react';
-
+// app/layout.tsx or src/components/layout.tsx
+// app/layout.tsx
+import Footer from '@/components/Footer';
+import type { Metadata } from "next";
 interface FooterProps {
   locale: 'tr' | 'en' | 'ka' | 'ru' | 'he' | 'ar';
 }
@@ -128,5 +129,14 @@ export default function Footer({ locale }: FooterProps) {
         </div>
       </div>
     </footer>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <main>{children}</main>
+        <Footer locale="en" />
+      </body>
+    </html>
   );
 }
+
+
