@@ -1,0 +1,15 @@
+{
+  "Rooms": {
+    "title": "Available Rooms",
+    "description": "Find the perfect room for your stay.",
+    "noRooms": "No rooms available at this time.",
+    "loading": "Loading rooms...",
+    "selectRoom": "Select a room",
+    "price": "Price",
+    "capacity": "Capacity",
+    "amenities": "Amenities",
+    "bookNow": "Book Now",
+    "details": "View Details"
+  }
+}
+

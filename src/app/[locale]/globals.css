@@ -7,6 +7,8 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* @ts-check */
+/* eslint-disable */
 @theme {
   --color-forest-50: #f6f7f5;
   --color-forest-100: #ebede9;
