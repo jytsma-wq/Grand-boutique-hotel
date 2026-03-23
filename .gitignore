@@ -1,1 +1,48 @@
-Nothing needs to be added to the .gitignore file based on the provided file changes, as they only include source code files (.tsx, .ts) without any build artifacts, dependencies, or temporary files.
+```gitignore
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+.yarn-cache/
+
+# Build outputs
+dist/
+build/
+.out/
+.bundle/
+
+# TypeScript/JavaScript
+*.js.map
+*.ts.map
+*.jsx.map
+*.tsx.map
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.*
+!.env.example
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+.nyc_output/
+istanbul/
+.lcov/
+```

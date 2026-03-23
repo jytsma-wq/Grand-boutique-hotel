@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
@@ -24,6 +23,47 @@ import { urlFor } from '@/lib/sanity';
 interface HomePageProps {
   locale: Locale;
   data?: any;
+  translations: {
+    home: {
+      hero: {
+        title: string;
+        subtitle: string;
+      };
+      welcome: {
+        title: string;
+        description: string;
+      };
+      rooms: {
+        title: string;
+        subtitle: string;
+        viewAll: string;
+      };
+      dining: {
+        title: string;
+        subtitle: string;
+        restaurant: {
+          name: string;
+          description: string;
+        };
+        bar: {
+          name: string;
+          description: string;
+        };
+      };
+      wellness: {
+        title: string;
+        description: string;
+      };
+      experiences: {
+        title: string;
+        subtitle: string;
+      };
+    };
+    common: {
+      bookNow: string;
+      learnMore: string;
+    };
+  };
 }
 
 const fadeInUp = {
@@ -33,15 +73,15 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
-export default function HomePage({ locale, data }: HomePageProps) {
-  const t = useTranslations();
-  const tHome = useTranslations('home');
+export default function HomePage({ locale, data, translations }: HomePageProps) {
+  const tHome = translations.home;
+  const tCommon = translations.common;
 
   // Use CMS data if available, otherwise use translations as fallback
-  const heroTitle = data?.heroTitleLocalized || tHome('hero.title');
-  const heroSubtitle = data?.heroSubtitleLocalized || tHome('hero.subtitle');
-  const welcomeTitle = data?.welcomeSection?.title || tHome('welcome.title');
-  const welcomeDescription = data?.welcomeSection?.description || tHome('welcome.description');
+  const heroTitle = data?.heroTitleLocalized || tHome.hero.title;
+  const heroSubtitle = data?.heroSubtitleLocalized || tHome.hero.subtitle;
+  const welcomeTitle = data?.welcomeSection?.title || tHome.welcome.title;
+  const welcomeDescription = data?.welcomeSection?.description || tHome.welcome.description;
   
   // Get amenities from CMS or use defaults
   const amenities = data?.amenities?.length > 0 
@@ -136,9 +176,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Accommodations</span>
-            <h2 className="section-title mt-4">{tHome('rooms.title')}</h2>
+            <h2 className="section-title mt-4">{tHome.rooms.title}</h2>
             <div className="brass-line" />
-            <p className="section-subtitle">{tHome('rooms.subtitle')}</p>
+            <p className="section-subtitle">{tHome.rooms.subtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -205,7 +245,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
           <div className="text-center mt-12">
             <Link href={`/${locale}/rooms`}>
               <Button className="btn-telegraph">
-                <span>{tHome('rooms.viewAll')}</span>
+                <span>{tHome.rooms.viewAll}</span>
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
@@ -218,9 +258,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Culinary</span>
-            <h2 className="section-title mt-4">{tHome('dining.title')}</h2>
+            <h2 className="section-title mt-4">{tHome.dining.title}</h2>
             <div className="brass-line" />
-            <p className="section-subtitle">{tHome('dining.subtitle')}</p>
+            <p className="section-subtitle">{tHome.dining.subtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -248,10 +288,10 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
                 </div>
                 <h3 className="text-2xl font-semibold text-white mb-2">
-                  {tHome('dining.restaurant.name')}
+                  {tHome.dining.restaurant.name}
                 </h3>
                 <p className="text-white/70 text-sm mb-4">
-                  {tHome('dining.restaurant.description')}
+                  {tHome.dining.restaurant.description}
                 </p>
                 <Link href={`/${locale}/restaurant`}>
                   <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
@@ -281,10 +321,10 @@ export default function HomePage({ locale, data }: HomePageProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="text-2xl font-semibold text-white mb-2">
-                  {tHome('dining.bar.name')}
+                  {tHome.dining.bar.name}
                 </h3>
                 <p className="text-white/70 text-sm mb-4">
-                  {tHome('dining.bar.description')}
+                  {tHome.dining.bar.description}
                 </p>
                 <Link href={`/${locale}/bar`}>
                   <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
@@ -305,11 +345,11 @@ export default function HomePage({ locale, data }: HomePageProps) {
             <motion.div {...fadeInUp}>
               <span className="text-brass-400 text-sm tracking-widest uppercase">Relaxation</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
-                {tHome('wellness.title')}
+                {tHome.wellness.title}
               </h2>
               <div className="brass-line" />
               <p className="text-white/70 text-lg mb-8">
-                {tHome('wellness.description')}
+                {tHome.wellness.description}
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-8">
@@ -370,9 +410,9 @@ export default function HomePage({ locale, data }: HomePageProps) {
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
-            <h2 className="section-title mt-4">{tHome('experiences.title')}</h2>
+            <h2 className="section-title mt-4">{tHome.experiences.title}</h2>
             <div className="brass-line" />
-            <p className="section-subtitle">{tHome('experiences.subtitle')}</p>
+            <p className="section-subtitle">{tHome.experiences.subtitle}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
