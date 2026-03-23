@@ -4,6 +4,8 @@
 import { defineLive } from "next-sanity/live";
 import { client } from './client'
 
+// Disable live mode to avoid WebSocket connection issues
 export const { sanityFetch, SanityLive } = defineLive({
   client,
+  serverUrl: undefined, // Disable live preview WebSocket to prevent 404 errors
 });
