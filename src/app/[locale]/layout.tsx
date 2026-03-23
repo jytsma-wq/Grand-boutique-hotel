@@ -11,6 +11,7 @@ import Footer from '@/components/hotel/Footer';
 import MariamChatbot from '@/components/hotel/MariamChatbot';
 import WhatsAppButton from '@/components/hotel/WhatsAppButton';
 import { inter, playfairDisplay, lato } from '@/lib/fonts';
+// import { SanityLive } from '@/sanity/lib/live'; // Disabled to prevent WebSocket 404 errors
 import '@/app/globals.css';
 
 
@@ -97,6 +98,7 @@ export default async function LocaleLayout({
             enableSystem
             disableTransitionOnChange
           >
+            {/* <SanityLive /> Disabled to prevent WebSocket 404 errors */}
             <TopBar locale={locale as Locale} />
             <Navigation locale={locale as Locale} siteSettings={null} />
             <main className="flex-grow">
