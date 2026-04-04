@@ -6,9 +6,9 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/index.ts');
 const nextConfig: NextConfig = {
   output: "standalone",
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
-  reactStrictMode: false,
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {

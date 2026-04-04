@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Wind, Clock, Thermometer, Droplets, Sparkles, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface SaunaPageProps {
   locale: Locale;
@@ -18,22 +19,24 @@ const fadeInUp = {
 };
 
 export default function SaunaPage({ locale }: SaunaPageProps) {
+  const t = useTranslations('sauna');
+  
   const features = [
-    { icon: Thermometer, title: 'Dry Heat', desc: '80-90°C traditional Finnish sauna' },
-    { icon: Wind, title: 'Cedar Wood', desc: 'Premium Nordic cedar construction' },
-    { icon: Sparkles, title: 'Aromatherapy', desc: 'Essential oil infusions available' },
-    { icon: Heart, title: 'Health Benefits', desc: 'Detox, relaxation, improved circulation' }
+    { icon: Thermometer, title: t('features.dryHeat'), desc: t('features.dryHeatDesc') },
+    { icon: Wind, title: t('features.cedarWood'), desc: t('features.cedarWoodDesc') },
+    { icon: Sparkles, title: t('features.aromatherapy'), desc: t('features.aromatherapyDesc') },
+    { icon: Heart, title: t('features.healthBenefits'), desc: t('features.healthBenefitsDesc') }
   ];
 
   const benefits = [
-    'Deep muscle relaxation and stress relief',
-    'Improved cardiovascular health',
-    'Skin purification and detoxification',
-    'Enhanced immune system function',
-    'Better sleep quality',
-    'Post-workout recovery',
-    'Respiratory system benefits',
-    'Mental clarity and meditation'
+    t('benefitsList.muscleRelaxation'),
+    t('benefitsList.cardiovascular'),
+    t('benefitsList.immuneSystem'),
+    t('benefitsList.skinHealth'),
+    t('benefitsList.sleepQuality'),
+    t('benefitsList.metabolism'),
+    t('benefitsList.circulation'),
+    t('benefitsList.mentalClarity')
   ];
 
   const gallery = [
@@ -61,9 +64,9 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Wind className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Finnish Sauna</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
-              Traditional dry sauna experience for ultimate relaxation and detoxification
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -76,15 +79,15 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
             <div className="flex items-center gap-4">
               <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
-                <div className="text-2xl font-bold">8:00 AM - 10:00 PM</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('openingHours')}</div>
+                <div className="text-2xl font-bold">{t('hours')}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Thermometer className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Temperature</div>
-                <div className="text-2xl font-bold">80-90°C (176-194°F)</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('temperature')}</div>
+                <div className="text-2xl font-bold">{t('tempValue')}</div>
               </div>
             </div>
           </div>
@@ -96,9 +99,9 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Traditional Wellness</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('traditionalWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
-                Authentic Finnish Sauna
+                {t('authenticFinnish')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our traditional Finnish sauna is constructed from premium Nordic cedar wood, creating an authentic 
@@ -112,7 +115,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">Book Your Stay</Button>
+                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -137,8 +140,8 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Sauna Features</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('saunaFeatures')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -167,8 +170,8 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Wellness Benefits</span>
-              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Health Benefits</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellnessBenefits')}</span>
+              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('healthBenefits')}</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,8 +197,8 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Sauna Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('saunaGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

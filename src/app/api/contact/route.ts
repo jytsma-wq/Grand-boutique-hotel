@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+import { db } from '@/lib/db';
 
 interface ContactForm {
   name: string;
@@ -27,14 +29,13 @@ interface ContactErrorResponse {
   error: string;
 }
 
-// Basic email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest): Promise<NextResponse<ContactSuccessResponse | ContactErrorResponse>> {
   try {
     const data: ContactRequestBody = await request.json();
     
-    // Validate required fields are present
     if (!data.name || !data.email || !data.subject || !data.message) {
       return NextResponse.json<ContactErrorResponse>(
         { error: 'Missing required fields. Name, email, subject, and message are required.' },
@@ -42,7 +43,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       );
     }
 
-    // Validate name is not empty or whitespace only
     if (typeof data.name !== 'string' || data.name.trim().length === 0) {
       return NextResponse.json<ContactErrorResponse>(
         { error: 'Name must be a non-empty string.' },
@@ -50,7 +50,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       );
     }
 
-    // Validate email format
     if (typeof data.email !== 'string' || !emailRegex.test(data.email)) {
       return NextResponse.json<ContactErrorResponse>(
         { error: 'Invalid email format. Please provide a valid email address.' },
@@ -58,7 +57,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       );
     }
 
-    // Validate message is not empty or whitespace only
     if (typeof data.message !== 'string' || data.message.trim().length === 0) {
       return NextResponse.json<ContactErrorResponse>(
         { error: 'Message must be a non-empty string.' },
@@ -66,7 +64,6 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       );
     }
 
-    // Validate subject is not empty or whitespace only
     if (typeof data.subject !== 'string' || data.subject.trim().length === 0) {
       return NextResponse.json<ContactErrorResponse>(
         { error: 'Subject must be a non-empty string.' },
@@ -74,34 +71,45 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       );
     }
 
-    // Log the validated submission
-    console.log('Contact form submission:', {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      subject: data.subject,
-      message: data.message,
-      locale: data.locale,
-      timestamp: new Date().toISOString(),
+    const submission = await db.contactSubmission.create({
+      data: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone || null,
+        subject: data.subject,
+        message: data.message,
+        locale: data.locale || 'en',
+      },
     });
 
-    // ============================================================
-    // EMAIL SENDING LOGIC PLACEHOLDER
-    // ============================================================
-    // Integrate your email service here (e.g., Resend, Nodemailer, SendGrid)
-    // Example integration points:
-    // 1. Send notification email to hotel admin
-    // 2. Send confirmation email to the user
-    // 3. Save submission to database for tracking
-    //
-    // Example with Resend:
-    // await resend.emails.send({
-    //   from: 'Batumi Boutique <onboarding@resend.dev>',
-    //   to: ['admin@batumiboutique.com'],
-    //   subject: `New Contact: ${data.subject}`,
-    //   html: `<p>Name: ${data.name}</p><p>Email: ${data.email}</p><p>Message: ${data.message}</p>`,
-    // });
-    // ============================================================
+    const hotelEmail = process.env.HOTEL_EMAIL;
+    if (hotelEmail && process.env.RESEND_API_KEY) {
+      await resend.emails.send({
+        from: 'Grand Boutique Hotel <onboarding@resend.dev>',
+        to: [hotelEmail],
+        subject: `New Contact: ${data.subject}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone || 'Not provided'}</p>
+          <p><strong>Subject:</strong> ${data.subject}</p>
+          <p><strong>Message:</strong></p>
+          <p>${data.message}</p>
+        `,
+      });
+
+      await resend.emails.send({
+        from: 'Grand Boutique Hotel <onboarding@resend.dev>',
+        to: [data.email],
+        subject: 'Thank you for contacting us',
+        html: `
+          <h2>Thank you for your message, ${data.name}!</h2>
+          <p>We have received your inquiry and will get back to you shortly.</p>
+          <p>Best regards,<br/>Grand Boutique Hotel Team</p>
+        `,
+      });
+    }
 
     return NextResponse.json<ContactSuccessResponse>({ 
       success: true,

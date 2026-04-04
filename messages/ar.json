@@ -29,9 +29,17 @@
     "subtitle": "على شواطئ البحر الأسود",
     "description": "تحفة فنية من الهندسة المعمارية الحديثة لعام 2026، حيث تلتقي الفخامة الراقية مع أفق البحر الأسود",
     "cta": "احجز إقامتك",
-    "explore": "استكشف الغرف"
+    "explore": "استكشف الغرف",
+    "slide2Title": "فخامة راقية",
+    "slide2Subtitle": "على شاطئ البحر الأسود",
+    "slide3Title": "فخامة عصرية",
+    "slide3Subtitle": "راحة خالدة"
   },
   "home": {
+    "hero": {
+      "title": "فخامة على ضفاف البحر",
+      "subtitle": "اكتشف فندق البوتيك في باتومي"
+    },
     "welcome": {
       "title": "مرحباً بكم في الجنة",
       "subtitle": "عصر جديد من الضيافة",
@@ -74,6 +82,11 @@
     "amenities": {
       "title": "المرافق والخدمات",
       "wifi": "واي فاي عالي السرعة",
+      "parking": "موقف سيارات مجاني",
+      "dining": "تناول طعام راقٍ",
+      "pool": "مسبح لا نهائي",
+      "fitness": "مركز لياقة",
+      "spa": "سبا والعافية",
       "ac": "تحكم بالمناخ",
       "minibar": "ميني بار فاخر",
       "safe": "خزنة في الغرفة",
@@ -153,6 +166,11 @@
     "title": "العافية والسبا",
     "subtitle": "استعيدوا. تجددوا. انطلقوا.",
     "description": "مركز العافية لدينا ملاذ من الهدوء، يقدم مجموعة شاملة من العلاجات والمرافق لتحقيق الانسجام بين الجسد والعقل والروح.",
+    "rejuvenate": "تجديد",
+    "worldClass": "عالمي المستوى",
+    "openSubpage": "افتح صفحة فرعية لكل منشأة",
+    "pamperYourself": "دللوا أنفسكم",
+    "exclusiveAccess": "وصول حصري",
     "facilities": {
       "title": "المرافق",
       "pool": "مسبح إنفينيتي",
@@ -188,20 +206,154 @@
       "joinNow": "انضم الآن"
     }
   },
-  "meetings": {
-    "title": "الاجتماعات والفعاليات",
-    "subtitle": "حيث تلتقي الأعمال بالأناقة",
-    "description": "أقيموا فعاليتكم المؤسسية أو مؤتمركم أو احتفالكم القادم في قاعاتنا متعددة الاستخدامات، المجهزة بأحدث التقنيات وبدعم من فريق الفعاليات المتفاني لدينا.",
-    "venues": {
-      "title": "قاعاتنا",
-      "capacity": "السعة: {count} ضيف"
+  "steamRoom": {
+    "title": "حمام تركي",
+    "subtitle": "تجربة غرفة البخار الفاخرة مع بخار الأوكاليبتوس",
+    "openingHours": "ساعات العمل",
+    "hours": "08:00 - 22:00",
+    "temperature": "درجة الحرارة والرطوبة",
+    "tempValue": "40-45°C • 100%",
+    "luxuryWellness": "رفاهية العافية",
+    "traditionalTurkish": "حمام تركي تقليدي",
+    "premiumAmenities": "مرافق متميزة",
+    "steamRoomFeatures": "مميزات غرفة البخار",
+    "wellnessBenefits": "فوائد العافية",
+    "healthBenefits": "الفوائد الصحية",
+    "visualExperience": "تجربة بصرية",
+    "steamRoomGallery": "معرض غرفة البخار",
+    "bookYourStay": "احجز إقامتك"
+  },
+  "sauna": {
+      "title": "ساونا فنلندية",
+      "subtitle": "تجربة ساونا جافة تقليدية للاسترخاء والتخلص من السموم",
+      "openingHours": "ساعات العمل",
+      "hours": "08:00 - 22:00",
+      "temperature": "درجة الحرارة",
+      "tempValue": "80-90°C",
+      "traditionalWellness": "عافية تقليدية",
+      "authenticFinnish": "ساونا فنلندية أصيلة",
+      "premiumAmenities": "مرافق متميزة",
+      "saunaFeatures": "مميزات الساونا",
+      "wellnessBenefits": "فوائد العافية",
+      "healthBenefits": "الفوائد الصحية",
+      "visualExperience": "تجربة بصرية",
+      "saunaGallery": "معرض الساونا",
+      "bookYourStay": "احجز إقامتك",
+      "features": {
+        "dryHeat": "حرارة جافة",
+        "dryHeatDesc": "80-90°C ساونا فنلندية تقليدية",
+        "cedarWood": "خشب الأرز",
+        "cedarWoodDesc": "بناء خشب الأرز الشمالي المتميز",
+        "aromatherapy": "العلاج بالروائح",
+        "aromatherapyDesc": "زيوت أساسية متاحة",
+        "healthBenefits": "الفوائد الصحية",
+        "healthBenefitsDesc": "تنظيف، استرخاء، تحسين الدورة الدموية"
+      },
+      "benefitsList": {
+        "muscleRelaxation": "استرخاء العضلات العميق وتخفيف التوتر",
+        "cardiovascular": "تحسين صحة القلب والأوعية الدموية",
+        "immuneSystem": "تعزيز وظيفة الجهاز المناعي",
+        "skinHealth": "تحسين صحة الجلد والتخلص من السموم",
+        "sleepQuality": "جودة نوم أفضل",
+        "metabolism": "زيادة الأيض",
+        "circulation": "تحسين الدورة الدموية",
+        "mentalClarity": "الوضوح العقلي والوعي"
+      }
     },
-    "packages": {
-      "title": "باقات الفعاليات",
-      "day": "باقة المؤتمر اليومي",
-      "residential": "باقة المؤتمر مع الإقامة"
+    "pool": {
+      "title": "مسبح لا نهائي",
+      "subtitle": "مسبح مذهل على السطح مع إطلالات بانورامية على البحر الأسود",
+      "openingHours": "ساعات العمل",
+      "hours": "06:00 - 22:00",
+      "waterTemperature": "درجة حرارة الماء",
+      "waterTempValue": "28°C",
+      "luxuryWellness": "واحة على السطح",
+      "panoramicPool": "مسبح بانورامي على السطح",
+      "premiumAmenities": "مرافق متميزة",
+      "poolFeatures": "ميزات المسبح",
+      "wellnessBenefits": "فوائد العافية",
+      "visualExperience": "تجربة بصرية",
+      "poolGallery": "معرض المسبح",
+      "bookYourStay": "احجز إقامتك",
+      "features": {
+        "infinityEdge": "حافة لا نهائية",
+        "infinityEdgeDesc": "انسيابية مع أفق البحر الأسود",
+        "heatedWater": "مياه مدفأة",
+        "heatedWaterDesc": "28°C مريحة طوال العام",
+        "panoramicViews": "إطلالات بانورامية",
+        "panoramicViewsDesc": "جدران زجاجية من الأرض إلى السقف",
+        "adultsOnly": "للبالغين فقط",
+        "adultsOnlyDesc": "ضمان جو هادئ"
+      }
     },
-    "inquire": "استفسر الآن"
+    "jacuzzi": {
+      "title": "جاكوزي خارجي",
+      "subtitle": "مياه دافئة علاجية تحت السماء المفتوحة",
+      "openingHours": "ساعات العمل",
+      "hours": "08:00 - 22:00",
+      "temperature": "درجة حرارة الماء",
+      "tempValue": "38-40°C",
+      "luxuryWellness": "مياه شافية",
+      "therapeuticRelaxation": "استرخاء علاجي",
+      "premiumAmenities": "مرافق متميزة",
+      "jacuzziFeatures": "ميزات الجاكوزي",
+      "wellnessBenefits": "فوائد العافية",
+      "visualExperience": "تجربة بصرية",
+      "jacuzziGallery": "معرض الجاكوزي",
+      "bookYourStay": "احجز إقامتك",
+      "features": {
+        "hydrotherapy": "فوهات العلاج المائي",
+        "hydrotherapyDesc": "تكوينات متعددة لفوهات التدليك",
+        "perfectTemp": "درجة حرارة مثالية",
+        "perfectTempDesc": "مُحافظ عليها عند 38-40°C",
+        "outdoor": "إعداد خارجي",
+        "outdoorDesc": "موقع على السطح مع إطلالات بحرية",
+        "intimate": "سعة حميمية",
+        "intimateDesc": "يستوعب حتى 6 ضيوف"
+      },
+      "benefitsList": {
+        "muscleRelief": "تخفيف توتر العضلات وتقليل الألم",
+        "circulation": "تحسين الدورة الدموية",
+        "stressRelief": "تخفيف التوتر والاسترخاء العقلي",
+        "sleepQuality": "جودة نوم أفضل",
+        "skinHealth": "تحسين صحة الجلد",
+        "immuneSystem": "تعزيز جهاز المناعة"
+      }
+    },
+    "gym": {
+      "title": "مركز اللياقة",
+      "subtitle": "معدات حديثة وتدريب شخصي متخصص",
+      "openingHours": "ساعات العمل",
+      "hours": "24 ساعة",
+      "luxuryWellness": "العافية النشطة",
+      "premiumFitness": "مرافق اللياقة المتميزة",
+      "premiumAmenities": "مرافق متميزة",
+      "gymFeatures": "ميزات صالة الألعاب الرياضية",
+      "equipmentList": "قائمة المعدات",
+      "visualExperience": "تجربة بصرية",
+      "gymGallery": "معرض صالة الألعاب الرياضية",
+      "bookYourStay": "احجز إقامتك",
+      "features": {
+        "technogym": "معدات Technogym",
+        "technogymDesc": "أحدث آلات cardio والقوة",
+        "personalTraining": "تدريب شخصي",
+        "personalTrainingDesc": "مدربين خبراء متاحون عند الطلب",
+        "cardioZone": "منطقة cardio",
+        "cardioZoneDesc": "مشايات، دراجات، أجهزة بيضاوية مع إطلالات بحرية",
+        "freeWeights": "أوزان حرة",
+        "freeWeightsDesc": "مجموعة كاملة من الدمبل والبار"
+      },
+      "equipmentListItems": {
+        "treadmills": "مشايات مع شاشات ترفيهية",
+        "bikes": "دراجات ثابتة ودراجات سبين",
+        "ellipticals": "مدربي بيضاويين",
+        "rowing": "آلات التجديف",
+        "strength": "آلات الكابلات ومعدات المقاومة",
+        "freeWeightsSection": "قسم أوزان حرة كامل",
+        "yoga": "منطقة اليوغا والتمدد",
+        "recovery": "منطقة التعافي مع رولرات الرغوة"
+      }
+    },
   },
   "offers": {
     "title": "عروض خاصة",
@@ -210,11 +362,51 @@
     "validUntil": "صالح حتى",
     "includes": "يشمل"
   },
+  "spa": {
+    "title": "سبا فاخر",
+    "ultimateRelaxation": "استرخاء تام",
+    "ourPhilosophy": "فلسفتنا",
+    "holisticWellness": "العافية الشاملة",
+    "curatedExperiences": "تجارب مختارة",
+    "spaPackages": "باقات السبا",
+    "enhanceYourExperience": "عزز تجربتك",
+    "addOnServices": "خدمات إضافية",
+    "pleaseNote": "يرجى الملاحظة",
+    "spaEtiquette": "آداب السبا",
+    "arrival": "الوصول",
+    "arrive15Minutes": "يرجى الوصول قبل موعدكم بـ 15 دقيقة",
+    "lateArrivals": "التأخير قد يؤدي إلى تقصير وقت العلاج",
+    "complimentaryRobe": "يتم توفير روب وجوارب مجاناً",
+    "policies": "السياسات",
+    "mobileSilenced": "يجب أن تكون الهواتف في وضع الصامت",
+    "gratuities": "البقشيش محل تقدير لكنه غير مطلوب",
+    "cancellationPolicy": "سياسة الإلغاء خلال 24 ساعة",
+    "visualJourney": "رحلة بصرية",
+    "spaGallery": "معرض السبا"
+  },
   "experiences": {
-    "title": "أماكن للزيارة",
-    "subtitle": "اكتشفوا باتومي والمنطقة المحيطة",
+    "title": "أنشطة للقيام بها",
+    "subtitle": "اكتشف باتومي والمنطقة المحيطة",
+    "discover": "اكتشف",
     "distance": "{km} كم من الفندق",
-    "learnMore": "اعرف المزيد"
+    "learnMore": "اعرف المزيد",
+    "conciergeTitle": "سياركم الخاص يساعدكم",
+    "conciergeDescription": "يمكن لفريق الكونسيرج لدينا تنظيم جولات ونقل وتجارب فريدة مصممة حسب اهتماماتكم.",
+    "contactConcierge": "تواصل مع الكونسيرج"
+  },
+  "about": {
+    "ourStory": "قصتنا",
+    "whereVisionMeetsReality": "حيث يلتقي الحلم بالواقع",
+    "est": "2026",
+    "fiveStar": "5 نجوم",
+    "luxuryRating": "تصنيف الفخامة",
+    "meetOurTeam": "تعرفوا على فريق القيادة لدينا",
+    "ourPhilosophy": "فلسفتنا",
+    "whatWeStandFor": "ما نمثله",
+    "ourTeam": "فريقنا",
+    "meetThePeople": "تعرفوا على الأشخاص وراء التجربة",
+    "architecture": "الهندسة المعمارية",
+    "modernDesign": "تصميم حديث 2026"
   },
   "gallery": {
     "title": "المعرض",
@@ -230,8 +422,12 @@
     }
   },
   "contact": {
-    "title": "تواصل معنا",
+    "title": "اتصل بنا",
     "subtitle": "نحن هنا لمساعدتكم",
+    "sendMessage": "أرسل لنا رسالة",
+    "interactiveMap": "خريطة تفاعلية",
+    "batumiGeorgia": "باتومي، جورجيا",
+    "messageSent": "تم إرسال الرسالة!",
     "form": {
       "name": "اسمكم",
       "email": "البريد الإلكتروني",
@@ -251,11 +447,6 @@
     },
     "address": {
       "title": "العنوان",
-      "street": "شارع روستافيلي 123",
-      "city": "باتومي، جورجيا",
-      "postal": "6000"
-    }
-  },
   "location": {
     "title": "الموقع",
     "subtitle": "موقع مثالي على ساحل باتومي",

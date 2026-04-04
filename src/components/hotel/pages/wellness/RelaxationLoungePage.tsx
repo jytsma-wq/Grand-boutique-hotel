@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Heart, Sparkles, Waves, Wind, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface RelaxationLoungePageProps {
   locale: Locale;
@@ -18,11 +19,13 @@ const fadeInUp = {
 };
 
 export default function RelaxationLoungePage({ locale }: RelaxationLoungePageProps) {
+  const t = useTranslations('relaxationLounge');
+  
   const highlights = [
-    { icon: Heart, title: 'Quiet Zones', desc: 'Soft seating designed for deep relaxation' },
-    { icon: Sparkles, title: 'Aromatherapy', desc: 'Calming signature scents throughout the lounge' },
-    { icon: Waves, title: 'Sea Views', desc: 'Panoramic views over Batumi and the Black Sea' },
-    { icon: Wind, title: 'Breathing Corner', desc: 'Guided breathing and mindfulness sessions daily' }
+    { icon: Heart, title: t('features.quietZones'), desc: t('features.quietZonesDesc') },
+    { icon: Sparkles, title: t('features.aromatherapy'), desc: t('features.aromatherapyDesc') },
+    { icon: Waves, title: t('features.seaViews'), desc: t('features.seaViewsDesc') },
+    { icon: Wind, title: t('features.breathingCorner'), desc: t('features.breathingCornerDesc') }
   ];
 
   return (
@@ -40,9 +43,9 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Heart className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Relaxation Lounge</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/85 max-w-3xl mx-auto font-light">
-              A calm retreat between treatments, crafted for stillness, comfort, and recovery.
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -51,8 +54,8 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Wellness Detail</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">Space to Unwind</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
+            <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">{t('calmRetreat')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

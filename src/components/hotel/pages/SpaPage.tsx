@@ -89,9 +89,9 @@ export default function SpaPage({ locale }: SpaPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Ultimate Relaxation</span>
+            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('spa.ultimateRelaxation')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
-              Luxury Spa
+              {t('spa.title')}
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
               Immerse yourself in a sanctuary of tranquility and rejuvenation
@@ -105,8 +105,8 @@ export default function SpaPage({ locale }: SpaPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
-              <h2 className="section-title mt-4 mb-8">Holistic Wellness</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.ourPhilosophy')}</span>
+              <h2 className="section-title mt-4 mb-8">{t('spa.holisticWellness')}</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
                 Our spa combines ancient Georgian wellness traditions with modern therapeutic techniques. 
                 Each treatment is designed to restore balance, promote healing, and nurture your well-being.
@@ -124,8 +124,8 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Curated Experiences</span>
-            <h2 className="section-title mt-4">Spa Packages</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.curatedExperiences')}</span>
+            <h2 className="section-title mt-4">{t('spa.spaPackages')}</h2>
           </motion.div>
 
           <div className="max-w-5xl mx-auto">
@@ -184,8 +184,8 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Enhance Your Experience</span>
-            <h2 className="section-title mt-4">Add-On Services</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.enhanceYourExperience')}</span>
+            <h2 className="section-title mt-4">{t('spa.addOnServices')}</h2>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -218,31 +218,31 @@ export default function SpaPage({ locale }: SpaPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="mb-12">
-              <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Please Note</span>
-              <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">Spa Etiquette</h2>
+              <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">{t('spa.pleaseNote')}</span>
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">{t('spa.spaEtiquette')}</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
-                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">Arrival</h3>
+                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">{t('spa.arrival')}</h3>
                 <ul className="space-y-3 text-white/80 font-light">
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>Please arrive 15 minutes before your appointment</span>
+                    <span>{t('spa.arrive15Minutes')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>Late arrivals may result in shortened treatment time</span>
+                    <span>{t('spa.lateArrivals')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>Complimentary robe and slippers provided</span>
+                    <span>{t('spa.complimentaryRobe')}</span>
                   </li>
                 </ul>
               </motion.div>
 
               <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
-                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">Policies</h3>
+                <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">{t('spa.policies')}</h3>
                 <ul className="space-y-3 text-white/80 font-light">
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
@@ -250,11 +250,11 @@ export default function SpaPage({ locale }: SpaPageProps) {
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>Mobile phones must be silenced</span>
+                    <span>{t('spa.mobileSilenced')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>Gratuities are appreciated but not required</span>
+                    <span>{t('spa.gratuities')}</span>
                   </li>
                 </ul>
               </motion.div>
@@ -267,8 +267,8 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Journey</span>
-            <h2 className="section-title mt-4">Spa Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.visualJourney')}</span>
+            <h2 className="section-title mt-4">{t('spa.spaGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

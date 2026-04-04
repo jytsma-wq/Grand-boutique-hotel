@@ -50,12 +50,12 @@ export default function HomePage({ locale, data }: HomePageProps) {
         label: a[`label_${locale}`] || a.label || 'Amenity'
       }))
     : [
-        { icon: Wifi, label: 'High-Speed WiFi' },
-        { icon: Car, label: 'Free Parking' },
-        { icon: Utensils, label: 'Fine Dining' },
-        { icon: Waves, label: 'Infinity Pool' },
-        { icon: Dumbbell, label: 'Fitness Center' },
-        { icon: Sparkles, label: 'Spa & Wellness' },
+        { icon: Wifi, label: tHome('amenities.wifi') },
+        { icon: Car, label: tHome('amenities.parking') },
+        { icon: Utensils, label: tHome('amenities.dining') },
+        { icon: Waves, label: tHome('amenities.pool') },
+        { icon: Dumbbell, label: tHome('amenities.fitness') },
+        { icon: Sparkles, label: tHome('amenities.spa') },
       ];
 
   // Get rooms from CMS data or use empty array
@@ -113,7 +113,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
             {...fadeInUp}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
           >
-            {amenities.map((amenity, index) => {
+            {amenities.map((amenity: { icon: string; label: string }, index: number) => {
               const IconComponent = typeof amenity.icon === 'string' ? getIconComponent(amenity.icon) : amenity.icon;
               return (
                 <div
@@ -142,7 +142,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {rooms.map((room, index) => (
+            {rooms.map((room: { slug: string; name: string; price: number; images: string[]; image: string; size: string; guests: number }, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}

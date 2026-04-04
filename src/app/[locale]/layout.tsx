@@ -1,41 +1,44 @@
 // src/app/[locale]/layout.tsx
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { notFound } from "next/navigation";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { locales, isRtlLocale, type Locale } from "@/i18n/config";
+import Navigation from "@/components/hotel/Navigation";
+import Footer from "@/components/hotel/Footer";
+import MariamChatbot from "@/components/hotel/MariamChatbot";
 import "./globals.css";
 
-// FIX: Removed '.tsx' extension and verified relative path
-import Footer from '../../components/hotel/Footer'; 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
-// Define the fonts and create instances
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  return {
+    title: locale === 'en' ? 'Grand Boutique Hotel' : locale === 'ka' ? 'დიდი ბუტიკ ჰოტელი' : 'Grand Boutique Hotel',
+  };
+}
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Batumi Boutique Hotel",
-  description: "Luxury accommodation in Batumi",
-};
-
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  if (!locales.includes(locale as Locale)) notFound();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <main>{children}</main>
-        
-        <Footer locale="en" /> 
-        
+    <html lang={locale} dir={isRtlLocale(locale as Locale) ? 'rtl' : 'ltr'}>
+      <body>
+        <NextIntlClientProvider messages={messages}>
+          <Navigation locale={locale as Locale} />
+          <main>{children}</main>
+          <Footer locale={locale as Locale} />
+          <MariamChatbot locale={locale as Locale} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

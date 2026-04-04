@@ -29,9 +29,17 @@
     "subtitle": "על חופי הים השחור",
     "description": "יצירת מופת של אדריכלות מודרנית 2026, איפה יוקרה מעודנת פוגשת את אופק הים השחור",
     "cta": "הזמינו את שהייתכם",
-    "explore": "גלו את החדרים"
+    "explore": "גלו את החדרים",
+    "slide2Title": "יוקרה מעודנת",
+    "slide2Subtitle": "על חוף הים השחור",
+    "slide3Title": "יוקרה מודרנית",
+    "slide3Subtitle": "נוחות נצחית"
   },
   "home": {
+    "hero": {
+      "title": "יוקרה על שפת הים",
+      "subtitle": "גלו את מלון הבוטיק בבאטומי"
+    },
     "welcome": {
       "title": "ברוכים הבאים לגן עדן",
       "subtitle": "עידן חדש של הכנסת אורחים",
@@ -74,6 +82,11 @@
     "amenities": {
       "title": "שירותים ומתקנים",
       "wifi": "WiFi מהיר",
+      "parking": "חניה חינם",
+      "dining": "אוכל גורמה",
+      "pool": "בריכה אינסופית",
+      "fitness": "מרכז כושר",
+      "spa": "ספא ובריאות",
       "ac": "בקרת אקלים",
       "minibar": "מיני בר פרימיום",
       "safe": "כספת בחדר",
@@ -153,6 +166,11 @@
     "title": "ספא ובריאות",
     "subtitle": "השתקמו. התחדשו. התעוררו.",
     "description": "מרכז הבריאות שלנו הוא מקלט של שלווה, המציע מגוון מקיף של טיפולים ומתקנים להרמוניה של גוף, נפש ורוח.",
+    "rejuvenate": "התחדשות",
+    "worldClass": "ברמה עולמית",
+    "openSubpage": "פתחו דף משנה לכל מתקן",
+    "pamperYourself": "פנקו את עצמכם",
+    "exclusiveAccess": "גישה בלעדית",
     "facilities": {
       "title": "מתקנים",
       "pool": "בריכת אינסוף",
@@ -188,6 +206,60 @@
       "joinNow": "הצטרפו עכשיו"
     }
   },
+  "steamRoom": {
+    "title": "חמאם טורקי",
+    "subtitle": "חוויית חדר קיטור יוקרתית עם אדי אקליפטוס",
+    "openingHours": "שעות פתיחה",
+    "hours": "08:00 - 22:00",
+    "temperature": "טמפרטורה ולחות",
+    "tempValue": "40-45°C • 100%",
+    "luxuryWellness": "בריאות יוקרתית",
+    "traditionalTurkish": "חמאם טורקי מסורתי",
+    "premiumAmenities": "שירותים יוקרתיים",
+    "steamRoomFeatures": "מאפייני חדר הקיטור",
+    "wellnessBenefits": "יתרונות בריאות",
+    "healthBenefits": "יתרונות בריאותיים",
+    "visualExperience": "חוויה ויזואלית",
+    "steamRoomGallery": "גלריית חדר הקיטור",
+    "bookYourStay": "הזמינו לינה"
+  },
+  "sauna": {
+    "title": "סאונה פינית",
+    "subtitle": "חוויית סאונה יבשה מסורתית לרגיעה מושלמת ולטיהור",
+    "openingHours": "שעות פתיחה",
+    "hours": "08:00 - 22:00",
+    "temperature": "טמפרטורה",
+    "tempValue": "80-90°C",
+    "traditionalWellness": "בריאות מסורתית",
+    "authenticFinnish": "סאונה פינית אותנטית",
+    "premiumAmenities": "שירותים יוקרתיים",
+    "saunaFeatures": "מאפייני הסאונה",
+    "wellnessBenefits": "יתרונות בריאות",
+    "healthBenefits": "יתרונות בריאותיים",
+    "visualExperience": "חוויה ויזואלית",
+    "saunaGallery": "גלריית הסאונה",
+    "bookYourStay": "הזמינו לינה",
+    "features": {
+      "dryHeat": "חום יבש",
+      "dryHeatDesc": "80-90°C סאונה פינית מסורתית",
+      "cedarWood": "עץ ארז",
+      "cedarWoodDesc": "בנייה פרמיום של ארז נורדי",
+      "aromatherapy": "ארומתרפיה",
+      "aromatherapyDesc": "שמנים אתריים זמינים",
+      "healthBenefits": "יתרונות בריאות",
+      "healthBenefitsDesc": "טיהור, רגיעה, זרימת דם משופרת"
+    },
+    "benefitsList": {
+      "muscleRelaxation": "רגיעת שרירים עמוקה והקלת מתח",
+      "cardiovascular": "בריאות לב וכלי דם משופרת",
+      "immuneSystem": "תפקוד מערכת החיסון משופר",
+      "skinHealth": "בריאות העור והטיהור משופרים",
+      "sleepQuality": "איכות שינה טובה יותר",
+      "metabolism": "חילוף חומרים מוגבר",
+      "circulation": "זרימת דם משופרת",
+      "mentalClarity": "בהירות מנטלית ומודעות"
+    }
+  },
   "meetings": {
     "title": "כנסים ואירועים",
     "subtitle": "כשעסקים פוגשים אלגנטיות",
@@ -210,11 +282,51 @@
     "validUntil": "בתוקף עד",
     "includes": "כולל"
   },
+  "spa": {
+    "title": "ספא יוקרתי",
+    "ultimateRelaxation": "רגיעה מושלמת",
+    "ourPhilosophy": "הפילוסופיה שלנו",
+    "holisticWellness": "בריאות הוליסטית",
+    "curatedExperiences": "חוויות נבחרות",
+    "spaPackages": "חבילות ספא",
+    "enhanceYourExperience": "שפרו את החוויה שלכם",
+    "addOnServices": "שירותים נוספים",
+    "pleaseNote": "שימו לב",
+    "spaEtiquette": "התנהגות בספא",
+    "arrival": "הגעה",
+    "arrive15Minutes": "אנא הגיעו 15 דקות לפני התור שלכם",
+    "lateArrivals": "איחור עלול לקצר את משך הטיפול",
+    "complimentaryRobe": "חלוק ונעלי בית מסופקים ללא עלות",
+    "policies": "מדיניות",
+    "mobileSilenced": "טלפונים ניידים חייבים להיות במצב שקט",
+    "gratuities": "טיפים מוערכים אך לא נדרשים",
+    "cancellationPolicy": "מדיניות ביטול של 24 שעות",
+    "visualJourney": "מסע חזותי",
+    "spaGallery": "גלריית ספא"
+  },
   "experiences": {
-    "title": "מה לעשות",
+    "title": "דברים לעשות",
     "subtitle": "גלו את באטומי והסביבה",
-    "distance": "{km} ק״מ מהמלון",
-    "learnMore": "למידע נוסף"
+    "discover": "גלו",
+    "distance": "{km} ק\"מ מהמלון",
+    "learnMore": "למדו עוד",
+    "conciergeTitle": "הקונסיירג' שלנו יעזור",
+    "conciergeDescription": "צוות הקונסיירג' שלנו יכול לארגן סיורים, העברות וחוויות ייחודיות מותאמות לתחומי העניין שלכם.",
+    "contactConcierge": "צרו קשר עם הקונסיירג'"
+  },
+  "about": {
+    "ourStory": "הסיפור שלנו",
+    "whereVisionMeetsReality": "שם החזון פוגש את המציאות",
+    "est": "2026",
+    "fiveStar": "5 כוכבים",
+    "luxuryRating": "דירוג יוקרה",
+    "meetOurTeam": "הכירו את צוות ההנהלה שלנו",
+    "ourPhilosophy": "הפילוסופיה שלנו",
+    "whatWeStandFor": "על מה אנחנו עומדים",
+    "ourTeam": "הצוות שלנו",
+    "meetThePeople": "הכירו את האנשים מאחורי החוויה",
+    "architecture": "אדריכלות",
+    "modernDesign": "עיצוב מודרני 2026"
   },
   "gallery": {
     "title": "גלריה",
@@ -232,6 +344,10 @@
   "contact": {
     "title": "צרו קשר",
     "subtitle": "אנחנו כאן לעזור לכם",
+    "sendMessage": "שלחו לנו הודעה",
+    "interactiveMap": "מפה אינטראקטיבית",
+    "batumiGeorgia": "באטומי, גיאורגיה",
+    "messageSent": "ההודעה נשלחה!",
     "form": {
       "name": "שמכם",
       "email": "כתובת דוא״ל",

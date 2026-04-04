@@ -1,23 +1,28 @@
-:81 {
-	@transform_port_query {
-		query XTransformPort=*
-	}
+yourtimestudio.com {
+  # HTTPS handled automatically by Caddy via Let's Encrypt
 
-	handle @transform_port_query {
-		reverse_proxy localhost:{query.XTransformPort} {
-			header_up Host {host}
-			header_up X-Forwarded-For {remote_host}
-			header_up X-Forwarded-Proto {scheme}
-			header_up X-Real-IP {remote_host}
-		}
-	}
+  # Security headers
+  header {
+    Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    X-Frame-Options DENY
+    X-Content-Type-Options nosniff
+    Referrer-Policy strict-origin-when-cross-origin
+    -Server
+  }
 
-	handle {
-		reverse_proxy localhost:3000 {
-			header_up Host {host}
-			header_up X-Forwarded-For {remote_host}
-			header_up X-Forwarded-Proto {scheme}
-			header_up X-Real-IP {remote_host}
-		}
-	}
+  # Gzip compression
+  encode gzip
+
+  # Proxy to Next.js standalone server
+  reverse_proxy localhost:3000 {
+    header_up Host {host}
+    header_up X-Forwarded-For {remote_host}
+    header_up X-Forwarded-Proto {scheme}
+    header_up X-Real-IP {remote_host}
+  }
+}
+
+# Redirect www to root
+www.yourtimestudio.com {
+  redir https://yourtimestudio.com{uri} permanent
 }

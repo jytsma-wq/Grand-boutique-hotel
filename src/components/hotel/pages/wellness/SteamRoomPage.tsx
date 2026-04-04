@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Flame, Clock, Droplets, Wind, Sparkles, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface SteamRoomPageProps {
   locale: Locale;
@@ -18,22 +19,24 @@ const fadeInUp = {
 };
 
 export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
+  const t = useTranslations('steamRoom');
+  
   const features = [
-    { icon: Droplets, title: 'Wet Heat', desc: '40-45°C with 100% humidity' },
-    { icon: Flame, title: 'Turkish Hammam', desc: 'Traditional Middle Eastern design' },
-    { icon: Sparkles, title: 'Eucalyptus Steam', desc: 'Infused with essential oils' },
-    { icon: Heart, title: 'Skin Benefits', desc: 'Deep cleansing and hydration' }
+    { icon: Droplets, title: t('features.wetHeat'), desc: t('features.wetHeatDesc') },
+    { icon: Flame, title: t('features.turkishHammam'), desc: t('features.turkishHammamDesc') },
+    { icon: Sparkles, title: t('features.eucalyptusSteam'), desc: t('features.eucalyptusSteamDesc') },
+    { icon: Heart, title: t('features.skinBenefits'), desc: t('features.skinBenefitsDesc') }
   ];
 
   const benefits = [
-    'Deep pore cleansing and skin hydration',
-    'Respiratory system relief',
-    'Muscle tension release',
-    'Improved blood circulation',
-    'Stress and anxiety reduction',
-    'Sinus congestion relief',
-    'Post-workout recovery',
-    'Detoxification through sweating'
+    t('benefitsList.deepPore'),
+    t('benefitsList.respiratory'),
+    t('benefitsList.muscleTension'),
+    t('benefitsList.bloodCirculation'),
+    t('benefitsList.stressReduction'),
+    t('benefitsList.sinusRelief'),
+    t('benefitsList.postWorkout'),
+    t('benefitsList.detoxification')
   ];
 
   const gallery = [
@@ -61,9 +64,9 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Flame className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Turkish Hammam</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
-              Luxurious steam room experience with eucalyptus-infused mist
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -76,15 +79,15 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
             <div className="flex items-center gap-4">
               <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
-                <div className="text-2xl font-bold">8:00 AM - 10:00 PM</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('openingHours')}</div>
+                <div className="text-2xl font-bold">{t('hours')}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Droplets className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Temperature & Humidity</div>
-                <div className="text-2xl font-bold">40-45°C • 100%</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('temperature')}</div>
+                <div className="text-2xl font-bold">{t('tempValue')}</div>
               </div>
             </div>
           </div>
@@ -96,9 +99,9 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Luxury Wellness</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
-                Traditional Turkish Hammam
+                {t('traditionalTurkish')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our Turkish hammam-style steam room features beautiful mosaic tilework and maintains a perfect 
@@ -112,7 +115,7 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">Book Your Stay</Button>
+                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -137,8 +140,8 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Steam Room Features</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('steamRoomFeatures')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -167,8 +170,8 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Wellness Benefits</span>
-              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Health Benefits</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellnessBenefits')}</span>
+              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('healthBenefits')}</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,8 +197,8 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Steam Room Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('steamRoomGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

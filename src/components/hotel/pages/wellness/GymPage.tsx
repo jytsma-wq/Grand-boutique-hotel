@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Dumbbell, Clock, Users, Zap, Heart, Activity, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface GymPageProps {
   locale: Locale;
@@ -18,22 +19,24 @@ const fadeInUp = {
 };
 
 export default function GymPage({ locale }: GymPageProps) {
+  const t = useTranslations('gym');
+  
   const features = [
-    { icon: Dumbbell, title: 'Technogym Equipment', desc: 'Latest cardio and strength machines' },
-    { icon: Activity, title: 'Personal Training', desc: 'Expert trainers available on request' },
-    { icon: Heart, title: 'Cardio Zone', desc: 'Treadmills, bikes, ellipticals with sea views' },
-    { icon: Zap, title: 'Free Weights', desc: 'Complete range of dumbbells and barbells' }
+    { icon: Dumbbell, title: t('features.technogym'), desc: t('features.technogymDesc') },
+    { icon: Activity, title: t('features.personalTraining'), desc: t('features.personalTrainingDesc') },
+    { icon: Heart, title: t('features.cardioZone'), desc: t('features.cardioZoneDesc') },
+    { icon: Zap, title: t('features.freeWeights'), desc: t('features.freeWeightsDesc') }
   ];
 
   const equipment = [
-    'Treadmills with entertainment screens',
-    'Stationary bikes and spin bikes',
-    'Elliptical trainers',
-    'Rowing machines',
-    'Cable machines and smith machine',
-    'Free weights (5-50 kg dumbbells)',
-    'Kettlebells and medicine balls',
-    'Yoga mats and resistance bands'
+    t('equipmentListItems.treadmills'),
+    t('equipmentListItems.bikes'),
+    t('equipmentListItems.ellipticals'),
+    t('equipmentListItems.rowing'),
+    t('equipmentListItems.strength'),
+    t('equipmentListItems.freeWeightsSection'),
+    t('equipmentListItems.yoga'),
+    t('equipmentListItems.recovery')
   ];
 
   const gallery = [
@@ -61,9 +64,9 @@ export default function GymPage({ locale }: GymPageProps) {
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Dumbbell className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Fitness Center</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
-              State-of-the-art equipment with panoramic Black Sea views
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -76,8 +79,8 @@ export default function GymPage({ locale }: GymPageProps) {
             <div className="flex items-center gap-4">
               <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
-                <div className="text-2xl font-bold">24/7 Access</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('openingHours')}</div>
+                <div className="text-2xl font-bold">{t('hours')}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -96,9 +99,9 @@ export default function GymPage({ locale }: GymPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Facility</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
-                World-Class Fitness Center
+                {t('premiumFitness')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our 200 square meter fitness center features the latest Technogym equipment, offering everything 
@@ -112,7 +115,7 @@ export default function GymPage({ locale }: GymPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">Book Your Stay</Button>
+                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -137,8 +140,8 @@ export default function GymPage({ locale }: GymPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Gym Features</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('gymFeatures')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -167,8 +170,8 @@ export default function GymPage({ locale }: GymPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Complete Setup</span>
-              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Available Equipment</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('equipmentList')}</span>
+              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('equipmentList')}</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,8 +197,8 @@ export default function GymPage({ locale }: GymPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Gym Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('gymGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

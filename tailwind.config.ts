@@ -104,9 +104,12 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ['var(--font-playfair)', 'serif'],
-        sans: ['var(--font-inter)', 'sans-serif'],
-        body: ['var(--font-lato)', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['DM Sans', 'system-ui', 'sans-serif'],
+        body: ['DM Sans', 'system-ui', 'sans-serif'],
+        arabic: ['Noto Sans Arabic', 'sans-serif'],
+        hebrew: ['Noto Sans Hebrew', 'sans-serif'],
+        georgian: ['Noto Sans Georgian', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

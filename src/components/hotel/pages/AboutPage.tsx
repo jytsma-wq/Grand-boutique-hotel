@@ -30,6 +30,7 @@ const fadeInUp = {
 export default function AboutPage({ locale }: AboutPageProps) {
   const tSite = useTranslations('site');
   const tNav = useTranslations('nav');
+  const t = useTranslations('about');
 
   const values = [
     {
@@ -98,7 +99,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-brass-400 text-sm tracking-widest uppercase mb-4 block">Our Story</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase mb-4 block">{t('about.ourStory')}</span>
             <h1 className="text-5xl md:text-7xl font-light mb-4">{tNav('about')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-forest-200 max-w-2xl mx-auto mt-6">
@@ -113,8 +114,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-brass-600 text-sm tracking-widest uppercase">Est. 2026</span>
-              <h2 className="section-title mt-4">Where Vision Meets Reality</h2>
+              <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.est')}</span>
+              <h2 className="section-title mt-4">{t('about.whereVisionMeetsReality')}</h2>
               <div className="brass-line !mx-0" />
               <p className="text-forest-700 text-lg leading-relaxed mb-6 mt-6">
                 Batumi Boutique Hotel was born from a dream to create something extraordinary on the shores of the Black Sea. 
@@ -137,7 +138,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                     />
                   ))}
                 </div>
-                <span className="text-sm text-forest-600">Meet our leadership team</span>
+                <span className="text-sm text-forest-600">{t('about.meetOurTeam')}</span>
               </div>
             </motion.div>
 
@@ -158,8 +159,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
                     <Award className="w-8 h-8 text-forest-900" />
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-forest-900">5-Star</div>
-                    <div className="text-sm text-forest-600">Luxury Rating</div>
+                    <div className="text-2xl font-bold text-forest-900">{t('about.fiveStar')}</div>
+                    <div className="text-sm text-forest-600">{t('about.luxuryRating')}</div>
                   </div>
                 </div>
               </div>
@@ -193,8 +194,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Our Philosophy</span>
-            <h2 className="section-title mt-4">What We Stand For</h2>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.ourPhilosophy')}</span>
+            <h2 className="section-title mt-4">{t('about.whatWeStandFor')}</h2>
             <div className="brass-line" />
           </motion.div>
 
@@ -223,8 +224,8 @@ export default function AboutPage({ locale }: AboutPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Our Team</span>
-            <h2 className="section-title mt-4">Meet the People Behind the Experience</h2>
+            <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.ourTeam')}</span>
+            <h2 className="section-title mt-4">{t('about.meetThePeople')}</h2>
             <div className="brass-line" />
           </motion.div>
 

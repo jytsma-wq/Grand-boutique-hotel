@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Waves, Clock, Thermometer, Users, Star, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface JacuzziPageProps {
   locale: Locale;
@@ -18,22 +19,25 @@ const fadeInUp = {
 };
 
 export default function JacuzziPage({ locale }: JacuzziPageProps) {
+  const t = useTranslations('jacuzzi');
+  
   const features = [
-    { icon: Waves, title: 'Hydrotherapy Jets', desc: 'Multiple massage jet configurations' },
-    { icon: Thermometer, title: 'Perfect Temperature', desc: 'Maintained at 38-40°C' },
-    { icon: Star, title: 'Outdoor Setting', desc: 'Rooftop location with sea views' },
-    { icon: Users, title: 'Intimate Capacity', desc: 'Accommodates up to 6 guests' }
+    { icon: Waves, title: t('features.hydrotherapy'), desc: t('features.hydrotherapyDesc') },
+    { icon: Thermometer, title: t('features.perfectTemp'), desc: t('features.perfectTempDesc') },
+    { icon: Star, title: t('features.outdoor'), desc: t('features.outdoorDesc') },
+    { icon: Users, title: t('features.intimate'), desc: t('features.intimateDesc') }
   ];
 
   const benefits = [
-    'Muscle tension relief and pain reduction',
-    'Improved blood circulation',
-    'Stress and anxiety relief',
-    'Better sleep quality',
-    'Joint pain and arthritis relief',
-    'Post-workout recovery',
-    'Skin rejuvenation',
-    'Romantic atmosphere for couples'
+    t('benefitsList.muscleRelief'),
+    t('benefitsList.circulation'),
+    t('benefitsList.stressRelief'),
+    t('benefitsList.sleepQuality'),
+    t('benefitsList.skinHealth'),
+    t('benefitsList.immuneSystem'),
+    t('benefitsList.postWorkout'),
+    t('benefitsList.skinRejuvenation'),
+    t('benefitsList.romanticAtmosphere')
   ];
 
   const gallery = [
@@ -61,9 +65,9 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Waves className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Outdoor Jacuzzi</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
-              Rooftop hot tub with panoramic Black Sea views and therapeutic jets
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -76,15 +80,15 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
             <div className="flex items-center gap-4">
               <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
-                <div className="text-2xl font-bold">7:00 AM - 11:00 PM</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('openingHours')}</div>
+                <div className="text-2xl font-bold">{t('hours')}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Thermometer className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Water Temperature</div>
-                <div className="text-2xl font-bold">38-40°C (100-104°F)</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('temperature')}</div>
+                <div className="text-2xl font-bold">{t('tempValue')}</div>
               </div>
             </div>
           </div>
@@ -96,9 +100,9 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Luxury Relaxation</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
-                Rooftop Outdoor Jacuzzi
+                {t('therapeuticRelaxation')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our premium outdoor jacuzzi is located on the rooftop terrace, offering breathtaking 180-degree 
@@ -112,7 +116,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">Book Your Stay</Button>
+                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -137,8 +141,8 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Jacuzzi Features</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('jacuzziFeatures')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -167,8 +171,8 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div {...fadeInUp} className="text-center mb-16">
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Wellness Benefits</span>
-              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Health Benefits</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellnessBenefits')}</span>
+              <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('healthBenefits')}</h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,8 +198,8 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Jacuzzi Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('jacuzziGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

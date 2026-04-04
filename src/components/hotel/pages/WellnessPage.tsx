@@ -126,7 +126,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Rejuvenate</span>
+            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('wellness.rejuvenate')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">{t('wellness.title')}</h1>
             <p className="text-xl text-white/70 max-w-2xl mt-6 font-light">{t('wellness.subtitle')}</p>
             <p className="text-white/60 mt-3 font-light">{t('wellness.description')}</p>
@@ -138,9 +138,9 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">World-Class</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.worldClass')}</span>
             <h2 className="section-title mt-4">{t('wellness.facilities.title')}</h2>
-            <p className="text-forest-600 mt-4 text-sm uppercase tracking-[0.15em]">Open a subpage for each facility</p>
+            <p className="text-forest-600 mt-4 text-sm uppercase tracking-[0.15em]">{t('wellness.openSubpage')}</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -170,7 +170,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Pamper Yourself</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.pamperYourself')}</span>
             <h2 className="section-title mt-4">{t('wellness.treatments.title')}</h2>
           </motion.div>
 
@@ -217,7 +217,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Exclusive Access</span>
+            <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.exclusiveAccess')}</span>
             <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">{t('wellness.membership.title')}</h2>
             <p className="text-white/70 mt-6 font-light">{t('wellness.membership.subtitle')}</p>
           </motion.div>

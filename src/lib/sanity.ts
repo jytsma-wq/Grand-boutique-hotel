@@ -1,5 +1,6 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
+import { unstable_cache } from 'next/cache';
 
 export const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -14,181 +15,229 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
-export async function getSiteSettings(locale: string) {
-  return client.fetch(`
-    *[_type == "siteSettings"][0] {
-      hotelName,
-      tagline,
-      logo,
-      address,
-      phone,
-      email,
-      socialLinks,
-      "hotelNameLocalized": hotelName_${locale},
-      "taglineLocalized": tagline_${locale}
-    }
-  `);
-}
+export const getSiteSettings = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "siteSettings"][0] {
+        hotelName,
+        tagline,
+        logo,
+        address,
+        phone,
+        email,
+        socialLinks,
+        "hotelNameLocalized": hotelName_${locale},
+        "taglineLocalized": tagline_${locale}
+      }
+    `);
+  },
+  ['siteSettings'],
+  { revalidate: 86400, tags: ['siteSettings'] }
+);
 
-export async function getRooms(locale: string) {
-  return client.fetch(`
-    *[_type == "room"] | order(order asc) {
-      _id,
-      slug,
-      "name": name_${locale},
-      "shortDescription": shortDescription_${locale},
-      "fullDescription": fullDescription_${locale},
-      size,
-      maxGuests,
-      amenities,
-      images,
-      priceUsd,
-      priceGel,
-      order
-    }
-  `);
-}
+export const getRooms = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "room"] | order(order asc) {
+        _id,
+        slug,
+        "name": name_${locale},
+        "shortDescription": shortDescription_${locale},
+        "fullDescription": fullDescription_${locale},
+        size,
+        maxGuests,
+        amenities,
+        images,
+        priceUsd,
+        priceGel,
+        order
+      }
+    `);
+  },
+  ['rooms'],
+  { revalidate: 3600, tags: ['rooms'] }
+);
 
-export async function getRoomBySlug(slug: string, locale: string) {
-  return client.fetch(`
-    *[_type == "room" && slug.current == $slug][0] {
-      _id,
-      slug,
-      "name": name_${locale},
-      "shortDescription": shortDescription_${locale},
-      "fullDescription": fullDescription_${locale},
-      size,
-      maxGuests,
-      amenities,
-      images,
-      priceUsd,
-      priceGel,
-      order
-    }
-  `, { slug });
-}
+export const getRoomBySlug = unstable_cache(
+  async (slug: string, locale: string) => {
+    return client.fetch(`
+      *[_type == "room" && slug.current == $slug][0] {
+        _id,
+        slug,
+        "name": name_${locale},
+        "shortDescription": shortDescription_${locale},
+        "fullDescription": fullDescription_${locale},
+        size,
+        maxGuests,
+        amenities,
+        images,
+        priceUsd,
+        priceGel,
+        order
+      }
+    `, { slug });
+  },
+  ['roomBySlug'],
+  { revalidate: 3600, tags: ['rooms'] }
+);
 
-export async function getHomePage(locale: string) {
-  return client.fetch(`
-    *[_type == "homePage"][0] {
-      heroTitle,
-      heroSubtitle,
-      "heroTitleLocalized": heroTitle_${locale},
-      "heroSubtitleLocalized": heroSubtitle_${locale},
-      heroImage,
-      sections
-    }
-  `);
-}
+export const getHomePage = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "homePage"][0] {
+        heroTitle,
+        heroSubtitle,
+        "heroTitleLocalized": heroTitle_${locale},
+        "heroSubtitleLocalized": heroSubtitle_${locale},
+        heroImage,
+        sections
+      }
+    `);
+  },
+  ['homePage'],
+  { revalidate: 3600, tags: ['homePage'] }
+);
 
-export async function getRestaurantPage(locale: string) {
-  return client.fetch(`
-    *[_type == "restaurantPage"][0] {
-      "title": title_${locale},
-      "description": description_${locale},
-      heroImage,
-      images,
-      openingHours,
-      menuPdf
-    }
-  `);
-}
+export const getRestaurantPage = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "restaurantPage"][0] {
+        "title": title_${locale},
+        "description": description_${locale},
+        heroImage,
+        images,
+        openingHours,
+        menuPdf
+      }
+    `);
+  },
+  ['restaurantPage'],
+  { revalidate: 3600, tags: ['restaurantPage'] }
+);
 
-export async function getBarPage(locale: string) {
-  return client.fetch(`
-    *[_type == "barPage"][0] {
-      "title": title_${locale},
-      "description": description_${locale},
-      heroImage,
-      images,
-      openingHours,
-      menuPdf
-    }
-  `);
-}
+export const getBarPage = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "barPage"][0] {
+        "title": title_${locale},
+        "description": description_${locale},
+        heroImage,
+        images,
+        openingHours,
+        menuPdf
+      }
+    `);
+  },
+  ['barPage'],
+  { revalidate: 3600, tags: ['barPage'] }
+);
 
-export async function getSpaTreatments(locale: string) {
-  return client.fetch(`
-    *[_type == "spaTreatment"] | order(order asc) {
-      _id,
-      slug,
-      "name": name_${locale},
-      "description": description_${locale},
-      "benefits": benefits_${locale},
-      duration,
-      priceUsd,
-      priceGel,
-      image,
-      order
-    }
-  `);
-}
+export const getSpaTreatments = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "spaTreatment"] | order(order asc) {
+        _id,
+        slug,
+        "name": name_${locale},
+        "description": description_${locale},
+        "benefits": benefits_${locale},
+        duration,
+        priceUsd,
+        priceGel,
+        image,
+        order
+      }
+    `);
+  },
+  ['spaTreatments'],
+  { revalidate: 3600, tags: ['spaTreatments'] }
+);
 
-export async function getOffers(locale: string) {
-  return client.fetch(`
-    *[_type == "offer" && active == true] | order(order asc) {
-      _id,
-      slug,
-      "title": title_${locale},
-      "description": description_${locale},
-      "includes": includes_${locale},
-      image,
-      validFrom,
-      validTo,
-      priceUsd,
-      priceGel,
-      order
-    }
-  `);
-}
+export const getOffers = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "offer" && active == true] | order(order asc) {
+        _id,
+        slug,
+        "title": title_${locale},
+        "description": description_${locale},
+        "includes": includes_${locale},
+        image,
+        validFrom,
+        validTo,
+        priceUsd,
+        priceGel,
+        order
+      }
+    `);
+  },
+  ['offers'],
+  { revalidate: 1800, tags: ['offers'] }
+);
 
-export async function getExperiences(locale: string) {
-  return client.fetch(`
-    *[_type == "experience"] | order(order asc) {
-      _id,
-      slug,
-      "title": title_${locale},
-      "description": description_${locale},
-      image,
-      distance,
-      order
-    }
-  `);
-}
+export const getExperiences = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "experience"] | order(order asc) {
+        _id,
+        slug,
+        "title": title_${locale},
+        "description": description_${locale},
+        image,
+        distance,
+        order
+      }
+    `);
+  },
+  ['experiences'],
+  { revalidate: 86400, tags: ['experiences'] }
+);
 
-export async function getGallery() {
-  return client.fetch(`
-    *[_type == "galleryImage"] | order(order asc) {
-      _id,
-      title,
-      image,
-      category,
-      order
-    }
-  `);
-}
+export const getGallery = unstable_cache(
+  async () => {
+    return client.fetch(`
+      *[_type == "galleryImage"] | order(order asc) {
+        _id,
+        title,
+        image,
+        category,
+        order
+      }
+    `);
+  },
+  ['gallery'],
+  { revalidate: 86400, tags: ['gallery'] }
+);
 
-export async function getChatbotKnowledge(locale: string) {
-  return client.fetch(`
-    *[_type == "chatbotKnowledge"] {
-      _id,
-      "question": question_${locale},
-      "answer": answer_${locale},
-      keywords
-    }
-  `);
-}
+export const getChatbotKnowledge = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "chatbotKnowledge"] {
+        _id,
+        "question": question_${locale},
+        "answer": answer_${locale},
+        keywords
+      }
+    `);
+  },
+  ['chatbotKnowledge'],
+  { revalidate: 86400, tags: ['chatbotKnowledge'] }
+);
 
-export async function getPopup(locale: string) {
-  return client.fetch(`
-    *[_type == "popup" && active == true][0] {
-      _id,
-      "title": title_${locale},
-      "description": description_${locale},
-      image,
-      buttonText,
-      buttonLink,
-      active
-    }
-  `);
-}
+export const getPopup = unstable_cache(
+  async (locale: string) => {
+    return client.fetch(`
+      *[_type == "popup" && active == true][0] {
+        _id,
+        "title": title_${locale},
+        "description": description_${locale},
+        image,
+        buttonText,
+        buttonLink,
+        active
+      }
+    `);
+  },
+  ['popup'],
+  { revalidate: 900, tags: ['popup'] }
+);

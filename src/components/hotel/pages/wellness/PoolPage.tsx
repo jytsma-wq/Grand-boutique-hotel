@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Waves, Clock, Thermometer, Users, Droplets, Sun, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface PoolPageProps {
   locale: Locale;
@@ -18,11 +19,13 @@ const fadeInUp = {
 };
 
 export default function PoolPage({ locale }: PoolPageProps) {
+  const t = useTranslations('pool');
+  
   const features = [
-    { icon: Waves, title: 'Infinity Edge', desc: 'Seamless blend with Black Sea horizon' },
-    { icon: Thermometer, title: 'Heated Water', desc: 'Comfortable 28°C year-round' },
-    { icon: Sun, title: 'Panoramic Views', desc: 'Floor-to-ceiling glass walls' },
-    { icon: Users, title: 'Adults Only', desc: 'Tranquil atmosphere guaranteed' }
+    { icon: Waves, title: t('features.infinityEdge'), desc: t('features.infinityEdgeDesc') },
+    { icon: Thermometer, title: t('features.heatedWater'), desc: t('features.heatedWaterDesc') },
+    { icon: Sun, title: t('features.panoramicViews'), desc: t('features.panoramicViewsDesc') },
+    { icon: Users, title: t('features.adultsOnly'), desc: t('features.adultsOnlyDesc') }
   ];
 
   const gallery = [
@@ -50,9 +53,9 @@ export default function PoolPage({ locale }: PoolPageProps) {
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
             <Waves className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">Infinity Pool</h1>
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
-              Where the pool meets the horizon, creating an endless vista of blue
+              {t('subtitle')}
             </p>
           </motion.div>
         </div>
@@ -65,15 +68,15 @@ export default function PoolPage({ locale }: PoolPageProps) {
             <div className="flex items-center gap-4">
               <Clock className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Opening Hours</div>
-                <div className="text-2xl font-bold">6:00 AM - 10:00 PM</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('openingHours')}</div>
+                <div className="text-2xl font-bold">{t('hours')}</div>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <Droplets className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Water Temperature</div>
-                <div className="text-2xl font-bold">28°C (82°F)</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('waterTemperature')}</div>
+                <div className="text-2xl font-bold">{t('waterTempValue')}</div>
               </div>
             </div>
           </div>
@@ -85,9 +88,9 @@ export default function PoolPage({ locale }: PoolPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div {...fadeInUp}>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature Feature</span>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
-                Breathtaking Infinity Pool
+                {t('panoramicPool')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
                 Our rooftop infinity pool is the crown jewel of Batumi Boutique Hotel. Stretching 25 meters with 
@@ -101,7 +104,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">Book Your Stay</Button>
+                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </motion.div>
@@ -126,8 +129,8 @@ export default function PoolPage({ locale }: PoolPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Amenities</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Pool Features</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('poolFeatures')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -155,8 +158,8 @@ export default function PoolPage({ locale }: PoolPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <motion.div {...fadeInUp} className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Visual Experience</span>
-            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">Pool Gallery</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
+            <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('poolGallery')}</h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

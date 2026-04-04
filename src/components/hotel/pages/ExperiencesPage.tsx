@@ -122,7 +122,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <motion.div {...fadeInUp}>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Discover</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">{t('experiences.discover')}</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('experiences.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('experiences.subtitle')}</p>
@@ -213,15 +213,15 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         <div className="container mx-auto px-6 text-center">
           <motion.div {...fadeInUp}>
             <h2 className="text-4xl font-light mb-6">
-              Let Our <span className="text-brass-400">Concierge</span> Help
+              {t('experiences.conciergeTitle')}
             </h2>
             <p className="text-forest-200 text-lg mb-10 max-w-2xl mx-auto">
-              Our concierge team can arrange tours, transfers, and unique experiences tailored to your interests.
+              {t('experiences.conciergeDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/contact`}>
                 <Button className="btn-telegraph px-12 py-6 text-lg">
-                  <span>Contact Concierge</span>
+                  <span>{t('experiences.contactConcierge')}</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>

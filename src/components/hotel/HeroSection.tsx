@@ -35,13 +35,13 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
         },
         {
           image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=1920&auto=format&fit=crop',
-          title: 'Refined Luxury',
-          subtitle: 'By The Black Sea',
+          title: t('slide2Title'),
+          subtitle: t('slide2Subtitle'),
         },
         {
           image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1920&auto=format&fit=crop',
-          title: 'Modern Luxury',
-          subtitle: 'Timeless Comfort',
+          title: t('slide3Title'),
+          subtitle: t('slide3Subtitle'),
         },
       ];
 

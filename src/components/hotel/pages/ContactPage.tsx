@@ -81,12 +81,12 @@ export default function ContactPage({ locale }: ContactPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div {...fadeInUp}>
-              <h2 className="text-3xl font-light text-forest-900 mb-8">Send Us a Message</h2>
+              <h2 className="text-3xl font-light text-forest-900 mb-8">{t('contact.sendMessage')}</h2>
               
               {isSubmitted ? (
                 <div className="bg-forest-50 rounded-2xl p-8 text-center">
                   <CheckCircle className="w-16 h-16 text-forest-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-forest-900 mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-semibold text-forest-900 mb-2">{t('contact.messageSent')}</h3>
                   <p className="text-forest-600">{t('contact.form.success')}</p>
                 </div>
               ) : (
@@ -190,8 +190,8 @@ export default function ContactPage({ locale }: ContactPageProps) {
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <MapPin className="w-16 h-16 text-forest-400 mx-auto mb-4" />
-            <p className="text-forest-600">Interactive Map</p>
-            <p className="text-sm text-forest-400">Batumi, Georgia</p>
+            <p className="text-forest-600">{t('contact.interactiveMap')}</p>
+            <p className="text-sm text-forest-400">{t('contact.batumiGeorgia')}</p>
           </div>
         </div>
       </section>
