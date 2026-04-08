@@ -40,14 +40,14 @@ export default function PoolPage({ locale }: PoolPageProps) {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-150 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=1920&q=80"
             alt="Infinity Pool"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-forest-900/60 via-forest-900/40 to-forest-900/80" />
+          <div className="absolute inset-0 bg-linear-to-b from-forest-900/60 via-forest-900/40 to-forest-900/80" />
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
@@ -118,7 +118,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
               <img
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80"
                 alt="Pool View"
-                className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
+                className="w-full aspect-4/3 object-cover border-4 border-forest-900"
               />
             </motion.div>
           </div>
@@ -170,7 +170,7 @@ export default function PoolPage({ locale }: PoolPageProps) {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="relative aspect-[4/3] overflow-hidden border-2 border-forest-900 group"
+                className="relative aspect-4/3 overflow-hidden border-2 border-forest-900 group"
               >
                 <img
                   src={image}

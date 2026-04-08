@@ -95,7 +95,7 @@ export default function BarPage({ locale }: BarPageProps) {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-150 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80"
@@ -198,7 +198,7 @@ export default function BarPage({ locale }: BarPageProps) {
               <img
                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80"
                 alt="Cocktails at Charcoal Bar"
-                className="w-full aspect-[4/3] object-cover"
+                className="w-full aspect-4/3 object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-forest-900 p-6 max-w-xs border-l-4 border-white">
                 <div className="flex items-center gap-3">
@@ -241,7 +241,7 @@ export default function BarPage({ locale }: BarPageProps) {
                     alt={cocktail.name}
                     className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-forest-950/70 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex justify-between items-end">
                       <h3 className="text-lg font-bold uppercase tracking-wide">{cocktail.name}</h3>
@@ -302,9 +302,9 @@ export default function BarPage({ locale }: BarPageProps) {
           </div>
 
           <div className="text-center mt-16">
-            <a href="/menus/bar-menu.pdf" target="_blank" rel="noopener noreferrer" className="link-architectural text-base">
+            <Link href={`/${locale}/bar/wine-list`} className="link-architectural text-base">
               View Full Wine List
-            </a>
+            </Link>
           </div>
         </div>
       </section>

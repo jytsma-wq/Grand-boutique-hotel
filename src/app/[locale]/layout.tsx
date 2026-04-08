@@ -6,6 +6,7 @@ import { locales, isRtlLocale, type Locale } from "@/i18n/config";
 import Navigation from "@/components/hotel/Navigation";
 import Footer from "@/components/hotel/Footer";
 import MariamChatbot from "@/components/hotel/MariamChatbot";
+import { HotelSchema, LocalBusinessSchema } from "@/components/hotel/StructuredData";
 import "./globals.css";
 
 export function generateStaticParams() {
@@ -57,10 +58,20 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={isRtlLocale(locale as Locale) ? 'rtl' : 'ltr'}>
+      <head>
+        <HotelSchema locale={locale} />
+        <LocalBusinessSchema />
+      </head>
       <body>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+        >
+          Skip to main content
+        </a>
         <NextIntlClientProvider messages={messages}>
           <Navigation locale={locale as Locale} />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer locale={locale as Locale} />
           <MariamChatbot locale={locale as Locale} />
         </NextIntlClientProvider>

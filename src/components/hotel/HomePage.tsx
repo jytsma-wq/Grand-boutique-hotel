@@ -154,14 +154,14 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 <Link href={`/${locale}/rooms/${room.name.toLowerCase().replace(' ', '-')}`}>
                   <div className="glass-card rounded-2xl overflow-hidden card-hover">
                     {/* Image */}
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-4/3 overflow-hidden">
                       <Image
                         src={room.image}
                         alt={room.name}
                         width={800}
                         height={600}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        unoptimized
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       />
                       <div className="absolute inset-0 image-overlay" />
                       
@@ -229,17 +229,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
               {...fadeInUp}
               className="relative group overflow-hidden rounded-3xl"
             >
-              <div className="aspect-[16/10]">
+              <div className="aspect-16/10">
                 <Image
                   src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
                   alt="Azure Restaurant"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="flex items-center gap-2 mb-2">
                   <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
@@ -268,17 +268,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
               transition={{ delay: 0.2 }}
               className="relative group overflow-hidden rounded-3xl"
             >
-              <div className="aspect-[16/10]">
+              <div className="aspect-16/10">
                 <Image
                   src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop"
                   alt="Lounge Bar"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <h3 className="text-2xl font-semibold text-white mb-2">
                   {tHome('dining.bar.name')}
@@ -346,8 +346,8 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 alt="Spa"
                 width={800}
                 height={600}
-                className="rounded-3xl w-full aspect-[4/3] object-cover"
-                unoptimized
+                className="rounded-3xl w-full aspect-4/3 object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-4">
@@ -385,17 +385,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-2xl cursor-pointer"
               >
-                <div className="aspect-[3/4]">
+                <div className="aspect-3/4">
                   <Image
                     src={exp.image}
                     alt={exp.name}
                     width={800}
                     height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    unoptimized
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-forest-950/90 via-forest-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-2 text-brass-400 text-sm mb-2">
                     <MapPin size={14} />
@@ -419,7 +419,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-linear-to-br from-forest-800 to-forest-950 text-white relative overflow-hidden">
         {/* Decorative Elements */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-forest-700/30 rounded-full blur-3xl" />
@@ -475,7 +475,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     width={800}
                     height={600}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    unoptimized
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                 </a>
               ))}

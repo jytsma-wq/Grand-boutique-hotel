@@ -22,7 +22,7 @@ const fadeInUp = {
 };
 
 export default function RoomsPage({ locale }: RoomsPageProps) {
-  const t = useTranslations('Rooms');
+  const t = useTranslations('rooms');
   const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
 
   const rooms: Room[] = [
@@ -94,7 +94,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
+      <section className="relative min-h-125 overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1920&q=80"
@@ -144,7 +144,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
               >
                 <div className="glass-card rounded-2xl overflow-hidden card-hover">
                   {/* Image */}
-                  <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-4/3 overflow-hidden">
                     <Image
                       src={room.image}
                       alt={room.name}

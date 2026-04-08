@@ -98,7 +98,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[70vh] min-h-150 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80"
@@ -254,7 +254,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     alt="Breakfast"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="text-xs text-white/60 uppercase tracking-[0.3em] font-light mb-2">Daily 7:00 AM — 11:00 AM</div>
                     <h3 className="text-3xl font-bold text-white uppercase tracking-tight mb-3">Breakfast</h3>
@@ -280,7 +280,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     alt="Lunch & Dinner"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8">
                     <div className="text-xs text-white/60 uppercase tracking-[0.3em] font-light mb-2">Lunch 12:00 PM — 3:00 PM · Dinner 6:00 PM — 11:00 PM</div>
                     <h3 className="text-3xl font-bold text-white uppercase tracking-tight mb-3">Lunch & Dinner</h3>
@@ -320,7 +320,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     alt={category.name}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-950/70 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-forest-950/70 to-transparent" />
                   <h3 className="absolute bottom-6 left-6 text-2xl font-bold text-white uppercase tracking-tight">
                     {category.name}
                   </h3>
@@ -331,7 +331,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                       <li key={i} className="border-b border-forest-200 pb-4 last:border-0 last:pb-0">
                         <div className="flex justify-between items-start gap-4 mb-2">
                           <div className="font-bold text-forest-900 uppercase tracking-wide text-sm">{item.name}</div>
-                          <div className="text-right flex-shrink-0">
+                          <div className="text-right shrink-0">
                             <div className="font-bold text-forest-900">{item.price}</div>
                             <div className="text-xs text-forest-500">{item.priceGel}</div>
                           </div>
@@ -346,9 +346,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
           </div>
 
           <div className="text-center mt-16">
-            <a href="/menus/restaurant-menu.pdf" target="_blank" rel="noopener noreferrer" className="link-architectural text-base">
+            <Link href={`/${locale}/restaurant/menu`} className="link-architectural text-base">
               View Full Menu
-            </a>
+            </Link>
           </div>
         </div>
       </section>

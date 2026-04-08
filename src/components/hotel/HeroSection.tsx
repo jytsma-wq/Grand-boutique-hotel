@@ -54,7 +54,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
   }, [isAutoPlaying, slides.length]);
 
   return (
-    <section className="relative h-screen min-h-[800px] overflow-hidden">
+    <section className="relative h-screen min-h-200 overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
         <motion.div
@@ -73,7 +73,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
             fill
             className="object-cover"
             priority={index === 0}
-            unoptimized
+            sizes="100vw"
           />
         </motion.div>
       ))}
