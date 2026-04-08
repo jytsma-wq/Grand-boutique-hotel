@@ -1,0 +1,16 @@
+Phase 5: Image Migration to Sanity
+Migrate external Unsplash images to Sanity media library. Currently, the project uses Unsplash URLs directly in the code, which has several disadvantages: no optimization control, reliance on external service, and missed SEO opportunities with alt text management. Migrating to Sanity provides better control over image optimization and ensures images are served through the Sanity CDN with proper transformations.
+Benefits
+•	Full control over image optimization and transformations
+•	Consistent CDN delivery through Sanity
+•	Better SEO with managed alt text in CMS
+•	No dependency on external image services
+•	Automatic WebP/AVIF conversion via Sanity
+Windsurf Prompt
+Copy this prompt:
+Migrate external Unsplash images to Sanity:  1. Find all Unsplash image URLs in the codebase:    - Search for "unsplash.com" in src/    - Search for "images.unsplash.com"     - Note each location and context (hero images, room images, etc.)  2. Create a migration plan listing:    - Image URL    - File location where it's used    - Suggested asset name in Sanity    - Alt text context  3. For each Unsplash image found, prepare Sanity schema updates:    - Add image fields to relevant schemas if not present    - Ensure alt text fields exist for accessibility  4. IMPORTANT: This is a manual migration process:    - Download each Unsplash image    - Upload to Sanity Studio (http://localhost:3000/studio)    - Update the code references to use Sanity image URLs     5. Update code to use Sanity's image builder:    Replace: src="https://images.unsplash.com/..."    With: src={urlFor(imageAsset).width(1920).url()}  6. Example pattern for Sanity image usage:    import { urlFor } from '@/sanity/lib/image'        <Image      src={urlFor(page.heroImage).width(1920).height(1080).url()}      alt={page.heroImage.alt || 'Hotel image'}      fill      className="object-cover"    />  7. After migration, verify all images load correctly 8. Run "bun run build" to ensure no broken references
+Final Verification Steps
+After completing all phases, run these verification steps to ensure the project is in good shape and no regressions were introduced during the cleanup process.
+Windsurf Prompt
+Copy this prompt:
+Run final verification after all phases are complete:  1. Run TypeScript type check:    bun run type-check  2. Run ESLint:    bun run lint  3. Build the production bundle:    bun run build  4. Start production server and test:    bun run start    - Test all main pages (home, rooms, wellness, restaurant, bar, contact)    - Test language switching    - Test mobile responsiveness    - Check for broken images    - Verify animations still work  5. Check bundle size:    - Report the .next/static folder size    - Compare with original if possible  6. Generate a summary of changes:    - Files deleted    - Dependencies removed    - Bundle size reduction    - Any issues encountered  Report the final project status and any remaining issues.
