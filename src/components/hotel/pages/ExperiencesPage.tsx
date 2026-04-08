@@ -121,12 +121,12 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">{t('experiences.discover')}</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('experiences.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('experiences.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -152,13 +152,8 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
+              <div
+                key={exp.id} className="group"
               >
                 <div className="glass-card rounded-2xl overflow-hidden card-hover">
                   {/* Image */}
@@ -202,7 +197,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -211,7 +206,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
       {/* Concierge CTA */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl font-light mb-6">
               {t('experiences.conciergeTitle')}
             </h2>
@@ -226,9 +221,17 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

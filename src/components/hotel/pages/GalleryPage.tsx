@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -83,12 +83,12 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">Visual Journey</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('gallery.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('gallery.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -117,19 +117,12 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
       {/* Gallery Grid */}
       <section className="py-16 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div 
-            layout
+          <div 
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
           >
-            <AnimatePresence mode="popLayout">
               {filteredImages.map((image, index) => (
-                <motion.div
+                <div
                   key={image.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
                   className={`relative overflow-hidden rounded-xl cursor-pointer group ${
                     index % 5 === 0 ? 'col-span-2 row-span-2' : ''
                   }`}
@@ -144,21 +137,16 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-forest-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                     <p className="text-cream-50 text-sm">{image.alt}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
-            </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Lightbox */}
-      <AnimatePresence>
+      <div>
         {lightboxOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-forest-950/95 flex items-center justify-center"
+          <div className="fixed inset-0 z-50 bg-forest-950/95 flex items-center justify-center"
             onClick={() => setLightboxOpen(false)}
           >
             {/* Close Button */}
@@ -184,12 +172,8 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             </button>
 
             {/* Image */}
-            <motion.img
-              key={currentImage}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              src={filteredImages[currentImage]?.src}
+            <img
+              key={currentImage} src={filteredImages[currentImage]?.src}
               alt={filteredImages[currentImage]?.alt}
               className="max-w-[90vw] max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}
@@ -199,9 +183,17 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream-50 text-sm">
               {currentImage + 1} / {filteredImages.length}
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </div>
     </main>
   );
 }
+
+
+
+
+
+
+
+

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { 
   ArrowRight, 
   Star, 
@@ -19,19 +18,12 @@ import {
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
 import HeroSection from './HeroSection';
-import { urlFor } from '@/lib/sanity';
+import { getImageUrl } from '@/lib/sanity';
 
 interface HomePageProps {
   locale: Locale;
   data?: any;
 }
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
 
 export default function HomePage({ locale, data }: HomePageProps) {
   const t = useTranslations();
@@ -63,7 +55,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
   const rooms = cmsRooms.length > 0 
     ? cmsRooms.map((room: any) => ({
         name: room[`name_${locale}`] || room.name || 'Room',
-        image: room.image ? urlFor(room.image).url() : '/placeholder-room.jpg',
+        image: getImageUrl(room.image, 800),
         price: room.price || 0,
         description: room[`description_${locale}`] || room.description || '',
       }))
@@ -72,17 +64,17 @@ export default function HomePage({ locale, data }: HomePageProps) {
   const experiences = [
     {
       name: 'Batumi Boulevard',
-      image: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?q=80&w=400&auto=format&fit=crop',
+      image: getImageUrl('https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?q=80&w=400&auto=format&fit=crop', 400),
       distance: '0.5 km',
     },
     {
       name: 'Old Batumi',
-      image: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=400&auto=format&fit=crop',
+      image: getImageUrl('https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=400&auto=format&fit=crop', 400),
       distance: '1.2 km',
     },
     {
       name: 'Batumi Botanical Garden',
-      image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400&auto=format&fit=crop',
+      image: getImageUrl('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400&auto=format&fit=crop', 400),
       distance: '8 km',
     },
   ];
@@ -101,18 +93,15 @@ export default function HomePage({ locale, data }: HomePageProps) {
       {/* Welcome Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Welcome</span>
             <h2 className="section-title mt-4">{welcomeTitle}</h2>
             <div className="brass-line" />
             <p className="section-subtitle">{welcomeDescription}</p>
-          </motion.div>
+          </div>
 
           {/* Amenities Grid */}
-          <motion.div 
-            {...fadeInUp}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-fade-in-up">
             {amenities.map((amenity: { icon: string; label: string }, index: number) => {
               const IconComponent = typeof amenity.icon === 'string' ? getIconComponent(amenity.icon) : amenity.icon;
               return (
@@ -127,29 +116,26 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 </div>
               );
             })}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Rooms Section */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Accommodations</span>
             <h2 className="section-title mt-4">{tHome('rooms.title')}</h2>
             <div className="brass-line" />
             <p className="section-subtitle">{tHome('rooms.subtitle')}</p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {rooms.map((room: { slug: string; name: string; price: number; images: string[]; image: string; size: string; guests: number }, index: number) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
+                className="group animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Link href={`/${locale}/rooms/${room.name.toLowerCase().replace(' ', '-')}`}>
                   <div className="glass-card rounded-2xl overflow-hidden card-hover">
@@ -198,7 +184,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                     </div>
                   </div>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -216,22 +202,21 @@ export default function HomePage({ locale, data }: HomePageProps) {
       {/* Dining Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Culinary</span>
             <h2 className="section-title mt-4">{tHome('dining.title')}</h2>
             <div className="brass-line" />
             <p className="section-subtitle">{tHome('dining.subtitle')}</p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Restaurant */}
-            <motion.div
-              {...fadeInUp}
-              className="relative group overflow-hidden rounded-3xl"
+            <div
+              className="relative group overflow-hidden rounded-3xl animate-fade-in-up"
             >
               <div className="aspect-16/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop"
+                  src={getImageUrl('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop', 800)}
                   alt="Azure Restaurant"
                   width={800}
                   height={600}
@@ -260,17 +245,16 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
             {/* Bar */}
-            <motion.div
-              {...fadeInUp}
-              transition={{ delay: 0.2 }}
-              className="relative group overflow-hidden rounded-3xl"
+            <div
+              className="relative group overflow-hidden rounded-3xl animate-fade-in-up"
+              style={{ animationDelay: '200ms' }}
             >
               <div className="aspect-16/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop"
+                  src={getImageUrl('https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop', 800)}
                   alt="Lounge Bar"
                   width={800}
                   height={600}
@@ -293,7 +277,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -302,7 +286,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-brass-400 text-sm tracking-widest uppercase">Relaxation</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
                 {tHome('wellness.title')}
@@ -333,16 +317,13 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   </Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+            <div
+              className="relative animate-scale-in"
             >
               <Image
-                src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop"
+                src={getImageUrl('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop', 800)}
                 alt="Spa"
                 width={800}
                 height={600}
@@ -360,7 +341,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -368,22 +349,19 @@ export default function HomePage({ locale, data }: HomePageProps) {
       {/* Experiences Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in-up">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
             <h2 className="section-title mt-4">{tHome('experiences.title')}</h2>
             <div className="brass-line" />
             <p className="section-subtitle">{tHome('experiences.subtitle')}</p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl cursor-pointer animate-fade-in-up"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="aspect-3/4">
                   <Image
@@ -403,7 +381,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   </div>
                   <h3 className="text-xl font-semibold text-white">{exp.name}</h3>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -427,7 +405,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Ready to Experience <span className="text-brass-400">True Luxury</span>?
             </h2>
@@ -447,14 +425,14 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Instagram Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h3 className="text-2xl font-semibold text-forest-900 mb-4">
               Follow Us <span className="text-brass-600">@batumiboutique</span>
             </h3>
@@ -470,7 +448,7 @@ export default function HomePage({ locale, data }: HomePageProps) {
                   className="aspect-square overflow-hidden group"
                 >
                   <Image
-                    src={`https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=200&h=200&auto=format&fit=crop`}
+                    src={getImageUrl(`https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=200&h=200&auto=format&fit=crop`, 200)}
                     alt="Instagram"
                     width={800}
                     height={600}
@@ -480,9 +458,16 @@ export default function HomePage({ locale, data }: HomePageProps) {
                 </a>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+

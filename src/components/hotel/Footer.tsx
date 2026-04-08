@@ -172,3 +172,9 @@ export default function Footer({ locale }: FooterProps) {
     </footer>
   );
 }
+
+
+
+
+
+

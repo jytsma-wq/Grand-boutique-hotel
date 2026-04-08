@@ -61,11 +61,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
       </div>
 
       {step === 1 && (
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-        >
+        <div >
           <Label className="text-sm font-medium text-forest-700 mb-3 block">
             Select Date
           </Label>
@@ -79,15 +75,11 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
             disabled={(date) => date < new Date()}
             className="rounded-xl border border-forest-100"
           />
-        </motion.div>
+        </div>
       )}
 
       {step === 2 && (
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          className="space-y-6"
+        <div className="space-y-6"
         >
           <div>
             <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
@@ -120,15 +112,11 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           >
             ← Back to date
           </Button>
-        </motion.div>
+        </div>
       )}
 
       {step === 3 && (
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          className="space-y-6"
+        <div className="space-y-6"
         >
           <div>
             <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
@@ -182,8 +170,16 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           >
             ← Back to time
           </Button>
-        </motion.div>
+        </div>
       )}
     </div>
   );
 }
+
+
+
+
+
+
+
+

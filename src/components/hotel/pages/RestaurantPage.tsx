@@ -109,7 +109,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Fine Dining</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Azure Restaurant
@@ -125,7 +125,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
               <div className={`w-2 h-2 ${isOpen ? 'bg-white' : 'bg-white/50'}`} />
               <span className="uppercase tracking-wider text-sm font-medium">{isOpen ? 'Open Now' : 'Currently Closed'}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -170,7 +170,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Philosophy</span>
               <h2 className="section-title mt-4">Farm to Table Excellence</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
@@ -199,13 +199,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                   <span className="uppercase tracking-wide text-sm font-medium">500+ Wine Selection</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
+            <div className="grid grid-cols-2 gap-4"
             >
               <img
                 src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&q=80"
@@ -227,7 +223,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 alt="Wine Selection"
                 className="w-full aspect-square object-cover"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -235,18 +231,13 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       {/* Dining Experiences - Subpage Navigation */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Explore</span>
             <h2 className="section-title mt-4">Our Dining Experiences</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0 }}
-            >
+            <div >
               <Link href={`/${locale}/restaurant/breakfast`} className="group block">
                 <div className="relative h-80 overflow-hidden border-2 border-forest-900">
                   <img
@@ -265,14 +256,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
+            <div >
               <Link href={`/${locale}/restaurant/lunch-dinner`} className="group block">
                 <div className="relative h-80 overflow-hidden border-2 border-forest-900">
                   <img
@@ -291,7 +277,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                   </div>
                 </div>
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -299,20 +285,15 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       {/* Menu Sections - Architectural Grid */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menu</span>
             <h2 className="section-title mt-4">Culinary Offerings</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {menuCategories.map((category, index) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900"
+              <div
+                key={category.name} className="bg-white border-2 border-forest-900"
               >
                 <div className="relative h-56">
                   <img
@@ -341,7 +322,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -356,17 +337,15 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       {/* Chef's Specials - Brutalist */}
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Exclusive</span>
             <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">Chef's Specials</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {chefSpecials.map((special, index) => (
-              <motion.div
+              <div
                 key={special.name}
-                {...fadeInUp}
-                transition={{ delay: index * 0.1 }}
                 className="bg-forest-800 p-10 border-2 border-white/20"
               >
                 <div className="flex justify-between items-start mb-6 pb-6 border-b border-white/20">
@@ -383,7 +362,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     Reserve This Experience
                   </Button>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -392,10 +371,10 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       {/* Gallery */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-12">
+          <div className="text-center mb-12">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Gallery</span>
             <h2 className="section-title mt-4">Azure in Pictures</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
@@ -414,7 +393,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       {/* Reservation CTA - Brutalist */}
       <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
               Reserve Your Table
             </h2>
@@ -435,9 +414,17 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

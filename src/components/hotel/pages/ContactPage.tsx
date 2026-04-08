@@ -66,12 +66,12 @@ export default function ContactPage({ locale }: ContactPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">Get in Touch</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('contact.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('contact.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -80,7 +80,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <motion.div {...fadeInUp}>
+            <div>
               <h2 className="text-3xl font-light text-forest-900 mb-8">{t('contact.sendMessage')}</h2>
               
               {isSubmitted ? (
@@ -134,10 +134,10 @@ export default function ContactPage({ locale }: ContactPageProps) {
                   </Button>
                 </form>
               )}
-            </motion.div>
+            </div>
 
             {/* Contact Info */}
-            <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+            <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
               <h2 className="text-3xl font-light text-forest-900 mb-8">{t('contact.departments.title')}</h2>
               
               <div className="space-y-6 mb-12">
@@ -180,7 +180,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -198,3 +198,10 @@ export default function ContactPage({ locale }: ContactPageProps) {
     </main>
   );
 }
+
+
+
+
+
+
+

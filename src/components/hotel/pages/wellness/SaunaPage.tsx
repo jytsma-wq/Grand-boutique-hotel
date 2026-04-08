@@ -62,13 +62,13 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <Wind className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/90 max-w-2xl mx-auto font-light">
               {t('subtitle')}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -98,7 +98,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('traditionalWellness')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">
                 {t('authenticFinnish')}
@@ -118,20 +118,16 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
                   <Button className="btn-telegraph">{t('bookYourStay')}</Button>
                 </Link>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+            <div className="relative"
             >
               <img
                 src="https://images.unsplash.com/photo-1521143493539-5a7e0c0d7a3f?w=800&q=80"
                 alt="Sauna Interior"
                 className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -139,27 +135,22 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       {/* Features */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('premiumAmenities')}</span>
             <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('saunaFeatures')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900 p-8 text-center"
+              <div
+                key={index} className="bg-white border-2 border-forest-900 p-8 text-center"
               >
                 <div className="w-16 h-16 bg-forest-900 mx-auto mb-6 flex items-center justify-center">
                   <feature.icon className="w-8 h-8 text-cream-50" />
                 </div>
                 <h3 className="font-bold text-forest-900 mb-3 uppercase tracking-wide">{feature.title}</h3>
                 <p className="text-sm text-forest-600 font-light">{feature.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -169,24 +160,19 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div {...fadeInUp} className="text-center mb-16">
+            <div className="text-center mb-16">
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellnessBenefits')}</span>
               <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('healthBenefits')}</h2>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="flex items-center gap-4 bg-forest-50 border-l-4 border-forest-900 p-6"
+                <div
+                  key={index} className="flex items-center gap-4 bg-forest-50 border-l-4 border-forest-900 p-6"
                 >
                   <div className="w-2 h-2 bg-forest-900 rounded-full flex-shrink-0" />
                   <span className="text-forest-700 font-medium">{benefit}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -196,27 +182,22 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       {/* Gallery */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('visualExperience')}</span>
             <h2 className="text-4xl font-bold mt-4 uppercase tracking-tight">{t('saunaGallery')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {gallery.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="relative aspect-[4/3] overflow-hidden border-2 border-forest-900 group"
+              <div
+                key={index} className="relative aspect-[4/3] overflow-hidden border-2 border-forest-900 group"
               >
                 <img
                   src={image}
                   alt={`Sauna view ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -225,7 +206,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       {/* CTA */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Experience Traditional Sauna Therapy
             </h2>
@@ -245,9 +226,17 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

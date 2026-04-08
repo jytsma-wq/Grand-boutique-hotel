@@ -232,18 +232,14 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
         
         <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
           <div className="container mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div >
               <div className="flex items-center gap-3 mb-4">
                 <Badge className="bg-brass-500 text-forest-950">{room.views}</Badge>
                 <Badge variant="outline" className="border-white/30 text-white">{room.size}</Badge>
               </div>
               <h1 className="text-5xl md:text-7xl font-light mb-4">{room.name}</h1>
               <p className="text-xl text-forest-200 max-w-2xl">{room.description}</p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -289,13 +285,13 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
             {/* Left Column - Details */}
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
-              <motion.div {...fadeInUp}>
+              <div>
                 <h2 className="text-2xl font-semibold text-forest-900 mb-4">About This Room</h2>
                 <p className="text-forest-700 leading-relaxed">{room.longDescription}</p>
-              </motion.div>
+              </div>
 
               {/* Gallery */}
-              <motion.div {...fadeInUp}>
+              <div>
                 <h2 className="text-2xl font-semibold text-forest-900 mb-4">Gallery</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.images.map((img, index) => (
@@ -308,10 +304,10 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
 
               {/* Amenities */}
-              <motion.div {...fadeInUp}>
+              <div>
                 <h2 className="text-2xl font-semibold text-forest-900 mb-4">Amenities</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.amenities.map((amenity) => {
@@ -339,10 +335,10 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
                     );
                   })}
                 </div>
-              </motion.div>
+              </div>
 
               {/* Features */}
-              <motion.div {...fadeInUp}>
+              <div>
                 <h2 className="text-2xl font-semibold text-forest-900 mb-4">Special Features</h2>
                 <ul className="space-y-3">
                   {room.features.map((feature, index) => (
@@ -352,7 +348,7 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             </div>
 
             {/* Right Column - Booking */}
@@ -455,3 +451,11 @@ export default function RoomDetailPage({ locale, slug }: RoomDetailPageProps) {
     </main>
   );
 }
+
+
+
+
+
+
+
+

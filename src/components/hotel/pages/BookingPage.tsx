@@ -62,20 +62,19 @@ export default function BookingPage({ locale }: BookingPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">Reservations</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('booking.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-white/80 max-w-2xl mt-4">{t('booking.bestPrice')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Booking Form */}
       <section className="py-16 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div 
-            {...fadeInUp}
+          <div 
             className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -145,25 +144,23 @@ export default function BookingPage({ locale }: BookingPageProps) {
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Benefits Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Exclusive</span>
             <h2 className="section-title mt-4">{t('booking.benefits')}</h2>
             <div className="brass-line" />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((benefit, index) => (
-              <motion.div
+              <div
                 key={index}
-                {...fadeInUp}
-                transition={{ delay: index * 0.1 }}
                 className="glass-card rounded-2xl p-8 text-center card-hover"
               >
                 <div className="w-16 h-16 rounded-full gradient-brass mx-auto mb-6 flex items-center justify-center">
@@ -173,7 +170,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
                   <Check className="w-5 h-5 text-forest-500" />
                   <span className="text-forest-900 font-medium">{benefit.text}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -183,7 +180,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-brass-600 text-sm tracking-widest uppercase">Our Promise</span>
               <h2 className="section-title mt-4">{t('booking.bestPrice')}</h2>
               <div className="brass-line !mx-0" />
@@ -208,13 +205,9 @@ export default function BookingPage({ locale }: BookingPageProps) {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+            <div className="relative"
             >
               <img
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80"
@@ -227,7 +220,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
                   <div className="text-sm text-forest-600">Save vs OTAs</div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -235,7 +228,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-white">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Need Help with Your Reservation?
             </h2>
@@ -256,9 +249,17 @@ export default function BookingPage({ locale }: BookingPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

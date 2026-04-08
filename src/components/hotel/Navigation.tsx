@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { locales, localeNames, localeFlags, type Locale } from '@/i18n/config';
@@ -95,10 +95,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
 
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${
+      <header className={`fixed left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${
           isScrolled ? 'shadow-md' : ''
         }`}
       >
@@ -118,14 +115,9 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 <span>{locale.toUpperCase()}</span>
                 <ChevronDown size={12} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
               </button>
-              <AnimatePresence>
+              <div>
                 {langOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -4 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute left-0 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-40 z-120"
+                  <div className="absolute left-0 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-40 z-120"
                   >
                     {locales.map((loc) => (
                       <button
@@ -143,9 +135,9 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                         <span>{loc.toUpperCase()}</span>
                       </button>
                     ))}
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
           </div>
 
@@ -182,14 +174,9 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   </Link>
 
                   {/* Dropdown submenu */}
-                  <AnimatePresence>
+                  <div>
                     {link.children && openDropdown === link.href && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -4 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -4 }}
-                        transition={{ duration: 0.15 }}
-                        className="absolute left-1/2 -translate-x-1/2 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-48 z-50"
+                      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-48 z-50"
                       >
                         {link.children.map((child) => (
                           <Link
@@ -200,9 +187,9 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                             {child.label}
                           </Link>
                         ))}
-                      </motion.div>
+                      </div>
                     )}
-                  </AnimatePresence>
+                  </div>
                 </div>
               ))}
               
@@ -231,16 +218,12 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <div>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 lg:hidden overflow-hidden"
+          <div className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 lg:hidden overflow-hidden"
             style={{ marginTop: '80px' }}
           >
             <div className="px-6 py-4">
@@ -291,13 +274,9 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 <span>{locale.toUpperCase()}</span>
                 <ChevronDown size={16} className={`transition-transform ${mobileLangOpen ? 'rotate-180' : ''}`} />
               </button>
-              <AnimatePresence>
+              <div>
                 {mobileLangOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="overflow-hidden mt-3"
+                  <div className="overflow-hidden mt-3"
                   >
                     <div className="flex flex-wrap gap-3 justify-center">
                       {locales.map((loc) => (
@@ -320,13 +299,21 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                         </button>
                       ))}
                     </div>
-                  </motion.div>
+                  </div>
                 )}
-              </AnimatePresence>
+              </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </div>
     </>
   );
 }
+
+
+
+
+
+
+
+

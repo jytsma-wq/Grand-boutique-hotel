@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { X, Gift, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -43,13 +43,9 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
   ];
 
   return (
-    <AnimatePresence>
+    <div>
       {isVisible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
+        <div className="fixed bottom-0 left-0 right-0 z-40 lg:hidden"
         >
           <div className="bg-forest-900 text-cream-50 px-4 py-3 shadow-2xl border-t border-forest-700">
             <div className="flex items-center justify-between gap-4">
@@ -81,8 +77,16 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
-    </AnimatePresence>
+    </div>
   );
 }
+
+
+
+
+
+
+
+

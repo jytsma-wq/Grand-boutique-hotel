@@ -110,12 +110,12 @@ export default function OffersPage({ locale }: OffersPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">Exclusive</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('offers.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('offers.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -124,13 +124,8 @@ export default function OffersPage({ locale }: OffersPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {offers.map((offer, index) => (
-              <motion.div
-                key={offer.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card rounded-2xl overflow-hidden card-hover"
+              <div
+                key={offer.id} className="glass-card rounded-2xl overflow-hidden card-hover"
               >
                 {/* Image */}
                 <div className="relative h-64">
@@ -191,7 +186,7 @@ export default function OffersPage({ locale }: OffersPageProps) {
                     </Button>
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -200,7 +195,7 @@ export default function OffersPage({ locale }: OffersPageProps) {
       {/* Newsletter CTA */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp} className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-light mb-6">
               Get <span className="text-brass-400">Exclusive</span> Offers
             </h2>
@@ -217,9 +212,17 @@ export default function OffersPage({ locale }: OffersPageProps) {
                 <span>Subscribe</span>
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

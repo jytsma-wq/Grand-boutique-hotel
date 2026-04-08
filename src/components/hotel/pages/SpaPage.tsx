@@ -88,7 +88,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('spa.ultimateRelaxation')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               {t('spa.title')}
@@ -96,7 +96,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
             <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
               Immerse yourself in a sanctuary of tranquility and rejuvenation
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -104,7 +104,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.ourPhilosophy')}</span>
               <h2 className="section-title mt-4 mb-8">{t('spa.holisticWellness')}</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
@@ -115,7 +115,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                 Using premium organic products and mineral-rich ingredients from the Black Sea region, 
                 our expert therapists create personalized experiences that transcend ordinary spa treatments.
               </p>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -123,20 +123,15 @@ export default function SpaPage({ locale }: SpaPageProps) {
       {/* Spa Packages - Brutalist Menu Format */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.curatedExperiences')}</span>
             <h2 className="section-title mt-4">{t('spa.spaPackages')}</h2>
-          </motion.div>
+          </div>
 
           <div className="max-w-5xl mx-auto">
             {spaPackages.map((pkg, index) => (
-              <motion.div
-                key={pkg.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="bg-white border-t-2 border-forest-900 first:border-t-0 py-10 px-10 hover:bg-forest-50 transition-colors"
+              <div
+                key={pkg.name} className="bg-white border-t-2 border-forest-900 first:border-t-0 py-10 px-10 hover:bg-forest-50 transition-colors"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-8">
                   <div className="flex-1">
@@ -174,7 +169,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -183,21 +178,16 @@ export default function SpaPage({ locale }: SpaPageProps) {
       {/* Add-On Services - Brutalist Grid */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.enhanceYourExperience')}</span>
             <h2 className="section-title mt-4">{t('spa.addOnServices')}</h2>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {addOnServices.map((service, index) => (
-                <motion.div
-                  key={service.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05, duration: 0.4 }}
-                  className="bg-white border-2 border-forest-900 p-6 hover:bg-forest-50 transition-colors"
+                <div
+                  key={service.name} className="bg-white border-2 border-forest-900 p-6 hover:bg-forest-50 transition-colors"
                 >
                   <div className="flex justify-between items-start">
                     <h3 className="text-base font-bold text-forest-900 uppercase tracking-wide flex-1">{service.name}</h3>
@@ -206,7 +196,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                       <div className="text-xs text-forest-500">{service.priceGel}₾</div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -217,13 +207,13 @@ export default function SpaPage({ locale }: SpaPageProps) {
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div {...fadeInUp} className="mb-12">
+            <div className="mb-12">
               <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">{t('spa.pleaseNote')}</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">{t('spa.spaEtiquette')}</h2>
-            </motion.div>
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <motion.div {...fadeInUp} transition={{ delay: 0.1 }}>
+              <div className="animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">{t('spa.arrival')}</h3>
                 <ul className="space-y-3 text-white/80 font-light">
                   <li className="flex items-start gap-2">
@@ -239,9 +229,9 @@ export default function SpaPage({ locale }: SpaPageProps) {
                     <span>{t('spa.complimentaryRobe')}</span>
                   </li>
                 </ul>
-              </motion.div>
+              </div>
 
-              <motion.div {...fadeInUp} transition={{ delay: 0.2 }}>
+              <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <h3 className="text-lg font-bold uppercase tracking-wide mb-4 border-b border-white/20 pb-3">{t('spa.policies')}</h3>
                 <ul className="space-y-3 text-white/80 font-light">
                   <li className="flex items-start gap-2">
@@ -257,7 +247,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                     <span>{t('spa.gratuities')}</span>
                   </li>
                 </ul>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -266,82 +256,82 @@ export default function SpaPage({ locale }: SpaPageProps) {
       {/* Masonry Gallery - Pool & Treatment Rooms */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.visualJourney')}</span>
             <h2 className="section-title mt-4">{t('spa.spaGallery')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {/* Column 1 */}
             <div className="space-y-4">
-              <motion.div {...fadeInUp} className="overflow-hidden">
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop" 
                   alt="Infinity Pool" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
-              <motion.div {...fadeInUp} transition={{ delay: 0.1 }} className="overflow-hidden">
+              </div>
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop" 
                   alt="Treatment Room" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             </div>
 
             {/* Column 2 */}
             <div className="space-y-4">
-              <motion.div {...fadeInUp} transition={{ delay: 0.2 }} className="overflow-hidden">
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=600&fit=crop" 
                   alt="Relaxation Lounge" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
-              <motion.div {...fadeInUp} transition={{ delay: 0.3 }} className="overflow-hidden">
+              </div>
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1596178060810-4dd9c3c0eb1e?w=800&h=1000&fit=crop" 
                   alt="Spa Pool" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             </div>
 
             {/* Column 3 */}
             <div className="space-y-4">
-              <motion.div {...fadeInUp} transition={{ delay: 0.4 }} className="overflow-hidden">
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&h=1000&fit=crop" 
                   alt="Massage Room" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
-              <motion.div {...fadeInUp} transition={{ delay: 0.5 }} className="overflow-hidden">
+              </div>
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&h=600&fit=crop" 
                   alt="Sauna" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             </div>
 
             {/* Column 4 */}
             <div className="space-y-4">
-              <motion.div {...fadeInUp} transition={{ delay: 0.6 }} className="overflow-hidden">
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&h=600&fit=crop" 
                   alt="Hydrotherapy Pool" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
-              <motion.div {...fadeInUp} transition={{ delay: 0.7 }} className="overflow-hidden">
+              </div>
+              <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=800&h=1000&fit=crop" 
                   alt="Spa Reception" 
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -350,7 +340,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
       {/* CTA - Brutalist */}
       <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
               Book Your Spa Experience
             </h2>
@@ -370,9 +360,17 @@ export default function SpaPage({ locale }: SpaPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

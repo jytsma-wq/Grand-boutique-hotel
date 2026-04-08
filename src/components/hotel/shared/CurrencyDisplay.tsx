@@ -38,11 +38,8 @@ export default function CurrencyDisplay({
   }
 
   return (
-    <motion.div 
-      className={`inline-flex items-center gap-2 ${className}`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-    >
+    <div 
+      className={`inline-flex items-center gap-2 ${className}`} >
       <span className={`font-semibold text-brass-600 ${sizeClasses[size]}`}>
         ${usdAmount.toLocaleString()}
       </span>
@@ -52,7 +49,7 @@ export default function CurrencyDisplay({
       >
         {showGel ? `₾${gelAmount.toLocaleString()}` : '+ GEL'}
       </button>
-    </motion.div>
+    </div>
   );
 }
 
@@ -71,3 +68,11 @@ export function useCurrency() {
 
   return { convertToGel, formatPrice };
 }
+
+
+
+
+
+
+
+

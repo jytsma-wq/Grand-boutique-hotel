@@ -112,12 +112,12 @@ export default function LocationPage({ locale }: LocationPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">Find Us</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('location.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('location.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -126,7 +126,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Address Info */}
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-brass-600 text-sm tracking-widest uppercase">Our Address</span>
               <h2 className="section-title mt-4">Batumi Boutique Hotel</h2>
               <div className="brass-line !mx-0" />
@@ -179,14 +179,10 @@ export default function LocationPage({ locale }: LocationPageProps) {
                   </Button>
                 </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Interactive Google Map */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative h-96 lg:h-auto rounded-2xl overflow-hidden shadow-xl border-2 border-forest-200"
+            <div className="relative h-96 lg:h-auto rounded-2xl overflow-hidden shadow-xl border-2 border-forest-200"
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23726.15869140033!2d41.62!3d41.6168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406786544e107d3b%3A0x9f604c5f7d4e1c5e!2sBatumi%2C%20Georgia!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
@@ -199,7 +195,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
                 title="Batumi Boutique Hotel Location"
                 className="w-full h-full"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -227,18 +223,16 @@ export default function LocationPage({ locale }: LocationPageProps) {
       {/* Nearby Attractions */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
             <h2 className="section-title mt-4">{t('location.nearby.title')}</h2>
             <div className="brass-line" />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {nearbyAttractions.map((attraction, index) => (
-              <motion.div
+              <div
                 key={attraction.name}
-                {...fadeInUp}
-                transition={{ delay: index * 0.05 }}
                 className="bg-white rounded-2xl overflow-hidden shadow-sm card-hover"
               >
                 <div className="relative h-48">
@@ -260,7 +254,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
                     <span>{attraction.time}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -269,7 +263,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
       {/* CTA */}
       <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl font-light mb-6">
               Need <span className="text-brass-400">Transfer Service</span>?
             </h2>
@@ -289,9 +283,17 @@ export default function LocationPage({ locale }: LocationPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

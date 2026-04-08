@@ -21,10 +21,7 @@ export default function OTAPriceComparison({
   if (savings <= 0) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`bg-gradient-to-r from-forest-50 to-gold-50 rounded-xl p-4 border border-forest-100 ${className}`}
+    <div className={`bg-gradient-to-r from-forest-50 to-gold-50 rounded-xl p-4 border border-forest-100 ${className}`}
     >
       <div className="flex items-center gap-2 mb-3">
         <TrendingDown className="w-5 h-5 text-forest-600" />
@@ -54,6 +51,14 @@ export default function OTAPriceComparison({
       <div className="mt-3 text-xs text-center text-forest-500">
         Best price guaranteed when booking direct
       </div>
-    </motion.div>
+    </div>
   );
 }
+
+
+
+
+
+
+
+

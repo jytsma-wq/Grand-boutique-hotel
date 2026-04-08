@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, Send, Loader2 } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/config';
 
@@ -110,11 +109,8 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
   return (
     <>
       {/* Chat Toggle Button */}
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-        className="fixed bottom-6 left-6 z-50 flex flex-col items-center gap-2 group/chat"
+      <div
+        className="fixed bottom-6 left-6 z-50 flex flex-col items-center gap-2 group/chat animate-scale-in"
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -158,49 +154,44 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
         >
           CONCIERGE
         </span>
-      </motion.div>
+      </div>
 
       {/* Chat Window */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-40 left-6 z-50 w-80 sm:w-96 shadow-2xl overflow-hidden"
+      {isOpen && (
+        <div
+          className="fixed bottom-40 left-6 z-50 w-80 sm:w-96 shadow-2xl overflow-hidden animate-fade-in-up"
+          style={{ 
+            backgroundColor: colors.white,
+            borderRadius: '20px 0 0 20px',
+            border: `1px solid ${colors.secondary}`,
+          }}
+        >
+          {/* Header */}
+          <div 
+            className="p-4 border-b"
             style={{ 
-              backgroundColor: colors.white,
-              borderRadius: '20px 0 0 20px',
-              border: `1px solid ${colors.secondary}`,
+              backgroundColor: colors.primary,
+              borderColor: `${colors.white}33`,
             }}
           >
-            {/* Header */}
-            <div 
-              className="p-4 border-b"
-              style={{ 
-                backgroundColor: colors.primary,
-                borderColor: `${colors.white}33`,
-              }}
-            >
-              <div className="flex items-center gap-3">
-                <div 
-                  className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0"
-                  style={{ border: `2px solid ${colors.primaryAlt}` }}
-                >
-                  <img 
-                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
-                    alt="Mariam"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div>
-                  <div className="font-medium text-sm text-white tracking-wide">{t('name')}</div>
-                  <div className="text-xs text-white/70 uppercase tracking-wider">Digital Concierge</div>
-                </div>
+            <div className="flex items-center gap-3">
+              <div 
+                className="w-10 h-10 rounded-full overflow-hidden flex-shrink-0"
+                style={{ border: `2px solid ${colors.primaryAlt}` }}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
+                  alt="Mariam"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <div className="font-medium text-sm text-white tracking-wide">{t('name')}</div>
+                <div className="text-xs text-white/70 uppercase tracking-wider">Digital Concierge</div>
               </div>
             </div>
+          </div>
 
             {/* Messages */}
             <div 
@@ -293,9 +284,14 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
                 <Send className="w-4 h-4" />
               </button>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </>
   );
 }
+
+
+
+
+
+

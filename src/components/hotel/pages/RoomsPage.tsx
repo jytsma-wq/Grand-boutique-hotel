@@ -106,7 +106,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-brass-400 text-sm tracking-widest uppercase">{t('accommodations')}</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">
               {t('title')}
@@ -115,7 +115,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
             <p className="text-xl text-white/80 max-w-2xl">
               {t('description')}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -134,13 +134,8 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {rooms.map((room, index) => (
-              <motion.div
-                key={room._id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group"
+              <div
+                key={room._id} className="group"
               >
                 <div className="glass-card rounded-2xl overflow-hidden card-hover">
                   {/* Image */}
@@ -195,7 +190,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -204,11 +199,11 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       {/* Amenities Overview */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">{t('inEveryRoom')}</span>
             <h2 className="section-title mt-4">{t('roomAmenities')}</h2>
             <div className="brass-line" />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
@@ -219,17 +214,15 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
               { icon: <Maximize2 />, label: t('inRoomSafe') },
               { icon: <Users />, label: t('roomService') },
             ].map((amenity, i) => (
-              <motion.div
+              <div
                 key={i}
-                {...fadeInUp}
-                transition={{ delay: i * 0.05 }}
                 className="text-center p-6 bg-white rounded-2xl"
               >
                 <div className="w-14 h-14 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center text-white">
                   {amenity.icon}
                 </div>
                 <span className="text-sm text-forest-700">{amenity.label}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -238,7 +231,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       {/* Book Direct Benefits */}
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               {t('bookDirectTitle')} <span className="text-brass-400">{t('saveMore')}</span>
             </h2>
@@ -268,9 +261,17 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

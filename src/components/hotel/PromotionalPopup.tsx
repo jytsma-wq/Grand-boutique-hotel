@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { X, Gift, ArrowRight } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { type Locale } from '@/i18n/config';
@@ -34,24 +34,16 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
   };
 
   return (
-    <AnimatePresence>
+    <div>
       {isVisible && (
         <>
           {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closePopup}
+          <div onClick={closePopup}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
           />
 
           {/* Popup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4"
           >
             <div className="relative bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl">
               {/* Close Button */}
@@ -110,9 +102,17 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
                 </p>
               </div>
             </div>
-          </motion.div>
+          </div>
         </>
       )}
-    </AnimatePresence>
+    </div>
   );
 }
+
+
+
+
+
+
+
+

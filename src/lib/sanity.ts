@@ -15,6 +15,22 @@ export function urlFor(source: any) {
   return builder.image(source);
 }
 
+export function getImageUrl(source: any, width?: number): string {
+  if (!source) return '/placeholder.jpg';
+  
+  // If it's a string (external URL), return as-is
+  if (typeof source === 'string') return source;
+  
+  // If it's a Sanity image object, use urlFor
+  if (source._type === 'image' || source.asset) {
+    let builder = urlFor(source);
+    if (width) builder = builder.width(width);
+    return builder.url();
+  }
+  
+  return '/placeholder.jpg';
+}
+
 export const getSiteSettings = unstable_cache(
   async (locale: string) => {
     return client.fetch(`

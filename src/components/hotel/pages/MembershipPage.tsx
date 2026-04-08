@@ -67,7 +67,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Exclusive Access</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Membership
@@ -75,27 +75,22 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
             <p className="text-xl text-cream-50/70 max-w-2xl mt-6 font-light">
               Join our wellness community and enjoy exclusive benefits
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Membership Tiers */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Choose Your Plan</span>
             <h2 className="section-title mt-4">Membership Tiers</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {membershipTiers.map((tier, index) => (
-              <motion.div
-                key={tier.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                className={`p-10 border-2 ${tier.featured ? 'bg-forest-900 text-cream-50 border-forest-900' : 'bg-white border-forest-200'}`}
+              <div
+                key={tier.name} className={`p-10 border-2 ${tier.featured ? 'bg-forest-900 text-cream-50 border-forest-900' : 'bg-white border-forest-200'}`}
               >
                 <div className={`w-14 h-14 mb-6 flex items-center justify-center ${tier.featured ? 'bg-white' : 'bg-forest-900'}`}>
                   <tier.icon className={`w-7 h-7 ${tier.featured ? 'text-forest-900' : 'text-cream-50'}`} />
@@ -124,7 +119,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                     Join Now
                   </Button>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -133,7 +128,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
       {/* CTA */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Questions About Membership?
             </h2>
@@ -153,9 +148,17 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

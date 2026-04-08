@@ -15,10 +15,7 @@ export default function OpenStatus({ isOpen, openTime, closeTime, className = ''
   const t = useTranslations('common');
 
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
+    <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
         isOpen
           ? 'bg-forest-100 text-forest-700'
           : 'bg-red-50 text-red-600'
@@ -42,7 +39,7 @@ export default function OpenStatus({ isOpen, openTime, closeTime, className = ''
           )}
         </>
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -104,3 +101,11 @@ export function checkOpenStatus(
 
   return { isOpen: false, nextOpen: schedule.open };
 }
+
+
+
+
+
+
+
+

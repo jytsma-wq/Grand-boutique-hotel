@@ -68,6 +68,14 @@ export default {
       title: 'Hero Image',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          description: 'Describe the image for accessibility and SEO',
+        },
+      ],
     },
     {
       name: 'welcomeSection',

@@ -59,7 +59,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Bar</span>
@@ -71,21 +71,21 @@ export default function WineListPage({ locale }: WineListPageProps) {
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               8,000 years of Georgian winemaking tradition meets world-class selections
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Georgian Wines */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Georgian Wines
             </h2>
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Discover the ancient winemaking heritage of Georgia, the cradle of wine
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full">
@@ -99,13 +99,8 @@ export default function WineListPage({ locale }: WineListPageProps) {
               </thead>
               <tbody>
                 {georgianWines.map((wine, i) => (
-                  <motion.tr
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
+                  <tr
+                    key={i} className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
                   >
                     <td className="py-5 text-forest-600 font-light">{wine.region}</td>
                     <td className="py-5">
@@ -117,7 +112,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
                       <span className="text-forest-900 font-bold">{wine.price}</span>
                       <span className="text-forest-500 text-sm ml-2">{wine.priceGel}</span>
                     </td>
-                  </motion.tr>
+                  </tr>
                 ))}
               </tbody>
             </table>
@@ -128,14 +123,14 @@ export default function WineListPage({ locale }: WineListPageProps) {
       {/* International Wines */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               International Selection
             </h2>
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Premium wines from the world's finest vineyards
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-5xl mx-auto overflow-x-auto">
             <table className="w-full bg-white border-2 border-forest-900">
@@ -149,13 +144,8 @@ export default function WineListPage({ locale }: WineListPageProps) {
               </thead>
               <tbody>
                 {internationalWines.map((wine, i) => (
-                  <motion.tr
-                    key={i}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.05 }}
-                    className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
+                  <tr
+                    key={i} className="border-b border-forest-200 hover:bg-forest-50 transition-colors"
                   >
                     <td className="py-5 px-6 text-forest-600 font-light">{wine.region}</td>
                     <td className="py-5 px-6">
@@ -167,7 +157,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
                       <span className="text-forest-900 font-bold">{wine.price}</span>
                       <span className="text-forest-500 text-sm ml-2">{wine.priceGel}</span>
                     </td>
-                  </motion.tr>
+                  </tr>
                 ))}
               </tbody>
             </table>
@@ -178,24 +168,19 @@ export default function WineListPage({ locale }: WineListPageProps) {
       {/* Sparkling Wines */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Sparkling & Champagne
             </h2>
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Celebrate with our selection of fine bubbles
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {sparklingWines.map((wine, i) => (
-              <motion.div
-                key={wine.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-forest-50 border-2 border-forest-900 p-8"
+              <div
+                key={wine.name} className="bg-forest-50 border-2 border-forest-900 p-8"
               >
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="font-bold text-forest-900 uppercase tracking-wide text-lg">{wine.name}</h3>
@@ -206,7 +191,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
                 </div>
                 <p className="text-sm text-forest-600 mb-2 font-light">{wine.origin}</p>
                 <p className="text-sm text-forest-500 font-light italic">{wine.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -215,7 +200,7 @@ export default function WineListPage({ locale }: WineListPageProps) {
       {/* CTA Section */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Wine Tasting Experience
             </h2>
@@ -227,9 +212,17 @@ export default function WineListPage({ locale }: WineListPageProps) {
                 Reserve Your Table
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -57,15 +56,10 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
     <section className="relative h-screen min-h-200 overflow-hidden">
       {/* Background Slides */}
       {slides.map((slide, index) => (
-        <motion.div
+        <div
           key={index}
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{
-            opacity: currentSlide === index ? 1 : 0,
-            scale: currentSlide === index ? 1.05 : 1,
-          }}
-          transition={{ duration: 2.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="absolute inset-0"
+          className={`absolute inset-0 transition-all duration-[2500ms] ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}
+          style={{ transform: currentSlide === index ? 'scale(1.05)' : 'scale(1)', transition: 'opacity 2.5s ease, transform 2.5s ease' }}
         >
           <Image
             src={slide.image}
@@ -75,7 +69,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
             priority={index === 0}
             sizes="100vw"
           />
-        </motion.div>
+        </div>
       ))}
 
       {/* Overlay - Subtle Dark like Telegraph */}
@@ -83,27 +77,16 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
 
       {/* Content - Telegraph Style Centered Layout */}
       <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="max-w-4xl"
-        >
+        <div className="max-w-4xl animate-fade-in-up" style={{ animationDelay: '200ms' }}>
           {/* Title - Elegant Typography with refined tracking */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-[0.05em] uppercase mb-6 leading-[1.1]">
             <span className="block">{slides[currentSlide].title}</span>
           </h1>
 
           {/* Subtitle - Refined with wider tracking */}
-          <motion.p
-            key={currentSlide}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 tracking-[0.15em] font-light uppercase"
-          >
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-10 tracking-[0.15em] font-light uppercase animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             {slides[currentSlide].subtitle}
-          </motion.p>
+          </p>
 
           {/* CTA Buttons - Telegraph Style */}
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
@@ -121,25 +104,15 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </div>
 
         {/* Scroll Indicator - Minimal Telegraph Style */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="flex flex-col items-center gap-3 cursor-pointer"
-            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
-          >
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in" style={{ animationDelay: '1500ms' }}>
+          <div className="flex flex-col items-center gap-3 cursor-pointer animate-bounce-slow" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}>
             <span className="text-[10px] tracking-[0.4em] uppercase text-white/50 font-light">SCROLL</span>
             <ChevronDown size={18} className="text-white/50" strokeWidth={1} />
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Slide Navigation - Telegraph Style Minimal Lines */}
@@ -160,3 +133,10 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
     </section>
   );
 }
+
+
+
+
+
+
+

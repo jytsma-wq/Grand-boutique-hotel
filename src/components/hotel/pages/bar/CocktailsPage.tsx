@@ -101,7 +101,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Bar</span>
@@ -113,31 +113,26 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               Handcrafted cocktails blending Georgian traditions with modern mixology
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Signature Cocktails */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
               Signature Cocktails
             </h2>
             <p className="text-cream-50/70 max-w-2xl mx-auto font-light">
               Exclusive creations by our master mixologists
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {signatureCocktails.map((cocktail, index) => (
-              <motion.div
-                key={cocktail.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-forest-800 overflow-hidden border-2 border-white/20 group"
+              <div
+                key={cocktail.name} className="bg-forest-800 overflow-hidden border-2 border-white/20 group"
               >
                 <div className="relative h-56">
                   <img
@@ -160,7 +155,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                   <p className="text-sm text-cream-50/80 mb-3 font-light leading-relaxed">{cocktail.desc}</p>
                   <p className="text-xs text-cream-50/50 uppercase tracking-wider font-light">{cocktail.ingredients}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -169,24 +164,19 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       {/* Classic Cocktails */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Classic Cocktails
             </h2>
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Timeless favorites, expertly crafted
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {classicCocktails.map((cocktail, index) => (
-              <motion.div
-                key={cocktail.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="border-2 border-forest-900 p-6 bg-forest-50"
+              <div
+                key={cocktail.name} className="border-2 border-forest-900 p-6 bg-forest-50"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
                   <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
@@ -198,7 +188,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                   </div>
                 </div>
                 <p className="text-sm text-forest-600 font-light">{cocktail.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -207,24 +197,19 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       {/* Non-Alcoholic */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Non-Alcoholic Cocktails
             </h2>
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Sophisticated mocktails for every occasion
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
             {nonAlcoholic.map((drink, index) => (
-              <motion.div
-                key={drink.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900 p-6"
+              <div
+                key={drink.name} className="bg-white border-2 border-forest-900 p-6"
               >
                 <div className="flex justify-between items-start gap-4 mb-2">
                   <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
@@ -236,7 +221,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                   </div>
                 </div>
                 <p className="text-sm text-forest-600 font-light">{drink.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -245,7 +230,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       {/* CTA Section */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Happy Hour Special
             </h2>
@@ -257,9 +242,17 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
                 Reserve Your Table
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

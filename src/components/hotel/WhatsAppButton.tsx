@@ -15,14 +15,10 @@ export default function WhatsAppButton() {
   const message = encodeURIComponent('Hello! I would like to inquire about Batumi Boutique Hotel.');
 
   return (
-    <motion.a
+    <a
       href={`https://wa.me/${phoneNumber}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
       className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 group/wa"
     >
       <div className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full bg-[#25D366] border-2 border-[#25D366] shadow-xl flex items-center justify-center transition-all hover:bg-[#20BA5A]">
@@ -36,6 +32,14 @@ export default function WhatsAppButton() {
       <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-forest-900">
         WHATSAPP
       </span>
-    </motion.a>
+    </a>
   );
 }
+
+
+
+
+
+
+
+

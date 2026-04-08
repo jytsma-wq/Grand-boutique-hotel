@@ -74,12 +74,19 @@ export default {
       title: 'Hero Image',
       type: 'image',
       options: { hotspot: true },
+      fields: [
+        {
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+        },
+      ],
     },
     {
       name: 'images',
       title: 'Gallery Images',
       type: 'array',
-      of: [{ type: 'image', options: { hotspot: true } }],
+      of: [{ type: 'image', options: { hotspot: true }, fields: [{ name: 'alt', title: 'Alt Text', type: 'string' }] }],
     },
     {
       name: 'openingHours',

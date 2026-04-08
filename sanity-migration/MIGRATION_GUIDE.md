@@ -1,0 +1,140 @@
+# Sanity Image Migration Guide
+
+## Overview
+This project has **74 unique Unsplash images** across **31 files** that need migration to Sanity.
+
+## How to Use This Guide
+
+### Step 1: Download Images
+For each photo ID below, download the full-size image from:
+```
+https://images.unsplash.com/photo-[ID]?w=1920&q=80
+```
+
+### Step 2: Upload to Sanity
+1. Open Sanity Studio: http://localhost:3000/studio
+2. Upload each image to the media library
+3. Note the Sanity asset ID (starts with `image-`)
+
+### Step 3: Update Code (if needed)
+The code already supports Sanity images via `urlFor()`. Most images are fallbacks when CMS data is empty.
+
+## Priority Images (High Traffic Pages)
+
+### Hero Section (HomePage.tsx)
+- photo-1520250497591-112f2f40a3f4 - Hero slide 1
+- photo-1542314831-068cd1dbfeeb - Hero slide 2  
+- photo-1582719508461-905c673771fd - Hero slide 3
+
+### Restaurant (RestaurantPage.tsx)
+- photo-1414235077428-338989a2e8c0 - Restaurant interior
+- photo-1504674900247-0877df9cc836 - Food
+
+### Spa (SpaPage.tsx)
+- photo-1540555700478-4be289fbecef - Spa hero
+- photo-1544161515-4ab6ce6db874 - Treatment rooms
+
+## All Unique Photo IDs (74 total)
+
+```
+1414235077428-338989a2e8c0
+1441974231531-c6227db76b6e
+1470337458703-46ad1756a187
+1472099645785-5658abf4ff4e
+1476124369491-e7addf5db371
+1490474418585-ba9bad8fd0ea
+1494790108377-be9c29b29330
+1495474472287-4d71bcdd2085
+1497366216548-37526070297c
+1500514966906-fe245eea9344
+1504280390367-361c6d9f38f4
+1504674900247-0877df9cc836
+1504754524776-8f4f37790ca0
+1507003211169-0a1dd7228f2d
+1509440159596-0249088772ff
+1510076857177-7470076d4098
+1510812431401-41d2bd2722f3
+1514362545857-3bc16c4c7d1b
+1515377905703-c4788e51af15
+1515378791036-0648a3ef77b2
+1517248135467-4c7edcad34c4
+1519167758481-83f550bb49b3
+1519415510236-718bdfcd89c8
+1519708227418-c8fd9a32b7a2
+1519823551278-64ac92734fb1
+1520250497591-112f2f40a3f4
+1521143493539-5a7e0c0d7a3f
+1525351484163-7529414344d8
+1533089860892-a7c6f0a88666
+1534438327276-14e5300c3a48
+1536935338788-846bb9981813
+1540497077202-7c8a3999166f
+1540541338287-41700207dee6
+1540555700478-4be289fbecef
+1542314831-068cd1dbfeeb
+1544025162-d76694265947
+1544161515-4ab6ce6db874
+1545205597-3d9d02c29597
+1546039907-7fa05f864c02
+1546069901-ba9599a7e63c
+1546833998-877b37c2e5c6
+1551538827-9c037cb4f32a
+1552196563-55cd4e45efb3
+1556679343-c7306c1976bc
+1559339352-11d035aa65de
+1564507004663-b6dfb3c824d5
+1565299624946-b28f40a0ae38
+1566073771259-6a8506099945
+1569529465841-dfecdab7503b
+1570172619644-dfd03ed5d881
+1571896349842-33c89424de2d
+1571902943202-507ec2618e8f
+1575023782549-62ca0d244b39
+1576013551627-0cc20b96c2a7
+1578683010236-d716f9a3f461
+1582719478250-c89cae4dc85b
+1582719508461-905c673771fd
+1584132967334-10e028bd69f7
+1585320806297-9794b3e4eeae
+1590490360182-c33d57733427
+1591088398332-8a7791972843
+1593079831268-3381b0db4a77
+1596178060810-4dd9c3c0eb1e
+1596484552834-6a58f850e0a1
+1599946347371-68eb71b16afc
+1600334089648-b0d9d3028eb2
+1600334129128-685c5582fd35
+1605296867304-46d5465a13f1
+1618773928121-c32242e63f39
+1623874228601-f4193c7b1818
+1631049307264-da0ec9d70304
+```
+
+## Files Using Unsplash Images
+
+| File | Count |
+|------|-------|
+| RoomDetailPage.tsx | 18 |
+| GalleryPage.tsx | 16 |
+| RestaurantPage.tsx | 11 |
+| ExperiencesPage.tsx | 10 |
+| AboutPage.tsx | 9 |
+| SpaPage.tsx | 9 |
+| LunchDinnerPage.tsx | 8 |
+| Gym/Jacuzzi/Pool/Sauna/SteamRoom | 40 |
+| HomePage.tsx | 7 |
+| BarPage.tsx | 7 |
+| Other pages | ~34 |
+
+## Current Code Pattern
+
+The code already supports Sanity images:
+```tsx
+// Uses Sanity if CMS has data
+image: room.image ? urlFor(room.image).url() : '/placeholder.jpg'
+
+// Falls back to Unsplash when CMS is empty
+image: 'https://images.unsplash.com/photo-xxx'
+```
+
+Once images are added to Sanity CMS, update the fallback data to use Sanity asset references.

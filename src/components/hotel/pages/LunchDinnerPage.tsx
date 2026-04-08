@@ -112,7 +112,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Lunch & Dinner
@@ -132,7 +132,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                 {currentMeal === 'closed' && 'Currently Closed'}
               </span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -168,20 +168,15 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       {/* Menu Sections */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menus</span>
             <h2 className="section-title mt-4">Culinary Excellence</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {menuSections.map((section, index) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                className={`border-2 ${section.active ? 'border-forest-900' : 'border-forest-300'} overflow-hidden group`}
+              <div
+                key={section.title} className={`border-2 ${section.active ? 'border-forest-900' : 'border-forest-300'} overflow-hidden group`}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img
@@ -225,7 +220,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                     <ExternalLink size={16} />
                   </a>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -234,20 +229,15 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       {/* Featured Dishes */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature</span>
             <h2 className="section-title mt-4">Featured Dishes</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredDishes.map((dish, index) => (
-              <motion.div
-                key={dish.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900 overflow-hidden group"
+              <div
+                key={dish.name} className="bg-white border-2 border-forest-900 overflow-hidden group"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -263,7 +253,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                   <div className="text-xs text-forest-500 uppercase tracking-wider mb-1">{dish.category}</div>
                   <h3 className="font-bold text-forest-900 uppercase tracking-wide">{dish.name}</h3>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -273,7 +263,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-cream-50/50 text-xs tracking-[0.3em] uppercase font-light">Sommelier Selection</span>
               <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">Wine Pairings</h2>
               <p className="text-cream-50/70 text-lg mb-8 font-light leading-relaxed">
@@ -300,18 +290,14 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                   View Wine List
                 </Button>
               </Link>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-            >
+            </div>
+            <div >
               <img
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80"
                 alt="Wine Selection"
                 className="w-full aspect-square object-cover"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -319,7 +305,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       {/* CTA Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
               Reserve Your Table
             </h2>
@@ -339,9 +325,17 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

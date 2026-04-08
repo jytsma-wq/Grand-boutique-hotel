@@ -106,7 +106,7 @@ export default function BarPage({ locale }: BarPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Lounge & Bar</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Lounge Bar
@@ -122,7 +122,7 @@ export default function BarPage({ locale }: BarPageProps) {
               <div className={`w-2 h-2 ${isOpen ? 'bg-white' : 'bg-white/50'}`} />
               <span className="uppercase tracking-wider text-sm font-medium">{isOpen ? 'Open Now' : 'Opens at 4:00 PM'}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -159,7 +159,7 @@ export default function BarPage({ locale }: BarPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">The Experience</span>
               <h2 className="section-title mt-4">An Intimate Haven</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
@@ -187,13 +187,9 @@ export default function BarPage({ locale }: BarPageProps) {
                   <span className="uppercase tracking-wide text-sm font-medium">Premium Spirits</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+            <div className="relative"
             >
               <img
                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80"
@@ -209,7 +205,7 @@ export default function BarPage({ locale }: BarPageProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -217,23 +213,18 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Signature Cocktails - Brutalist */}
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Crafted Exclusively</span>
             <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">Signature Cocktails</h2>
             <p className="text-white/70 max-w-2xl mx-auto mt-6 font-light">
               Each cocktail tells a story of Georgia's rich heritage and modern creativity
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {signatureCocktails.map((cocktail, index) => (
-              <motion.div
-                key={cocktail.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-forest-800 overflow-hidden border-2 border-white/20 group"
+              <div
+                key={cocktail.name} className="bg-forest-800 overflow-hidden border-2 border-white/20 group"
               >
                 <div className="relative h-56">
                   <img
@@ -255,7 +246,7 @@ export default function BarPage({ locale }: BarPageProps) {
                 <div className="p-6">
                   <p className="text-sm text-white/70 font-light">{cocktail.desc}</p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -264,14 +255,14 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Georgian Wine Selection */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Ancient Traditions</span>
             <h2 className="section-title mt-4">Georgian Wine Selection</h2>
             <p className="text-forest-600 max-w-2xl mx-auto mt-6 font-light leading-relaxed">
               Georgia is the cradle of wine, with 8,000 years of winemaking heritage. 
               Explore our curated selection of traditional and modern Georgian wines.
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="overflow-x-auto">
@@ -312,22 +303,20 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Premium Spirits */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Selection</span>
             <h2 className="section-title mt-4">Spirits & Liquors</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {spirits.map((spirit, i) => (
-              <motion.div
+              <div
                 key={spirit.category}
-                {...fadeInUp}
-                transition={{ delay: i * 0.05 }}
                 className="bg-white p-8 border-2 border-forest-900"
               >
                 <h3 className="text-lg font-bold text-forest-900 mb-3 uppercase tracking-wide">{spirit.category}</h3>
                 <p className="text-sm text-forest-600 font-light">{spirit.brands}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -336,10 +325,10 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Gallery */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-12">
+          <div className="text-center mb-12">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Gallery</span>
             <h2 className="section-title mt-4">Lounge Bar in Pictures</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
@@ -358,7 +347,7 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Reservation CTA - Brutalist */}
       <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
               Reserve Your Evening
             </h2>
@@ -379,9 +368,17 @@ export default function BarPage({ locale }: BarPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

@@ -67,7 +67,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <Link href={`/${locale}/restaurant`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
               <span className="uppercase tracking-wider text-sm">Back to Restaurant</span>
@@ -78,14 +78,14 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
               A culinary journey through Georgian heritage and international excellence
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Starters Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <Utensils className="w-12 h-12 mx-auto mb-4 text-forest-900" />
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Starters
@@ -93,18 +93,13 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Begin your culinary journey with our carefully crafted appetizers
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {starters.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="border-b-2 border-forest-200 pb-6"
+                <div
+                  key={item.name} className="border-b-2 border-forest-200 pb-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
                     <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
@@ -116,7 +111,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                     </div>
                   </div>
                   <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -126,7 +121,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       {/* Main Dishes Section */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <Wine className="w-12 h-12 mx-auto mb-4 text-forest-900" />
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Main Dishes
@@ -134,18 +129,13 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Signature dishes showcasing the best of Georgian and international cuisine
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {mainDishes.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="bg-white border-2 border-forest-900 p-6"
+                <div
+                  key={item.name} className="bg-white border-2 border-forest-900 p-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
                     <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
@@ -157,7 +147,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                     </div>
                   </div>
                   <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -167,7 +157,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       {/* Desserts Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <Coffee className="w-12 h-12 mx-auto mb-4 text-forest-900" />
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
               Desserts
@@ -175,18 +165,13 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
             <p className="text-forest-600 max-w-2xl mx-auto font-light">
               Sweet endings to complete your dining experience
             </p>
-          </motion.div>
+          </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {desserts.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="border-b-2 border-forest-200 pb-6"
+                <div
+                  key={item.name} className="border-b-2 border-forest-200 pb-6"
                 >
                   <div className="flex justify-between items-start gap-4 mb-2">
                     <h3 className="font-bold text-forest-900 uppercase tracking-wide text-base">
@@ -198,7 +183,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                     </div>
                   </div>
                   <p className="text-sm text-forest-600 font-light leading-relaxed">{item.desc}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -208,7 +193,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       {/* CTA Section */}
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Reserve Your Table
             </h2>
@@ -227,9 +212,17 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

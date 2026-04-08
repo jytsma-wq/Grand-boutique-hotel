@@ -41,39 +41,34 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <Heart className="w-16 h-16 text-cream-50 mb-6 mx-auto" />
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mb-6">{t('title')}</h1>
             <p className="text-xl text-cream-50/85 max-w-3xl mx-auto font-light">
               {t('subtitle')}
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('luxuryWellness')}</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-4 uppercase tracking-tight">{t('calmRetreat')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {highlights.map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="bg-white border-2 border-forest-900 p-8 text-center"
+              <div
+                key={item.title} className="bg-white border-2 border-forest-900 p-8 text-center"
               >
                 <div className="w-16 h-16 bg-forest-900 mx-auto mb-6 flex items-center justify-center">
                   <item.icon className="w-8 h-8 text-cream-50" />
                 </div>
                 <h3 className="font-bold text-forest-900 mb-3 uppercase tracking-wide">{item.title}</h3>
                 <p className="text-sm text-forest-600 font-light">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -81,7 +76,7 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
 
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Continue Your Wellness Journey</h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
               Explore all wellness areas or reserve your stay for full access to our facilities.
@@ -99,9 +94,17 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

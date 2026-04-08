@@ -103,40 +103,35 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Corporate Events</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">{t('meetings.title')}</h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">{t('meetings.subtitle')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Description */}
       <section className="py-16 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp} className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <p className="text-lg text-forest-200">{t('meetings.description')}</p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Venues */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Spaces</span>
             <h2 className="section-title mt-4">{t('meetings.venues.title')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {venues.map((venue, index) => (
-              <motion.div
-                key={venue.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900 overflow-hidden"
+              <div
+                key={venue.name} className="bg-white border-2 border-forest-900 overflow-hidden"
               >
                 <div className="relative h-64">
                   <img
@@ -165,7 +160,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -190,17 +185,15 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
       {/* Packages */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Solutions</span>
             <h2 className="section-title mt-4">{t('meetings.packages.title')}</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {packages.map((pkg, index) => (
-              <motion.div
+              <div
                 key={pkg.name}
-                {...fadeInUp}
-                transition={{ delay: index * 0.1 }}
                 className={`p-10 border-2 ${index === 1 ? 'bg-forest-900 text-cream-50 border-forest-900' : 'bg-white border-forest-900'}`}
               >
                 <h3 className="text-xl font-bold uppercase tracking-wide mb-2">{pkg.name}</h3>
@@ -227,7 +220,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
                 <Button className={index === 1 ? 'btn-telegraph w-full' : 'btn-telegraph w-full'}>
                   {t('meetings.inquire')}
                 </Button>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -236,7 +229,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
       {/* CTA - Brutalist */}
       <section className="py-24 bg-forest-900 text-cream-50 border-t-4 border-forest-950">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
               Plan Your Perfect Event
             </h2>
@@ -256,9 +249,17 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

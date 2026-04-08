@@ -94,18 +94,14 @@ export default function AboutPage({ locale }: AboutPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+          <div >
             <span className="text-brass-400 text-sm tracking-widest uppercase mb-4 block">{t('about.ourStory')}</span>
             <h1 className="text-5xl md:text-7xl font-light mb-4">{tNav('about')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-forest-200 max-w-2xl mx-auto mt-6">
               A masterpiece of modern architecture on Georgia&apos;s stunning Black Sea coast
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -113,7 +109,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.est')}</span>
               <h2 className="section-title mt-4">{t('about.whereVisionMeetsReality')}</h2>
               <div className="brass-line !mx-0" />
@@ -140,13 +136,9 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 </div>
                 <span className="text-sm text-forest-600">{t('about.meetOurTeam')}</span>
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="relative"
+            <div className="relative"
             >
               <img
                 src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
@@ -164,7 +156,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -174,17 +166,12 @@ export default function AboutPage({ locale }: AboutPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="text-center"
+              <div
+                key={index} className="text-center"
               >
                 <div className="text-4xl md:text-5xl font-light text-brass-400 mb-2">{stat.value}</div>
                 <div className="text-forest-200 text-sm uppercase tracking-wider">{stat.label}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -193,28 +180,23 @@ export default function AboutPage({ locale }: AboutPageProps) {
       {/* Values Section */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.ourPhilosophy')}</span>
             <h2 className="section-title mt-4">{t('about.whatWeStandFor')}</h2>
             <div className="brass-line" />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="glass-card rounded-2xl p-8 text-center card-hover"
+              <div
+                key={index} className="glass-card rounded-2xl p-8 text-center card-hover"
               >
                 <div className="w-16 h-16 rounded-full gradient-forest mx-auto mb-6 flex items-center justify-center">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-forest-900 mb-3">{value.title}</h3>
                 <p className="text-forest-600 text-sm leading-relaxed">{value.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -223,21 +205,16 @@ export default function AboutPage({ locale }: AboutPageProps) {
       {/* Team Section */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-brass-600 text-sm tracking-widest uppercase">{t('about.ourTeam')}</span>
             <h2 className="section-title mt-4">{t('about.meetThePeople')}</h2>
             <div className="brass-line" />
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group text-center"
+              <div
+                key={index} className="group text-center"
               >
                 <div className="relative mb-6 inline-block">
                   <div className="w-48 h-48 rounded-full overflow-hidden mx-auto border-4 border-forest-100 group-hover:border-brass-400 transition-colors">
@@ -253,7 +230,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 </div>
                 <h3 className="text-xl font-semibold text-forest-900">{member.name}</h3>
                 <p className="text-brass-600">{member.role}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -263,7 +240,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div {...fadeInUp}>
+            <div>
               <span className="text-brass-400 text-sm tracking-widest uppercase">Architecture</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
                 2026 Modern Design
@@ -289,13 +266,9 @@ export default function AboutPage({ locale }: AboutPageProps) {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
+            <div className="grid grid-cols-2 gap-4"
             >
               <img
                 src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&q=80"
@@ -317,7 +290,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 alt="Exterior view"
                 className="rounded-2xl aspect-[4/3] object-cover mt-8"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -330,7 +303,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
             <Building2 className="w-16 h-16 text-brass-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-light mb-6">
               Experience {tSite('name')}
@@ -351,9 +324,17 @@ export default function AboutPage({ locale }: AboutPageProps) {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+

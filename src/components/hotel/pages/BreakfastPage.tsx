@@ -106,7 +106,7 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
         </div>
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <motion.div {...fadeInUp}>
+          <div>
             <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
               Breakfast
@@ -124,7 +124,7 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
                 {isOpen ? 'Now Serving Breakfast' : 'Breakfast Hours: 7:00 AM - 11:00 AM'}
               </span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -159,34 +159,29 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
       {/* Included Info */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Complimentary</span>
             <h2 className="section-title mt-4">Breakfast Included</h2>
             <p className="text-lg text-forest-600 font-light leading-relaxed">
               All hotel guests enjoy our full breakfast buffet as part of their stay. 
               Experience the finest Georgian and international morning cuisine with panoramic Black Sea views.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Breakfast Categories */}
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <div className="text-center mb-16">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Selection</span>
             <h2 className="section-title mt-4">Breakfast Menu</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {breakfastCategories.map((category, index) => (
-              <motion.div
-                key={category.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white border-2 border-forest-900 overflow-hidden group"
+              <div
+                key={category.name} className="bg-white border-2 border-forest-900 overflow-hidden group"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img
@@ -217,7 +212,7 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -226,7 +221,7 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
       {/* Special Dietary */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <motion.div {...fadeInUp} className="text-center max-w-3xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto">
             <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Dietary Options</span>
             <h2 className="section-title mt-4">Special Requirements</h2>
             <p className="text-forest-600 font-light leading-relaxed mb-8">
@@ -240,14 +235,14 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-forest-900 text-white">
         <div className="container mx-auto px-6 text-center">
-          <motion.div {...fadeInUp}>
+          <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
               Book Your Stay
             </h2>
@@ -267,9 +262,17 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
                 </Button>
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>
   );
 }
+
+
+
+
+
+
+
+
