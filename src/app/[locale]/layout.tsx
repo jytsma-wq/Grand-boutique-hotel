@@ -1,7 +1,7 @@
 // src/app/[locale]/layout.tsx
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { locales, isRtlLocale, type Locale } from "@/i18n/config";
 import Navigation from "@/components/hotel/Navigation";
 import Footer from "@/components/hotel/Footer";
@@ -14,8 +14,33 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'site' });
   return {
-    title: locale === 'en' ? 'Grand Boutique Hotel' : locale === 'ka' ? 'დიდი ბუტიკ ჰოტელი' : 'Grand Boutique Hotel',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtimestudio.com'),
+    title: t('name'),
+    description: t('description'),
+    openGraph: {
+      title: t('name'),
+      description: t('description'),
+      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtimestudio.com',
+      siteName: t('name'),
+      images: [
+        {
+          url: '/og-image.svg',
+          width: 1200,
+          height: 630,
+          alt: t('name'),
+        },
+      ],
+      locale: locale,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('name'),
+      description: t('description'),
+      images: ['/og-image.svg'],
+    },
   };
 }
 

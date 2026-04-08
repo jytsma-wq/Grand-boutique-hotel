@@ -2,6 +2,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 
 export async function POST(request: NextRequest) {
+  const webhookSecret = process.env.SANITY_WEBHOOK_SECRET;
+  const signature = request.headers.get('sanity-webhook-signature');
+
+  if (!webhookSecret || !signature) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
+  if (signature !== webhookSecret) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const body = await request.json();
     const { _type } = body;

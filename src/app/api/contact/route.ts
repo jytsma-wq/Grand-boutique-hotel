@@ -2,6 +2,27 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { db } from '@/lib/db';
 
+const contactRateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const CONTACT_RATE_LIMIT = 30;
+const CONTACT_WINDOW_MS = 60000;
+
+function checkContactRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = contactRateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    contactRateLimitMap.set(ip, { count: 1, resetTime: now + CONTACT_WINDOW_MS });
+    return true;
+  }
+
+  if (record.count >= CONTACT_RATE_LIMIT) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
 interface ContactForm {
   name: string;
   email: string;
@@ -33,6 +54,17 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest): Promise<NextResponse<ContactSuccessResponse | ContactErrorResponse>> {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+              request.headers.get('x-real-ip') || 
+              'unknown';
+  
+  if (!checkContactRateLimit(ip)) {
+    return NextResponse.json<ContactErrorResponse>(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    );
+  }
+
   try {
     const data: ContactRequestBody = await request.json();
     
@@ -85,7 +117,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
     const hotelEmail = process.env.HOTEL_EMAIL;
     if (hotelEmail && process.env.RESEND_API_KEY) {
       await resend.emails.send({
-        from: 'Grand Boutique Hotel <onboarding@resend.dev>',
+        from: 'Grand Boutique Hotel <noreply@yourtimestudio.com>',
         to: [hotelEmail],
         subject: `New Contact: ${data.subject}`,
         html: `
@@ -100,7 +132,7 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
       });
 
       await resend.emails.send({
-        from: 'Grand Boutique Hotel <onboarding@resend.dev>',
+        from: 'Grand Boutique Hotel <noreply@yourtimestudio.com>',
         to: [data.email],
         subject: 'Thank you for contacting us',
         html: `

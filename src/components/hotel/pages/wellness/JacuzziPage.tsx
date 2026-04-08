@@ -34,10 +34,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
     t('benefitsList.stressRelief'),
     t('benefitsList.sleepQuality'),
     t('benefitsList.skinHealth'),
-    t('benefitsList.immuneSystem'),
-    t('benefitsList.postWorkout'),
-    t('benefitsList.skinRejuvenation'),
-    t('benefitsList.romanticAtmosphere')
+    t('benefitsList.immuneSystem')
   ];
 
   const gallery = [

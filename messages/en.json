@@ -68,6 +68,15 @@
       "subtitle": "Rejuvenate your body and soul",
       "description": "Our world-class spa offers a sanctuary of serenity with treatments inspired by ancient Georgian wellness traditions"
     },
+    "amenities": {
+      "title": "Amenities",
+      "wifi": "High-Speed WiFi",
+      "parking": "Free Parking",
+      "dining": "Fine Dining",
+      "pool": "Infinity Pool",
+      "fitness": "Fitness Center",
+      "spa": "Spa & Wellness"
+    },
     "experiences": {
       "title": "Batumi Experiences",
       "subtitle": "Discover the magic of Georgia's coastal gem"
@@ -343,6 +352,7 @@
     "premiumAmenities": "Premium Amenities",
     "jacuzziFeatures": "Jacuzzi Features",
     "wellnessBenefits": "Wellness Benefits",
+    "healthBenefits": "Health Benefits",
     "visualExperience": "Visual Experience",
     "jacuzziGallery": "Jacuzzi Gallery",
     "bookYourStay": "Book Your Stay",
@@ -550,6 +560,8 @@
     "description": "A masterpiece of 2026 modern architecture on Georgia's stunning Black Sea coast. Experience refined luxury and warm hospitality at Batumi's premier boutique hotel.",
     "quickLinks": "Quick Links",
     "contact": "Contact Info",
+    "explore": "Explore",
+    "information": "Information",
     "followUs": "Follow Us",
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",

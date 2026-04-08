@@ -67,6 +67,15 @@
       "subtitle": "חדשו את גופכם ונפשכם",
       "description": "הספא ברמה עולמית שלנו מציע מקלט של שלווה עם טיפולים בהשראת מסורות הבריאות העתיקות של גיאורגיה"
     },
+    "amenities": {
+      "title": "מתקנים",
+      "wifi": "WiFi מהיר",
+      "parking": "חניה חינם",
+      "dining": "אוכל גורמה",
+      "pool": "בריכת אינסוף",
+      "fitness": "מרכז כושר",
+      "spa": "ספא ובריאות"
+    },
     "experiences": {
       "title": "חוויות באטומי",
       "subtitle": "גלו את הקסם של חוף גיאורגיה"
@@ -206,8 +215,43 @@
       "joinNow": "הצטרפו עכשיו"
     }
   },
+  "jacuzzi": {
+    "title": "ג'קוזי חיצוני",
+    "subtitle": "מים חמים ומרפאים תחת שמיים פתוחים",
+    "openingHours": "שעות פתיחה",
+    "hours": "08:00 - 22:00",
+    "temperature": "טמפרטורת המים",
+    "tempValue": "38-40°C",
+    "luxuryWellness": "מים מרפאים",
+    "therapeuticRelaxation": "רגיעה טיפולית",
+    "premiumAmenities": "מתקנים פרימיום",
+    "jacuzziFeatures": "תכונות הג'קוזי",
+    "wellnessBenefits": "יתרונות בריאות",
+    "healthBenefits": "יתרונות בריאות",
+    "visualExperience": "חוויה ויזואלית",
+    "jacuzziGallery": "גלריית ג'קוזי",
+    "bookYourStay": "הזמינו את האירוח שלכם",
+    "features": {
+      "hydrotherapy": "זרמי הידרותרפיה",
+      "hydrotherapyDesc": "תצורות הזרמת עיסוי מרובות",
+      "perfectTemp": "טמפרטורה מושלמת",
+      "perfectTempDesc": "מתוחזק ב-38-40°C",
+      "outdoor": "סביבה חיצונית",
+      "outdoorDesc": "מיקום על הגג עם נוף לים",
+      "intimate": "קיבולת אינטימית",
+      "intimateDesc": "מתאים עד 6 אורחים"
+    },
+    "benefitsList": {
+      "muscleRelief": "הקלת מתח שרירים והפחתת כאב",
+      "circulation": "שיפור במחזור הדם",
+      "stressRelief": "הקלת מתח ורגיעה נפשית",
+      "sleepQuality": "איכות שינה טובה יותר",
+      "skinHealth": "שיפור בבריאות העור",
+      "immuneSystem": "חיזוק מערכת החיסון"
+    }
+  },
   "steamRoom": {
-    "title": "חמאם טורקי",
+    "title": "חדר קיטור",
     "subtitle": "חוויית חדר קיטור יוקרתית עם אדי אקליפטוס",
     "openingHours": "שעות פתיחה",
     "hours": "08:00 - 22:00",
@@ -221,43 +265,110 @@
     "healthBenefits": "יתרונות בריאותיים",
     "visualExperience": "חוויה ויזואלית",
     "steamRoomGallery": "גלריית חדר הקיטור",
-    "bookYourStay": "הזמינו לינה"
-  },
-  "sauna": {
-    "title": "סאונה פינית",
-    "subtitle": "חוויית סאונה יבשה מסורתית לרגיעה מושלמת ולטיהור",
-    "openingHours": "שעות פתיחה",
-    "hours": "08:00 - 22:00",
-    "temperature": "טמפרטורה",
-    "tempValue": "80-90°C",
-    "traditionalWellness": "בריאות מסורתית",
-    "authenticFinnish": "סאונה פינית אותנטית",
-    "premiumAmenities": "שירותים יוקרתיים",
-    "saunaFeatures": "מאפייני הסאונה",
-    "wellnessBenefits": "יתרונות בריאות",
-    "healthBenefits": "יתרונות בריאותיים",
-    "visualExperience": "חוויה ויזואלית",
-    "saunaGallery": "גלריית הסאונה",
     "bookYourStay": "הזמינו לינה",
     "features": {
-      "dryHeat": "חום יבש",
-      "dryHeatDesc": "80-90°C סאונה פינית מסורתית",
-      "cedarWood": "עץ ארז",
-      "cedarWoodDesc": "בנייה פרמיום של ארז נורדי",
-      "aromatherapy": "ארומתרפיה",
-      "aromatherapyDesc": "שמנים אתריים זמינים",
-      "healthBenefits": "יתרונות בריאות",
-      "healthBenefitsDesc": "טיהור, רגיעה, זרימת דם משופרת"
+      "wetHeat": "חום לח",
+      "wetHeatDesc": "40-45°C 100% ",
+      "turkishHammam": "חמאם טורקי",
+      "turkishHammamDesc": " ",
+      "eucalyptusSteam": "אדי אקליפטוס",
+      "eucalyptusSteamDesc": " ",
+      "skinBenefits": "יתרונות לעור",
+      "skinBenefitsDesc": " "
     },
     "benefitsList": {
-      "muscleRelaxation": "רגיעת שרירים עמוקה והקלת מתח",
-      "cardiovascular": "בריאות לב וכלי דם משופרת",
-      "immuneSystem": "תפקוד מערכת החיסון משופר",
-      "skinHealth": "בריאות העור והטיהור משופרים",
-      "sleepQuality": "איכות שינה טובה יותר",
-      "metabolism": "חילוף חומרים מוגבר",
-      "circulation": "זרימת דם משופרת",
-      "mentalClarity": "בהירות מנטלית ומודעות"
+      "deepPore": "ניקוי עמוק של העור",
+      "respiratory": "שיפור בתפקוד הנשימה",
+      "muscleTension": "הקלת מתח שרירים",
+      "bloodCirculation": "שיפור בזרימת הדם",
+      "stressReduction": "הקלת מתח ורגיעה נפשית",
+      "sinusRelief": "הקלה מחסימות חצוצרות האף",
+      "postWorkout": "שיקום לאחר אימון",
+      "detoxification": "טיהור הגוף"
+    }
+  },
+  "gym": {
+    "title": "חדר כושר",
+    "subtitle": "חדר כושר מתקדם",
+    "openingHours": "שעות פתיחה",
+    "hours": "24 ",
+    "luxuryWellness": "בריאות יוקרתית",
+    "premiumFitness": "כושר פרימיום",
+    "premiumAmenities": "שירותים יוקרתיים",
+    "gymFeatures": "מאפייני חדר הכושר",
+    "equipmentList": "רשימת ציוד",
+    "visualExperience": "חוויה ויזואלית",
+    "gymGallery": "גלריית חדר הכושר",
+    "bookYourStay": "הזמינו לינה",
+    "features": {
+      "technogym": "ציוד Technogym",
+      "technogymDesc": " ",
+      "personalTraining": "אימון אישי",
+      "personalTrainingDesc": " ",
+      "cardioZone": "אזור כושר לב",
+      "cardioZoneDesc": " ",
+      "freeWeights": "משקולות חופשיות",
+      "freeWeightsDesc": " "
+    },
+    "equipmentListItems": {
+      "treadmills": "מכונות ריצה",
+      "bikes": "אופניים",
+      "ellipticals": "מכונות אליפטיות",
+      "rowing": "מכונות חתירה",
+      "strength": "מכונות כוח",
+      "freeWeightsSection": "אזור משקולות חופשיות",
+      "yoga": "חדר יוגה",
+      "recovery": "אזור שיקום"
+    }
+  },
+  "pool": {
+    "title": "בריכה",
+    "subtitle": "בריכת אינסוף",
+    "openingHours": "שעות פתיחה",
+    "hours": "06:00 - 22:00",
+    "waterTemperature": "טמפרטורת המים",
+    "waterTempValue": "28C (82F)",
+    "luxuryWellness": "בריאות יוקרתית",
+    "panoramicPool": "בריכת אינסוף",
+    "premiumAmenities": "שירותים יוקרתיים",
+    "poolFeatures": "מאפייני הבריכה",
+    "wellnessBenefits": "יתרונות בריאות",
+    "visualExperience": "חוויה ויזואלית",
+    "poolGallery": "גלריית הבריכה",
+    "bookYourStay": "הזמינו לינה",
+    "features": {
+      "infinityEdge": "בריכת אינסוף",
+      "infinityEdgeDesc": " ",
+      "heatedWater": "מים חמים",
+      "heatedWaterDesc": "28C ",
+      "panoramicViews": "נוף פנורמי",
+      "panoramicViewsDesc": " ",
+      "adultsOnly": "רק למבוגרים",
+      "adultsOnlyDesc": " "
+    }
+  },
+  "relaxationLounge": {
+    "title": "טרקלין הרגעה",
+    "subtitle": "טרקלין הרגעה",
+    "openingHours": "שעות פתיחה",
+    "hours": "08:00 - 22:00",
+    "luxuryWellness": "בריאות יוקרתית",
+    "calmRetreat": "מקלט שלו",
+    "premiumAmenities": "שירותים יוקרתיים",
+    "loungeFeatures": "מאפייני הטרקלין",
+    "wellnessBenefits": "יתרונות בריאות",
+    "visualExperience": "חוויה ויזואלית",
+    "loungeGallery": "גלריית הטרקלין",
+    "bookYourStay": "הזמינו לינה",
+    "features": {
+      "quietZones": "אזורים שקטים",
+      "quietZonesDesc": " ",
+      "aromatherapy": "ארומתרפיה",
+      "aromatherapyDesc": " ",
+      "seaViews": "נוף לים",
+      "seaViewsDesc": " ",
+      "breathingCorner": "פינת נשימה",
+      "breathingCornerDesc": " "
     }
   },
   "meetings": {
@@ -411,6 +522,8 @@
     "description": "יצירת מופת של אדריכלות מודרנית 2026 על חוף הים השחור המדהים של גיאורגיה. חוו יוקרה מעודנת והכנסת אורחים חמה במלון הבוטיק המוביל של באטומי.",
     "quickLinks": "קישורים מהירים",
     "contact": "פרטי התקשרות",
+    "explore": "גלו",
+    "information": "מידע",
     "followUs": "עקבו אחרינו",
     "rights": "כל הזכויות שמורות.",
     "privacy": "מדיניות פרטיות",

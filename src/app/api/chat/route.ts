@@ -1,6 +1,27 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 15;
+const WINDOW_MS = 60000;
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const record = rateLimitMap.get(ip);
+
+  if (!record || now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + WINDOW_MS });
+    return true;
+  }
+
+  if (record.count >= RATE_LIMIT) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
 interface Message {
   role: 'user' | 'assistant';
   content: string;
@@ -21,6 +42,17 @@ interface ChatErrorResponse {
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse<ChatSuccessResponse | ChatErrorResponse>> {
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
+              request.headers.get('x-real-ip') || 
+              'unknown';
+  
+  if (!checkRateLimit(ip)) {
+    return NextResponse.json<ChatErrorResponse>(
+      { error: 'Too many requests. Please try again later.' },
+      { status: 429 }
+    );
+  }
+
   try {
     const body: ChatRequestBody = await request.json();
     const { message, locale, history } = body;

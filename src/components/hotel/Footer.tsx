@@ -1,12 +1,17 @@
 // src/components/Footer.tsx
+'use client';
+
 import Link from 'next/link';
 import { Facebook, Instagram } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 interface FooterProps {
   locale: 'tr' | 'en' | 'ka' | 'ru' | 'he' | 'ar';
 }
 
 export default function Footer({ locale }: FooterProps) {
+  const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
   const currentYear = new Date().getFullYear();
 
   return (
@@ -36,7 +41,7 @@ export default function Footer({ locale }: FooterProps) {
           {/* Column 2: Quick Links */}
           <div>
             <h3 className="text-base font-normal uppercase tracking-[0.3em] mb-8 text-white/90">
-              Explore
+              {t('explore')}
             </h3>
             <ul className="space-y-4 font-light text-white/60 text-xs">
               <li>
@@ -44,7 +49,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/rooms`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Rooms & Suites
+                  {tNav('rooms')}
                 </Link>
               </li>
               <li>
@@ -52,7 +57,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/restaurant`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Dining
+                  {tNav('restaurantBar')}
                 </Link>
               </li>
               <li>
@@ -60,7 +65,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/wellness`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Wellness & Spa
+                  {tNav('wellness')}
                 </Link>
               </li>
               <li>
@@ -68,7 +73,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/offers`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Offers
+                  {tNav('offers')}
                 </Link>
               </li>
             </ul>
@@ -77,7 +82,7 @@ export default function Footer({ locale }: FooterProps) {
           {/* Column 3: More Links */}
           <div>
             <h3 className="text-base font-normal uppercase tracking-[0.3em] mb-8 text-white/90">
-              Information
+              {t('information')}
             </h3>
             <ul className="space-y-4 font-light text-white/60 text-xs">
               <li>
@@ -85,7 +90,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/about`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  About Us
+                  {tNav('about')}
                 </Link>
               </li>
               <li>
@@ -93,7 +98,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/contact`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Contact
+                  {tNav('contact')}
                 </Link>
               </li>
               <li>
@@ -101,7 +106,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/location`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Location
+                  {tNav('location')}
                 </Link>
               </li>
               <li>
@@ -109,7 +114,7 @@ export default function Footer({ locale }: FooterProps) {
                   href={`/${locale}/gallery`} 
                   className="hover:text-brass-400 transition-colors uppercase tracking-[0.15em]"
                 >
-                  Gallery
+                  {tNav('gallery')}
                 </Link>
               </li>
             </ul>
@@ -118,7 +123,7 @@ export default function Footer({ locale }: FooterProps) {
           {/* Column 4: Social & Newsletter */}
           <div>
             <h3 className="text-base font-normal uppercase tracking-[0.3em] mb-8 text-white/90">
-              Follow Us
+              {t('followUs')}
             </h3>
             <div className="flex gap-6 mb-10">
               <a 
@@ -146,20 +151,20 @@ export default function Footer({ locale }: FooterProps) {
         {/* Bottom Bar: Copyright & Legal */}
         <div className="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-light text-white/40 text-center md:text-left tracking-[0.1em]">
-            &copy; {currentYear} Batumi Boutique Hotel. All rights reserved.
+            &copy; {currentYear} Batumi Boutique Hotel. {t('rights')}
           </p>
           <div className="flex gap-8">
             <Link 
               href={`/${locale}/privacy`} 
               className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]"
             >
-              Privacy Policy
+              {t('privacy')}
             </Link>
             <Link 
               href={`/${locale}/terms`} 
               className="text-[10px] font-light text-white/40 hover:text-white/70 transition-colors uppercase tracking-[0.15em]"
             >
-              Terms & Conditions
+              {t('terms')}
             </Link>
           </div>
         </div>
