@@ -7,9 +7,37 @@ import { defaultLocale, isValidLocale } from '@/i18n/config';
 const contactRateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const CONTACT_RATE_LIMIT = 30;
 const CONTACT_WINDOW_MS = 60000;
+const CONTACT_RATE_LIMIT_MAX_KEYS = 10000;
+const CONTACT_MAX_BODY_BYTES = 16 * 1024;
+
+function getClientIp(request: NextRequest): string {
+  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
+    request.headers.get('x-real-ip')?.trim() ||
+    'unknown';
+}
+
+function isRequestBodyTooLarge(request: NextRequest, maxBytes: number): boolean {
+  const contentLength = request.headers.get('content-length');
+  if (!contentLength) return false;
+
+  const parsedContentLength = Number(contentLength);
+  return Number.isFinite(parsedContentLength) && parsedContentLength > maxBytes;
+}
+
+function pruneContactRateLimitMap(now: number): void {
+  if (contactRateLimitMap.size < CONTACT_RATE_LIMIT_MAX_KEYS) return;
+
+  for (const [key, record] of contactRateLimitMap) {
+    if (now > record.resetTime) {
+      contactRateLimitMap.delete(key);
+    }
+  }
+}
 
 function checkContactRateLimit(ip: string): boolean {
   const now = Date.now();
+  // TODO: Replace this best-effort in-memory limiter with Redis, Vercel KV, or Upstash before multi-instance production deployment.
+  pruneContactRateLimitMap(now);
   const record = contactRateLimitMap.get(ip);
 
   if (!record || now > record.resetTime) {
@@ -119,9 +147,14 @@ async function sendContactEmails(data: ContactForm): Promise<void> {
 }
 
 export async function POST(request: NextRequest): Promise<NextResponse<ContactSuccessResponse | ContactErrorResponse>> {
-  const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 
-              request.headers.get('x-real-ip') || 
-              'unknown';
+  if (isRequestBodyTooLarge(request, CONTACT_MAX_BODY_BYTES)) {
+    return NextResponse.json<ContactErrorResponse>(
+      { error: 'Request body is too large.' },
+      { status: 413 }
+    );
+  }
+
+  const ip = getClientIp(request);
   
   if (!checkContactRateLimit(ip)) {
     return NextResponse.json<ContactErrorResponse>(
