@@ -10,16 +10,37 @@ const pages = [
   '/restaurant',
   '/restaurant/breakfast',
   '/restaurant/lunch-dinner',
+  '/restaurant/menu',
   '/bar',
+  '/bar/cocktails',
+  '/bar/spirits',
+  '/bar/wine-list',
   '/meetings',
   '/wellness',
+  '/wellness/gym',
+  '/wellness/jacuzzi',
+  '/wellness/membership',
+  '/wellness/pool',
+  '/wellness/relaxation-lounge',
+  '/wellness/sauna',
   '/wellness/spa',
+  '/wellness/steam-room',
   '/offers',
   '/experiences',
   '/gallery',
   '/contact',
   '/location',
   '/booking',
+  '/privacy',
+];
+
+const roomSlugs = [
+  'standard-room',
+  'superior-room',
+  'deluxe-room',
+  'junior-suite',
+  'executive-suite',
+  'presidential-suite',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -32,6 +53,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: page === '' ? 'daily' : 'weekly',
         priority: page === '' ? 1.0 : page === '/rooms' ? 0.9 : 0.8,
+      });
+    }
+  }
+
+  for (const slug of roomSlugs) {
+    for (const locale of locales) {
+      entries.push({
+        url: `${baseUrl}/${locale}/rooms/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.8,
       });
     }
   }

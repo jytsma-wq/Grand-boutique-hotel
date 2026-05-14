@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /studio/
 
 Sitemap: https://batumiboutique.com/sitemap.xml

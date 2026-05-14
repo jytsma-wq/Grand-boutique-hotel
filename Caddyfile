@@ -1,4 +1,4 @@
-yourtimestudio.com {
+batumiboutique.com {
   # HTTPS handled automatically by Caddy via Let's Encrypt
 
   # Security headers
@@ -23,6 +23,6 @@ yourtimestudio.com {
 }
 
 # Redirect www to root
-www.yourtimestudio.com {
-  redir https://yourtimestudio.com{uri} permanent
+www.batumiboutique.com {
+  redir https://batumiboutique.com{uri} permanent
 }

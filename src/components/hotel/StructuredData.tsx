@@ -2,8 +2,12 @@ interface HotelSchemaProps {
   locale: string;
 }
 
+function getSiteUrl(): string {
+  return (process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com').replace(/\/$/, '');
+}
+
 export function HotelSchema({ locale }: HotelSchemaProps) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com';
+  const siteUrl = getSiteUrl();
   
   const hotelData = {
     "@context": "https://schema.org",
@@ -20,8 +24,8 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "41.6507",
-      "longitude": "41.6356"
+      "latitude": 41.6507,
+      "longitude": 41.6356
     },
     "starRating": {
       "@type": "Rating",
@@ -30,6 +34,7 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
     "priceRange": "$120-$800",
     "telephone": "+995 422 00 00 00",
     "email": "info@batumiboutique.com",
+    "@id": `${siteUrl}/#hotel`,
     "url": siteUrl,
     "image": `${siteUrl}/og-image.svg`,
     "amenityFeature": [
@@ -58,7 +63,7 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
 }
 
 export function LocalBusinessSchema() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com';
+  const siteUrl = getSiteUrl();
   
   const localBusiness = {
     "@context": "https://schema.org",
@@ -75,8 +80,8 @@ export function LocalBusinessSchema() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "41.6507",
-      "longitude": "41.6356"
+      "latitude": 41.6507,
+      "longitude": 41.6356
     },
     "openingHoursSpecification": [
       {
@@ -88,6 +93,7 @@ export function LocalBusinessSchema() {
     ],
     "telephone": "+995 422 00 00 00",
     "email": "info@batumiboutique.com",
+    "@id": `${siteUrl}/#localbusiness`,
     "url": siteUrl,
     "priceRange": "$$"
   };
