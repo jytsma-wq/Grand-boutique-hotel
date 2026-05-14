@@ -6,6 +6,7 @@ import { locales, isRtlLocale, type Locale } from "@/i18n/config";
 import Navigation from "@/components/hotel/Navigation";
 import Footer from "@/components/hotel/Footer";
 import MariamChatbot from "@/components/hotel/MariamChatbot";
+import WhatsAppButton from "@/components/hotel/WhatsAppButton";
 import { HotelSchema, LocalBusinessSchema } from "@/components/hotel/StructuredData";
 
 export function generateStaticParams() {
@@ -15,14 +16,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'site' });
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com';
+
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtimestudio.com'),
+    metadataBase: new URL(siteUrl),
     title: t('name'),
     description: t('description'),
     openGraph: {
       title: t('name'),
       description: t('description'),
-      url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yourtimestudio.com',
+      url: `${siteUrl}/${locale}`,
       siteName: t('name'),
       images: [
         {
@@ -72,6 +75,7 @@ export default async function LocaleLayout({
           <main id="main-content">{children}</main>
           <Footer locale={locale as Locale} />
           <MariamChatbot locale={locale as Locale} />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </div>
     </>
