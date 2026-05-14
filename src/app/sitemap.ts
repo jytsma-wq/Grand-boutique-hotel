@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/config';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://yourtimestudio.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://batumiboutique.com';
 
 const pages = [
   '',
