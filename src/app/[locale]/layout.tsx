@@ -70,7 +70,7 @@ export default async function LocaleLayout({
         >
           Skip to main content
         </a>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation locale={locale as Locale} />
           <main id="main-content">{children}</main>
           <Footer locale={locale as Locale} />

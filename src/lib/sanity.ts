@@ -10,7 +10,7 @@ const isSanityConfigured = Boolean(projectId && dataset);
 export const client = createClient({
   projectId: projectId || 'placeholder',
   dataset: dataset || 'production',
-  useCdn: true,
+  useCdn: false,
   apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-01-01',
 });
 
@@ -38,6 +38,11 @@ export function getImageUrl(source: any, width?: number): string {
 
 function getSanityLocale(locale: string): Locale {
   return isValidLocale(locale) ? locale : defaultLocale;
+}
+
+function localizedField(fieldName: string, locale: Locale): string {
+  if (locale === defaultLocale) return fieldName;
+  return `coalesce(${fieldName}_${locale}, ${fieldName})`;
 }
 
 async function sanityFetch<T>(
@@ -68,8 +73,8 @@ export const getSiteSettings = unstable_cache(
         phone,
         email,
         socialLinks,
-        "hotelNameLocalized": hotelName_${sanityLocale},
-        "taglineLocalized": tagline_${sanityLocale}
+        "hotelNameLocalized": ${localizedField('hotelName', sanityLocale)},
+        "taglineLocalized": ${localizedField('tagline', sanityLocale)}
       }
     `, null);
   },
@@ -84,9 +89,9 @@ export const getRooms = unstable_cache(
       *[_type == "room"] | order(order asc) {
         _id,
         slug,
-        "name": name_${sanityLocale},
-        "shortDescription": shortDescription_${sanityLocale},
-        "fullDescription": fullDescription_${sanityLocale},
+        "name": ${localizedField('name', sanityLocale)},
+        "shortDescription": ${localizedField('shortDescription', sanityLocale)},
+        "fullDescription": ${localizedField('fullDescription', sanityLocale)},
         size,
         maxGuests,
         amenities,
@@ -108,9 +113,9 @@ export const getRoomBySlug = unstable_cache(
       *[_type == "room" && slug.current == $slug][0] {
         _id,
         slug,
-        "name": name_${sanityLocale},
-        "shortDescription": shortDescription_${sanityLocale},
-        "fullDescription": fullDescription_${sanityLocale},
+        "name": ${localizedField('name', sanityLocale)},
+        "shortDescription": ${localizedField('shortDescription', sanityLocale)},
+        "fullDescription": ${localizedField('fullDescription', sanityLocale)},
         size,
         maxGuests,
         amenities,
@@ -132,8 +137,8 @@ export const getHomePage = unstable_cache(
       *[_type == "homePage"][0] {
         heroTitle,
         heroSubtitle,
-        "heroTitleLocalized": heroTitle_${sanityLocale},
-        "heroSubtitleLocalized": heroSubtitle_${sanityLocale},
+        "heroTitleLocalized": ${localizedField('heroTitle', sanityLocale)},
+        "heroSubtitleLocalized": ${localizedField('heroSubtitle', sanityLocale)},
         heroImage,
         sections
       }
@@ -148,8 +153,8 @@ export const getRestaurantPage = unstable_cache(
     const sanityLocale = getSanityLocale(locale);
     return sanityFetch(`
       *[_type == "restaurantPage"][0] {
-        "title": title_${sanityLocale},
-        "description": description_${sanityLocale},
+        "title": ${localizedField('title', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
         heroImage,
         images,
         openingHours,
@@ -166,8 +171,8 @@ export const getBarPage = unstable_cache(
     const sanityLocale = getSanityLocale(locale);
     return sanityFetch(`
       *[_type == "barPage"][0] {
-        "title": title_${sanityLocale},
-        "description": description_${sanityLocale},
+        "title": ${localizedField('title', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
         heroImage,
         images,
         openingHours,
@@ -186,9 +191,9 @@ export const getSpaTreatments = unstable_cache(
       *[_type == "spaTreatment"] | order(order asc) {
         _id,
         slug,
-        "name": name_${sanityLocale},
-        "description": description_${sanityLocale},
-        "benefits": benefits_${sanityLocale},
+        "name": ${localizedField('name', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
+        "benefits": ${localizedField('benefits', sanityLocale)},
         duration,
         priceUsd,
         priceGel,
@@ -208,9 +213,9 @@ export const getOffers = unstable_cache(
       *[_type == "offer" && active == true] | order(order asc) {
         _id,
         slug,
-        "title": title_${sanityLocale},
-        "description": description_${sanityLocale},
-        "includes": includes_${sanityLocale},
+        "title": ${localizedField('title', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
+        "includes": ${localizedField('includes', sanityLocale)},
         image,
         validFrom,
         validTo,
@@ -231,8 +236,8 @@ export const getExperiences = unstable_cache(
       *[_type == "experience"] | order(order asc) {
         _id,
         slug,
-        "title": title_${sanityLocale},
-        "description": description_${sanityLocale},
+        "title": ${localizedField('title', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
         image,
         distance,
         order
@@ -265,8 +270,8 @@ export const getChatbotKnowledge = unstable_cache(
     return sanityFetch(`
       *[_type == "chatbotKnowledge"] {
         _id,
-        "question": question_${sanityLocale},
-        "answer": answer_${sanityLocale},
+        "question": ${localizedField('question', sanityLocale)},
+        "answer": ${localizedField('answer', sanityLocale)},
         keywords
       }
     `, []);
@@ -281,8 +286,8 @@ export const getPopup = unstable_cache(
     return sanityFetch(`
       *[_type == "popup" && active == true][0] {
         _id,
-        "title": title_${sanityLocale},
-        "description": description_${sanityLocale},
+        "title": ${localizedField('title', sanityLocale)},
+        "description": ${localizedField('description', sanityLocale)},
         image,
         buttonText,
         buttonLink,
