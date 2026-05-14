@@ -26,7 +26,10 @@ export default function TopBar({ locale }: TopBarProps) {
   const pathname = usePathname();
 
   const switchLocale = (newLocale: Locale) => {
-    const currentPath = pathname.replace(`/${locale}`, '') || '/';
+    const localePrefix = `/${locale}`;
+    const currentPath = pathname.startsWith(localePrefix)
+      ? pathname.slice(localePrefix.length) || '/'
+      : pathname;
     router.push(`/${newLocale}${currentPath}`);
   };
 
