@@ -1,21 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
+import { parseBody } from 'next-sanity/webhook';
+
+type SanityWebhookPayload = {
+  _type?: string;
+};
 
 export async function POST(request: NextRequest) {
   const webhookSecret = process.env.SANITY_WEBHOOK_SECRET;
-  const signature = request.headers.get('sanity-webhook-signature');
 
-  if (!webhookSecret || !signature) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  if (signature !== webhookSecret) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  if (!webhookSecret) {
+    return NextResponse.json({ error: 'Webhook is not configured' }, { status: 500 });
   }
 
   try {
-    const body = await request.json();
-    const { _type } = body;
+    const { body, isValidSignature } = await parseBody<SanityWebhookPayload>(request, webhookSecret);
+
+    if (!isValidSignature) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    if (!body?._type) {
+      return NextResponse.json({ error: 'Invalid webhook payload' }, { status: 400 });
+    }
 
     const tagMap: Record<string, string> = {
       siteSettings: 'siteSettings',
@@ -31,10 +38,9 @@ export async function POST(request: NextRequest) {
       popup: 'popup',
     };
 
-    const tag = tagMap[_type];
+    const tag = tagMap[body._type];
     if (tag) {
-      // @ts-expect-error - Next.js 16 API change
-      revalidateTag(tag);
+      revalidateTag(tag, 'max');
       return NextResponse.json({ revalidated: true, tag });
     }
 
