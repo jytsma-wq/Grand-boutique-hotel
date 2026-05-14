@@ -7,6 +7,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+bun.lock
+bun.lockb
 jspm_packages/
 *.egg-info/
 .eggs/
@@ -91,6 +93,8 @@ $RECYCLE.BIN/
 *.log
 logs/
 *.pid
+.zscripts/dev.out.log
+.zscripts/dev.pid
 *.seed
 *.pid.lock
 .cache/

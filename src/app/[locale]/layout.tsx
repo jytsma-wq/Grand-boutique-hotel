@@ -7,7 +7,6 @@ import Navigation from "@/components/hotel/Navigation";
 import Footer from "@/components/hotel/Footer";
 import MariamChatbot from "@/components/hotel/MariamChatbot";
 import { HotelSchema, LocalBusinessSchema } from "@/components/hotel/StructuredData";
-import "./globals.css";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -55,14 +54,13 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
   const messages = await getMessages();
+  const dir = isRtlLocale(locale as Locale) ? 'rtl' : 'ltr';
 
   return (
-    <html lang={locale} dir={isRtlLocale(locale as Locale) ? 'rtl' : 'ltr'}>
-      <head>
-        <HotelSchema locale={locale} />
-        <LocalBusinessSchema />
-      </head>
-      <body>
+    <>
+      <HotelSchema locale={locale} />
+      <LocalBusinessSchema />
+      <div lang={locale} dir={dir}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
@@ -75,7 +73,7 @@ export default async function LocaleLayout({
           <Footer locale={locale as Locale} />
           <MariamChatbot locale={locale as Locale} />
         </NextIntlClientProvider>
-      </body>
-    </html>
+      </div>
+    </>
   );
 }
