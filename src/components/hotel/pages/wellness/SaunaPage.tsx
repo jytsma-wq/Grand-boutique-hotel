@@ -1,7 +1,5 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Wind, Clock, Thermometer, Droplets, Sparkles, Heart, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -53,10 +51,13 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
             alt="Finnish Sauna"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-forest-900/60 via-forest-900/40 to-forest-900/80" />
         </div>
@@ -115,7 +116,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
-                  <Button className="btn-telegraph">{t('bookYourStay')}</Button>
+                  <Button className="btn-boutique">{t('bookYourStay')}</Button>
                 </Link>
               </div>
             </div>
@@ -215,7 +216,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
-                <Button className="btn-telegraph px-12 py-6 text-base">
+                <Button className="btn-boutique px-12 py-6 text-base">
                   Explore All Wellness Facilities
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

@@ -1,462 +1,408 @@
-'use client';
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { 
-  ArrowRight, 
-  Star, 
-  Wifi, 
-  Car, 
-  Utensils, 
-  Waves, 
-  Dumbbell, 
-  Sparkles,
+import {
+  ArrowRight,
+  Car,
+  Clock,
+  Dumbbell,
+  Mail,
   MapPin,
-  Clock
+  Phone,
+  Sparkles,
+  Utensils,
+  Waves,
+  Wifi,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
 import HeroSection from './HeroSection';
 import { getImageUrl } from '@/lib/sanity';
+import { fallbackRooms as hotelFallbackRooms } from '@/lib/rooms';
+import { hotel } from '@/lib/site';
+import { type SanityHomePage, type SanityRoom } from '@/types/sanity';
 
 interface HomePageProps {
   locale: Locale;
-  data?: any;
+  data?: SanityHomePage | null;
 }
 
-export default function HomePage({ locale, data }: HomePageProps) {
-  const t = useTranslations();
-  const tHome = useTranslations('home');
+type FeaturedRoom = {
+  slug: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  meta: string;
+};
 
-  // Use CMS data if available, otherwise use translations as fallback
-  const heroTitle = data?.heroTitleLocalized || tHome('hero.title');
-  const heroSubtitle = data?.heroSubtitleLocalized || tHome('hero.subtitle');
+export default function HomePage({ locale, data }: HomePageProps) {
+  const tSite = useTranslations('site');
+  const tHome = useTranslations('home');
+  const tRooms = useTranslations('rooms');
+  const tNav = useTranslations('nav');
+  const tBooking = useTranslations('booking');
+  const tCommon = useTranslations('common');
+  const tLocation = useTranslations('location');
+
   const welcomeTitle = data?.welcomeSection?.title || tHome('welcome.title');
   const welcomeDescription = data?.welcomeSection?.description || tHome('welcome.description');
-  
-  // Get amenities from CMS or use defaults
-  const amenities = data?.amenities?.length > 0 
-    ? data.amenities.map((a: any) => ({
-        icon: a.icon || 'Wifi',
-        label: a[`label_${locale}`] || a.label || 'Amenity'
-      }))
-    : [
-        { icon: Wifi, label: tHome('amenities.wifi') },
-        { icon: Car, label: tHome('amenities.parking') },
-        { icon: Utensils, label: tHome('amenities.dining') },
-        { icon: Waves, label: tHome('amenities.pool') },
-        { icon: Dumbbell, label: tHome('amenities.fitness') },
-        { icon: Sparkles, label: tHome('amenities.spa') },
-      ];
 
-  // Get rooms from CMS data or use empty array
-  const cmsRooms = data?.rooms || [];
-  const rooms = cmsRooms.length > 0 
-    ? cmsRooms.map((room: any) => ({
-        name: room[`name_${locale}`] || room.name || 'Room',
-        image: getImageUrl(room.image, 800),
-        price: room.price || 0,
-        description: room[`description_${locale}`] || room.description || '',
+  const amenityFallbacks = [
+    { icon: Wifi, label: tHome('amenities.wifi') },
+    { icon: Car, label: tHome('amenities.parking') },
+    { icon: Utensils, label: tHome('amenities.dining') },
+    { icon: Waves, label: tHome('amenities.pool') },
+    { icon: Dumbbell, label: tHome('amenities.fitness') },
+    { icon: Sparkles, label: tHome('amenities.spa') },
+  ];
+
+  const cmsSourceRooms = data?.rooms || data?.featuredRooms || [];
+  const cmsRooms: FeaturedRoom[] = Array.isArray(cmsSourceRooms)
+    ? cmsSourceRooms.slice(0, 3).map((room: SanityRoom) => ({
+        slug: typeof room.slug === 'string' ? room.slug : room.slug?.current || 'rooms',
+        name: room.name || tRooms('types.deluxe.name'),
+        description: room.shortDescription || tRooms('types.deluxe.description'),
+        price: room.priceUsd || 0,
+        image: getImageUrl(room.images?.[0], 1100),
+        meta: [room.size, room.maxGuests ? `${room.maxGuests} ${tBooking('guests')}` : null]
+          .filter(Boolean)
+          .join(' / '),
       }))
     : [];
 
+  const featuredFallbackCopy: Record<string, Pick<FeaturedRoom, 'name' | 'description'>> = {
+    'deluxe-room': {
+      name: tRooms('types.deluxe.name'),
+      description: tRooms('types.deluxe.description'),
+    },
+    'junior-suite': {
+      name: tRooms('types.juniorSuite.name'),
+      description: tRooms('types.juniorSuite.description'),
+    },
+    'presidential-suite': {
+      name: tRooms('types.presidentialSuite.name'),
+      description: tRooms('types.presidentialSuite.description'),
+    },
+  };
+
+  const fallbackRooms: FeaturedRoom[] = hotelFallbackRooms
+    .filter((room) => room.slug in featuredFallbackCopy)
+    .map((room) => ({
+      slug: room.slug,
+      name: featuredFallbackCopy[room.slug].name,
+      description: featuredFallbackCopy[room.slug].description,
+      price: room.price,
+      image: room.images[0],
+      meta: `${room.size} / ${room.guests} ${tBooking('guests')}`,
+    }));
+
+  const rooms = cmsRooms.length > 0 ? cmsRooms : fallbackRooms;
+
   const experiences = [
     {
-      name: 'Batumi Boulevard',
-      image: getImageUrl('https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?q=80&w=400&auto=format&fit=crop', 400),
-      distance: '0.5 km',
+      title: tHome('dining.restaurant.name'),
+      description: tHome('dining.restaurant.description'),
+      href: `/${locale}/restaurant`,
+      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1100&q=80',
+      cta: tCommon('learnMore'),
     },
     {
-      name: 'Old Batumi',
-      image: getImageUrl('https://images.unsplash.com/photo-1599946347371-68eb71b16afc?q=80&w=400&auto=format&fit=crop', 400),
-      distance: '1.2 km',
+      title: tHome('wellness.title'),
+      description: tHome('wellness.description'),
+      href: `/${locale}/wellness`,
+      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1100&q=80',
+      cta: tCommon('learnMore'),
     },
     {
-      name: 'Batumi Botanical Garden',
-      image: getImageUrl('https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?q=80&w=400&auto=format&fit=crop', 400),
-      distance: '8 km',
+      title: tHome('experiences.title'),
+      description: tHome('experiences.subtitle'),
+      href: `/${locale}/experiences`,
+      image: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1100&q=80',
+      cta: tCommon('viewMore'),
     },
   ];
 
-  // Map icon names to Lucide components
-  const getIconComponent = (iconName: string) => {
-    const icons: Record<string, any> = { Wifi, Car, Utensils, Waves, Dumbbell, Sparkles, MapPin, Clock };
-    return icons[iconName] || Wifi;
-  };
+  const galleryImages = [
+    {
+      src: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80',
+      alt: hotel.name,
+      className: 'md:col-span-2 md:row-span-2',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=700&q=80',
+      alt: tRooms('types.superior.name'),
+      className: '',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=700&q=80',
+      alt: tHome('dining.bar.name'),
+      className: '',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=700&q=80',
+      alt: tHome('amenities.pool'),
+      className: '',
+    },
+    {
+      src: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=80',
+      alt: tRooms('title'),
+      className: '',
+    },
+  ];
 
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
+    <main className="luxury-page min-h-screen">
       <HeroSection locale={locale} data={data} />
 
-      {/* Welcome Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Welcome</span>
-            <h2 className="section-title mt-4">{welcomeTitle}</h2>
-            <div className="brass-line" />
-            <p className="section-subtitle">{welcomeDescription}</p>
-          </div>
-
-          {/* Amenities Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 animate-fade-in-up">
-            {amenities.map((amenity: { icon: string; label: string }, index: number) => {
-              const IconComponent = typeof amenity.icon === 'string' ? getIconComponent(amenity.icon) : amenity.icon;
-              return (
-                <div
-                  key={index}
-                  className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-forest-50/50 hover:bg-forest-100/50 transition-colors group"
-                >
-                  <div className="w-14 h-14 rounded-full gradient-forest flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <IconComponent className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-sm font-medium text-forest-900 text-center">{amenity.label}</span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Rooms Section */}
-      <section className="py-24 bg-forest-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Accommodations</span>
-            <h2 className="section-title mt-4">{tHome('rooms.title')}</h2>
-            <div className="brass-line" />
-            <p className="section-subtitle">{tHome('rooms.subtitle')}</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {rooms.map((room: { slug: string; name: string; price: number; images: string[]; image: string; size: string; guests: number }, index: number) => (
-              <div
-                key={index}
-                className="group animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <Link href={`/${locale}/rooms/${room.name.toLowerCase().replace(' ', '-')}`}>
-                  <div className="glass-card rounded-2xl overflow-hidden card-hover">
-                    {/* Image */}
-                    <div className="relative aspect-4/3 overflow-hidden">
-                      <Image
-                        src={room.image}
-                        alt={room.name}
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                      />
-                      <div className="absolute inset-0 image-overlay" />
-                      
-                      {/* Price Badge */}
-                      <div className="absolute top-4 right-4 glass-card px-4 py-2 rounded-full">
-                        <span className="text-white font-semibold">${room.price}</span>
-                        <span className="text-white/70 text-sm">/night</span>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold text-forest-900 mb-2">{room.name}</h3>
-                      <div className="flex items-center gap-4 text-sm text-forest-600">
-                        <span>{room.size}</span>
-                        <span>•</span>
-                        <span>{room.guests} guests</span>
-                      </div>
-                      
-                      {/* OTA Comparison */}
-                      <div className="mt-4 pt-4 border-t border-forest-100">
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-forest-600">OTA Price:</span>
-                          <span className="line-through text-forest-400">${room.price + 30}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-sm">
-                          <span className="text-forest-600">Direct Price:</span>
-                          <span className="text-brass-600 font-semibold">${room.price}</span>
-                        </div>
-                        <div className="mt-2 text-xs text-center text-forest-500 bg-forest-100 rounded-full py-1">
-                          Save $30 by booking direct!
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href={`/${locale}/rooms`}>
-              <Button className="btn-telegraph">
-                <span>{tHome('rooms.viewAll')}</span>
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Dining Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Culinary</span>
-            <h2 className="section-title mt-4">{tHome('dining.title')}</h2>
-            <div className="brass-line" />
-            <p className="section-subtitle">{tHome('dining.subtitle')}</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Restaurant */}
-            <div
-              className="relative group overflow-hidden rounded-3xl animate-fade-in-up"
-            >
-              <div className="aspect-16/10">
-                <Image
-                  src={getImageUrl('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop', 800)}
-                  alt="Azure Restaurant"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-2 mb-2">
-                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
-                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
-                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
-                  <Star className="w-5 h-5 text-brass-400 fill-brass-400" />
-                </div>
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  {tHome('dining.restaurant.name')}
-                </h3>
-                <p className="text-white/70 text-sm mb-4">
-                  {tHome('dining.restaurant.description')}
-                </p>
-                <Link href={`/${locale}/restaurant`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
-                    View Restaurant
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Bar */}
-            <div
-              className="relative group overflow-hidden rounded-3xl animate-fade-in-up"
-              style={{ animationDelay: '200ms' }}
-            >
-              <div className="aspect-16/10">
-                <Image
-                  src={getImageUrl('https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop', 800)}
-                  alt="Lounge Bar"
-                  width={800}
-                  height={600}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <h3 className="text-2xl font-semibold text-white mb-2">
-                  {tHome('dining.bar.name')}
-                </h3>
-                <p className="text-white/70 text-sm mb-4">
-                  {tHome('dining.bar.description')}
-                </p>
-                <Link href={`/${locale}/bar`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
-                    View Bar
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Wellness Section */}
-      <section className="py-24 bg-forest-900 text-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="grid items-end gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
             <div>
-              <span className="text-brass-400 text-sm tracking-widest uppercase">Relaxation</span>
-              <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
-                {tHome('wellness.title')}
+              <span className="luxury-kicker">{tHome('welcome.subtitle')}</span>
+              <h2 className="luxury-title mt-6 max-w-4xl text-5xl text-forest-950 md:text-7xl lg:text-8xl">
+                {welcomeTitle}
               </h2>
-              <div className="brass-line" />
-              <p className="text-white/70 text-lg mb-8">
-                {tHome('wellness.description')}
-              </p>
-              
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                {['Infinity Pool', 'Finnish Sauna', 'Turkish Hammam', 'Fitness Center'].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-brass-400 rounded-full" />
-                    <span className="text-white/80">{item}</span>
+            </div>
+            <div className="space-y-8">
+              <p className="luxury-lede">{welcomeDescription}</p>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {amenityFallbacks.map((amenity) => (
+                  <div key={amenity.label} className="border border-forest-200/80 bg-cream-50/70 px-4 py-5">
+                    <amenity.icon className="mb-5 h-5 w-5 text-brass-700" strokeWidth={1.5} aria-hidden="true" />
+                    <p className="text-sm font-medium text-forest-900">{amenity.label}</p>
                   </div>
                 ))}
               </div>
-
-              <div className="flex gap-4">
-                <Link href={`/${locale}/wellness`}>
-                  <Button className="btn-telegraph">
-                    <span>Explore Wellness</span>
-                  </Button>
-                </Link>
-                <Link href={`/${locale}/wellness/spa`}>
-                  <Button variant="outline" className="border-white/30 text-white hover:bg-white hover:text-forest-900">
-                    Book Spa Treatment
-                  </Button>
-                </Link>
-              </div>
             </div>
+          </div>
 
-            <div
-              className="relative animate-scale-in"
-            >
+          <div className="mt-16 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+            <div className="luxury-image relative min-h-[28rem]">
               <Image
-                src={getImageUrl('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop', 800)}
-                alt="Spa"
-                width={800}
-                height={600}
-                className="rounded-3xl w-full aspect-4/3 object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80"
+                alt={hotel.name}
+                fill
+                sizes="(max-width: 1024px) 100vw, 62vw"
+                className="object-cover"
               />
-              <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-full gradient-brass flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-forest-900" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-forest-900">50+</div>
-                    <div className="text-sm text-forest-600">Spa Treatments</div>
-                  </div>
-                </div>
+            </div>
+            <div className="flex min-h-[28rem] flex-col justify-between bg-charcoal-950 p-8 text-cream-50 md:p-10">
+              <div>
+                <p className="luxury-kicker text-brass-300">{tSite('tagline')}</p>
+                <p className="mt-8 font-serif text-4xl leading-tight md:text-5xl">
+                  {tSite('description')}
+                </p>
               </div>
+              <Link href={`/${locale}/about`} className="luxury-button-outline luxury-button-outline-light mt-10 w-fit border-white/35 text-white">
+                <span>{tCommon('learnMore')}</span>
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Experiences Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Explore</span>
-            <h2 className="section-title mt-4">{tHome('experiences.title')}</h2>
-            <div className="brass-line" />
-            <p className="section-subtitle">{tHome('experiences.subtitle')}</p>
+      <section className="luxury-section bg-[#efe4d4]">
+        <div className="luxury-container">
+          <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <span className="luxury-kicker">{tRooms('accommodations')}</span>
+              <h2 className="luxury-title mt-5 max-w-4xl text-5xl text-forest-950 md:text-7xl">
+                {tHome('rooms.title')}
+              </h2>
+            </div>
+            <p className="luxury-lede md:max-w-md">{tHome('rooms.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer animate-fade-in-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="aspect-3/4">
-                  <Image
-                    src={exp.image}
-                    alt={exp.name}
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-linear-to-t from-forest-950/90 via-forest-950/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <div className="flex items-center gap-2 text-brass-400 text-sm mb-2">
-                    <MapPin size={14} />
-                    <span>{exp.distance}</span>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {rooms.map((room, index) => (
+              <article key={room.slug} className={`luxury-card group flex min-h-full flex-col overflow-hidden ${index === 1 ? 'lg:translate-y-10' : ''}`}>
+                <Link href={`/${locale}/rooms/${room.slug}`} className="flex min-h-full flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500">
+                  <div className="luxury-image relative aspect-[4/5]">
+                    <Image
+                      src={room.image}
+                      alt={room.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal-950/70 to-transparent" />
+                    <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 text-cream-50">
+                      <span className="text-xs uppercase tracking-[0.22em] text-white/70">{room.meta}</span>
+                      <span className="font-serif text-2xl">${room.price}</span>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-white">{exp.name}</h3>
-                </div>
-              </div>
+                  <div className="flex flex-1 flex-col p-7">
+                    <h3 className="font-serif text-3xl text-forest-950">{room.name}</h3>
+                    <p className="mt-4 line-clamp-3 text-sm leading-7 text-forest-800/70">{room.description}</p>
+                    <div className="mt-auto pt-7">
+                      <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-brass-700">
+                        {tRooms('viewDetails')}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </article>
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link href={`/${locale}/experiences`}>
-              <Button className="btn-telegraph">
-                <span>View All Experiences</span>
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
+          <div className="mt-20 flex flex-col gap-4 sm:flex-row">
+            <Link href={`/${locale}/rooms`} className="luxury-button">
+              <span>{tHome('rooms.viewAll')}</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link href={`/${locale}/booking`} className="luxury-button-outline text-forest-950">
+              <span>{tBooking('search')}</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-linear-to-br from-forest-800 to-forest-950 text-white relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-forest-700/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-brass-500/20 rounded-full blur-3xl" />
-        </div>
-
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Ready to Experience <span className="text-brass-400">True Luxury</span>?
-            </h2>
-            <p className="text-white/70 text-lg mb-10">
-              Book direct and enjoy exclusive benefits: complimentary breakfast, 
-              room upgrades, and best price guarantee.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph px-12 py-6 text-lg">
-                  <span>Book Your Stay</span>
-                </Button>
-              </Link>
-              <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-forest-900">
-                  <span>Call Us: +995 422 00 00 00</span>
-                </Button>
-              </a>
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="grid gap-8 lg:grid-cols-3">
+            <div className="lg:col-span-1">
+              <span className="luxury-kicker">{tNav('restaurantBar')}</span>
+              <h2 className="luxury-title mt-5 text-5xl text-forest-950 md:text-7xl">
+                {tHome('dining.title')}
+              </h2>
+              <p className="luxury-lede mt-7">{tHome('dining.subtitle')}</p>
+            </div>
+            <div className="grid gap-6 lg:col-span-2 md:grid-cols-3">
+              {experiences.map((experience, index) => (
+                <Link
+                  key={experience.href}
+                  href={experience.href}
+                  className={`group relative min-h-[30rem] overflow-hidden bg-charcoal-950 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 ${
+                    index === 0 ? 'md:col-span-2' : ''
+                  }`}
+                >
+                  <Image
+                    src={experience.image}
+                    alt={experience.title}
+                    fill
+                    sizes={index === 0 ? '(max-width: 768px) 100vw, 44vw' : '(max-width: 768px) 100vw, 22vw'}
+                    className="object-cover opacity-80 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-charcoal-950/35 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-7">
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-brass-300">{experience.cta}</p>
+                    <h3 className="mt-3 font-serif text-4xl leading-none">{experience.title}</h3>
+                    <p className="mt-4 max-w-xl text-sm leading-7 text-white/70">{experience.description}</p>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Instagram Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 text-center">
-          <div>
-            <h3 className="text-2xl font-semibold text-forest-900 mb-4">
-              Follow Us <span className="text-brass-600">@batumiboutique</span>
-            </h3>
-            <p className="text-forest-600 mb-8">Share your moments with #BatumiBoutique</p>
-            
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <a
-                  key={i}
-                  href="https://instagram.com/batumiboutique"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square overflow-hidden group"
-                >
-                  <Image
-                    src={getImageUrl(`https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=200&h=200&auto=format&fit=crop`, 200)}
-                    alt="Instagram"
-                    width={800}
-                    height={600}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </a>
-              ))}
+      <section className="luxury-section bg-charcoal-950 text-cream-50">
+        <div className="luxury-container">
+          <div className="mb-12 flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <span className="luxury-kicker text-brass-300">{tNav('gallery')}</span>
+              <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{tHome('experiences.title')}</h2>
+            </div>
+            <Link href={`/${locale}/gallery`} className="luxury-button-outline luxury-button-outline-light w-fit border-white/35 text-white">
+              <span>{tCommon('viewMore')}</span>
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="grid auto-rows-[12rem] grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[14rem]">
+            {galleryImages.map((image) => (
+              <Link
+                key={image.src}
+                href={`/${locale}/gallery`}
+                className={`luxury-image relative block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${image.className}`}
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                  className="object-cover"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="grid overflow-hidden border border-forest-200 bg-cream-50 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="p-8 md:p-12 lg:p-16">
+              <span className="luxury-kicker">{tLocation('title')}</span>
+              <h2 className="luxury-title mt-5 text-5xl text-forest-950 md:text-7xl">
+                {tLocation('subtitle')}
+              </h2>
+              <div className="mt-10 space-y-6 text-forest-900/75">
+                <p className="flex items-start gap-4">
+                  <MapPin className="mt-1 h-5 w-5 text-brass-700" aria-hidden="true" />
+                  <span>{hotel.address.formatted}</span>
+                </p>
+                <p className="flex items-center gap-4">
+                  <Phone className="h-5 w-5 text-brass-700" aria-hidden="true" />
+                  <a href={`tel:${hotel.phone.href}`} className="hover:text-brass-700">{hotel.phone.display}</a>
+                </p>
+                <p className="flex items-center gap-4">
+                  <Mail className="h-5 w-5 text-brass-700" aria-hidden="true" />
+                  <a href={`mailto:${hotel.email}`} className="hover:text-brass-700">{hotel.email}</a>
+                </p>
+              </div>
+              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <Link href={`/${locale}/location`} className="luxury-button">
+                  <span>{tLocation('directions')}</span>
+                </Link>
+                <Link href={`/${locale}/contact`} className="luxury-button-outline text-forest-950">
+                  <span>{tCommon('contact')}</span>
+                </Link>
+              </div>
+            </div>
+            <div className="relative min-h-[28rem] bg-charcoal-950">
+              <Image
+                src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1500&q=80"
+                alt={tLocation('nearby.title')}
+                fill
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                className="object-cover opacity-90"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/65 to-transparent" />
+              <div className="absolute bottom-8 left-8 right-8 grid gap-3 text-cream-50 sm:grid-cols-3">
+                {[tLocation('nearby.beach'), tLocation('nearby.center'), tLocation('nearby.airport')].map((item) => (
+                  <div key={item} className="border border-white/18 bg-white/10 p-4 backdrop-blur">
+                    <Clock className="mb-3 h-4 w-4 text-brass-300" aria-hidden="true" />
+                    <p className="text-sm font-medium">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#2a211b] py-20 text-cream-50">
+        <div className="luxury-container">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <span className="luxury-kicker text-brass-300">{tNav('bookNow')}</span>
+              <h2 className="luxury-title mt-5 text-5xl md:text-7xl">
+                {tRooms('bookDirectTitle')} {tRooms('saveMore')}
+              </h2>
+              <p className="mt-6 max-w-2xl text-lg font-light leading-8 text-white/70">
+                {tRooms('bookDirectDescription')}
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
+              <Link href={`/${locale}/booking`} className="luxury-button bg-brass-400 text-charcoal-950 hover:bg-cream-50">
+                <span>{tRooms('bookYourStay')}</span>
+              </Link>
+              <a href={`tel:${hotel.phone.href}`} className="luxury-button-outline luxury-button-outline-light border-white/35 text-white">
+                <span>{hotel.phone.display}</span>
+              </a>
             </div>
           </div>
         </div>
@@ -464,10 +410,3 @@ export default function HomePage({ locale, data }: HomePageProps) {
     </main>
   );
 }
-
-
-
-
-
-
-

@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, Check, Tag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -101,10 +99,13 @@ export default function OffersPage({ locale }: OffersPageProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
             alt="Special Offers"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -129,10 +130,12 @@ export default function OffersPage({ locale }: OffersPageProps) {
               >
                 {/* Image */}
                 <div className="relative h-64">
-                  <img
+                  <Image
                     src={offer.image}
                     alt={offer.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 to-transparent" />
                   
@@ -180,7 +183,7 @@ export default function OffersPage({ locale }: OffersPageProps) {
 
                   {/* CTA */}
                   <Link href={`/${locale}/booking?offer=${offer.id}`}>
-                    <Button className="btn-telegraph w-full">
+                    <Button className="btn-boutique w-full">
                       <span>{t('offers.bookNow')}</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
@@ -203,12 +206,19 @@ export default function OffersPage({ locale }: OffersPageProps) {
               Subscribe to our newsletter and be the first to know about special promotions and seasonal offers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <label htmlFor="offers-email" className="sr-only">
+                Email address
+              </label>
               <input
+                id="offers-email"
+                name="email"
                 type="email"
-                placeholder="Enter your email"
-                className="px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-cream-50 placeholder:text-forest-300 focus:outline-none focus:border-brass-400"
+                autoComplete="email"
+                spellCheck={false}
+                placeholder="Enter your email…"
+                className="px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-cream-50 placeholder:text-forest-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
               />
-              <Button className="btn-telegraph px-8 py-4">
+              <Button className="btn-boutique px-8 py-4">
                 <span>Subscribe</span>
               </Button>
             </div>

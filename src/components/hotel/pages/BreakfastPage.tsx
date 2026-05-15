@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Clock, Coffee, Croissant, Egg, Apple, Milk, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -97,10 +97,13 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=1920&q=80"
             alt="Breakfast at Azure Restaurant"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -252,7 +255,7 @@ export default function BreakfastPage({ locale }: BreakfastPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph px-12 py-5">
+                <Button className="btn-boutique px-12 py-5">
                   Book Now
                 </Button>
               </Link>

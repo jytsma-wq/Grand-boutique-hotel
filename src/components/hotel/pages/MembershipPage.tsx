@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { 
   Waves, 
   Dumbbell, 
@@ -58,10 +56,13 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
             alt="Wellness Membership"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -114,7 +115,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                 </ul>
                 <Link href={`/${locale}/contact`}>
                   <Button 
-                    className={`w-full ${tier.featured ? 'bg-white text-forest-900 hover:bg-white/90' : 'btn-telegraph'}`}
+                    className={`w-full ${tier.featured ? 'bg-white text-forest-900 hover:bg-white/90' : 'btn-boutique'}`}
                   >
                     Join Now
                   </Button>
@@ -137,7 +138,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-telegraph px-12 py-6 text-base">
+                <Button className="btn-boutique px-12 py-6 text-base">
                   <span>Contact Us</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

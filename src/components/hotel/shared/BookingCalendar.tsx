@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import {
@@ -89,12 +88,14 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
             <div className="grid grid-cols-4 gap-2">
               {timeSlots.map((slot) => (
                 <button
+                  type="button"
                   key={slot}
+                  aria-pressed={time === slot}
                   onClick={() => {
                     setTime(slot);
                     setStep(3);
                   }}
-                  className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                  className={`py-2 px-3 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
                     time === slot
                       ? 'bg-forest-600 text-cream-50'
                       : 'bg-forest-50 text-forest-700 hover:bg-forest-100'
@@ -158,8 +159,8 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           </div>
 
           {/* Submit */}
-          <Button onClick={handleSubmit} className="btn-telegraph w-full">
-            <Phone className="w-4 h-4 mr-2" />
+          <Button onClick={handleSubmit} className="btn-boutique w-full">
+            <Phone aria-hidden="true" className="w-4 h-4 mr-2" />
             Confirm via WhatsApp
           </Button>
 

@@ -14,7 +14,7 @@ interface Message {
   content: string;
 }
 
-// Telegraph Hotel color palette
+// Hotel color palette
 const colors = {
   primary: '#27331d',      // Dark green
   primaryAlt: '#baa363',   // Gold/brass accent
@@ -131,8 +131,11 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face"
               alt="Concierge"
+              width={200}
+              height={200}
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
           )}
         </button>
@@ -182,8 +185,11 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
                 <img 
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
                   alt="Mariam"
+                  width={100}
+                  height={100}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div>
@@ -197,6 +203,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
             <div 
               className="h-80 overflow-y-auto p-4 space-y-3 custom-scrollbar"
               style={{ backgroundColor: colors.secondary }}
+              aria-live="polite"
             >
               {messages.map((msg, i) => (
                 <div
@@ -255,13 +262,16 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
             >
               <input
                 ref={inputRef}
+                aria-label="Chat message"
+                name="chat-message"
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder={t('placeholder')}
+                autoComplete="off"
                 disabled={isDisabled}
-                className="flex-1 px-4 py-2.5 text-sm outline-none transition-all duration-200 disabled:opacity-50"
+                className="flex-1 px-4 py-2.5 text-sm outline-none transition-colors duration-200 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-brass-400"
                 style={{
                   backgroundColor: colors.secondary,
                   borderRadius: '20px 0 0 20px',

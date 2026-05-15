@@ -1,7 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -78,10 +76,13 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1920&q=80"
             alt="Premium Spirits"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -326,7 +327,7 @@ export default function SpiritsPage({ locale }: SpiritsPageProps) {
               Visit our bar to discover our full selection of premium spirits and expert recommendations
             </p>
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+              <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                 Reserve Your Table
               </Button>
             </Link>

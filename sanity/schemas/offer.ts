@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'title_fr',
-      title: 'Title (French)',
-      type: 'string',
-    },
-    {
-      name: 'title_de',
-      title: 'Title (German)',
-      type: 'string',
-    },
-    {
-      name: 'title_it',
-      title: 'Title (Italian)',
-      type: 'string',
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -58,24 +43,6 @@ export default {
       of: [{ type: 'block' }],
     },
     {
-      name: 'description_fr',
-      title: 'Description (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_de',
-      title: 'Description (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_it',
-      title: 'Description (Italian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
       name: 'includes',
       title: 'Includes (English)',
       type: 'array',
@@ -90,24 +57,6 @@ export default {
     {
       name: 'includes_ru',
       title: 'Includes (Russian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'includes_fr',
-      title: 'Includes (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'includes_de',
-      title: 'Includes (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'includes_it',
-      title: 'Includes (Italian)',
       type: 'array',
       of: [{ type: 'block' }],
     },

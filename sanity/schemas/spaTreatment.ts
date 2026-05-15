@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'name_fr',
-      title: 'Treatment Name (French)',
-      type: 'string',
-    },
-    {
-      name: 'name_de',
-      title: 'Treatment Name (German)',
-      type: 'string',
-    },
-    {
-      name: 'name_it',
-      title: 'Treatment Name (Italian)',
-      type: 'string',
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -58,24 +43,6 @@ export default {
       of: [{ type: 'block' }],
     },
     {
-      name: 'description_fr',
-      title: 'Description (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_de',
-      title: 'Description (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_it',
-      title: 'Description (Italian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
       name: 'benefits',
       title: 'Benefits (English)',
       type: 'array',
@@ -90,24 +57,6 @@ export default {
     {
       name: 'benefits_ru',
       title: 'Benefits (Russian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'benefits_fr',
-      title: 'Benefits (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'benefits_de',
-      title: 'Benefits (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'benefits_it',
-      title: 'Benefits (Italian)',
       type: 'array',
       of: [{ type: 'block' }],
     },

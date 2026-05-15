@@ -8,6 +8,7 @@ import Footer from "@/components/hotel/Footer";
 import MariamChatbot from "@/components/hotel/MariamChatbot";
 import WhatsAppButton from "@/components/hotel/WhatsAppButton";
 import { HotelSchema, LocalBusinessSchema } from "@/components/hotel/StructuredData";
+import { absoluteUrl, hotel } from "@/lib/site";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -16,22 +17,27 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'site' });
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com';
+  const siteName = t('name');
+  const siteDescription = t('description');
 
   return {
-    metadataBase: new URL(siteUrl),
-    title: t('name'),
-    description: t('description'),
+    metadataBase: new URL(absoluteUrl()),
+    applicationName: hotel.name,
+    title: {
+      default: siteName,
+      template: `%s | ${siteName}`,
+    },
+    description: siteDescription,
     openGraph: {
-      title: t('name'),
-      description: t('description'),
-      siteName: t('name'),
+      title: siteName,
+      description: siteDescription,
+      siteName,
       images: [
         {
-          url: '/og-image.svg',
+          url: absoluteUrl('/og-image.svg'),
           width: 1200,
           height: 630,
-          alt: t('name'),
+          alt: siteName,
         },
       ],
       locale: locale,
@@ -39,9 +45,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     twitter: {
       card: 'summary_large_image',
-      title: t('name'),
-      description: t('description'),
-      images: ['/og-image.svg'],
+      title: siteName,
+      description: siteDescription,
+      images: [absoluteUrl('/og-image.svg')],
     },
   };
 }
@@ -61,7 +67,7 @@ export default async function LocaleLayout({
   return (
     <>
       <HotelSchema locale={locale} />
-      <LocalBusinessSchema />
+      <LocalBusinessSchema locale={locale} />
       <div lang={locale} dir={dir}>
         <a
           href="#main-content"

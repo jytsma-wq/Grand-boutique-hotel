@@ -1,6 +1,3 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import { TrendingDown, CheckCircle } from 'lucide-react';
 import CurrencyDisplay from './CurrencyDisplay';
 

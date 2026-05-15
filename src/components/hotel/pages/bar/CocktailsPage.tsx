@@ -1,7 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft, Martini } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -92,10 +90,13 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80"
             alt="Cocktails"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -238,7 +239,7 @@ export default function CocktailsPage({ locale }: CocktailsPageProps) {
               Join us daily from 5:00 PM to 7:00 PM for 50% off all cocktails
             </p>
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+              <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                 Reserve Your Table
               </Button>
             </Link>

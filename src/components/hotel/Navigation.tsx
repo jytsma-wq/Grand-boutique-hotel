@@ -4,14 +4,14 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { locales, localeNames, localeFlags, type Locale } from '@/i18n/config';
+import { locales, localeNames, type Locale } from '@/i18n/config';
+import { hotel } from '@/lib/site';
+import { type SiteSettings } from '@/types/sanity';
 
 interface NavigationProps {
   locale: Locale;
-  siteSettings?: any;
+  siteSettings?: SiteSettings | null;
 }
 
 const flagImages: Record<string, string> = {
@@ -96,67 +96,38 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
     dropdownTimeout.current = setTimeout(() => setOpenDropdown(null), 150);
   };
 
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const isTransparent = isHome && !isScrolled && !isMobileMenuOpen;
+  const hotelName = siteSettings?.hotelNameLocalized || siteSettings?.hotelName || hotel.shortName;
+
   return (
     <>
-      <header className={`fixed left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-gray-100 ${
-          isScrolled ? 'shadow-md' : ''
+      <header
+        className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-500 ${
+          isTransparent
+            ? 'border-white/12 bg-transparent text-white'
+            : 'border-b border-forest-200/70 bg-cream-50/95 text-forest-950 shadow-[0_18px_60px_rgba(33,27,23,0.08)] backdrop-blur-xl'
         }`}
       >
-        <div className="max-w-450 mx-auto px-6 lg:px-12">
-          {/* Top Row: Language Switcher - Left */}
-          <div className="hidden lg:flex items-center justify-start py-3 border-b border-gray-100">
-            <div className="relative" ref={langRef}>
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="flex items-center gap-2 text-sm uppercase tracking-wider text-forest-900/70 hover:text-forest-900 transition-colors px-3 py-1.5"
-              >
-                <img 
-                  src={flagImages[locale]} 
-                  alt={`${locale} flag`} 
-                  className="w-5 h-4 object-cover"
-                />
-                <span>{locale.toUpperCase()}</span>
-                <ChevronDown size={12} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
-              </button>
-              <div>
-                {langOpen && (
-                  <div className="absolute left-0 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-40 z-120"
-                  >
-                    {locales.map((loc) => (
-                      <button
-                        key={loc}
-                        onClick={() => { switchLocale(loc); setLangOpen(false); }}
-                        className={`w-full flex items-center gap-3 px-5 py-3 text-sm uppercase tracking-wider hover:bg-forest-50 transition-colors ${
-                          loc === locale ? 'text-forest-900 bg-forest-50' : 'text-forest-900/70'
-                        }`}
-                      >
-                        <img 
-                          src={flagImages[loc]} 
-                          alt={`${loc} flag`} 
-                          className="w-5 h-4 object-cover"
-                        />
-                        <span>{loc.toUpperCase()}</span>
-                      </button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
+        <div className="luxury-container">
+          <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
+            <Link
+              href={`/${locale}`}
+              className="group flex min-w-0 items-center gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
+              aria-label={`${hotel.name} home`}
+            >
+              <span className={`hidden h-px w-12 transition-colors sm:block ${isTransparent ? 'bg-white/60' : 'bg-brass-500'}`} />
+              <span className="min-w-0">
+                <span className="block font-serif text-2xl leading-none tracking-[0.02em] lg:text-3xl">
+                  {hotelName}
+                </span>
+                <span className={`mt-1 hidden text-[0.62rem] font-semibold uppercase tracking-[0.28em] sm:block ${isTransparent ? 'text-white/60' : 'text-forest-700'}`}>
+                  {hotel.address.locality}
+                </span>
+              </span>
+            </Link>
 
-          {/* Main Row: Logo Centered + Menu Below */}
-          <div className="py-4">
-            {/* Logo - Centered */}
-            <div className="text-center mb-4">
-              <Link href={`/${locale}`} className="inline-block">
-                <div className="font-normal text-2xl lg:text-3xl tracking-[0.3em] uppercase text-forest-900">
-                  Batumi Boutique
-                </div>
-              </Link>
-            </div>
-
-            {/* Navigation Menu - Below Logo */}
-            <nav className="hidden lg:flex items-center justify-center gap-1 flex-wrap">
+            <nav className="hidden items-center justify-center gap-1 xl:flex" aria-label="Primary navigation">
               {navLinks.map((link) => (
                 <div
                   key={link.href}
@@ -166,26 +137,29 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                 >
                   <Link
                     href={`/${locale}${link.href}`}
-                    className={`flex items-center gap-1 px-4 py-2 text-sm font-medium uppercase tracking-wider transition-all duration-200 ${
-                      pathname.includes(link.href)
-                        ? 'text-forest-900'
-                        : 'text-forest-900/70 hover:text-forest-900'
+                    className={`flex min-h-11 items-center gap-1 px-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+                      pathname.includes(link.href) && link.href !== '/'
+                        ? isTransparent ? 'text-brass-300' : 'text-brass-700'
+                        : isTransparent ? 'text-white/75 hover:text-white' : 'text-forest-800/75 hover:text-forest-950'
                     }`}
+                    aria-current={pathname.includes(link.href) && link.href !== '/' ? 'page' : undefined}
                   >
                     {link.label}
                     {link.children && <ChevronDown size={12} className="ml-0.5" />}
                   </Link>
 
-                  {/* Dropdown submenu */}
                   <div>
                     {link.children && openDropdown === link.href && (
-                      <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 bg-white border border-gray-100 shadow-xl min-w-48 z-50"
+                      <div
+                        className="absolute left-1/2 top-full z-50 mt-3 min-w-56 -translate-x-1/2 border border-forest-200 bg-cream-50 p-2 text-forest-950 shadow-2xl"
+                        role="menu"
                       >
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             href={`/${locale}${child.href}`}
-                            className="block px-6 py-3 text-sm text-forest-900/70 hover:text-forest-900 hover:bg-forest-50 uppercase tracking-wider transition-colors text-center"
+                            role="menuitem"
+                            className="block px-5 py-3 text-center text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-forest-800 hover:bg-forest-100 hover:text-forest-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
                           >
                             {child.label}
                           </Link>
@@ -195,27 +169,71 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   </div>
                 </div>
               ))}
-              
-              {/* Book Now Button */}
+            </nav>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              <Link
+                href={`/${locale}/contact`}
+                className={`hidden min-h-11 items-center px-3 text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 2xl:inline-flex ${
+                  isTransparent ? 'text-white/75 hover:text-white' : 'text-forest-800/75 hover:text-forest-950'
+                }`}
+              >
+                {t('contact')}
+              </Link>
+              <div className="relative" ref={langRef}>
+                <button
+                  type="button"
+                  aria-label="Change language"
+                  aria-expanded={langOpen}
+                  aria-haspopup="menu"
+                  onClick={() => setLangOpen(!langOpen)}
+                  className={`flex min-h-11 items-center gap-2 px-3 text-[0.7rem] font-semibold uppercase tracking-[0.16em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+                    isTransparent ? 'text-white/75 hover:text-white' : 'text-forest-800/75 hover:text-forest-950'
+                  }`}
+                >
+                  <img src={flagImages[locale]} alt="" width={20} height={16} className="h-4 w-5 object-cover" />
+                  <span>{locale.toUpperCase()}</span>
+                  <ChevronDown size={12} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {langOpen && (
+                  <div className="absolute right-0 top-full z-50 mt-3 min-w-44 border border-forest-200 bg-cream-50 p-2 text-forest-950 shadow-2xl" role="menu">
+                    {locales.map((loc) => (
+                      <button
+                        type="button"
+                        key={loc}
+                        role="menuitem"
+                        aria-label={`Switch language to ${localeNames[loc]}`}
+                        onClick={() => { switchLocale(loc); setLangOpen(false); }}
+                        className={`flex w-full items-center gap-3 px-4 py-3 text-left text-[0.72rem] font-semibold uppercase tracking-[0.16em] transition-colors hover:bg-forest-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+                          loc === locale ? 'text-brass-700' : 'text-forest-800'
+                        }`}
+                      >
+                        <img src={flagImages[loc]} alt="" width={20} height={16} className="h-4 w-5 object-cover" />
+                        <span>{localeNames[loc]}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a
                 href="https://mediator.com.ge/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ml-4"
+                className="luxury-button min-h-11 px-5 py-0"
               >
-                <Button className="btn-telegraph px-6 py-2 text-sm uppercase tracking-wider">
-                  <span>{t('bookNow')}</span>
-                </Button>
+                <span>{t('bookNow')}</span>
               </a>
-            </nav>
-          </div>
+            </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center justify-between py-3">
-            <div></div>
             <button
+              type="button"
+              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-forest-900"
+              className={`inline-flex h-12 w-12 items-center justify-center border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 xl:hidden ${
+                isTransparent ? 'border-white/25 text-white' : 'border-forest-200 text-forest-950'
+              }`}
             >
               {isMobileMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
             </button>
@@ -223,19 +241,23 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
         </div>
       </header>
 
-      {/* Mobile Menu */}
       <div>
         {isMobileMenuOpen && (
-          <div className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-gray-100 lg:hidden overflow-hidden"
-            style={{ marginTop: '80px' }}
+          <div
+            className="fixed inset-0 z-40 overflow-y-auto bg-charcoal-950 px-6 pb-10 pt-28 text-white xl:hidden"
+            id="mobile-navigation"
           >
-            <div className="px-6 py-4">
+            <div className="luxury-container">
+              <div className="mb-8 border-b border-white/12 pb-6">
+                <p className="font-serif text-4xl">{hotelName}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.24em] text-white/50">{hotel.address.locality}, {hotel.address.countryName}</p>
+              </div>
               {navLinks.map((link) => (
-                <div key={link.href}>
+                <div key={link.href} className="border-b border-white/10">
                   <Link
                     href={`/${locale}${link.href}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block py-3 text-base text-forest-900 border-b border-gray-100 hover:opacity-70 transition-opacity uppercase tracking-wider font-medium"
+                    className="block py-4 font-serif text-3xl text-white transition-colors hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
                   >
                     {link.label}
                   </Link>
@@ -244,60 +266,63 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                       key={child.href}
                       href={`/${locale}${child.href}`}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block py-2 pl-4 text-sm text-forest-900/70 border-b border-gray-100 hover:text-forest-900 transition-colors uppercase tracking-wider"
+                      className="ml-1 block pb-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/55 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
                     >
                       {child.label}
                     </Link>
                   ))}
                 </div>
               ))}
-              <a
-                href="https://mediator.com.ge/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-4 text-center"
-              >
-                <Button className="btn-telegraph px-8 py-3 text-sm uppercase tracking-wider">
-                  {t('bookNow')}
-                </Button>
-              </a>
-            </div>
 
-            {/* Mobile Language Switcher */}
-            <div className="px-6 pb-6 border-t border-gray-100 pt-4">
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                <a
+                  href="https://mediator.com.ge/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="luxury-button"
+                >
+                  <span>{t('bookNow')}</span>
+                </a>
+                <Link
+                  href={`/${locale}/contact`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="luxury-button-outline luxury-button-outline-light border-white/30 text-white"
+                >
+                  <span>{t('contact')}</span>
+                </Link>
+              </div>
+
+            <div className="mt-8 border-t border-white/12 pt-6">
               <button
+                type="button"
+                aria-label="Change language"
+                aria-expanded={mobileLangOpen}
+                aria-haspopup="menu"
                 onClick={() => setMobileLangOpen(!mobileLangOpen)}
-                className="flex items-center gap-3 text-sm text-forest-900/70 uppercase tracking-wider w-full justify-center"
+                className="flex min-h-11 w-full items-center justify-between gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-white/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
               >
-                <img 
-                  src={flagImages[locale]} 
-                  alt={`${locale} flag`} 
-                  className="w-5 h-4 object-cover"
-                />
-                <span>{locale.toUpperCase()}</span>
+                <span>{localeNames[locale]}</span>
                 <ChevronDown size={16} className={`transition-transform ${mobileLangOpen ? 'rotate-180' : ''}`} />
               </button>
               <div>
                 {mobileLangOpen && (
-                  <div className="overflow-hidden mt-3"
-                  >
-                    <div className="flex flex-wrap gap-3 justify-center">
+                  <div className="mt-4" role="menu">
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                       {locales.map((loc) => (
                         <button
+                          type="button"
                           key={loc}
+                          role="menuitem"
+                          aria-label={`Switch language to ${localeNames[loc]}`}
                           onClick={() => {
                             switchLocale(loc);
                             setIsMobileMenuOpen(false);
                           }}
-                          className={`px-4 py-2 transition-opacity flex items-center gap-2 text-sm uppercase tracking-wider ${
-                            loc === locale ? 'opacity-100' : 'opacity-50 hover:opacity-100'
+                          className={`flex items-center gap-3 border border-white/10 px-4 py-3 text-left text-xs uppercase tracking-[0.16em] transition-colors hover:border-brass-400 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
+                            loc === locale ? 'text-brass-300' : 'text-white/60'
                           }`}
                         >
-                          <img 
-                            src={flagImages[loc]} 
-                            alt={`${loc} flag`} 
-                            className="w-5 h-4 object-cover"
-                          />
+                          <img src={flagImages[loc]} alt="" width={20} height={16} className="h-4 w-5 object-cover" />
                           <span>{loc.toUpperCase()}</span>
                         </button>
                       ))}
@@ -305,6 +330,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
                   </div>
                 )}
               </div>
+            </div>
             </div>
           </div>
         )}

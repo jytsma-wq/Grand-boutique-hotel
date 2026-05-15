@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'name_fr',
-      title: 'Room Name (French)',
-      type: 'string',
-    },
-    {
-      name: 'name_de',
-      title: 'Room Name (German)',
-      type: 'string',
-    },
-    {
-      name: 'name_it',
-      title: 'Room Name (Italian)',
-      type: 'string',
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -55,21 +40,6 @@ export default {
       type: 'text',
     },
     {
-      name: 'shortDescription_fr',
-      title: 'Short Description (French)',
-      type: 'text',
-    },
-    {
-      name: 'shortDescription_de',
-      title: 'Short Description (German)',
-      type: 'text',
-    },
-    {
-      name: 'shortDescription_it',
-      title: 'Short Description (Italian)',
-      type: 'text',
-    },
-    {
       name: 'fullDescription',
       title: 'Full Description (English)',
       type: 'array',
@@ -84,24 +54,6 @@ export default {
     {
       name: 'fullDescription_ru',
       title: 'Full Description (Russian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'fullDescription_fr',
-      title: 'Full Description (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'fullDescription_de',
-      title: 'Full Description (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'fullDescription_it',
-      title: 'Full Description (Italian)',
       type: 'array',
       of: [{ type: 'block' }],
     },

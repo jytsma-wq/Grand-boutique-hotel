@@ -3,55 +3,17 @@ import { Resend } from 'resend';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { defaultLocale, isValidLocale } from '@/i18n/config';
+import { hotel } from '@/lib/site';
+import { createInMemoryRateLimiter } from '@/lib/rate-limit';
+import { getClientIp, isRequestBodyTooLarge } from '@/lib/request';
 
-const contactRateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const CONTACT_RATE_LIMIT = 30;
 const CONTACT_WINDOW_MS = 60000;
-const CONTACT_RATE_LIMIT_MAX_KEYS = 10000;
 const CONTACT_MAX_BODY_BYTES = 16 * 1024;
-
-function getClientIp(request: NextRequest): string {
-  return request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ||
-    request.headers.get('x-real-ip')?.trim() ||
-    'unknown';
-}
-
-function isRequestBodyTooLarge(request: NextRequest, maxBytes: number): boolean {
-  const contentLength = request.headers.get('content-length');
-  if (!contentLength) return false;
-
-  const parsedContentLength = Number(contentLength);
-  return Number.isFinite(parsedContentLength) && parsedContentLength > maxBytes;
-}
-
-function pruneContactRateLimitMap(now: number): void {
-  if (contactRateLimitMap.size < CONTACT_RATE_LIMIT_MAX_KEYS) return;
-
-  for (const [key, record] of contactRateLimitMap) {
-    if (now > record.resetTime) {
-      contactRateLimitMap.delete(key);
-    }
-  }
-}
-
-function checkContactRateLimit(ip: string): boolean {
-  const now = Date.now();
-  // TODO: Replace this best-effort in-memory limiter with Redis, Vercel KV, or Upstash before multi-instance production deployment.
-  pruneContactRateLimitMap(now);
-  const record = contactRateLimitMap.get(ip);
-
-  if (!record || now > record.resetTime) {
-    contactRateLimitMap.set(ip, { count: 1, resetTime: now + CONTACT_WINDOW_MS });
-    return true;
-  }
-
-  if (record.count >= CONTACT_RATE_LIMIT) {
-    return false;
-  }
-
-  record.count++;
-  return true;
-}
+const checkContactRateLimit = createInMemoryRateLimiter({
+  limit: CONTACT_RATE_LIMIT,
+  windowMs: CONTACT_WINDOW_MS,
+});
 
 interface ContactSuccessResponse {
   success: boolean;
@@ -112,7 +74,7 @@ async function sendContactEmails(data: ContactForm): Promise<void> {
   }
 
   const resend = new Resend(resendApiKey);
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'Batumi Boutique Hotel <noreply@batumiboutique.com>';
+  const fromEmail = process.env.RESEND_FROM_EMAIL || `${hotel.name} <noreply@batumiboutique.com>`;
   const safeName = escapeHtml(data.name);
   const safeEmail = escapeHtml(data.email);
   const safePhone = escapeHtml(data.phone || 'Not provided');
@@ -141,7 +103,7 @@ async function sendContactEmails(data: ContactForm): Promise<void> {
     html: `
       <h2>Thank you for your message, ${safeName}!</h2>
       <p>We have received your inquiry and will get back to you shortly.</p>
-      <p>Best regards,<br/>Batumi Boutique Hotel Team</p>
+      <p>Best regards,<br/>${hotel.name} Team</p>
     `,
   });
 }
@@ -155,11 +117,15 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
   }
 
   const ip = getClientIp(request);
+  const rateLimit = checkContactRateLimit(ip);
   
-  if (!checkContactRateLimit(ip)) {
+  if (!rateLimit.allowed) {
     return NextResponse.json<ContactErrorResponse>(
       { error: 'Too many requests. Please try again later.' },
-      { status: 429 }
+      {
+        status: 429,
+        headers: { 'Retry-After': String(Math.ceil(rateLimit.retryAfterMs / 1000)) },
+      }
     );
   }
 

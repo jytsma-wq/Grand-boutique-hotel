@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'title_fr',
-      title: 'Title (French)',
-      type: 'string',
-    },
-    {
-      name: 'title_de',
-      title: 'Title (German)',
-      type: 'string',
-    },
-    {
-      name: 'title_it',
-      title: 'Title (Italian)',
-      type: 'string',
-    },
-    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -54,24 +39,6 @@ export default {
     {
       name: 'description_ru',
       title: 'Description (Russian)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_fr',
-      title: 'Description (French)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_de',
-      title: 'Description (German)',
-      type: 'array',
-      of: [{ type: 'block' }],
-    },
-    {
-      name: 'description_it',
-      title: 'Description (Italian)',
       type: 'array',
       of: [{ type: 'block' }],
     },

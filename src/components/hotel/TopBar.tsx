@@ -51,6 +51,9 @@ export default function TopBar({ locale }: TopBarProps) {
           {locales.map((loc) => (
             <button
               key={loc}
+              type="button"
+              aria-label={`Switch language to ${localeNames[loc]}`}
+              aria-pressed={loc === locale}
               onClick={() => switchLocale(loc)}
               className={`flex items-center gap-1.5 px-2 py-1 rounded transition-all duration-200 ${
                 loc === locale 
@@ -60,7 +63,9 @@ export default function TopBar({ locale }: TopBarProps) {
             >
               <img 
                 src={localeFlags[loc]} 
-                alt={localeNames[loc]} 
+                alt="" 
+                width={16}
+                height={12}
                 className="w-4 h-3 object-cover rounded-sm"
               />
               <span className="text-[10px] uppercase tracking-wider">{loc}</span>

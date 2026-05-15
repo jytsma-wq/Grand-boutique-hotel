@@ -1,7 +1,5 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ChevronLeft, Utensils, Wine, Coffee } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -58,10 +56,13 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80"
             alt="Restaurant Menu"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -202,7 +203,7 @@ export default function RestaurantMenuPage({ locale }: RestaurantMenuPageProps) 
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+                <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                   Make Reservation
                 </Button>
               </Link>

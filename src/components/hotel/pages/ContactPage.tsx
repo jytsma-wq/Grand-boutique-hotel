@@ -1,45 +1,38 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  Send,
+import {
+  CheckCircle,
+  Clock,
+  Mail,
+  MapPin,
   MessageSquare,
-  CheckCircle
+  Phone,
+  Send,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { type Locale } from '@/i18n/config';
+import { hotel } from '@/lib/site';
 
 interface ContactPageProps {
   locale: Locale;
 }
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
 
 export default function ContactPage({ locale }: ContactPageProps) {
   const t = useTranslations();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     setIsSubmitted(true);
     setIsSubmitting(false);
   };
@@ -53,145 +46,174 @@ export default function ContactPage({ locale }: ContactPageProps) {
   ];
 
   return (
-    <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80"
-            alt="Contact Us"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 hero-gradient" />
-        </div>
-        
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <div>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Get in Touch</span>
-            <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('contact.title')}</h1>
-            <div className="brass-line" />
-            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('contact.subtitle')}</p>
+    <main className="luxury-page min-h-screen pt-20">
+      <section className="relative min-h-[62dvh] overflow-hidden text-cream-50">
+        <Image
+          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80"
+          alt={t('contact.title')}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/85 via-charcoal-950/45 to-charcoal-950/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal-950/75 to-transparent" />
+
+        <div className="luxury-container relative z-10 flex min-h-[62dvh] items-end pb-14 md:pb-20">
+          <div className="max-w-4xl">
+            <p className="luxury-kicker text-brass-300">Get in touch</p>
+            <h1 className="luxury-display mt-6 text-cream-50">{t('contact.title')}</h1>
+            <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
+              {t('contact.subtitle')}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Contact Content */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
-            <div>
-              <h2 className="text-3xl font-light text-forest-900 mb-8">{t('contact.sendMessage')}</h2>
-              
-              {isSubmitted ? (
-                <div className="bg-forest-50 rounded-2xl p-8 text-center">
-                  <CheckCircle className="w-16 h-16 text-forest-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-forest-900 mb-2">{t('contact.messageSent')}</h3>
-                  <p className="text-forest-600">{t('contact.form.success')}</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-forest-700 mb-2">
-                        {t('contact.form.name')}
-                      </label>
-                      <Input required className="border-forest-200 focus:border-brass-400" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-forest-700 mb-2">
-                        {t('contact.form.email')}
-                      </label>
-                      <Input type="email" required className="border-forest-200 focus:border-brass-400" />
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-forest-700 mb-2">
-                        {t('contact.form.phone')}
-                      </label>
-                      <Input type="tel" className="border-forest-200 focus:border-brass-400" />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-forest-700 mb-2">
-                        {t('contact.form.subject')}
-                      </label>
-                      <Input required className="border-forest-200 focus:border-brass-400" />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-forest-700 mb-2">
-                      {t('contact.form.message')}
-                    </label>
-                    <Textarea required rows={5} className="border-forest-200 focus:border-brass-400" />
-                  </div>
-                  
-                  <Button type="submit" disabled={isSubmitting} className="btn-telegraph px-8 py-6">
-                    <span>{isSubmitting ? 'Sending...' : t('contact.form.submit')}</span>
-                    <Send className="ml-2 w-4 h-4" />
-                  </Button>
-                </form>
-              )}
-            </div>
+      <section className="luxury-section">
+        <div className="luxury-container grid gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="luxury-card p-6 md:p-10">
+            <p className="luxury-kicker">{t('contact.sendMessage')}</p>
+            <h2 className="luxury-title mt-5 text-4xl md:text-5xl">{t('contact.sendMessage')}</h2>
 
-            {/* Contact Info */}
-            <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <h2 className="text-3xl font-light text-forest-900 mb-8">{t('contact.departments.title')}</h2>
-              
-              <div className="space-y-6 mb-12">
-                {departments.map((dept, index) => (
-                  <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-forest-50 hover:bg-forest-100 transition-colors">
-                    <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center">
-                      <dept.icon className="w-5 h-5 text-cream-50" />
-                    </div>
-                    <div>
-                      <div className="font-medium text-forest-900">{dept.name}</div>
-                      <a href={`tel:${dept.phone}`} className="text-brass-600 hover:text-brass-700">
-                        {dept.phone}
-                      </a>
-                    </div>
-                  </div>
-                ))}
+            {isSubmitted ? (
+              <div className="mt-10 border border-brass-400/30 bg-cream-100 p-8 text-center" role="status" aria-live="polite">
+                <CheckCircle aria-hidden="true" className="mx-auto h-14 w-14 text-brass-700" />
+                <h3 className="luxury-title mt-5 text-3xl text-forest-900">{t('contact.messageSent')}</h3>
+                <p className="mt-3 text-sm font-light leading-6 text-forest-700">{t('contact.form.success')}</p>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="mt-10 space-y-6">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <ContactField label={t('contact.form.name')} htmlFor="contact-name">
+                    <Input id="contact-name" name="name" autoComplete="name" required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                  </ContactField>
+                  <ContactField label={t('contact.form.email')} htmlFor="contact-email">
+                    <Input id="contact-email" name="email" type="email" autoComplete="email" spellCheck={false} required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                  </ContactField>
+                </div>
 
-              {/* Address */}
-              <div className="bg-forest-900 text-cream-50 rounded-2xl p-8">
-                <h3 className="text-xl font-semibold mb-6 text-brass-400">{t('contact.address.title')}</h3>
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="text-brass-400 mt-1" size={20} />
-                    <div>
-                      <div>{t('contact.address.street')}</div>
-                      <div>{t('contact.address.city')}</div>
-                      <div>{t('contact.address.postal')}</div>
+                <div className="grid gap-6 md:grid-cols-2">
+                  <ContactField label={t('contact.form.phone')} htmlFor="contact-phone">
+                    <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                  </ContactField>
+                  <ContactField label={t('contact.form.subject')} htmlFor="contact-subject">
+                    <Input id="contact-subject" name="subject" autoComplete="off" required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                  </ContactField>
+                </div>
+
+                <ContactField label={t('contact.form.message')} htmlFor="contact-message">
+                  <Textarea id="contact-message" name="message" autoComplete="off" required rows={6} className="rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                </ContactField>
+
+                <div aria-live="polite" className="sr-only">
+                  {isSubmitting ? t('common.loading') : ''}
+                </div>
+                <button type="submit" disabled={isSubmitting} className="luxury-button disabled:opacity-60">
+                  <span>{isSubmitting ? t('common.loading') : t('contact.form.submit')}</span>
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </form>
+            )}
+          </div>
+
+          <div className="grid gap-6">
+            <section className="luxury-card p-6 md:p-8" aria-labelledby="direct-contacts-heading">
+              <p className="luxury-kicker">{t('contact.departments.title')}</p>
+              <h2 id="direct-contacts-heading" className="luxury-title mt-5 text-4xl md:text-5xl">
+                {t('contact.departments.title')}
+              </h2>
+
+              <div className="mt-8 grid gap-3">
+                {departments.map((department) => {
+                  const Icon = department.icon;
+
+                  return (
+                    <div key={department.name} className="flex items-center gap-4 border border-brass-400/20 bg-cream-50 p-4">
+                      <span className="flex h-12 w-12 items-center justify-center bg-charcoal-950 text-brass-300">
+                        <Icon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-forest-900">{department.name}</p>
+                        <a href={`tel:${department.phone.replaceAll(' ', '')}`} className="mt-1 inline-flex text-sm text-forest-600 transition-colors hover:text-brass-700">
+                          {department.phone}
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Clock className="text-brass-400" size={20} />
-                    <div>24/7 Front Desk</div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Mail className="text-brass-400" size={20} />
-                    <a href="mailto:info@batumiboutique.com" className="hover:text-brass-400">
-                      info@batumiboutique.com
+                  );
+                })}
+              </div>
+            </section>
+
+            <address className="not-italic">
+              <section className="bg-charcoal-950 p-6 text-cream-50 md:p-8 luxury-grain" aria-labelledby="contact-address-heading">
+                <p className="luxury-kicker text-brass-300">{hotel.address.locality}</p>
+                <h2 id="contact-address-heading" className="luxury-title mt-5 text-4xl md:text-5xl">
+                  {t('contact.address.title')}
+                </h2>
+                <div className="mt-8 grid gap-5 text-sm font-light leading-7 text-white/70">
+                  <p className="flex items-start gap-4">
+                    <MapPin className="mt-1 h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
+                    <span>{hotel.address.formatted}</span>
+                  </p>
+                  <p className="flex items-center gap-4">
+                    <Clock className="h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
+                    <span>24/7 Front Desk</span>
+                  </p>
+                  <p className="flex items-center gap-4">
+                    <Mail className="h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
+                    <a href={`mailto:${hotel.email}`} className="transition-colors hover:text-brass-300">
+                      {hotel.email}
                     </a>
-                  </div>
+                  </p>
+                  <p className="flex items-center gap-4">
+                    <Phone className="h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
+                    <a href={`tel:${hotel.phone.href}`} className="transition-colors hover:text-brass-300">
+                      {hotel.phone.display}
+                    </a>
+                  </p>
                 </div>
-              </div>
-            </div>
+                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                  <Link href={`/${locale}/booking`} className="luxury-button border-brass-400 bg-brass-400 text-charcoal-950">
+                    <span>{t('booking.title')}</span>
+                  </Link>
+                  <a href={`mailto:${hotel.email}`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
+                    <span>{t('contact.form.email')}</span>
+                  </a>
+                </div>
+              </section>
+            </address>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="h-96 bg-forest-100 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="w-16 h-16 text-forest-400 mx-auto mb-4" />
-            <p className="text-forest-600">{t('contact.interactiveMap')}</p>
-            <p className="text-sm text-forest-400">{t('contact.batumiGeorgia')}</p>
+      <section className="bg-cream-100 py-16">
+        <div className="luxury-container">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+            <div>
+              <p className="luxury-kicker">{t('location.title')}</p>
+              <h2 className="luxury-title mt-5 text-4xl md:text-6xl">{t('contact.batumiGeorgia')}</h2>
+              <p className="mt-6 text-sm font-light leading-7 text-forest-700">
+                {hotel.address.formatted}
+              </p>
+            </div>
+            <div className="relative min-h-80 overflow-hidden border border-brass-400/30 bg-charcoal-950 text-cream-50">
+              <Image
+                src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80"
+                alt="Batumi city near the hotel"
+                fill
+                sizes="(min-width: 1024px) 60vw, 100vw"
+                className="object-cover opacity-70"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/85 via-charcoal-950/30 to-transparent" />
+              <div className="absolute inset-0 flex items-center p-8">
+                <div>
+                  <MapPin className="h-10 w-10 text-brass-300" aria-hidden="true" />
+                  <p className="mt-5 text-sm uppercase tracking-[0.22em] text-white/65">{t('contact.interactiveMap')}</p>
+                  <p className="mt-3 max-w-md font-light leading-7 text-white/75">{hotel.address.formatted}</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -199,9 +221,21 @@ export default function ContactPage({ locale }: ContactPageProps) {
   );
 }
 
-
-
-
-
-
-
+function ContactField({
+  children,
+  htmlFor,
+  label,
+}: {
+  children: React.ReactNode;
+  htmlFor: string;
+  label: string;
+}) {
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="mb-2 block text-xs font-bold uppercase tracking-[0.2em] text-forest-600">
+        {label}
+      </label>
+      {children}
+    </div>
+  );
+}

@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { 
   MapPin, 
   Plane, 
@@ -103,10 +101,13 @@ export default function LocationPage({ locale }: LocationPageProps) {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1920&q=80"
             alt="Location"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -173,7 +174,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  <Button className="btn-telegraph">
+                  <Button className="btn-boutique">
                     <Navigation className="mr-2 w-4 h-4" />
                     {t('location.directions')}
                   </Button>
@@ -272,7 +273,7 @@ export default function LocationPage({ locale }: LocationPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-telegraph px-12 py-6 text-lg">
+                <Button className="btn-boutique px-12 py-6 text-lg">
                   Arrange Transfer
                 </Button>
               </Link>

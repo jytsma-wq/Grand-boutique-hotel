@@ -14,6 +14,12 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={dir}>
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body>{children}</body>
     </html>
   );

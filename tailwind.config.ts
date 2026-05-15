@@ -2,7 +2,6 @@ import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
 const config: Config = {
-  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -18,7 +17,7 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // Telegraph Palette - OKLCH values matching CSS variables
+        // Boutique palette - OKLCH values matching CSS variables
         charcoal: {
           50: '#fdfcf8',
           100: '#faf9f3',

@@ -1,22 +1,33 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { type Locale } from '@/i18n/config';
 
 interface GalleryPageProps {
   locale: Locale;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
+const images = [
+  { id: 1, src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80', category: 'hotel', alt: 'Hotel exterior at dusk' },
+  { id: 2, src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80', category: 'rooms', alt: 'Deluxe room with warm daylight' },
+  { id: 3, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80', category: 'dining', alt: 'Restaurant dining room' },
+  { id: 4, src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1000&q=80', category: 'spa', alt: 'Wellness treatment room' },
+  { id: 5, src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1000&q=80', category: 'events', alt: 'Elegant event space' },
+  { id: 6, src: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1000&q=80', category: 'batumi', alt: 'Batumi boulevard view' },
+  { id: 7, src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&q=80', category: 'rooms', alt: 'Suite sitting area' },
+  { id: 8, src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1000&q=80', category: 'dining', alt: 'Lounge bar counter' },
+  { id: 9, src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80', category: 'hotel', alt: 'Pool terrace atmosphere' },
+  { id: 10, src: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1000&q=80', category: 'batumi', alt: 'Old Batumi street detail' },
+  { id: 11, src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80', category: 'rooms', alt: 'Guest room with sea view' },
+  { id: 12, src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80', category: 'dining', alt: 'Georgian cuisine table' },
+  { id: 13, src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&q=80', category: 'hotel', alt: 'Hotel lobby seating' },
+  { id: 14, src: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=1000&q=80', category: 'rooms', alt: 'Junior suite bed' },
+  { id: 15, src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1000&q=80', category: 'events', alt: 'Conference room set for guests' },
+];
 
 export default function GalleryPage({ locale }: GalleryPageProps) {
   const t = useTranslations();
@@ -34,27 +45,10 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
     { id: 'batumi', label: t('gallery.categories.batumi') },
   ];
 
-  const images = [
-    { id: 1, src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80', category: 'hotel', alt: 'Hotel Exterior' },
-    { id: 2, src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80', category: 'rooms', alt: 'Deluxe Room' },
-    { id: 3, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80', category: 'dining', alt: 'Restaurant' },
-    { id: 4, src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80', category: 'spa', alt: 'Spa Treatment' },
-    { id: 5, src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80', category: 'events', alt: 'Event Space' },
-    { id: 6, src: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=80', category: 'batumi', alt: 'Batumi Boulevard' },
-    { id: 7, src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80', category: 'rooms', alt: 'Suite' },
-    { id: 8, src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800&q=80', category: 'dining', alt: 'Bar' },
-    { id: 9, src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80', category: 'hotel', alt: 'Pool' },
-    { id: 10, src: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80', category: 'batumi', alt: 'Old Batumi' },
-    { id: 11, src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80', category: 'rooms', alt: 'Room View' },
-    { id: 12, src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80', category: 'dining', alt: 'Georgian Cuisine' },
-    { id: 13, src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80', category: 'hotel', alt: 'Hotel Lobby' },
-    { id: 14, src: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80', category: 'rooms', alt: 'Junior Suite' },
-    { id: 15, src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=80', category: 'events', alt: 'Conference Room' },
-  ];
-
-  const filteredImages = activeCategory === 'all' 
-    ? images 
-    : images.filter(img => img.category === activeCategory);
+  const filteredImages =
+    activeCategory === 'all'
+      ? images
+      : images.filter((image) => image.category === activeCategory);
 
   const openLightbox = (index: number) => {
     setCurrentImage(index);
@@ -63,137 +57,178 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
 
   const navigateLightbox = (direction: 'prev' | 'next') => {
     if (direction === 'prev') {
-      setCurrentImage(prev => (prev === 0 ? filteredImages.length - 1 : prev - 1));
-    } else {
-      setCurrentImage(prev => (prev === filteredImages.length - 1 ? 0 : prev + 1));
+      setCurrentImage((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
+      return;
     }
+
+    setCurrentImage((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    if (!lightboxOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setLightboxOpen(false);
+      if (event.key === 'ArrowLeft') {
+        setCurrentImage((prev) => (prev === 0 ? filteredImages.length - 1 : prev - 1));
+      }
+      if (event.key === 'ArrowRight') {
+        setCurrentImage((prev) => (prev === filteredImages.length - 1 ? 0 : prev + 1));
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen, filteredImages.length]);
+
   return (
-    <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
-            alt="Gallery"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 hero-gradient" />
-        </div>
-        
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
-          <div>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Visual Journey</span>
-            <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('gallery.title')}</h1>
-            <div className="brass-line" />
-            <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('gallery.subtitle')}</p>
+    <main className="luxury-page min-h-screen pt-20">
+      <section className="relative min-h-[62dvh] overflow-hidden text-cream-50">
+        <Image
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
+          alt={t('gallery.title')}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/85 via-charcoal-950/45 to-charcoal-950/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal-950/75 to-transparent" />
+        <div className="luxury-container relative z-10 flex min-h-[62dvh] items-end pb-14 md:pb-20">
+          <div className="max-w-4xl">
+            <p className="luxury-kicker text-brass-300">Visual journey</p>
+            <h1 className="luxury-display mt-6 text-cream-50">{t('gallery.title')}</h1>
+            <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
+              {t('gallery.subtitle')}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Category Filters */}
-      <section className="py-8 bg-white border-b border-forest-100 sticky top-20 z-30">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                variant={activeCategory === category.id ? 'default' : 'outline'}
-                className={`rounded-full px-6 ${
-                  activeCategory === category.id 
-                    ? 'btn-telegraph' 
-                    : 'border-forest-200 text-forest-700 hover:bg-forest-50'
-                }`}
+      <section className="sticky top-20 z-30 border-b border-brass-400/20 bg-cream-50/95 py-5 backdrop-blur-md">
+        <div className="luxury-container">
+          <div className="flex gap-3 overflow-x-auto pb-1 md:flex-wrap md:justify-center">
+            {categories.map((category) => {
+              const active = activeCategory === category.id;
+
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`min-h-11 shrink-0 border px-5 text-xs font-bold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 ${
+                    active
+                      ? 'border-charcoal-950 bg-charcoal-950 text-cream-50'
+                      : 'border-brass-400/35 bg-transparent text-forest-700 hover:border-brass-500 hover:text-charcoal-950'
+                  }`}
+                >
+                  {category.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="grid auto-rows-[220px] grid-cols-2 gap-3 md:auto-rows-[260px] md:grid-cols-4 lg:gap-5">
+            {filteredImages.map((image, index) => (
+              <button
+                type="button"
+                key={image.id}
+                aria-label={`Open ${image.alt} image`}
+                className={`luxury-image group relative overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 ${
+                  index % 7 === 0 ? 'col-span-2 row-span-2' : ''
+                } ${index % 5 === 2 ? 'row-span-2' : ''}`}
+                onClick={() => openLightbox(index)}
               >
-                {category.label}
-              </Button>
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-charcoal-950/0 to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
+                <div className="absolute inset-x-0 bottom-0 translate-y-2 p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <p className="text-sm font-light leading-6 text-cream-50">{image.alt}</p>
+                </div>
+              </button>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="py-16 bg-forest-50">
-        <div className="container mx-auto px-6">
-          <div 
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
-          >
-              {filteredImages.map((image, index) => (
-                <div
-                  key={image.id}
-                  className={`relative overflow-hidden rounded-xl cursor-pointer group ${
-                    index % 5 === 0 ? 'col-span-2 row-span-2' : ''
-                  }`}
-                  onClick={() => openLightbox(index)}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover aspect-square group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-forest-950/0 group-hover:bg-forest-950/30 transition-colors" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-forest-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <p className="text-cream-50 text-sm">{image.alt}</p>
-                  </div>
-                </div>
-              ))}
+      <section className="bg-charcoal-950 py-14 text-cream-50">
+        <div className="luxury-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p className="luxury-kicker text-brass-300">Stay with us</p>
+            <h2 className="luxury-title mt-4 text-4xl md:text-5xl">See the atmosphere in person.</h2>
           </div>
+          <Link href={`/${locale}/booking`} className="luxury-button border-brass-400 bg-brass-400 text-charcoal-950">
+            <span>{t('booking.title')}</span>
+          </Link>
         </div>
       </section>
 
-      {/* Lightbox */}
-      <div>
-        {lightboxOpen && (
-          <div className="fixed inset-0 z-50 bg-forest-950/95 flex items-center justify-center"
+      {lightboxOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-charcoal-950/96 p-4 text-cream-50 overscroll-contain"
+          onClick={() => setLightboxOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image gallery"
+        >
+          <button
+            type="button"
+            aria-label="Close gallery"
             onClick={() => setLightboxOpen(false)}
+            className="absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center border border-white/15 text-cream-50 transition-colors hover:border-brass-300 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 md:right-8 md:top-8"
           >
-            {/* Close Button */}
-            <button
-              onClick={() => setLightboxOpen(false)}
-              className="absolute top-6 right-6 text-cream-50 hover:text-brass-400 transition-colors"
-            >
-              <X size={32} />
-            </button>
+            <X className="h-6 w-6" />
+          </button>
 
-            {/* Navigation */}
-            <button
-              onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}
-              className="absolute left-6 text-cream-50 hover:text-brass-400 transition-colors"
-            >
-              <ChevronLeft size={48} />
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}
-              className="absolute right-6 text-cream-50 hover:text-brass-400 transition-colors"
-            >
-              <ChevronRight size={48} />
-            </button>
+          <button
+            type="button"
+            aria-label="Previous image"
+            onClick={(event) => {
+              event.stopPropagation();
+              navigateLightbox('prev');
+            }}
+            className="absolute left-4 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-white/15 text-cream-50 transition-colors hover:border-brass-300 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 md:left-8"
+          >
+            <ChevronLeft className="h-7 w-7" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={(event) => {
+              event.stopPropagation();
+              navigateLightbox('next');
+            }}
+            className="absolute right-4 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center border border-white/15 text-cream-50 transition-colors hover:border-brass-300 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 md:right-8"
+          >
+            <ChevronRight className="h-7 w-7" />
+          </button>
 
-            {/* Image */}
-            <img
-              key={currentImage} src={filteredImages[currentImage]?.src}
+          <div className="relative h-[82vh] w-[86vw]" onClick={(event) => event.stopPropagation()}>
+            <Image
+              key={filteredImages[currentImage]?.id}
+              src={filteredImages[currentImage]?.src}
               alt={filteredImages[currentImage]?.alt}
-              className="max-w-[90vw] max-h-[90vh] object-contain"
-              onClick={(e) => e.stopPropagation()}
+              fill
+              sizes="86vw"
+              className="object-contain"
             />
-
-            {/* Image Counter */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-cream-50 text-sm">
-              {currentImage + 1} / {filteredImages.length}
-            </div>
           </div>
-        )}
-      </div>
+
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.22em] text-white/55">
+            {currentImage + 1} / {filteredImages.length}
+          </div>
+        </div>
+      )}
     </main>
   );
 }
-
-
-
-
-
-
-
-

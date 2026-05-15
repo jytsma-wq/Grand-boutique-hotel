@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'hotelName_fr',
-      title: 'Hotel Name (French)',
-      type: 'string',
-    },
-    {
-      name: 'hotelName_de',
-      title: 'Hotel Name (German)',
-      type: 'string',
-    },
-    {
-      name: 'hotelName_it',
-      title: 'Hotel Name (Italian)',
-      type: 'string',
-    },
-    {
       name: 'tagline',
       title: 'Tagline (English)',
       type: 'string',
@@ -46,21 +31,6 @@ export default {
     {
       name: 'tagline_ru',
       title: 'Tagline (Russian)',
-      type: 'string',
-    },
-    {
-      name: 'tagline_fr',
-      title: 'Tagline (French)',
-      type: 'string',
-    },
-    {
-      name: 'tagline_de',
-      title: 'Tagline (German)',
-      type: 'string',
-    },
-    {
-      name: 'tagline_it',
-      title: 'Tagline (Italian)',
       type: 'string',
     },
     {

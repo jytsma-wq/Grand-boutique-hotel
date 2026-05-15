@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { X, Gift, Shield, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -63,15 +62,17 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
 
               {/* CTA Button */}
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph px-6 py-2 text-sm whitespace-nowrap">
+                <Button className="btn-boutique px-6 py-2 text-sm whitespace-nowrap">
                   {tNav('bookNow')}
                 </Button>
               </Link>
 
               {/* Dismiss Button */}
               <button
+                type="button"
+                aria-label="Dismiss booking banner"
                 onClick={handleDismiss}
-                className="p-1 text-forest-400 hover:text-cream-50 transition-colors"
+                className="p-1 text-forest-400 hover:text-cream-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
               >
                 <X size={18} />
               </button>

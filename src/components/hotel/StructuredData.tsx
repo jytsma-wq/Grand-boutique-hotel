@@ -1,42 +1,52 @@
+import { absoluteUrl, hotel, localizedUrl } from '@/lib/site';
+import { defaultLocale, isValidLocale } from '@/i18n/config';
+
 interface HotelSchemaProps {
   locale: string;
 }
 
-function getSiteUrl(): string {
-  return (process.env.NEXT_PUBLIC_SITE_URL || 'https://batumiboutique.com').replace(/\/$/, '');
+function jsonLd(data: Record<string, unknown>): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
+function getSchemaLocale(locale: string) {
+  return isValidLocale(locale) ? locale : defaultLocale;
 }
 
 export function HotelSchema({ locale }: HotelSchemaProps) {
-  const siteUrl = getSiteUrl();
+  const schemaLocale = getSchemaLocale(locale);
+  const pageUrl = localizedUrl(schemaLocale);
+  const siteUrl = absoluteUrl();
   
   const hotelData = {
     "@context": "https://schema.org",
     "@type": "Hotel",
-    "name": "Batumi Boutique Hotel",
-    "description": "Experience 2026 modern architecture at Batumi's premier boutique hotel. Refined luxury meets Georgian hospitality on the stunning Black Sea coast.",
+    "name": hotel.name,
+    "description": hotel.description,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rustaveli Avenue 123",
-      "addressLocality": "Batumi",
-      "addressRegion": "Adjara",
-      "postalCode": "6000",
-      "addressCountry": "GE"
+      "streetAddress": hotel.address.streetAddress,
+      "addressLocality": hotel.address.locality,
+      "addressRegion": hotel.address.region,
+      "postalCode": hotel.address.postalCode,
+      "addressCountry": hotel.address.countryCode
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 41.6507,
-      "longitude": 41.6356
+      "latitude": hotel.geo.latitude,
+      "longitude": hotel.geo.longitude
     },
     "starRating": {
       "@type": "Rating",
       "ratingValue": "5"
     },
-    "priceRange": "$120-$800",
-    "telephone": "+995 422 00 00 00",
-    "email": "info@batumiboutique.com",
+    "priceRange": hotel.priceRange,
+    "telephone": hotel.phone.display,
+    "email": hotel.email,
     "@id": `${siteUrl}/#hotel`,
-    "url": siteUrl,
+    "url": pageUrl,
     "image": `${siteUrl}/og-image.svg`,
+    "inLanguage": schemaLocale,
     "amenityFeature": [
       { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
       { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
@@ -57,31 +67,33 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelData) }}
+      dangerouslySetInnerHTML={{ __html: jsonLd(hotelData) }}
     />
   );
 }
 
-export function LocalBusinessSchema() {
-  const siteUrl = getSiteUrl();
+export function LocalBusinessSchema({ locale }: HotelSchemaProps) {
+  const schemaLocale = getSchemaLocale(locale);
+  const pageUrl = localizedUrl(schemaLocale);
+  const siteUrl = absoluteUrl();
   
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Batumi Boutique Hotel",
+    "name": hotel.name,
     "image": `${siteUrl}/og-image.svg`,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rustaveli Avenue 123",
-      "addressLocality": "Batumi",
-      "addressRegion": "Adjara",
-      "postalCode": "6000",
-      "addressCountry": "GE"
+      "streetAddress": hotel.address.streetAddress,
+      "addressLocality": hotel.address.locality,
+      "addressRegion": hotel.address.region,
+      "postalCode": hotel.address.postalCode,
+      "addressCountry": hotel.address.countryCode
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 41.6507,
-      "longitude": 41.6356
+      "latitude": hotel.geo.latitude,
+      "longitude": hotel.geo.longitude
     },
     "openingHoursSpecification": [
       {
@@ -91,18 +103,19 @@ export function LocalBusinessSchema() {
         "closes": "23:59"
       }
     ],
-    "telephone": "+995 422 00 00 00",
-    "email": "info@batumiboutique.com",
+    "telephone": hotel.phone.display,
+    "email": hotel.email,
     "@id": `${siteUrl}/#localbusiness`,
-    "url": siteUrl,
-    "priceRange": "$$"
+    "url": pageUrl,
+    "priceRange": "$$",
+    "inLanguage": schemaLocale
   };
 
   return (
     <script
       type="application/ld+json"
       suppressHydrationWarning
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
+      dangerouslySetInnerHTML={{ __html: jsonLd(localBusiness) }}
     />
   );
 }

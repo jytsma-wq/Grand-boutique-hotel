@@ -1,5 +1,6 @@
 import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
+import { type SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { unstable_cache } from 'next/cache';
 import { defaultLocale, isValidLocale, type Locale } from '@/i18n/config';
 
@@ -16,21 +17,25 @@ export const client = createClient({
 
 const builder = imageUrlBuilder(client);
 
-export function urlFor(source: any) {
+export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
 
-export function getImageUrl(source: any, width?: number): string {
+export function getImageUrl(source: unknown, width?: number): string {
   if (!source) return '/placeholder.jpg';
   
   // If it's a string (external URL), return as-is
   if (typeof source === 'string') return source;
+
+  if (typeof source !== 'object') return '/placeholder.jpg';
+
+  const imageSource = source as Record<string, unknown>;
   
   // If it's a Sanity image object, use urlFor
-  if (source._type === 'image' || source.asset) {
-    let builder = urlFor(source);
-    if (width) builder = builder.width(width);
-    return builder.url();
+  if (imageSource._type === 'image' || imageSource.asset) {
+    let imageBuilder = urlFor(source as SanityImageSource);
+    if (width) imageBuilder = imageBuilder.width(width);
+    return imageBuilder.url();
   }
   
   return '/placeholder.jpg';
@@ -140,7 +145,22 @@ export const getHomePage = unstable_cache(
         "heroTitleLocalized": ${localizedField('heroTitle', sanityLocale)},
         "heroSubtitleLocalized": ${localizedField('heroSubtitle', sanityLocale)},
         heroImage,
-        sections
+        welcomeSection {
+          "title": ${localizedField('title', sanityLocale)},
+          "description": ${localizedField('description', sanityLocale)}
+        },
+        "rooms": featuredRooms[]-> {
+          _id,
+          slug,
+          "name": ${localizedField('name', sanityLocale)},
+          "shortDescription": ${localizedField('shortDescription', sanityLocale)},
+          size,
+          maxGuests,
+          images,
+          priceUsd,
+          priceGel,
+          order
+        }
       }
     `, null);
   },

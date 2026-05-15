@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { MapPin, Clock, ArrowRight, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -112,10 +110,13 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1920&q=80"
             alt="Things To Do"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -215,7 +216,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/contact`}>
-                <Button className="btn-telegraph px-12 py-6 text-lg">
+                <Button className="btn-boutique px-12 py-6 text-lg">
                   <span>{t('experiences.contactConcierge')}</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>

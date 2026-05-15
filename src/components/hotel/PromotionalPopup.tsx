@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import { X, Gift, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 import { type Locale } from '@/i18n/config';
 
 interface PromotionalPopupProps {
@@ -13,6 +13,10 @@ interface PromotionalPopupProps {
 
 export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
   const [isVisible, setIsVisible] = useState(false);
+
+  const closePopup = () => {
+    setIsVisible(false);
+  };
 
   useEffect(() => {
     // Check if popup was already shown in this session
@@ -29,37 +33,53 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
     }
   }, []);
 
-  const closePopup = () => {
-    setIsVisible(false);
-  };
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsVisible(false);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isVisible]);
 
   return (
     <div>
       {isVisible && (
         <>
           {/* Backdrop */}
-          <div onClick={closePopup}
+          <div
+            aria-hidden="true"
+            onClick={closePopup}
             className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[60]"
           />
 
           {/* Popup */}
           <div className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="promotional-popup-title"
           >
             <div className="relative bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl">
               {/* Close Button */}
               <button
+                type="button"
+                aria-label="Close special offer"
                 onClick={closePopup}
-                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors"
+                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-900/40"
               >
                 <X className="w-5 h-5 text-emerald-900" />
               </button>
 
               {/* Image */}
               <div className="relative h-48 sm:h-56">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80"
                   alt="Special Offer"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(min-width: 640px) 512px, calc(100vw - 32px)"
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 to-transparent" />
                 
@@ -72,7 +92,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
 
               {/* Content */}
               <div className="p-6 sm:p-8">
-                <h3 className="text-2xl font-semibold text-emerald-900 mb-2">
+                <h3 id="promotional-popup-title" className="text-2xl font-semibold text-emerald-900 mb-2">
                   Book Direct & Save 20%
                 </h3>
                 <p className="text-emerald-600 mb-6">
@@ -83,7 +103,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link href={`/${locale}/booking`} onClick={closePopup} className="flex-1">
-                    <Button className="w-full btn-telegraph">
+                    <Button className="w-full btn-boutique">
                       <span>Book Now</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>

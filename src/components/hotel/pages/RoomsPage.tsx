@@ -1,118 +1,43 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { ArrowRight, Wifi, Coffee, Tv, Wind, Users, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
-import { Room } from '@/types/sanity';
+import { fallbackRooms, type HotelRoom } from '@/lib/rooms';
 
 interface RoomsPageProps {
   locale: Locale;
+  rooms?: HotelRoom[];
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
-
-export default function RoomsPage({ locale }: RoomsPageProps) {
+export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPageProps) {
   const t = useTranslations('rooms');
-  const [selectedRoom, setSelectedRoom] = useState<string | null>(null);
-
-  const rooms: Room[] = [
-    {
-      _id: 'standard',
-      name: 'Standard Room',
-      description: 'A cozy retreat with modern amenities and elegant design, perfect for solo travelers or couples.',
-      price: 120,
-      image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
-      slug: { current: 'standard-room' },
-      features: ['Queen Bed', 'City View', 'Work Desk', 'Rain Shower']
-    },
-    {
-      _id: 'superior',
-      name: 'Superior Room',
-      description: 'Spacious accommodations with enhanced amenities and partial sea views, offering comfort and style.',
-      price: 160,
-      image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80',
-      slug: { current: 'superior-room' },
-      features: ['King Bed', 'Partial Sea View', 'Private Balcony', 'Seating Area']
-    },
-    {
-      _id: 'deluxe',
-      name: 'Deluxe Room',
-      description: 'Generously appointed rooms with panoramic Black Sea views, premium furnishings, and exclusive amenities.',
-      price: 200,
-      image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
-      slug: { current: 'deluxe-room' },
-      features: ['King Bed', 'Full Sea View', 'Private Balcony', 'Bathtub', 'Seating Area']
-    },
-    {
-      _id: 'junior-suite',
-      name: 'Junior Suite',
-      description: 'An expansive suite with separate living area, offering stunning views and luxurious touches.',
-      price: 280,
-      image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
-      slug: { current: 'junior-suite' },
-      features: ['King Bed', 'Full Sea View', 'Living Area', 'Dining Space', 'Premium Amenities']
-    },
-    {
-      _id: 'executive-suite',
-      name: 'Executive Suite',
-      description: 'The epitome of luxury with spacious bedroom, separate living and dining areas, and exclusive butler service.',
-      price: 420,
-      image: 'https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80',
-      slug: { current: 'executive-suite' },
-      features: ['King Bed', 'Full Sea View', 'Private Terrace', 'Living Room', 'Dining Area', 'Butler Service']
-    },
-    {
-      _id: 'presidential-suite',
-      name: 'Presidential Suite',
-      description: 'Our crown jewel - a palatial residence with 360° views, private terrace, personal butler, and finest amenities.',
-      price: 800,
-      image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
-      slug: { current: 'presidential-suite' },
-      features: ['King Bed', '360° Views', 'Private Terrace', 'Living Room', 'Dining Area', 'Private Bar', 'Butler Service', 'Executive Lounge Access']
-    },
-  ];
-
-  const amenityIcons: Record<string, React.ReactNode> = {
-    wifi: <Wifi className="w-5 h-5" />,
-    ac: <Wind className="w-5 h-5" />,
-    tv: <Tv className="w-5 h-5" />,
-    coffee: <Coffee className="w-5 h-5" />,
-    guests: <Users className="w-5 h-5" />,
-    size: <Maximize2 className="w-5 h-5" />,
-  };
+  const rooms = providedRooms?.length ? providedRooms : fallbackRooms;
 
   return (
-    <main className="min-h-screen pt-20">
+    <main className="luxury-page min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-125 overflow-hidden">
+      <section className="relative flex min-h-[72dvh] items-center overflow-hidden px-6 pt-24">
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1920&q=80"
             alt="Rooms & Suites"
             fill
+            priority
+            sizes="100vw"
             className="object-cover"
           />
-          <div className="absolute inset-0 hero-gradient" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,13,11,0.75),rgba(16,13,11,0.36),rgba(16,13,11,0.16))]" />
         </div>
         
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <div>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">{t('accommodations')}</span>
-            <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">
+        <div className="luxury-container relative z-10 text-white">
+          <div className="max-w-4xl">
+            <span className="luxury-kicker text-brass-300">{t('accommodations')}</span>
+            <h1 className="luxury-display mt-6">
               {t('title')}
             </h1>
-            <div className="brass-line" />
-            <p className="text-xl text-white/80 max-w-2xl">
+            <p className="mt-8 max-w-2xl text-xl font-light leading-9 text-white/75">
               {t('description')}
             </p>
           </div>
@@ -120,56 +45,57 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* OTA Killer Banner */}
-      <section className="bg-forest-900 text-white py-4">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-sm">
-            <span className="text-brass-400 font-semibold">BEST PRICE GUARANTEE:</span>{' '}
-            Book direct and save up to 20% compared to OTAs. Plus enjoy exclusive benefits!
+      <section className="bg-charcoal-950 py-5 text-cream-50">
+        <div className="luxury-container">
+          <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+            <span className="text-brass-300">{t('bestPrice')}:</span>{' '}
+            {t('bookDirectDescription')}
           </p>
         </div>
       </section>
 
       {/* Rooms Grid */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
+      <section className="luxury-section">
+        <div className="luxury-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rooms.map((room, index) => (
+            {rooms.map((room) => (
               <div
-                key={room._id} className="group"
+                key={room.id} className="group"
               >
-                <div className="glass-card rounded-2xl overflow-hidden card-hover">
+                <div className="luxury-card flex h-full flex-col overflow-hidden">
                   {/* Image */}
-                  <div className="relative aspect-4/3 overflow-hidden">
+                  <div className="luxury-image relative aspect-[4/5] overflow-hidden">
                     <Image
-                      src={room.image}
+                      src={room.images[0]}
                       alt={room.name}
                       width={800}
                       height={600}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 image-overlay" />
+                    <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-charcoal-950/75 to-transparent" />
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-forest-900 mb-2">{room.name}</h3>
-                    <p className="text-forest-600 text-sm mb-4 line-clamp-2">{room.description}</p>
+                  <div className="flex flex-1 flex-col p-7">
+                    <h3 className="font-serif text-3xl text-forest-950 mb-3">{room.name}</h3>
+                    <p className="text-forest-800/70 text-sm leading-7 mb-5 line-clamp-3">{room.description}</p>
                     
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {room.features.slice(0, 3).map((feature, i) => (
-                        <span key={i} className="text-xs bg-forest-50 text-forest-700 px-2 py-1 rounded-full">
+                        <span key={i} className="border border-forest-200 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-forest-700">
                           {feature}
                         </span>
                       ))}
                     </div>
 
                     {/* Price */}
-                    <div className="border-t border-forest-100 pt-4 mt-4">
+                    <div className="border-t border-forest-200 pt-5 mt-auto">
                       <div className="flex justify-between items-center mb-3">
-                        <span className="text-sm font-medium text-forest-700">{t('priceLabel')}:</span>
+                        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-forest-600">{t('priceLabel')}</span>
                         <div>
-                          <span className="text-xl font-bold text-brass-600">${room.price}</span>
+                          <span className="font-serif text-3xl text-brass-700">${room.price}</span>
                           <span className="text-sm text-forest-500 ml-1">/ {t('night')}</span>
                         </div>
                       </div>
@@ -177,13 +103,13 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
 
                     {/* CTA */}
                     <div className="flex gap-3 mt-4">
-                      <Link href={`/${locale}/rooms/${room.slug.current}`} className="flex-1">
-                        <Button variant="outline" className="w-full border-forest-200 text-forest-700 hover:bg-forest-50">
+                      <Link href={`/${locale}/rooms/${room.slug}`} className="flex-1">
+                        <Button variant="outline" className="w-full rounded-none border-forest-900 text-forest-900 hover:bg-forest-900 hover:text-cream-50">
                           {t('viewDetails')}
                         </Button>
                       </Link>
-                      <Link href={`/${locale}/booking?room=${room.slug.current}`} className="flex-1">
-                        <Button className="w-full btn-telegraph py-2">
+                      <Link href={`/${locale}/booking?room=${room.slug}`} className="flex-1">
+                        <Button className="w-full rounded-none bg-forest-950 text-cream-50 hover:bg-brass-600 hover:text-charcoal-950">
                           <span>{t('bookNow')}</span>
                         </Button>
                       </Link>
@@ -197,12 +123,11 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* Amenities Overview */}
-      <section className="py-24 bg-forest-50">
-        <div className="container mx-auto px-6">
+      <section className="luxury-section bg-[#efe4d4]">
+        <div className="luxury-container">
           <div className="text-center mb-16">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">{t('inEveryRoom')}</span>
-            <h2 className="section-title mt-4">{t('roomAmenities')}</h2>
-            <div className="brass-line" />
+            <span className="luxury-kicker justify-center">{t('inEveryRoom')}</span>
+            <h2 className="luxury-title mt-5 text-5xl text-forest-950 md:text-7xl">{t('roomAmenities')}</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -216,9 +141,9 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
             ].map((amenity, i) => (
               <div
                 key={i}
-                className="text-center p-6 bg-white rounded-2xl"
+                className="border border-forest-200 bg-cream-50 p-6 text-center"
               >
-                <div className="w-14 h-14 mx-auto mb-4 rounded-full gradient-primary flex items-center justify-center text-white">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center bg-forest-950 text-cream-50">
                   {amenity.icon}
                 </div>
                 <span className="text-sm text-forest-700">{amenity.label}</span>
@@ -229,10 +154,10 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
       </section>
 
       {/* Book Direct Benefits */}
-      <section className="py-24 bg-forest-900 text-white">
-        <div className="container mx-auto px-6">
+      <section className="bg-charcoal-950 py-24 text-white">
+        <div className="luxury-container">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-light mb-6">
+            <h2 className="luxury-title text-5xl md:text-7xl mb-6">
               {t('bookDirectTitle')} <span className="text-brass-400">{t('saveMore')}</span>
             </h2>
             <p className="text-forest-200 text-lg mb-10">
@@ -256,7 +181,7 @@ export default function RoomsPage({ locale }: RoomsPageProps) {
             </div>
 
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-telegraph mt-10 px-12 py-6 text-lg">
+              <Button className="btn-boutique mt-10 px-12 py-6 text-lg">
                 <span>{t('bookYourStay')}</span>
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>

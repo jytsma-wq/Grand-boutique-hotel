@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 interface CurrencyDisplayProps {
   usdAmount: number;
@@ -44,8 +43,11 @@ export default function CurrencyDisplay({
         ${usdAmount.toLocaleString()}
       </span>
       <button
+        type="button"
+        aria-label={showGel ? 'Hide GEL price' : 'Show GEL price'}
+        aria-pressed={showGel}
         onClick={() => setShowGel(!showGel)}
-        className="text-xs text-forest-500 hover:text-brass-500 transition-colors underline decoration-dotted"
+        className="text-xs text-forest-500 hover:text-brass-500 transition-colors underline decoration-dotted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
       >
         {showGel ? `₾${gelAmount.toLocaleString()}` : '+ GEL'}
       </button>

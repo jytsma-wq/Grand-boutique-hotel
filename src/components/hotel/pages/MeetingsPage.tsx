@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Users, Wifi, Coffee, Utensils, Monitor, ArrowRight, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
@@ -94,10 +92,13 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80"
             alt="Meetings & Events"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -137,6 +138,8 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
                   <img
                     src={venue.image}
                     alt={venue.name}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 to-transparent" />
@@ -217,7 +220,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
                     </li>
                   ))}
                 </ul>
-                <Button className={index === 1 ? 'btn-telegraph w-full' : 'btn-telegraph w-full'}>
+                <Button className={index === 1 ? 'btn-boutique w-full' : 'btn-boutique w-full'}>
                   {t('meetings.inquire')}
                 </Button>
               </div>
@@ -238,7 +241,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/contact?department=events`}>
-                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+                <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                   {t('meetings.inquire')}
                 </Button>
               </Link>

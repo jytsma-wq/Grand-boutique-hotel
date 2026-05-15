@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { 
   Sparkles, 
   Droplets, 
@@ -79,10 +79,13 @@ export default function SpaPage({ locale }: SpaPageProps) {
       {/* Hero Section - Brutalist */}
       <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
             alt="Luxury Spa"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -162,7 +165,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                         <div className="text-xs text-forest-500">{pkg.priceGel}₾</div>
                       </div>
                       <Link href={`/${locale}/booking`}>
-                        <Button className="btn-telegraph-concrete rounded-none py-3 px-10">
+                        <Button className="btn-boutique-concrete rounded-none py-3 px-10">
                           Book Now
                         </Button>
                       </Link>
@@ -349,7 +352,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+                <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                   Make Reservation
                 </Button>
               </Link>

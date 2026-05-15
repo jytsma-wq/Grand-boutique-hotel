@@ -1,42 +1,34 @@
-'use client';
-
+import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { 
-  Waves, 
-  Dumbbell, 
-  Wind, 
-  Flame, 
-  Heart,
-  Clock,
+import {
   ArrowRight,
-  Sparkles
+  Clock,
+  Dumbbell,
+  Flame,
+  Heart,
+  Phone,
+  Sparkles,
+  Waves,
+  Wind,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
+import { hotel } from '@/lib/site';
 
 interface WellnessPageProps {
   locale: Locale;
 }
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
 
 export default function WellnessPage({ locale }: WellnessPageProps) {
   const t = useTranslations();
 
   const facilities = [
     { href: '/wellness/pool', icon: Waves, name: t('wellness.facilities.pool'), desc: 'Infinity pool with Black Sea views' },
-    { href: '/wellness/gym', icon: Dumbbell, name: t('wellness.facilities.gym'), desc: 'Technogym equipment, 24/7 access' },
-    { href: '/wellness/sauna', icon: Wind, name: t('wellness.facilities.sauna'), desc: 'Traditional Finnish dry sauna' },
-    { href: '/wellness/steam-room', icon: Flame, name: t('wellness.facilities.steam'), desc: 'Turkish hammam experience' },
-    { href: '/wellness/jacuzzi', icon: Waves, name: t('wellness.facilities.jacuzzi'), desc: 'Outdoor hot tub' },
-    { href: '/wellness/relaxation-lounge', icon: Heart, name: t('wellness.facilities.relaxation'), desc: 'Tranquil relaxation area' }
+    { href: '/wellness/gym', icon: Dumbbell, name: t('wellness.facilities.gym'), desc: 'Technogym equipment and daily movement' },
+    { href: '/wellness/sauna', icon: Wind, name: t('wellness.facilities.sauna'), desc: 'Dry heat, cedar warmth, quiet ritual' },
+    { href: '/wellness/steam-room', icon: Flame, name: t('wellness.facilities.steam'), desc: 'Hammam-inspired steam and eucalyptus' },
+    { href: '/wellness/jacuzzi', icon: Waves, name: t('wellness.facilities.jacuzzi'), desc: 'Open-air hydrotherapy on the roof' },
+    { href: '/wellness/relaxation-lounge', icon: Heart, name: t('wellness.facilities.relaxation'), desc: 'Stillness before and after treatments' },
   ];
 
   const treatments = [
@@ -45,49 +37,33 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       duration: 60,
       price: 85,
       priceGel: 234,
-      desc: 'Antioxidant-rich wine therapy for skin rejuvenation',
-      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&q=80'
+      desc: 'Antioxidant-rich wine therapy for skin renewal and deep rest.',
+      image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80',
     },
     {
       name: 'Black Sea Salt Scrub',
       duration: 45,
       price: 65,
       priceGel: 179,
-      desc: 'Exfoliating treatment with mineral-rich sea salt',
-      image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&q=80'
+      desc: 'A mineral exfoliation using sea salt and warm botanical oils.',
+      image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&q=80',
     },
     {
       name: 'Aromatherapy Massage',
       duration: 90,
       price: 120,
       priceGel: 330,
-      desc: 'Full body massage with essential oils',
-      image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=400&q=80'
+      desc: 'A full body massage with essential oils selected by your therapist.',
+      image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=700&q=80',
     },
     {
       name: 'Couples Retreat',
       duration: 120,
       price: 220,
       priceGel: 605,
-      desc: 'Side-by-side massage with champagne',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=80'
+      desc: 'Side-by-side massage, slow recovery time, and a private lounge moment.',
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=80',
     },
-    {
-      name: 'Hot Stone Therapy',
-      duration: 75,
-      price: 95,
-      priceGel: 261,
-      desc: 'Volcanic stone massage for deep relaxation',
-      image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&q=80'
-    },
-    {
-      name: 'Anti-Aging Facial',
-      duration: 60,
-      price: 90,
-      priceGel: 248,
-      desc: 'Premium skincare treatment with lifting effect',
-      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=80'
-    }
   ];
 
   const membershipTiers = [
@@ -95,189 +71,210 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       name: t('wellness.membership.tiers.basic.name'),
       price: 99,
       priceGel: 272,
-      benefits: ['Pool & gym access', '10% off treatments', 'Locker usage', 'Towel service']
+      benefits: ['Pool and gym access', '10% off treatments', 'Locker usage', 'Towel service'],
     },
     {
       name: t('wellness.membership.tiers.premium.name'),
       price: 199,
       priceGel: 547,
-      benefits: ['All Basic benefits', 'Sauna & steam access', '20% off treatments', '2 guest passes/month', 'Priority booking']
+      benefits: ['All Basic benefits', 'Sauna and steam access', '20% off treatments', '2 guest passes monthly', 'Priority booking'],
     },
     {
       name: t('wellness.membership.tiers.vip.name'),
       price: 349,
       priceGel: 960,
-      benefits: ['All Premium benefits', 'Unlimited treatments', 'Private cabana', 'Personal trainer session', 'Complimentary beverages']
-    }
+      benefits: ['All Premium benefits', 'Private cabana access', 'Personal trainer session', 'Complimentary beverages', 'Concierge scheduling'],
+    },
   ];
 
   return (
-    <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
-            alt="Wellness & Spa"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 hero-gradient" />
-        </div>
-        
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <div>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('wellness.rejuvenate')}</span>
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">{t('wellness.title')}</h1>
-            <p className="text-xl text-white/70 max-w-2xl mt-6 font-light">{t('wellness.subtitle')}</p>
-            <p className="text-white/60 mt-3 font-light">{t('wellness.description')}</p>
+    <main className="luxury-page min-h-screen pt-20">
+      <section className="relative min-h-[68dvh] overflow-hidden text-cream-50">
+        <Image
+          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
+          alt={t('wellness.title')}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/85 via-charcoal-950/45 to-charcoal-950/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal-950/80 to-transparent" />
+
+        <div className="luxury-container relative z-10 flex min-h-[68dvh] items-end pb-14 md:pb-20">
+          <div className="max-w-4xl">
+            <p className="luxury-kicker text-brass-300">{t('wellness.rejuvenate')}</p>
+            <h1 className="luxury-display mt-6 text-cream-50">{t('wellness.title')}</h1>
+            <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
+              {t('wellness.description')}
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link href={`/${locale}/booking`} className="luxury-button border-brass-400 bg-brass-400 text-charcoal-950">
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                <span>{t('wellness.treatments.bookNow')}</span>
+              </Link>
+              <a href={`tel:${hotel.phone.href}`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                <span>{hotel.phone.display}</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Facilities */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.worldClass')}</span>
-            <h2 className="section-title mt-4">{t('wellness.facilities.title')}</h2>
-            <p className="text-forest-600 mt-4 text-sm uppercase tracking-[0.15em]">{t('wellness.openSubpage')}</p>
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="mb-14 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="luxury-kicker">{t('wellness.worldClass')}</p>
+              <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('wellness.facilities.title')}</h2>
+            </div>
+            <p className="max-w-2xl text-sm font-light leading-7 text-forest-700">
+              A quiet wellness floor for movement, heat, water, and recovery, styled for guests who want calm rather than ceremony.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {facilities.map((facility, index) => (
-              <div
-                key={index} className="bg-white border-2 border-forest-900 text-center"
-              >
-                <Link href={`/${locale}${facility.href}`} className="block p-6 h-full hover:bg-forest-50 transition-colors">
-                  <div className="w-16 h-16 bg-forest-900 mx-auto mb-4 flex items-center justify-center">
-                    <facility.icon className="w-8 h-8 text-white" />
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {facilities.map((facility) => {
+              const Icon = facility.icon;
+
+              return (
+                <Link key={facility.href} href={`/${locale}${facility.href}`} className="luxury-card group flex min-h-48 flex-col justify-between p-7">
+                  <div className="flex items-start justify-between gap-5">
+                    <span className="inline-flex h-13 w-13 items-center justify-center border border-brass-400/45 text-brass-700">
+                      <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                    </span>
+                    <ArrowRight className="h-5 w-5 text-brass-600 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </div>
-                  <h3 className="font-bold text-forest-900 mb-2 uppercase tracking-wide text-sm">{facility.name}</h3>
-                  <p className="text-xs text-forest-600 font-light">{facility.desc}</p>
+                  <div className="mt-10">
+                    <h3 className="luxury-title text-3xl">{facility.name}</h3>
+                    <p className="mt-4 text-sm font-light leading-6 text-forest-700">{facility.desc}</p>
+                  </div>
                 </Link>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Spa Treatments - Brutalist Menu Format */}
-      <section className="py-24 bg-forest-50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.pamperYourself')}</span>
-            <h2 className="section-title mt-4">{t('wellness.treatments.title')}</h2>
+      <section className="luxury-section bg-cream-100">
+        <div className="luxury-container">
+          <div className="mb-14 text-center">
+            <p className="luxury-kicker justify-center">{t('wellness.pamperYourself')}</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('wellness.treatments.title')}</h2>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            {treatments.map((treatment, index) => (
-              <div
-                key={treatment.name} className="bg-white border-t-2 border-forest-900 first:border-t-0 py-8 px-8 hover:bg-forest-50 transition-colors"
-              >
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                  <div className="flex-1">
-                    <div className="flex items-baseline gap-4 mb-3">
-                      <h3 className="text-xl font-bold text-forest-900 uppercase tracking-wide">{treatment.name}</h3>
-                      <span className="text-sm text-forest-500 font-light flex items-center gap-1">
-                        <Clock size={14} />
+          <div className="grid gap-6 lg:grid-cols-2">
+            {treatments.map((treatment) => (
+              <article key={treatment.name} className="luxury-card grid overflow-hidden md:grid-cols-[0.8fr_1.2fr]">
+                <div className="luxury-image relative min-h-72">
+                  <Image
+                    src={treatment.image}
+                    alt={treatment.name}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col justify-between p-7">
+                  <div>
+                    <div className="mb-5 flex items-center justify-between gap-5 border-b border-brass-400/25 pb-5">
+                      <h3 className="luxury-title text-3xl">{treatment.name}</h3>
+                      <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-forest-500">
+                        <Clock className="h-4 w-4" aria-hidden="true" />
                         {treatment.duration} min
                       </span>
                     </div>
-                    <p className="text-sm text-forest-600 font-light mb-4">{treatment.desc}</p>
-                    <div className="flex items-center gap-6">
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-forest-900">${treatment.price}</div>
-                        <div className="text-xs text-forest-500">{treatment.priceGel}₾</div>
-                      </div>
-                      <Link href={`/${locale}/booking`}>
-                        <Button size="sm" className="btn-telegraph-concrete rounded-none py-3 px-8">
-                          {t('wellness.treatments.bookNow')}
-                        </Button>
-                      </Link>
+                    <p className="text-sm font-light leading-7 text-forest-700">{treatment.desc}</p>
+                  </div>
+                  <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-2xl text-forest-900">${treatment.price}</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-forest-500">{treatment.priceGel} GEL</p>
                     </div>
+                    <Link href={`/${locale}/booking`} className="luxury-button">
+                      <span>{t('wellness.treatments.bookNow')}</span>
+                    </Link>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Membership - Brutalist */}
-      <section className="py-24 bg-forest-900 text-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.exclusiveAccess')}</span>
-            <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">{t('wellness.membership.title')}</h2>
-            <p className="text-white/70 mt-6 font-light">{t('wellness.membership.subtitle')}</p>
+      <section className="luxury-section bg-charcoal-950 text-cream-50 luxury-grain">
+        <div className="luxury-container">
+          <div className="mb-14 text-center">
+            <p className="luxury-kicker justify-center text-brass-300">{t('wellness.exclusiveAccess')}</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('wellness.membership.title')}</h2>
+            <p className="mx-auto mt-6 max-w-2xl font-light leading-7 text-white/65">{t('wellness.membership.subtitle')}</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid gap-6 lg:grid-cols-3">
             {membershipTiers.map((tier, index) => (
-              <div
-                key={tier.name} className={`p-10 border-2 ${index === 2 ? 'bg-white text-forest-900 border-white' : 'bg-forest-800 border-white/20'}`}
+              <article
+                key={tier.name}
+                className={`border p-8 ${
+                  index === 1
+                    ? 'border-brass-400 bg-brass-400 text-charcoal-950'
+                    : 'border-white/12 bg-white/[0.04] text-cream-50'
+                }`}
               >
-                <h3 className="text-2xl font-bold mb-4 uppercase tracking-wide">{tier.name}</h3>
-                <div className="flex items-baseline gap-2 mb-8 pb-6 border-b ${index === 2 ? 'border-forest-200' : 'border-white/20'}">
-                  <span className="text-4xl font-bold">
-                    ${tier.price}
+                <p className={`text-xs uppercase tracking-[0.24em] ${index === 1 ? 'text-charcoal-950/65' : 'text-brass-300'}`}>
+                  Membership
+                </p>
+                <h3 className="luxury-title mt-4 text-4xl">{tier.name}</h3>
+                <div className={`mt-7 border-b pb-7 ${index === 1 ? 'border-charcoal-950/20' : 'border-white/10'}`}>
+                  <span className="text-5xl">${tier.price}</span>
+                  <span className={`ml-2 text-sm ${index === 1 ? 'text-charcoal-950/65' : 'text-white/55'}`}>
+                    / {t('wellness.membership.tiers.basic.price')}
                   </span>
-                  <span className={`text-sm font-light ${index === 2 ? 'text-forest-600' : 'text-white/60'}`}>
-                    /{t('wellness.membership.tiers.basic.price')}
-                  </span>
+                  <p className={`mt-1 text-xs uppercase tracking-[0.18em] ${index === 1 ? 'text-charcoal-950/55' : 'text-white/40'}`}>
+                    {tier.priceGel} GEL
+                  </p>
                 </div>
-                <ul className="space-y-4 mb-10">
-                  {tier.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <div className={`w-1 h-1 mt-2 ${index === 2 ? 'bg-forest-900' : 'bg-white'}`} />
-                      <span className={`text-sm font-light ${index === 2 ? 'text-forest-700' : 'text-white/80'}`}>{benefit}</span>
+                <ul className="mt-7 space-y-4">
+                  {tier.benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-3">
+                      <span className={`mt-2 h-1.5 w-1.5 shrink-0 ${index === 1 ? 'bg-charcoal-950' : 'bg-brass-300'}`} aria-hidden="true" />
+                      <span className={`text-sm font-light leading-6 ${index === 1 ? 'text-charcoal-950/75' : 'text-white/70'}`}>{benefit}</span>
                     </li>
                   ))}
                 </ul>
-                <Button 
-                  className={`w-full ${index === 2 ? 'btn-telegraph' : 'bg-white text-forest-900 hover:opacity-85 transition-opacity px-10 py-5 font-medium tracking-[0.25em] uppercase'}`}
+                <Link
+                  href={`/${locale}/contact`}
+                  className={`mt-9 w-full ${index === 1 ? 'luxury-button-outline text-charcoal-950' : 'luxury-button border-brass-400 bg-brass-400 text-charcoal-950'}`}
                 >
-                  {t('wellness.membership.joinNow')}
-                </Button>
-              </div>
+                  <span>{t('wellness.membership.joinNow')}</span>
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA - Brutalist */}
-      <section className="py-24 bg-forest-900 text-white border-t-4 border-forest-950">
-        <div className="container mx-auto px-6 text-center">
+      <section className="luxury-section">
+        <div className="luxury-container grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
-              Begin Your Wellness Journey
-            </h2>
-            <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-              Let our expert therapists guide you to relaxation and rejuvenation.
+            <p className="luxury-kicker">Wellness concierge</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Begin your wellness journey.</h2>
+            <p className="luxury-lede mt-7">
+              Our team can shape a simple treatment, a full day of recovery, or a membership plan around your rhythm.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
-                  {t('wellness.treatments.bookNow')}
-                </Button>
-              </Link>
-              <a href="tel:+995422000000">
-                <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Call Spa Directly
-                </Button>
-              </a>
-            </div>
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
+            <Link href={`/${locale}/booking`} className="luxury-button">
+              <Sparkles className="h-4 w-4" aria-hidden="true" />
+              <span>{t('wellness.treatments.bookNow')}</span>
+            </Link>
+            <a href={`tel:${hotel.phone.href}`} className="luxury-button-outline text-forest-900">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              <span>{hotel.phone.display}</span>
+            </a>
           </div>
         </div>
       </section>
     </main>
   );
 }
-
-
-
-
-
-
-
-

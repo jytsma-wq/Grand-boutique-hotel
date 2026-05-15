@@ -1,32 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import { 
-  Calendar, 
-  Users, 
-  Check, 
-  Shield, 
-  Coffee, 
+import {
   ArrowUpRight,
+  Calendar,
+  Check,
+  Coffee,
+  Mail,
+  Phone,
+  Shield,
   Sparkles,
-  Phone
+  Users,
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { type Locale } from '@/i18n/config';
+import { hotel } from '@/lib/site';
 
 interface BookingPageProps {
   locale: Locale;
 }
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
 
 export default function BookingPage({ locale }: BookingPageProps) {
   const t = useTranslations();
@@ -35,6 +30,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [rooms, setRooms] = useState(1);
+  const [searchMessage, setSearchMessage] = useState('');
 
   const benefits = [
     { icon: Shield, text: t('booking.benefit1') },
@@ -43,212 +39,201 @@ export default function BookingPage({ locale }: BookingPageProps) {
     { icon: Sparkles, text: t('booking.benefit4') },
   ];
 
-  const handleSearch = () => {
-    // In production, this would integrate with Mediator booking widget
-    alert(`Search: ${checkIn} to ${checkOut}, ${adults} adults, ${children} children, ${rooms} rooms`);
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setSearchMessage(
+      `${t('booking.bestPrice')}. ${hotel.reservationsEmail} / ${hotel.phone.display}`
+    );
   };
 
   return (
-    <main className="min-h-screen pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
-            alt="Book Your Stay"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 hero-gradient" />
-        </div>
-        
-        <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
-          <div>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Reservations</span>
-            <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('booking.title')}</h1>
-            <div className="brass-line" />
-            <p className="text-xl text-white/80 max-w-2xl mt-4">{t('booking.bestPrice')}</p>
-          </div>
-        </div>
-      </section>
+    <main className="luxury-page min-h-screen pt-20">
+      <section className="relative min-h-[66dvh] overflow-hidden text-cream-50">
+        <Image
+          src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
+          alt={t('booking.title')}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/85 via-charcoal-950/45 to-charcoal-950/10" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal-950/75 to-transparent" />
 
-      {/* Booking Form */}
-      <section className="py-16 bg-forest-900 text-white">
-        <div className="container mx-auto px-6">
-          <div 
-            className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {/* Check In */}
-              <div>
-                <label className="block text-sm text-forest-300 mb-2">{t('booking.checkIn')}</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-forest-400" size={20} />
-                  <Input
-                    type="date"
-                    value={checkIn}
-                    onChange={(e) => setCheckIn(e.target.value)}
-                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-forest-300"
-                  />
-                </div>
-              </div>
-
-              {/* Check Out */}
-              <div>
-                <label className="block text-sm text-forest-300 mb-2">{t('booking.checkOut')}</label>
-                <div className="relative">
-                  <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-forest-400" size={20} />
-                  <Input
-                    type="date"
-                    value={checkOut}
-                    onChange={(e) => setCheckOut(e.target.value)}
-                    className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-forest-300"
-                  />
-                </div>
-              </div>
-
-              {/* Adults */}
-              <div>
-                <label className="block text-sm text-forest-300 mb-2">{t('booking.adults')}</label>
-                <div className="relative">
-                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 text-forest-400" size={20} />
-                  <select
-                    value={adults}
-                    onChange={(e) => setAdults(Number(e.target.value))}
-                    className="w-full pl-10 pr-4 py-2 rounded-md bg-white/10 border border-white/20 text-white appearance-none"
-                  >
-                    {[1, 2, 3, 4, 5].map(n => (
-                      <option key={n} value={n} className="text-forest-900">{n}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Rooms */}
-              <div>
-                <label className="block text-sm text-forest-300 mb-2">{t('booking.rooms')}</label>
-                <select
-                  value={rooms}
-                  onChange={(e) => setRooms(Number(e.target.value))}
-                  className="w-full px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white appearance-none"
-                >
-                  {[1, 2, 3, 4, 5].map(n => (
-                    <option key={n} value={n} className="text-forest-900">{n}</option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Search Button */}
-              <div className="flex items-end">
-                <Button onClick={handleSearch} className="btn-telegraph w-full py-6">
-                  <span>{t('booking.search')}</span>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <span className="text-brass-600 text-sm tracking-widest uppercase">Exclusive</span>
-            <h2 className="section-title mt-4">{t('booking.benefits')}</h2>
-            <div className="brass-line" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="glass-card rounded-2xl p-8 text-center card-hover"
-              >
-                <div className="w-16 h-16 rounded-full gradient-brass mx-auto mb-6 flex items-center justify-center">
-                  <benefit.icon className="w-8 h-8 text-forest-900" />
-                </div>
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <Check className="w-5 h-5 text-forest-500" />
-                  <span className="text-forest-900 font-medium">{benefit.text}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Best Price Guarantee */}
-      <section className="py-24 bg-forest-50">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="text-brass-600 text-sm tracking-widest uppercase">Our Promise</span>
-              <h2 className="section-title mt-4">{t('booking.bestPrice')}</h2>
-              <div className="brass-line !mx-0" />
-              <p className="text-forest-700 text-lg mt-6 mb-8">
-                Book directly with us and you&apos;ll always get the best available rate. 
-                If you find a lower price elsewhere, we&apos;ll match it and give you an additional 10% off.
-              </p>
-              
-              <div className="space-y-4">
-                {[
-                  'Price match guarantee with 10% extra off',
-                  'No hidden fees or booking charges',
-                  'Flexible cancellation policies',
-                  'Priority room assignment',
-                  'Welcome amenity upon arrival'
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full gradient-forest flex items-center justify-center">
-                      <Check className="w-4 h-4 text-white" />
-                    </div>
-                    <span className="text-forest-700">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80"
-                alt="Luxury Room"
-                className="rounded-3xl w-full aspect-[4/3] object-cover"
-              />
-              <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-brass-600">20%</div>
-                  <div className="text-sm text-forest-600">Save vs OTAs</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-forest-800 to-forest-950 text-white">
-        <div className="container mx-auto px-6 text-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Need Help with Your Reservation?
-            </h2>
-            <p className="text-forest-200 text-lg mb-10 max-w-2xl mx-auto">
-              Our reservations team is available 24/7 to assist you with special requests, 
-              group bookings, or any questions.
+        <div className="luxury-container relative z-10 flex min-h-[66dvh] items-end pb-14 md:pb-20">
+          <div className="max-w-4xl">
+            <p className="luxury-kicker text-brass-300">Reservations</p>
+            <h1 className="luxury-display mt-6 text-cream-50">{t('booking.title')}</h1>
+            <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
+              {t('booking.bestPrice')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+995422000000">
-                <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-forest-900">
-                  <Phone className="mr-2 w-5 h-5" />
-                  +995 422 00 00 00
-                </Button>
-              </a>
-              <a href="mailto:reservations@batumiboutique.com">
-                <Button className="btn-telegraph px-12 py-6 text-lg">
-                  <span>Email Us</span>
-                </Button>
-              </a>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-charcoal-950 py-10 text-cream-50">
+        <div className="luxury-container">
+          <form onSubmit={handleSearch} className="border border-white/10 bg-white/[0.04] p-5 md:p-8">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-[1fr_1fr_0.8fr_0.8fr_0.8fr_auto]">
+              <BookingField label={t('booking.checkIn')} htmlFor="booking-check-in" icon={<Calendar className="h-5 w-5" aria-hidden="true" />}>
+                <Input
+                  id="booking-check-in"
+                  name="check-in"
+                  type="date"
+                  autoComplete="off"
+                  value={checkIn}
+                  onChange={(event) => setCheckIn(event.target.value)}
+                  className="h-12 rounded-none border-white/15 bg-cream-50 text-charcoal-950 focus-visible:ring-brass-400"
+                />
+              </BookingField>
+
+              <BookingField label={t('booking.checkOut')} htmlFor="booking-check-out" icon={<Calendar className="h-5 w-5" aria-hidden="true" />}>
+                <Input
+                  id="booking-check-out"
+                  name="check-out"
+                  type="date"
+                  autoComplete="off"
+                  value={checkOut}
+                  onChange={(event) => setCheckOut(event.target.value)}
+                  className="h-12 rounded-none border-white/15 bg-cream-50 text-charcoal-950 focus-visible:ring-brass-400"
+                />
+              </BookingField>
+
+              <BookingSelect
+                id="booking-adults"
+                name="adults"
+                label={t('booking.adults')}
+                value={adults}
+                onChange={setAdults}
+                icon={<Users className="h-5 w-5" aria-hidden="true" />}
+                options={[1, 2, 3, 4, 5]}
+              />
+
+              <BookingSelect
+                id="booking-children"
+                name="children"
+                label={t('booking.children')}
+                value={children}
+                onChange={setChildren}
+                icon={<Users className="h-5 w-5" aria-hidden="true" />}
+                options={[0, 1, 2, 3, 4]}
+              />
+
+              <BookingSelect
+                id="booking-rooms"
+                name="rooms"
+                label={t('booking.rooms')}
+                value={rooms}
+                onChange={setRooms}
+                options={[1, 2, 3, 4, 5]}
+              />
+
+              <div className="flex items-end">
+                <button type="submit" className="luxury-button min-h-12 w-full border-brass-400 bg-brass-400 text-charcoal-950 xl:w-auto">
+                  <span>{t('booking.search')}</span>
+                </button>
+              </div>
             </div>
+
+            {searchMessage ? (
+              <p className="mt-5 border-t border-white/10 pt-5 text-sm font-light leading-6 text-white/70" role="status" aria-live="polite">
+                {searchMessage}
+              </p>
+            ) : null}
+          </form>
+        </div>
+      </section>
+
+      <section className="luxury-section">
+        <div className="luxury-container">
+          <div className="mb-14 text-center">
+            <p className="luxury-kicker justify-center">Direct booking</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('booking.benefits')}</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {benefits.map((benefit) => {
+              const Icon = benefit.icon;
+
+              return (
+                <article key={benefit.text} className="luxury-card p-7 text-center">
+                  <span className="mx-auto flex h-14 w-14 items-center justify-center border border-brass-400/45 text-brass-700">
+                    <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
+                  </span>
+                  <div className="mt-7 flex justify-center">
+                    <Check className="h-5 w-5 text-brass-600" aria-hidden="true" />
+                  </div>
+                  <p className="mt-3 text-sm font-medium leading-6 text-forest-800">{benefit.text}</p>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-section bg-cream-100">
+        <div className="luxury-container grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="luxury-kicker">Our promise</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('booking.bestPrice')}</h2>
+            <p className="luxury-lede mt-7">
+              Book directly with the hotel for the clearest rate, direct support from our reservations team, and priority handling of arrival details.
+            </p>
+            <div className="mt-9 grid gap-4">
+              {[
+                'Price match support for direct reservations',
+                'No hidden booking charges',
+                'Flexible cancellation guidance',
+                'Priority room assignment when available',
+                'Welcome amenity on arrival',
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3 border-t border-brass-400/25 pt-4">
+                  <Check className="mt-1 h-5 w-5 text-brass-600" aria-hidden="true" />
+                  <span className="text-sm font-light leading-6 text-forest-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="luxury-image relative aspect-[4/3]">
+              <Image
+                src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80"
+                alt="Luxury room prepared for arrival"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 left-6 border border-brass-400/35 bg-cream-50 p-6 shadow-2xl">
+              <p className="text-4xl text-brass-700">20%</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-forest-600">Direct value</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="luxury-section bg-charcoal-950 text-cream-50 luxury-grain">
+        <div className="luxury-container grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+          <div>
+            <p className="luxury-kicker text-brass-300">Reservations team</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Need help with your stay?</h2>
+            <p className="mt-7 max-w-2xl font-light leading-7 text-white/65">
+              Contact us for group bookings, special requests, accessibility needs, or arrival coordination.
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
+            <a href={`tel:${hotel.phone.href}`} className="luxury-button border-brass-400 bg-brass-400 text-charcoal-950">
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              <span>{hotel.phone.display}</span>
+            </a>
+            <a href={`mailto:${hotel.reservationsEmail}`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
+              <Mail className="h-4 w-4" aria-hidden="true" />
+              <span>Email us</span>
+            </a>
+            <Link href={`/${locale}/contact`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
+              <span>{t('nav.contact')}</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -256,10 +241,60 @@ export default function BookingPage({ locale }: BookingPageProps) {
   );
 }
 
+function BookingField({
+  children,
+  htmlFor,
+  icon,
+  label,
+}: {
+  children: React.ReactNode;
+  htmlFor: string;
+  icon?: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white/60">
+        {icon}
+        <span>{label}</span>
+      </label>
+      {children}
+    </div>
+  );
+}
 
-
-
-
-
-
-
+function BookingSelect({
+  id,
+  name,
+  label,
+  value,
+  onChange,
+  options,
+  icon,
+}: {
+  id: string;
+  name: string;
+  label: string;
+  value: number;
+  onChange: (value: number) => void;
+  options: number[];
+  icon?: React.ReactNode;
+}) {
+  return (
+    <BookingField htmlFor={id} label={label} icon={icon}>
+      <select
+        id={id}
+        name={name}
+        value={value}
+        onChange={(event) => onChange(Number(event.target.value))}
+        className="h-12 w-full border border-white/15 bg-cream-50 px-4 text-sm text-charcoal-950 shadow-xs outline-none transition focus-visible:ring-2 focus-visible:ring-brass-400"
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </BookingField>
+  );
+}

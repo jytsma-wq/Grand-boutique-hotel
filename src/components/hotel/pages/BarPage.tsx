@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { 
   Clock, 
   Wine, 
@@ -97,10 +96,13 @@ export default function BarPage({ locale }: BarPageProps) {
       {/* Hero Section */}
       <section className="relative h-[70vh] min-h-150 overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80"
             alt="Lounge Bar"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -147,7 +149,7 @@ export default function BarPage({ locale }: BarPageProps) {
             </div>
             <div className="hidden md:block w-px h-10 bg-white/20" />
             <Link href={`/${locale}/booking`}>
-              <Button className="btn-telegraph rounded-none">
+              <Button className="btn-boutique rounded-none">
                 Reserve Table
               </Button>
             </Link>
@@ -357,7 +359,7 @@ export default function BarPage({ locale }: BarPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
-                <Button className="btn-telegraph rounded-none px-14 py-6 text-base">
+                <Button className="btn-boutique rounded-none px-14 py-6 text-base">
                   Reserve Table
                 </Button>
               </Link>

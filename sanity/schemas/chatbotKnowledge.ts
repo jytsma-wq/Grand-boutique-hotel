@@ -19,21 +19,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'question_fr',
-      title: 'Question (French)',
-      type: 'string',
-    },
-    {
-      name: 'question_de',
-      title: 'Question (German)',
-      type: 'string',
-    },
-    {
-      name: 'question_it',
-      title: 'Question (Italian)',
-      type: 'string',
-    },
-    {
       name: 'answer',
       title: 'Answer (English)',
       type: 'text',
@@ -46,21 +31,6 @@ export default {
     {
       name: 'answer_ru',
       title: 'Answer (Russian)',
-      type: 'text',
-    },
-    {
-      name: 'answer_fr',
-      title: 'Answer (French)',
-      type: 'text',
-    },
-    {
-      name: 'answer_de',
-      title: 'Answer (German)',
-      type: 'text',
-    },
-    {
-      name: 'answer_it',
-      title: 'Answer (Italian)',
       type: 'text',
     },
     {

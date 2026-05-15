@@ -1,7 +1,4 @@
-'use client';
-
 import { Clock, CheckCircle, XCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
 interface OpenStatusProps {

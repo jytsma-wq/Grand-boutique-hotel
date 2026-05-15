@@ -1,8 +1,6 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { 
   Award, 
@@ -85,10 +83,13 @@ export default function AboutPage({ locale }: AboutPageProps) {
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <div className="absolute inset-0">
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920&q=80"
             alt="About Batumi Boutique Hotel"
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
           <div className="absolute inset-0 hero-gradient" />
         </div>
@@ -314,7 +315,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/rooms`}>
-                <Button className="btn-telegraph px-12 py-6 text-lg">
+                <Button className="btn-boutique px-12 py-6 text-lg">
                   Explore Rooms
                 </Button>
               </Link>
