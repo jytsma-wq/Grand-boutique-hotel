@@ -3,6 +3,7 @@ import imageUrlBuilder from '@sanity/image-url';
 import { type SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { unstable_cache } from 'next/cache';
 import { defaultLocale, isValidLocale, type Locale } from '@/i18n/config';
+import { type SanityBarPage, type SanityImage, type SanityRestaurantPage } from '@/types/sanity';
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
@@ -21,7 +22,7 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source);
 }
 
-export function getImageUrl(source: unknown, width?: number): string {
+export function getImageUrl(source: SanityImageSource | SanityImage | string | null | undefined, width?: number): string {
   if (!source) return '/placeholder.jpg';
   
   // If it's a string (external URL), return as-is
@@ -33,7 +34,7 @@ export function getImageUrl(source: unknown, width?: number): string {
   
   // If it's a Sanity image object, use urlFor
   if (imageSource._type === 'image' || imageSource.asset) {
-    let imageBuilder = urlFor(source as SanityImageSource);
+    let imageBuilder = urlFor(source);
     if (width) imageBuilder = imageBuilder.width(width);
     return imageBuilder.url();
   }
@@ -168,17 +169,41 @@ export const getHomePage = unstable_cache(
   { revalidate: 3600, tags: ['homePage'] }
 );
 
+const menuSectionProjection = (locale: Locale) => `
+  menuSections[] {
+    _key,
+    sectionKey,
+    "title": ${localizedField('title', locale)},
+    "subtitle": ${localizedField('subtitle', locale)},
+    image,
+    items[] {
+      _key,
+      "name": ${localizedField('name', locale)},
+      "description": ${localizedField('description', locale)},
+      "origin": ${localizedField('origin', locale)},
+      "region": ${localizedField('region', locale)},
+      year,
+      "ingredients": ${localizedField('ingredients', locale)},
+      priceUsd,
+      priceGel,
+      included,
+      image
+    }
+  }
+`;
+
 export const getRestaurantPage = unstable_cache(
   async (locale: string) => {
     const sanityLocale = getSanityLocale(locale);
-    return sanityFetch(`
+    return sanityFetch<SanityRestaurantPage | null>(`
       *[_type == "restaurantPage"][0] {
         "title": ${localizedField('title', sanityLocale)},
         "description": ${localizedField('description', sanityLocale)},
         heroImage,
         images,
         openingHours,
-        menuPdf
+        menuPdf,
+        ${menuSectionProjection(sanityLocale)}
       }
     `, null);
   },
@@ -189,14 +214,15 @@ export const getRestaurantPage = unstable_cache(
 export const getBarPage = unstable_cache(
   async (locale: string) => {
     const sanityLocale = getSanityLocale(locale);
-    return sanityFetch(`
+    return sanityFetch<SanityBarPage | null>(`
       *[_type == "barPage"][0] {
         "title": ${localizedField('title', sanityLocale)},
         "description": ${localizedField('description', sanityLocale)},
         heroImage,
         images,
         openingHours,
-        menuPdf
+        menuPdf,
+        ${menuSectionProjection(sanityLocale)}
       }
     `, null);
   },

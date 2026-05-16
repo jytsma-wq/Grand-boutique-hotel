@@ -1,0 +1,135 @@
+# Multilingual Translation Audit Report
+
+## 1. Detected i18n setup
+Include:
+- i18n library or custom system
+- default language
+- detected languages
+- translation file locations
+- route structure
+- fallback behavior
+
+## 2. Summary
+Include:
+- Total issues found
+- Critical issues
+- High-priority issues
+- Medium-priority issues
+- Low-priority issues
+- Languages most affected
+
+## 3. Missing translation keys
+Use a table:
+
+| Key | English value | Missing in languages | File | Suggested action |
+|---|---|---|---|---|
+
+## 4. English text still present in non-English translations
+Use a table:
+
+| Key | English value | Affected language(s) | File | Reason flagged |
+|---|---|---|---|---|
+
+Flag values that are:
+- identical to English
+- mostly English
+- partially translated
+- placeholder text
+- copied English fallback
+
+## 5. Hardcoded English strings in components/pages
+Use a table:
+
+| Text | File | Line/Location | Component/Page | Suggested translation key |
+|---|---|---|---|---|
+
+For each hardcoded string, recommend a clean translation key name.
+
+## 6. CMS/Sanity localization problems
+Use a table:
+
+| Issue | File | Query/Schema/Component | Risk | Suggested fix |
+|---|---|---|---|---|
+
+Include any Sanity schema/query/fallback problems.
+
+## 7. SEO and metadata translation issues
+Use a table:
+
+| Text/Field | File | Affected languages | Risk | Suggested fix |
+|---|---|---|---|---|
+
+## 8. Forms, errors, buttons, and microcopy issues
+Use a table:
+
+| Text | File | Context | Affected language(s) | Suggested fix |
+|---|---|---|---|---|
+
+## 9. Fallback-to-English risks
+Explain:
+- where English fallback is happening
+- whether it is intentional
+- whether it is safe
+- how to prevent visible English on non-English pages
+
+## 10. Recommended fixes
+Give a prioritized checklist:
+1. Critical fixes first
+2. Then high-priority user-visible text
+3. Then SEO/metadata
+4. Then CMS schema/query hardening
+5. Then cleanup and prevention
+
+## 11. Suggested implementation plan
+Give exact developer steps:
+- files to edit
+- translation keys to add
+- hardcoded text to replace
+- CMS fields or queries to update
+- validation to add
+- tests/checks to add
+
+## 12. Prevention checklist
+Recommend:
+- lint rule or grep script to detect hardcoded JSX text
+- CI check for missing translation keys
+- script comparing English locale keys to other locales
+- script detecting identical English values in non-English locales
+- Sanity validation for required localized fields
+- visual QA checklist per locale
+
+Rules:
+- Do not modify files unless explicitly asked.
+- Do not invent translations unless you are specifically asked to translate.
+- Do not guess language codes; detect them from the codebase.
+- Do not flag brand names, hotel names, proper nouns, addresses, email addresses, URLs, phone numbers, or technical identifiers as untranslated.
+- Do not flag short common words unless they are clearly UI text.
+- Distinguish between legitimate English brand terms and actual untranslated content.
+- Be careful with Georgian, Russian, Turkish, Dutch, German, or any other detected languages where Latin text may be legitimate for names or addresses.
+- Prioritize visible guest-facing text over internal developer comments.
+- Ignore code comments unless they are rendered in the UI.
+- Ignore test descriptions unless they are used as visible UI copy.
+- When unsure, mark the issue as "Needs human review" rather than claiming it is definitely wrong.
+
+Search strategy:
+Use ripgrep or equivalent searches, for example:
+- Search JSX/TSX files for hardcoded string literals.
+- Search for English words commonly appearing in hotel websites:
+  "Book", "Room", "Rooms", "Suite", "Check-in", "Check-out", "Guests", "Adults", "Children", "Breakfast", "Amenities", "Contact", "Location", "Gallery", "About", "Discover", "Reserve", "Availability", "View more", "Read more", "Learn more", "Send", "Submit", "Name", "Email", "Phone", "Message", "Required", "Error", "Success", "Thank you", "Loading", "Not found", "Welcome"
+- Compare translation files key-by-key.
+- Search for fallback patterns:
+  `|| en`
+  `?? en`
+  `fallback`
+  `defaultLocale`
+  `locale === 'en'`
+  `language === 'en'`
+  `en:`
+  `.en`
+  `coalesce`
+  `select(`
+  `defined(`
+- Search Sanity/GROQ files for locale handling.
+
+Deliverable:
+Return the full audit report with exact file paths and line numbers where possible. Be precise, structured, and conservative. The report should be actionable enough for a developer to fix the translation gaps without needing to repeat the audit.

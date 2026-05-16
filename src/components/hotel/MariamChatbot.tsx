@@ -24,6 +24,12 @@ const colors = {
   black: '#222222',
 };
 
+function reportChatError(message: string, error?: unknown) {
+  if (process.env.NODE_ENV !== 'production') {
+    console.error(message, error);
+  }
+}
+
 export default function MariamChatbot({ locale }: MariamChatbotProps) {
   const t = useTranslations('chatbot');
   const [isOpen, setIsOpen] = useState(false);
@@ -74,7 +80,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
       });
 
       if (!response.ok) {
-        console.error('Chat API error:', response.status);
+        reportChatError('Chat API error:', response.status);
         throw new Error(`Server error: ${response.status}`);
       }
 
@@ -86,7 +92,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
       }]);
       setQuestionsAsked(prev => prev + 1);
     } catch (error) {
-      console.error('Chat error:', error);
+      reportChatError('Chat error:', error);
       setMessages(prev => [...prev, { 
         role: 'assistant', 
         content: t('error')

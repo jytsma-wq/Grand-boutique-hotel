@@ -1,6 +1,24 @@
 export interface SanityImage {
   _type?: 'image';
-  asset?: unknown;
+  asset: {
+    _ref: string;
+    _type?: 'reference';
+    _weak?: boolean;
+  };
+  crop?: {
+    _type?: 'sanity.imageCrop';
+    top: number;
+    bottom: number;
+    left: number;
+    right: number;
+  };
+  hotspot?: {
+    _type?: 'sanity.imageHotspot';
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+  };
   alt?: string;
 }
 
@@ -50,10 +68,45 @@ export interface SiteSettings {
   taglineLocalized?: string;
 }
 
+export interface SanityMenuItem {
+  _key?: string;
+  name: string;
+  description?: string;
+  origin?: string;
+  region?: string;
+  year?: string;
+  ingredients?: string;
+  priceUsd?: number;
+  priceGel?: number;
+  included?: boolean;
+  image?: SanityImage | string;
+}
+
+export interface SanityMenuSection {
+  _key?: string;
+  sectionKey: string;
+  title: string;
+  subtitle?: string;
+  image?: SanityImage | string;
+  items?: SanityMenuItem[];
+}
+
+export interface SanityRestaurantPage {
+  title?: string;
+  description?: PortableTextBlock[] | string;
+  heroImage?: SanityImage;
+  images?: SanityImage[];
+  openingHours?: Array<{ day?: string; hours?: string }>;
+  menuPdf?: unknown;
+  menuSections?: SanityMenuSection[];
+}
+
+export type SanityBarPage = SanityRestaurantPage;
+
 export interface Experience {
   _id: string;
   name: string;
   description: string;
-  image: unknown;
+  image?: SanityImage;
   category: string;
 }

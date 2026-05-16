@@ -52,6 +52,8 @@ tsconfig.tsbuildinfo
 # ============================================
 prisma/*.db
 prisma/*.db-journal
+prisma/*.db-shm
+prisma/*.db-wal
 *.db
 *.sqlite
 *.sqlite3

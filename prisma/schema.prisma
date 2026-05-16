@@ -4,15 +4,14 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
-// For production: change provider to "postgresql" and set DATABASE_URL to a Postgres URL
-// SQLite works fine for development and low-traffic scenarios
+// PostgreSQL is required for production contact submissions.
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 

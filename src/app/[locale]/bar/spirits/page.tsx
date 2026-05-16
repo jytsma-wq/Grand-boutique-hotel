@@ -1,6 +1,7 @@
 import { type Locale } from '@/i18n/config';
 import SpiritsPage from '@/components/hotel/pages/bar/SpiritsPage';
 import { createLocalizedMetadata } from '@/lib/seo';
+import { getBarPage } from '@/lib/sanity';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
@@ -15,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
 
 export default async function Spirits({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
+  const barPage = await getBarPage(locale);
 
-  return <SpiritsPage locale={locale} />;
+  return <SpiritsPage locale={locale} menuSections={barPage?.menuSections} />;
 }
