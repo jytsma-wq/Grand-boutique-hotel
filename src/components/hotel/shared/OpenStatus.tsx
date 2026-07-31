@@ -24,7 +24,7 @@ export default function OpenStatus({ isOpen, openTime, closeTime, className = ''
           <CheckCircle size={16} className="text-forest-600" />
           <span className="font-medium">{t('open')}</span>
           {closeTime && (
-            <span className="text-sm opacity-70">until {closeTime}</span>
+            <span className="text-sm opacity-70">{t('untilTime', { time: closeTime })}</span>
           )}
         </>
       ) : (
@@ -32,7 +32,7 @@ export default function OpenStatus({ isOpen, openTime, closeTime, className = ''
           <XCircle size={16} className="text-red-500" />
           <span className="font-medium">{t('closed')}</span>
           {openTime && (
-            <span className="text-sm opacity-70">opens at {openTime}</span>
+            <span className="text-sm opacity-70">{t('opensAtTime', { time: openTime })}</span>
           )}
         </>
       )}
@@ -98,7 +98,6 @@ export function checkOpenStatus(
 
   return { isOpen: false, nextOpen: schedule.open };
 }
-
 
 
 

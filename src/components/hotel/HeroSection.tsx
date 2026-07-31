@@ -19,6 +19,8 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
   const t = useTranslations('hero');
   const tBooking = useTranslations('booking');
   const tNav = useTranslations('nav');
+  const tAccessibility = useTranslations('accessibility');
+  const tContact = useTranslations('contact');
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -87,7 +89,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
           <div className="max-w-5xl animate-fade-in-up" style={{ animationDelay: '160ms' }}>
             <div className="luxury-kicker mb-8 text-brass-300">
               <MapPin className="h-4 w-4" aria-hidden="true" />
-              <span>{hotel.address.locality}, {hotel.address.countryName}</span>
+              <span>{tContact('batumiGeorgia')}</span>
             </div>
             <h1 className="luxury-display max-w-5xl">
               {slides[currentSlide].title}
@@ -114,8 +116,8 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
         <div className="luxury-container">
           <div className="grid max-w-5xl grid-cols-4 border border-white/18 bg-white/10 text-white shadow-2xl backdrop-blur-md">
             {[
-              { label: tBooking('checkIn'), value: 'Flexible' },
-              { label: tBooking('checkOut'), value: 'Flexible' },
+              { label: tBooking('checkIn'), value: tBooking('flexible') },
+              { label: tBooking('checkOut'), value: tBooking('flexible') },
               { label: tBooking('guests'), value: '2' },
             ].map((item) => (
               <div key={item.label} className="border-r border-white/15 px-6 py-5">
@@ -133,11 +135,11 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
       <div className="absolute bottom-10 right-6 z-20 hidden animate-fade-in lg:block" style={{ animationDelay: '1500ms' }}>
           <button
             type="button"
-            aria-label="Scroll to next section"
+            aria-label={tAccessibility('scrollToNext')}
             onClick={scrollToNextSection}
             className="flex flex-col items-center gap-3 text-white/55 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-4 focus-visible:ring-offset-transparent"
           >
-            <span className="text-[10px] tracking-[0.4em] uppercase font-light">SCROLL</span>
+            <span className="text-[10px] tracking-[0.4em] uppercase font-light">{tAccessibility('scroll')}</span>
             <ChevronDown size={18} strokeWidth={1} />
           </button>
       </div>
@@ -147,7 +149,7 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
           <button
             key={index}
             type="button"
-            aria-label={`Show slide ${index + 1}`}
+            aria-label={tAccessibility('showSlide', { number: index + 1 })}
             aria-current={currentSlide === index ? 'true' : undefined}
             onClick={() => {
               setCurrentSlide(index);
@@ -162,7 +164,6 @@ export default function HeroSection({ locale, data }: HeroSectionProps) {
     </section>
   );
 }
-
 
 
 

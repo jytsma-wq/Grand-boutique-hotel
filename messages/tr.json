@@ -5,10 +5,11 @@
     "description": "Batumi'nin önde gelen butik otelinde 2026 modern mimarisini deneyimleyin. Zarif lüks, muhteşem Karadeniz kıyısında Gürcü misafirperverliğiyle buluşuyor."
   },
   "nav": {
-    "about": "Hakkında",
+    "about": "Hakkımızda",
     "rooms": "Odalar ve Süitler",
     "restaurant": "Restoran",
     "bar": "Bar",
+    "menu": "Menü",
     "restaurantBar": "Restoran ve Bar",
     "meetings": "Toplantılar ve Etkinlikler",
     "wellness": "Wellness",
@@ -22,7 +23,7 @@
     "location": "Konum",
     "bookNow": "Direkt Rezervasyon",
     "bestPrice": "En İyi Fiyat Garantisi",
-    "more": "Daha"
+    "more": "Diğer"
   },
   "hero": {
     "title": "Zarifliği Keşfedin",
@@ -33,7 +34,7 @@
     "slide2Title": "Zarif Lüks",
     "slide2Subtitle": "Karadeniz'in Yanında",
     "slide3Title": "Modern Lüks",
-    "slide3Subtitle": "Ebedi Konfor"
+    "slide3Subtitle": "Zamansız Konfor"
   },
   "home": {
     "hero": {
@@ -43,11 +44,11 @@
     "welcome": {
       "title": "Cennete Hoş Geldiniz",
       "subtitle": "Yeni Bir Misafirperverlik Çağı",
-      "description": "Batumi'nin pristine kıyısında yer alan butik otelimiz, modern mimari tasarımın zirvesini temsil etmektedir. Her alan, Georgia'nın muhteşem Karadeniz kıyısının doğal güzelliğiyle uyum içinde tasarlanmış olup rakipsiz lüks ve konfor sunmaktadır."
+      "description": "Batum'un el değmemiş kıyısında yer alan butik otelimiz, çağdaş mimarinin seçkin bir örneğidir. Her alan, Gürcistan'ın Karadeniz kıyısındaki doğal güzellikle uyum içinde tasarlanmış; konfor ve zarafetten ödün verilmemiştir."
     },
     "rooms": {
-      "title": "Mükemmel Konaklama",
-      "subtitle": "Her oda modern zarifliğin sığınağı",
+      "title": "Seçkin Konaklama",
+      "subtitle": "Her oda modern zarafetin huzurlu bir yansıması",
       "viewAll": "Tüm Odaları Görün"
     },
     "dining": {
@@ -55,7 +56,7 @@
       "subtitle": "Gürcü ve uluslararası lezzetler arasında bir yolculuk",
       "restaurant": {
         "name": "Azure Restoran",
-        "description": "Panoramik deniz manzaralı yemek, modern dokunuşla yerel Gürcü mutfağı sunuyor"
+        "description": "Panoramik deniz manzarası eşliğinde, modern dokunuşlarla yorumlanan yerel Gürcü mutfağı"
       },
       "bar": {
         "name": "Lounge Bar",
@@ -65,14 +66,14 @@
     "wellness": {
       "title": "Wellness ve Spa",
       "subtitle": "Bedeninizi ve ruhunuzu yenileyin",
-      "description": "Dünya standartlarındaki spa merkezimiz, antik Gürcü geleneklerinden ilham alan tedavilerle huzur sığınağı sunmaktadır"
+      "description": "Dünya standartlarındaki spa merkezimiz, köklü Gürcü sağlıklı yaşam geleneklerinden ilham alan bakımlarla huzurlu bir ortam sunar"
     },
     "amenities": {
       "title": "Olanaklar",
       "wifi": "Yüksek Hızlı WiFi",
       "parking": "Ücretsiz Otopark",
-      "dining": "Gourmet Yemek",
-      "pool": "Sonsuz Havuz",
+      "dining": "Seçkin Restoran",
+      "pool": "Sonsuzluk Havuzu",
       "fitness": "Fitness Merkezi",
       "spa": "Spa ve Wellness"
     },
@@ -88,12 +89,40 @@
     "viewDetails": "Detayları Gör",
     "bookNow": "Şimdi Rezervasyon Yap",
     "otaComparison": "Direkt rezervasyonla {savings} tasarruf edin",
+    "accommodations": "Konaklama Seçenekleri",
+    "description": "Özenle tasarlanmış oda ve süitlerimizde benzersiz konforu deneyimleyin",
+    "priceLabel": "Fiyat",
+    "night": "gece",
+    "inEveryRoom": "Her Odada",
+    "roomAmenities": "Oda Olanakları",
+    "highSpeedWifi": "Yüksek Hızlı Wi-Fi",
+    "climateControl": "İklimlendirme",
+    "smartTv": "Akıllı TV",
+    "nespressoMachine": "Nespresso Makinesi",
+    "inRoomSafe": "Oda İçi Kasa",
+    "roomService": "7/24 Oda Servisi",
+    "bookDirectTitle": "Doğrudan Rezervasyon Yapın ve",
+    "saveMore": "Daha Fazla Tasarruf Edin",
+    "bookDirectDescription": "Web sitemiz üzerinden doğrudan rezervasyon yaparak özel avantajlardan yararlanın",
+    "bestPrice": "En İyi Fiyat Garantisi",
+    "bestPriceDesc": "Mevcut en düşük fiyatlar",
+    "freeBreakfast": "Ücretsiz Kahvaltı",
+    "freeBreakfastDesc": "Her gün gurme kahvaltı",
+    "roomUpgrade": "Oda Kategorisi Yükseltme",
+    "roomUpgradeDesc": "Müsaitlik durumuna bağlıdır",
+    "earlyCheckIn": "Erken Giriş",
+    "earlyCheckInDesc": "Müsaitlik durumuna göre",
+    "lateCheckOut": "Geç Çıkış",
+    "lateCheckOutDesc": "14.00'e kadar",
+    "spaDiscount": "Spa İndirimi",
+    "spaDiscountDesc": "Bakımlarda %15 indirim",
+    "bookYourStay": "Konaklamanızı Rezerve Edin",
     "amenities": {
       "title": "Olanaklar",
       "wifi": "Yüksek Hızlı WiFi",
       "parking": "Ücretsiz Otopark",
-      "dining": "Gourmet Yemek",
-      "pool": "Sonsuz Havuz",
+      "dining": "Seçkin Restoran",
+      "pool": "Sonsuzluk Havuzu",
       "fitness": "Fitness Merkezi",
       "spa": "Spa ve Wellness",
       "ac": "Klima Kontrolü",
@@ -104,7 +133,11 @@
       "balcony": "Özel Balkon",
       "view": "Deniz Manzarası",
       "robes": "Lüks Bornoz ve Terlik",
-      "coffee": "Nespresso Makinesi"
+      "coffee": "Nespresso Makinesi",
+      "living": "Oturma alanı",
+      "diningArea": "Yemek alanı",
+      "butler": "Butler hizmeti",
+      "jacuzzi": "Özel jakuzi"
     },
     "types": {
       "standard": {
@@ -117,7 +150,7 @@
       },
       "deluxe": {
         "name": "Deluxe Oda",
-        "description": "Panoramik Karadeniz manzaralı cömert döşenmiş odalar, premium mobilyalar ve özel banyo malzemeleri."
+        "description": "Panoramik Karadeniz manzarası, kaliteli mobilyalar ve seçkin banyo ürünleri sunan geniş odalar."
       },
       "juniorSuite": {
         "name": "Junior Süit",
@@ -125,11 +158,54 @@
       },
       "executiveSuite": {
         "name": "Executive Süit",
-        "description": "Geniş yatak odası, ayrı yaşam ve yemek alanları ve özel butler hizmetiyle lüksün zirvesi."
+        "description": "Geniş yatak odası, ayrı yaşam ve yemek alanları ve özel uşak hizmetiyle lüksün zirvesi."
       },
       "presidentialSuite": {
-        "name": "Presidential Süit",
-        "description": "Tacımızın incisi - 360° manzaralı özel teras, kişisel butler ve en iyi olanaklarla saray tarzı konaklama."
+        "name": "Başkanlık Süiti",
+        "description": "360° manzara, özel teras, kişisel uşak hizmeti ve en seçkin olanakları sunan en özel süitimiz."
+      }
+    },
+    "priceComparison": {
+      "title": "Doğrudan rezervasyonla tasarruf edin",
+      "otaPrice": "Acente fiyatı",
+      "directPrice": "Doğrudan fiyat",
+      "save": "${amount} tasarruf edin (%{percent})",
+      "guarantee": "Doğrudan rezervasyonda en iyi fiyat garantisi"
+    },
+    "detail": {
+      "notFound": "Oda bulunamadı",
+      "backToRooms": "Odalara dön",
+      "allRooms": "Tüm odalar",
+      "saveRoom": "Bu odayı kaydet",
+      "shareRoom": "Bu odayı paylaş",
+      "guestCount": "{count} misafir",
+      "about": "Bu oda hakkında",
+      "gallery": "Galeri",
+      "galleryImage": "{name}, görsel {number}",
+      "specialFeatures": "Özel nitelikler",
+      "bookThisRoom": "Bu odayı rezerve edin",
+      "roomSize": "Oda büyüklüğü",
+      "maxGuests": "Azami misafir",
+      "bedType": "Yatak tipi",
+      "view": "Manzara",
+      "checkAvailability": "Müsaitliği kontrol edin",
+      "directBenefits": "Doğrudan rezervasyon avantajları",
+      "earlyLate": "Erken giriş ve geç çıkış",
+      "freeUpgrade": "Müsaitlik hâlinde ücretsiz oda yükseltme",
+      "spaDiscount10": "Spa'da %10 indirim",
+      "exploreOtherRooms": "Diğer odaları keşfedin",
+      "beds": {
+        "queen": "Queen yatak",
+        "king": "King yatak",
+        "kingSofa": "King yatak ve çekyat"
+      },
+      "views": {
+        "city": "Şehir manzarası",
+        "partialSea": "Kısmi deniz manzarası",
+        "fullSea": "Tam deniz manzarası",
+        "sea": "Deniz manzarası",
+        "panoramicSea": "Panoramik deniz manzarası",
+        "panoramic360": "360° panoramik manzara"
       }
     }
   },
@@ -150,12 +226,104 @@
       "seafood": "Taze Karadeniz deniz ürünleri, günlük av"
     },
     "reserve": "Masa Rezervasyonu",
-    "downloadMenu": "Menüyü İndir"
+    "downloadMenu": "Menüyü İndir",
+    "lunchMenuTitle": "Öğle Menüsü",
+    "dinnerMenuTitle": "Akşam Menüsü",
+    "menuPage": {
+      "title": "Menümüz",
+      "subtitle": "Gürcü mirası ile uluslararası mükemmellik arasında bir mutfak yolculuğu",
+      "reserveTitle": "Masanızı Ayırtın",
+      "reserveDescription": "Mutfağımızı deneyimlemek için masanızı bugün ayırtın.",
+      "makeReservation": "Rezervasyon Yap"
+    },
+    "breakfastPage": {
+      "heroDescription": "Güne sevilen Gürcü ve uluslararası kahvaltı lezzetleriyle başlayın.",
+      "nowServing": "Kahvaltı servisi başladı",
+      "hours": "Kahvaltı saatleri: 07.00–11.00",
+      "opening": "Başlangıç",
+      "closing": "Bitiş",
+      "location": "Konum",
+      "locationValue": "Azure Restaurant, giriş katı",
+      "complimentary": "Ücretsiz",
+      "included": "Kahvaltı Dahil",
+      "includedDescription": "Tüm otel misafirleri Gürcü ve uluslararası sabah lezzetleriyle hazırlanan tam açık büfe kahvaltıdan ve Karadeniz manzarasından yararlanır.",
+      "selection": "Seçkimiz",
+      "menu": "Kahvaltı Menüsü",
+      "dietaryOptions": "Beslenme Seçenekleri",
+      "requirements": "Özel Gereksinimler",
+      "dietaryDescription": "Vejetaryen, vegan, glutensiz, helal, süt ürünsüz ve kuruyemişsiz seçenekler sunulur. Alerjilerinizi veya beslenme gereksinimlerinizi ekibimize bildirin.",
+      "vegetarian": "Vejetaryen",
+      "vegan": "Vegan",
+      "glutenFree": "Glutensiz",
+      "halal": "Helal",
+      "dairyFree": "Süt ürünsüz",
+      "nutFree": "Kuruyemişsiz",
+      "bookStay": "Konaklamanızı Ayırtın",
+      "ctaDescription": "Her oda rezervasyonuna Karadeniz manzarası eşliğinde kahvaltı dahildir."
+    },
+    "page": {
+      "philosophy": "Felsefemiz",
+      "farmToTable": "Tarladan ve denizden sofraya.",
+      "philosophyDescription": "Azure Restaurant'ta Gürcü mutfak mirası hafif ve modern bir yorumla sunulur. Yerel çiftçiler, balıkçılar ve şarap üreticileri kıyıdan ve Acara yaylalarından ilham alan menüler oluşturur.",
+      "fineDining": "Seçkin yemek",
+      "georgianInternational": "Gürcü ve uluslararası",
+      "wineCount": "500'den fazla şarap",
+      "galleryAlt": "Azure Restaurant fotoğrafı {number}",
+      "explore": "Keşfedin",
+      "diningExperiences": "Yemek Deneyimleri",
+      "diningDescription": "Sakin bir sahil kahvaltısından mum ışığında akşam yemeğine kadar her servis günün farklı bir ritmine uyum sağlar.",
+      "breakfastTitle": "Kahvaltı",
+      "breakfastTime": "Her gün, 07.00–11.00",
+      "breakfastDescription": "Gürcü kahvaltı lezzetleri, mevsim meyveleri, hamur işleri ve deniz manzaralı kahve servisi.",
+      "lunchDinnerTitle": "Öğle ve Akşam Yemeği",
+      "lunchDinnerTime": "Öğle 12.00–15.00 · akşam 18.00–23.00",
+      "lunchDinnerDescription": "Geleneksel tarifler, Karadeniz balıkları, rafine klasikler ve mahzen şaraplarıyla eşleşmeler.",
+      "viewExperience": "Deneyimi Gör",
+      "reservations": "Rezervasyon",
+      "reserveTitle": "Karadeniz kıyısındaki masanızı ayırtın.",
+      "reserveDescription": "Kutlamalar, iş yemekleri ve şarap odaklı akşamlar için özel yemek salonları sunulur."
+    },
+    "lunchDinner": {
+      "heroDescription": "Azure Restaurant'ın özenle hazırlanan öğle ve akşam menülerini deneyimleyin.",
+      "nowServingLunch": "Şimdi öğle yemeği servisi",
+      "nowServingDinner": "Şimdi akşam yemeği servisi",
+      "closed": "Şu anda kapalı",
+      "nowServing": "Şimdi serviste",
+      "lunchDescription": "Salatalar, deniz ürünleri ve Gürcü lezzetlerinden oluşan rafine bir öğle seçkisi.",
+      "lunch1": "Üç servisli iş yemeği",
+      "lunch2": "Taze Karadeniz ürünleri",
+      "lunch3": "Gürcü salata ve başlangıçları",
+      "lunch4": "Hafif makarna ve risotto",
+      "dinnerDescription": "Gürcü ve uluslararası mutfak ile seçkin şarap eşleşmelerinin sunulduğu zarif bir akşam.",
+      "dinner1": "Şefin yedi servisli tadım menüsü",
+      "dinner2": "Seçkin biftekler ve ızgaralar",
+      "dinner3": "Geleneksel Gürcü ziyafeti",
+      "dinner4": "Sommelier şarap eşleşmeleri",
+      "ourMenus": "Menülerimiz",
+      "culinaryExcellence": "Mutfakta Mükemmellik",
+      "signature": "Özel",
+      "featuredDishes": "Öne Çıkan Yemekler",
+      "seaBass": "Izgara Karadeniz Levreği",
+      "seafood": "Deniz ürünleri",
+      "beef": "Dana Bonfile",
+      "grill": "Izgara",
+      "khachapuri": "Acara Haçapurisi",
+      "georgian": "Gürcü",
+      "risotto": "Istakozlu Risotto",
+      "italian": "İtalyan",
+      "sommelierSelection": "Sommelier Seçkisi",
+      "winePairings": "Şarap Eşleşmeleri",
+      "wineDescription": "Sommelierimiz, Gürcü kvevri şaraplarına ve her yemek için özenli eşleşmelere odaklanan 500'den fazla etiket seçti.",
+      "qvevriWines": "Gürcü Kvevri Şarapları",
+      "sommelierService": "Uzman Sommelier Hizmeti",
+      "ctaDescription": "Batumi'de rafine yemeklerin tadını çıkarın. Özel günler için ayrı salonlar sunulur.",
+      "makeReservation": "Rezervasyon Yap"
+    }
   },
   "bar": {
     "name": "Lounge Bar",
     "subtitle": "Her yudumda Sofistike",
-    "description": "Premium içkiler, el yapımı kokteyller ve nadir Gürcü şarapları geniş koleksiyonuyla bilirlerin sığınağı. Uzman barmenlerimiz mükemmel akşamınızı yaratırken Karadeniz üzerinde güneşin batışını izleyin.",
+    "description": "Seçkin içki tutkunları için samimi bir buluşma noktası. Premium distile içkiler, özenle hazırlanan kokteyller ve nadir Gürcü şaraplarından oluşan geniş koleksiyonumuzu keşfedin. Uzman barmenlerimiz gecenize eşlik ederken Karadeniz üzerinde gün batımını izleyin.",
     "hours": {
       "title": "Çalışma Saatleri",
       "daily": "Her Gün: 16:00 - 01:00"
@@ -166,10 +334,66 @@
     },
     "wines": {
       "title": "Gürcü Şarap Seçimi",
-      "subtitle": "Antik kvevri geleneklerinden modern ürünlere"
+      "subtitle": "Kadim kvevri geleneğinden modern şaraplara"
     },
     "reserve": "Masa Rezervasyonu",
-    "downloadMenu": "İçki Menüsünü İndir"
+    "downloadMenu": "İçki Menüsünü İndir",
+    "menus": {
+      "cocktailsTitle": "Kokteyl Menüsü",
+      "cocktailsSubtitle": "Gürcü geleneğini modern miksolojiyle buluşturan el yapımı kokteyller",
+      "happyHourTitle": "Mutlu Saatler Fırsatı",
+      "happyHourDescription": "Her gün 17.00–19.00 arasında kokteyllerde %50 indirimden yararlanın.",
+      "spiritsTitle": "Seçkin Distile İçkiler",
+      "spiritsSubtitle": "Dünyanın nitelikli distile içki ve likörlerinden özenli bir seçki",
+      "spiritsExploreTitle": "Koleksiyonumuzu Keşfedin",
+      "spiritsExploreDescription": "Tüm koleksiyonu görmek ve ekibimizin önerilerini almak için barımızı ziyaret edin.",
+      "wineTitle": "Şarap Listesi",
+      "wineSubtitle": "8.000 yıllık Gürcü şarapçılığı ile önde gelen uluslararası seçkiler",
+      "tastingTitle": "Şarap Tadımı Deneyimi",
+      "tastingDescription": "Gürcü ve uluslararası şarapları kapsayan rehberli tadıma katılın."
+    },
+    "page": {
+      "opensAt": "16.00'da açılır",
+      "happyHour": "Mutlu Saatler",
+      "happyHourHours": "17.00–19.00 (kokteyllerde %50 indirim)",
+      "experience": "Deneyim",
+      "intimateTitle": "Samimi Bir Sığınak",
+      "experienceDescription2": "Yerden tavana uzanan pencerelerden gün batımını izleyin veya sakin bir köşede baş başa kalın. Şarap listemizde seçkin Gürcü rekolteleri ve nadir kvevri şarapları bulunur.",
+      "wineCount": "200'den fazla şarap",
+      "premiumSpirits": "Seçkin Distile İçkiler",
+      "liveMusic": "Canlı Müzik",
+      "liveMusicHours": "Perşembe–Cumartesi, 20.00",
+      "crafted": "Otelimize Özel",
+      "cocktailDescription": "Her kokteyl Gürcü mirasını modern yaratıcılıkla buluşturur.",
+      "cocktail1": "Seçkin votka, böğürtlen likörü, turunçgil ve şampanya",
+      "cocktail2": "Çaça, bal, safran ve yerel otlar",
+      "cocktail3": "Cin, salatalık, nane ve mürver çiçeği toniği",
+      "cocktail4": "Viski, yeşil çay likörü, misket limonu ve bal şurubu",
+      "ancientTraditions": "Kadim Gelenekler",
+      "wineDescription": "Gürcistan, 8.000 yıllık şarapçılık mirasıyla şarabın ana vatanıdır. Geleneksel ve modern Gürcü şaraplarını keşfedin.",
+      "region": "Bölge",
+      "wine": "Şarap",
+      "year": "Yıl",
+      "price": "Fiyat",
+      "viewWineList": "Tüm Şarap Listesini Gör",
+      "premiumSelection": "Seçkin Koleksiyon",
+      "spiritsTitle": "Distile İçkiler ve Likörler",
+      "gallery": "Galeri",
+      "galleryTitle": "Fotoğraflarla Lounge Bar",
+      "galleryAlt": "Lounge Bar fotoğrafı {number}",
+      "ctaTitle": "Akşamınızı Rezerve Edin",
+      "ctaDescription": "Gün batımı kokteylleri, şarap tadımı veya özel bir etkinlik için masanızı ayırtın. Özel günler için VIP salonumuz bulunur.",
+      "call": "Ara",
+      "agedQvevri": "Kvevride yıllandırılmış",
+      "spiritCategories": {
+        "whiskey": "Viski",
+        "vodka": "Votka",
+        "gin": "Cin",
+        "rum": "Rom",
+        "tequila": "Tekila",
+        "cognac": "Konyak"
+      }
+    }
   },
   "wellness": {
     "title": "Wellness ve Spa",
@@ -190,8 +414,8 @@
       "relaxation": "Dinlenme Salonu"
     },
     "treatments": {
-      "title": "Spa Tedavileri",
-      "bookNow": "Tedavi Rezervasyonu",
+      "title": "Spa Bakımları",
+      "bookNow": "Bakım Rezervasyonu",
       "duration": "{minutes} dk",
       "benefits": "Faydalar"
     },
@@ -212,18 +436,76 @@
           "price": "Aylık üyelik"
         }
       },
-      "joinNow": "Şimdi Katıl"
+      "joinNow": "Şimdi Katıl",
+      "page": {
+        "heroDescription": "Wellness topluluğumuza katılın ve ayrıcalıklı avantajlardan yararlanın",
+        "choosePlan": "Planınızı seçin",
+        "tiers": "Üyelik kademeleri",
+        "perMonth": "aylık",
+        "ctaTitle": "Üyelik hakkında sorunuz mu var?",
+        "ctaDescription": "Wellness ekibimiz doğru planı seçmenize memnuniyetle yardımcı olur.",
+        "backToWellness": "Wellness'a dön",
+        "benefits": {
+          "poolGym": "Havuz ve spor salonuna erişim",
+          "discount10": "Bakımlarda %10 indirim",
+          "locker": "Dolap kullanımı",
+          "towels": "Havlu hizmeti",
+          "allBasic": "Basic planın tüm avantajları",
+          "saunaSteam": "Sauna ve buhar odasına erişim",
+          "discount20": "Bakımlarda %20 indirim",
+          "guestPasses": "Ayda iki misafir kartı",
+          "priority": "Öncelikli rezervasyon",
+          "allPremium": "Premium planın tüm avantajları",
+          "unlimitedTreatments": "Sınırsız bakım",
+          "cabana": "Özel kabanaya erişim",
+          "trainer": "Kişisel antrenör seansı",
+          "beverages": "Ücretsiz içecekler",
+          "concierge": "Danışman aracılığıyla planlama"
+        }
+      }
+    },
+    "page": {
+      "facilitiesDescription": "Hareket, ısı, su ve yenilenme için sakin bir wellness katı; gösterişten çok huzur arayan misafirler için tasarlandı.",
+      "facilities": {
+        "pool": "Karadeniz manzaralı sonsuzluk havuzu",
+        "gym": "Günlük hareket için Technogym ekipmanları",
+        "sauna": "Kuru sıcaklık, sedir kokusu ve sakin bir ritüel",
+        "steam": "Hamam esintili okaliptüslü buhar",
+        "jacuzzi": "Çatıda açık hava hidroterapisi",
+        "relaxation": "Bakımlardan önce ve sonra dinginlik"
+      },
+      "treatments": {
+        "wine": {
+          "name": "Gürcü Şarabı Vücut Sargısı",
+          "description": "Cildi yenilemek ve derinlemesine rahatlamak için antioksidan bakımından zengin şarap terapisi."
+        },
+        "salt": {
+          "name": "Karadeniz Tuzu Peelingi",
+          "description": "Deniz tuzu ve sıcak bitkisel yağlarla mineral peeling."
+        },
+        "aromatherapy": {
+          "name": "Aromaterapi Masajı",
+          "description": "Terapistinizin seçtiği uçucu yağlarla tüm vücut masajı."
+        },
+        "couples": {
+          "name": "Çiftlere Özel Dinlenme",
+          "description": "Yan yana masaj, aceleye gelmeyen bir toparlanma süresi ve salonda özel bir an."
+        }
+      },
+      "concierge": "Wellness danışmanı",
+      "ctaTitle": "Wellness yolculuğunuza başlayın",
+      "ctaDescription": "Ekibimiz tek bir bakımı, tam günlük yenilenme programını veya üyelik planını ritminize göre şekillendirebilir."
     }
   },
   "steamRoom": {
-    "title": "Türk Hammamı",
+    "title": "Türk Hamamı",
     "subtitle": "Okaliptüs buharlı lüks buhar odası deneyimi",
     "openingHours": "Çalışma Saatleri",
     "hours": "8:00 - 22:00",
     "temperature": "Sıcaklık ve Nem",
     "tempValue": "40-45°C • %100",
     "luxuryWellness": "Lüks Wellness",
-    "traditionalTurkish": "Geleneksel Türk Hammamı",
+    "traditionalTurkish": "Geleneksel Türk Hamamı",
     "premiumAmenities": "Premium Olanaklar",
     "steamRoomFeatures": "Buhar Odası Özellikleri",
     "wellnessBenefits": "Wellness Faydaları",
@@ -234,33 +516,33 @@
     "features": {
       "wetHeat": "Nemli Isı",
       "wetHeatDesc": "%100 nemde 40-45°C",
-      "turkishHammam": "Türk Hammamı",
+      "turkishHammam": "Türk Hamamı",
       "turkishHammamDesc": "Geleneksel Orta Doğu tasarımı",
       "eucalyptusSteam": "Okaliptüs Buharı",
-      "eucalyptusSteamDesc": "Esansiyel yağlarla infüze",
+      "eucalyptusSteamDesc": "Uçucu yağlarla zenginleştirilmiş buhar",
       "skinBenefits": "Cilt Faydaları",
       "skinBenefitsDesc": "Derin temizlik ve nemlendirme"
     },
     "benefitsList": {
       "deepPore": "Derin gözenek temizliği ve cilt nemlendirme",
       "respiratory": "Solunum sistemi rahatlaması",
-      "muscleTension": "Kas gerilimi serbestliği",
-      "bloodCirculation": "İyileşmiş kan dolaşımı",
-      "stressReduction": "Stres ve kaygı azaltımı",
-      "sinusRelief": "Sinüs tıkanıklığı rahatlaması",
+      "muscleTension": "Kas gerginliğinin azalması",
+      "bloodCirculation": "Kan dolaşımının desteklenmesi",
+      "stressReduction": "Stres ve kaygının azalması",
+      "sinusRelief": "Sinüs tıkanıklığının hafiflemesi",
       "postWorkout": "Antrenman sonrası toparlanma",
       "detoxification": "Terleme yoluyla detoks"
     }
   },
   "sauna": {
-    "title": "Finlandiya Saunası",
+    "title": "Fin Saunası",
     "subtitle": "Mükemmel gevşeme ve detoks için geleneksel kuru sauna deneyimi",
     "openingHours": "Çalışma Saatleri",
     "hours": "8:00 - 22:00",
     "temperature": "Sıcaklık",
     "tempValue": "80-90°C",
     "traditionalWellness": "Geleneksel Wellness",
-    "authenticFinnish": "Otantik Finlandiya Saunası",
+    "authenticFinnish": "Otantik Fin Saunası",
     "premiumAmenities": "Premium Olanaklar",
     "saunaFeatures": "Sauna Özellikleri",
     "wellnessBenefits": "Wellness Faydaları",
@@ -270,9 +552,9 @@
     "bookYourStay": "Rezervasyon Yap",
     "features": {
       "dryHeat": "Kuru Isı",
-      "dryHeatDesc": "80-90°C geleneksel Finlandiya saunası",
+      "dryHeatDesc": "80-90°C geleneksel Fin saunası",
       "cedarWood": "Sedir Ağacı",
-      "cedarWoodDesc": "Premium kuzey sedri yapı",
+      "cedarWoodDesc": "Kaliteli İskandinav sedir ağacından yapı",
       "aromatherapy": "Aromaterapi",
       "aromatherapyDesc": "Esansiyel yağ infüzyonları mevcut",
       "healthBenefits": "Sağlık Faydaları",
@@ -294,8 +576,8 @@
     "subtitle": "Tedaviler arasında huzur, konfor ve toparlanma için tasarlanmış sakin bir sığınak.",
     "openingHours": "Çalışma Saatleri",
     "hours": "8:00 - 22:00",
-    "luxuryWellness": "Sakin Kaçış",
-    "calmRetreat": "Tedaviler Arası Sakin Kaçış",
+    "luxuryWellness": "Huzurlu Mola",
+    "calmRetreat": "Bakımlar Arasında Huzurlu Dinlenme",
     "premiumAmenities": "Premium Olanaklar",
     "loungeFeatures": "Salon Özellikleri",
     "wellnessBenefits": "Wellness Faydaları",
@@ -314,13 +596,14 @@
     }
   },
   "pool": {
-    "title": "Sonsuz Havuz",
-    "subtitle": "Panoramik Karadeniz manzaralı şaşırtıcı çatı havuzu",
+    "title": "Sonsuzluk Havuzu",
+    "description": "Çatıdaki sonsuzluk havuzumuz otelimizin en özel alanıdır. Karadeniz'le birleşiyormuş gibi görünen sonsuzluk kenarına sahip 25 metrelik havuz, tavandan tabana camlar sayesinde 180 derecelik panoramik manzara sunar. Su sıcaklığı yıl boyunca 28°C'de tutulur; su altı aydınlatması ise akşam yüzmelerine büyüleyici bir atmosfer katar.",
+    "subtitle": "Panoramik Karadeniz manzaralı etkileyici çatı havuzu",
     "openingHours": "Çalışma Saatleri",
     "hours": "6:00 - 22:00",
     "waterTemperature": "Su Sıcaklığı",
     "waterTempValue": "28°C",
-    "luxuryWellness": "Çatı Oasisı",
+    "luxuryWellness": "Çatı Vahası",
     "panoramicPool": "Panoramik Çatı Havuzu",
     "premiumAmenities": "Premium Olanaklar",
     "poolFeatures": "Havuz Özellikleri",
@@ -334,9 +617,9 @@
       "heatedWater": "Isıtmalı Su",
       "heatedWaterDesc": "Yıl boyunca konforlu 28°C",
       "panoramicViews": "Panoramik Manzaralar",
-      "panoramicViewsDesc": "Tavanından tabanına cam duvarlar",
+      "panoramicViewsDesc": "Tavandan tabana cam duvarlar",
       "adultsOnly": "Sadece Yetişkinler",
-      "adultsOnlyDesc": "Huzurlu atmosfer garanti"
+      "adultsOnlyDesc": "Sakin ve huzurlu bir atmosfer"
     }
   },
   "jacuzzi": {
@@ -362,8 +645,8 @@
       "perfectTempDesc": "38-40°C'de tutulan",
       "outdoor": "Açık Alan",
       "outdoorDesc": "Deniz manzaralı çatı konumu",
-      "intimate": "İntim Kapasite",
-      "intimateDesc": "6 misafire kadar kapasite"
+      "intimate": "Özel ve Sakin",
+      "intimateDesc": "En fazla 6 misafir kapasitesi"
     },
     "benefitsList": {
       "muscleRelief": "Kas gerilimi rahatlaması ve ağrı azaltma",
@@ -389,29 +672,29 @@
     "bookYourStay": "Rezervasyon Yap",
     "features": {
       "technogym": "Technogym Ekipmanı",
-      "technogymDesc": "En son kardio ve güç makinaları",
+      "technogymDesc": "Yeni nesil kardiyo ve kuvvet makineleri",
       "personalTraining": "Kişisel Antrenman",
       "personalTrainingDesc": "İsteğe bağlı uzman antrenörler",
-      "cardioZone": "Kardio Bölgesi",
-      "cardioZoneDesc": "Deniz manzaralı koşu bantları, bisikletler, eliptikler",
+      "cardioZone": "Kardiyo Alanı",
+      "cardioZoneDesc": "Deniz manzaralı koşu bantları, bisikletler ve eliptik bisikletler",
       "freeWeights": "Serbest Ağırlıklar",
-      "freeWeightsDesc": "Dumbbell ve barbell serisi"
+      "freeWeightsDesc": "Dambıl ve halter setleri"
     },
     "equipmentListItems": {
       "treadmills": "Eğlence ekranlı koşu bantları",
       "bikes": "Statik bisikletler ve spin bisikletleri",
-      "ellipticals": "Eliptik eğitimciler",
-      "rowing": "Kürek makinaları",
-      "strength": "Kablo makinaları ve direnç ekipmanları",
+      "ellipticals": "Eliptik bisikletler",
+      "rowing": "Kürek makineleri",
+      "strength": "Kablo makineleri ve direnç ekipmanları",
       "freeWeightsSection": "Tam serbest ağırlıklar bölümü",
       "yoga": "Yoga ve esneme alanı",
-      "recovery": "Foam roller ile toparlanma alanı"
+      "recovery": "Köpük rulolarla toparlanma alanı"
     }
   },
   "meetings": {
     "title": "Toplantılar ve Etkinlikler",
     "subtitle": "İş Güzellikle Buluşuyor",
-    "description": "Son teknoloji ile donatılmış ve sadık etkinlik ekibimiz tarafından desteklenen çok yönlü etkinlik alanlarımızda bir sonraki kurumsal etkinliğinizi, konferansınızı veya kutlamanızı ev sahipliği yapın.",
+    "description": "Son teknolojiyle donatılmış çok amaçlı salonlarımızda kurumsal etkinliğinizi, konferansınızı veya kutlamanızı düzenleyin. Uzman etkinlik ekibimiz planlamanın her aşamasında yanınızda.",
     "venues": {
       "title": "Salonlarımız",
       "capacity": "Kapasite: {count} misafir"
@@ -421,20 +704,194 @@
       "day": "Günlük Konferans Paketi",
       "residential": "Konaklamalı Konferans Paketi"
     },
-    "inquire": "Şimdi Sor"
+    "inquire": "Şimdi Sor",
+    "page": {
+      "corporateEvents": "Kurumsal etkinlikler",
+      "ourSpaces": "Alanlarımız",
+      "solutions": "Çözümler",
+      "ctaTitle": "Kusursuz etkinliğinizi planlayın",
+      "ctaDescription": "Etkinlik ekibimiz unutulmaz bir deneyim yaratmanıza yardımcı olmaya hazır.",
+      "call": "Arayın",
+      "perPerson": "kişi başı",
+      "perPersonNight": "kişi başı, gecelik",
+      "venues": {
+        "ballroom": {
+          "name": "Büyük Balo Salonu",
+          "features": {
+            "setup": "Tiyatro ve banket düzeni",
+            "stage": "Sahne ve dans pisti",
+            "av": "Dâhilî görsel-işitsel sistem",
+            "light": "Doğal ışık"
+          }
+        },
+        "conference": {
+          "name": "Konferans Merkezi",
+          "features": {
+            "setup": "Toplantı masası düzeni",
+            "video": "Video konferans",
+            "projection": "Projeksiyon sistemi",
+            "soundproofing": "Ses yalıtımı"
+          }
+        },
+        "boardroom": {
+          "name": "Yönetici Toplantı Odası",
+          "features": {
+            "private": "Özel toplantı alanı",
+            "smartBoard": "Etkileşimli tahta",
+            "furniture": "Üst sınıf mobilyalar",
+            "catering": "İkram hizmeti"
+          }
+        },
+        "terrace": {
+          "name": "Çatı Terası",
+          "features": {
+            "outdoor": "Açık hava etkinlikleri",
+            "view": "Panoramik deniz manzarası",
+            "weather": "Olumsuz hava için kapalı alan alternatifi",
+            "barbecue": "Barbekü olanakları"
+          }
+        }
+      },
+      "packages": {
+        "day": {
+          "room": "Konferans salonu kiralama",
+          "coffee": "Sabah ve öğleden sonra kahve molaları",
+          "lunch": "Açık büfe öğle yemeği",
+          "av": "Temel görsel-işitsel ekipman",
+          "wifi": "Wi-Fi erişimi",
+          "stationery": "Not defterleri ve kalemler"
+        },
+        "residential": {
+          "stay": "Bir gecelik konaklama",
+          "facilities": "Tüm gün konferans olanakları",
+          "meals": "Kahvaltı, öğle ve akşam yemeği",
+          "coffee": "Gün boyu kahve molaları",
+          "av": "Eksiksiz görsel-işitsel ekipman",
+          "teamBuilding": "Takım çalışması etkinliği",
+          "transfer": "Havalimanı transferi"
+        }
+      },
+      "amenities": {
+        "wifi": "Yüksek hızlı Wi-Fi",
+        "av": "Görsel-işitsel ekipman",
+        "coffee": "Kahve servisi",
+        "catering": "İkram hizmeti"
+      }
+    }
   },
   "offers": {
     "title": "Özel Teklifler",
     "subtitle": "Unutulmaz deneyimler için özel paketler",
     "bookNow": "Bu Teklifi Rezerve Et",
     "validUntil": "Geçerlilik",
-    "includes": "Dahiller"
+    "includes": "Dahil Olanlar",
+    "exclusive": "Özel",
+    "fromPerNight": "Gecelik {price} fiyatından itibaren",
+    "saveAmount": "{amount} tasarruf edin",
+    "ongoing": "Sürekli",
+    "newsletterTitle": "Özel Teklifleri Alın",
+    "newsletterDescription": "Özel kampanyalar ve sezonluk teklifler için bültenimize abone olun.",
+    "emailLabel": "E-posta adresi",
+    "emailPlaceholder": "E-posta adresinizi girin…",
+    "subscribe": "Abone ol",
+    "items": {
+      "earlyBird": {
+        "title": "Erken Rezervasyon Fırsatı",
+        "subtitle": "30 gün önceden ayırtın, %25 tasarruf edin",
+        "description": "Önceden planlayarak avantajlı fiyat, kahvaltı ve geç çıkıştan yararlanın.",
+        "include1": "İki kişilik günlük kahvaltı",
+        "include2": "14.00'e kadar geç çıkış",
+        "include3": "Ücretsiz oda yükseltme",
+        "include4": "Karşılama içeceği"
+      },
+      "romantic": {
+        "title": "Romantik Kaçamak",
+        "subtitle": "Çiftler için tasarlandı",
+        "description": "Spa bakımı, şampanya ve özenli ayrıntılarla birlikte güzel anlar yaşayın.",
+        "include1": "Varışta şampanya",
+        "include2": "Çiftlere özel spa bakımı",
+        "include3": "Mum ışığında akşam yemeği",
+        "include4": "Oda süslemesi"
+      },
+      "family": {
+        "title": "Aile Eğlence Paketi",
+        "subtitle": "Tüm aile için güzel anılar",
+        "description": "Çocuk etkinlikleri ve esnek oda seçenekleriyle ailece konaklayın.",
+        "include1": "Müsaitliğe göre bağlantılı odalar",
+        "include2": "Çocuklara ücretsiz yemek",
+        "include3": "Aile gezisi",
+        "include4": "Çocuk kulübü erişimi"
+      },
+      "wellness": {
+        "title": "Spa ve Wellness Molası",
+        "subtitle": "Zihninizi ve bedeninizi yenileyin",
+        "description": "Günlük bakımlar, dengeli yemekler ve yogayla eksiksiz bir wellness konaklaması.",
+        "include1": "Günlük spa bakımı",
+        "include2": "Sağlıklı kahvaltı",
+        "include3": "Yoga ve meditasyon",
+        "include4": "Wellness alanlarına erişim"
+      },
+      "extended": {
+        "title": "Uzun Konaklama Teklifi",
+        "subtitle": "Daha uzun kalın, daha çok kazanın",
+        "description": "Yedi gece veya daha uzun konaklayın, %30 indirim ve ek avantajlardan yararlanın.",
+        "include1": "Haftalık oda temizliği",
+        "include2": "Çamaşırhane hizmeti",
+        "include3": "Mutfak erişimi",
+        "include4": "Çalışma alanı kurulumu"
+      },
+      "wine": {
+        "title": "Gürcü Şarabı Deneyimi",
+        "subtitle": "Geleneğin tadına varın",
+        "description": "Tadım ve bağ gezisiyle Gürcistan'ın 8.000 yıllık şarapçılık mirasını keşfedin.",
+        "include1": "Rehberli şarap tadımı",
+        "include2": "Bağ gezisi",
+        "include3": "Şarap eşleşmeli akşam yemeği",
+        "include4": "Hatıra şarap şişesi"
+      }
+    }
+  },
+  "wellnessPages": {
+    "galleryImage": "{facility} fotoğrafı {number}",
+    "exploreAll": "Tüm Wellness Alanlarını Keşfedin",
+    "reserveSession": "Seansınızı Ayırtın",
+    "dayPass": "Günlük Giriş İçin Arayın",
+    "bookTrainer": "Kişisel Antrenör Ayırtın",
+    "sauna": {
+      "overview": "Fin saunamız, Kuzey sediri ve 80–90°C kuru ısıyla derin bir rahatlama sunar. Basamaklı oturma düzeni, aromaterapi yağları ve yakındaki soğuk havuz geleneksel sıcak-soğuk ritüelini tamamlar.",
+      "ctaTitle": "Geleneksel Sauna Terapisini Deneyimleyin",
+      "ctaDescription": "Otel misafirleri ücretsiz yararlanır; aromaterapi yağları ve havlular sağlanır."
+    },
+    "steam": {
+      "overview": "Türk hamamı mozaik yüzeyleri, 40–45°C sıcaklığı, tam nemi ve okaliptüs buharını bir araya getirir. Mermer oturma alanları ve renk terapisi nefes almak, toparlanmak ve dinlenmek için rahat bir ortam yaratır.",
+      "ctaTitle": "Türk Hamamımızda Yenilenin",
+      "ctaDescription": "Otel misafirleri ücretsiz yararlanır; okaliptüs buharı ve havlular sağlanır."
+    },
+    "gym": {
+      "overview": "200 m² fitness merkezimiz, deniz manzarası eşliğinde modern Technogym kardiyo ve kuvvet ekipmanları sunar. Otel misafirleri kartla 24 saat erişebilir; kişisel antrenörler gündüz saatlerinde hizmet verir.",
+      "ctaTitle": "Antrenman Düzeninizi Koruyun",
+      "ctaDescription": "Otel misafirleri 24 saat erişebilir. Kişisel antrenman talep üzerine sunulur."
+    },
+    "jacuzzi": {
+      "overview": "Çatı jakuzisi 38–40°C suyu, hidroterapi jetlerini ve 180 derece Karadeniz manzarasını birleştirir. Altı misafire kadar ağırlayan alan, akşamları veya spa sonrasında dinlenmek için idealdir.",
+      "ctaTitle": "Çatı Jakuzimizde Rahatlayın",
+      "ctaDescription": "Otel misafirleri ücretsiz yararlanır. Havlu ve bornoz sağlanır; akşam seansları için rezervasyon önerilir."
+    },
+    "pool": {
+      "overview": "Çatıdaki 25 metrelik sonsuzluk havuzumuz Karadeniz'le birleşiyor gibi görünür. Yıl boyunca 28°C'de tutulan su, panoramik cam duvarlar ve su altı aydınlatmasıyla gündüz ve akşam yüzme keyfi sunar.",
+      "ctaTitle": "Sonsuzluk Havuzumuzu Deneyimleyin",
+      "ctaDescription": "Otel misafirleri ücretsiz yararlanır. Diğer ziyaretçiler için günlük giriş sunulur."
+    },
+    "relaxation": {
+      "ctaTitle": "Wellness Yolculuğunuza Devam Edin",
+      "ctaDescription": "Tüm wellness alanlarını keşfedin veya tam erişim için konaklama rezervasyonu yapın."
+    }
   },
   "spa": {
     "title": "Lüks Spa",
     "ultimateRelaxation": "Mükemmel Rahatlama",
     "ourPhilosophy": "Felsefemiz",
-    "holisticWellness": "Bütünsel Wellness",
+    "holisticWellness": "Bütünsel Sağlıklı Yaşam",
     "curatedExperiences": "Özenle Seçilmiş Deneyimler",
     "spaPackages": "Spa Paketleri",
     "enhanceYourExperience": "Deneyiminizi Geliştirin",
@@ -450,7 +907,62 @@
     "gratuities": "Bahşiş takdir edilir ama zorunlu değildir",
     "cancellationPolicy": "24 saat iptal politikası uygulanır",
     "visualJourney": "Görsel Yolculuk",
-    "spaGallery": "Spa Galerisi"
+    "spaGallery": "Spa Galerisi",
+    "page": {
+      "heroDescription": "Dinlenmek, toparlanmak ve yenilenmek için huzurlu bir alana adım atın.",
+      "philosophy1": "Spa merkezimiz Gürcü sağlık geleneklerini modern terapi teknikleriyle birleştirir. Her bakım dengeyi yeniden kurmak ve iyi hissetmenizi desteklemek için tasarlanır.",
+      "philosophy2": "Uzman terapistlerimiz kişisel bir deneyim yaratmak için seçkin organik ürünler ve Karadeniz bölgesinin mineral açısından zengin bileşenlerini kullanır.",
+      "minutes": "{count} dk",
+      "includes": "Dahil",
+      "bookNow": "Rezervasyon Yap",
+      "galleryAlt": "Spa alanı fotoğrafı {number}",
+      "ctaTitle": "Spa Deneyiminizi Ayırtın",
+      "ctaDescription": "Kendinize sakin bir zaman ayırın; terapistlerimiz tam bir rahatlamaya ulaşmanıza yardımcı olsun.",
+      "makeReservation": "Rezervasyon Yap",
+      "call": "Spa'yı Ara",
+      "packages": {
+        "signature": {
+          "name": "Özel Spa Yolculuğu",
+          "description": "Masaj, yüz bakımı, vücut peelingi ve dinlenme süresi içeren eksiksiz deneyim.",
+          "include1": "90 dakikalık aromaterapi masajı",
+          "include2": "Yaşlanma karşıtı yüz bakımı",
+          "include3": "Karadeniz tuzu peelingi",
+          "include4": "Şampanya ve taze meyve"
+        },
+        "deep": {
+          "name": "Derin Rahatlama Ritüeli",
+          "description": "Sıcak taşlar ve aromaterapi yağlarıyla tüm vücut ritüeli.",
+          "include1": "Sıcak taş terapisi",
+          "include2": "Aromaterapi masajı",
+          "include3": "Saç derisi bakımı",
+          "include4": "Bitki çayı servisi"
+        },
+        "detox": {
+          "name": "Detoks ve Yenilenme",
+          "description": "Beden ve zihni tazelemek için arındırıcı bakımlar.",
+          "include1": "Gürcü şarabı vücut sargısı",
+          "include2": "Lenf drenaj masajı",
+          "include3": "Detoks vücut peelingi",
+          "include4": "Sauna erişimi"
+        },
+        "couples": {
+          "name": "Çiftlere Özel Sığınak",
+          "description": "Yan yana bakımların sunulduğu iki kişilik özel süit.",
+          "include1": "Çift masajı",
+          "include2": "Özel jakuzi",
+          "include3": "Şampanya ve çikolata",
+          "include4": "Gül yapraklı banyo"
+        }
+      },
+      "addOns": {
+        "massage": "Uzatılmış masaj (+30 dk)",
+        "aromatherapy": "Aromaterapi yükseltmesi",
+        "hotStone": "Sıcak taş eklentisi",
+        "sauna": "Özel sauna seansı (60 dk)",
+        "champagne": "Şampanya servisi",
+        "fruit": "Taze meyve tabağı"
+      }
+    }
   },
   "experiences": {
     "title": "Yapılacak Şeyler",
@@ -460,7 +972,63 @@
     "learnMore": "Daha Fazla Bilgi",
     "conciergeTitle": "Konsiyerjimiz Yardımcı Olsun",
     "conciergeDescription": "Konsiyerj ekibimiz ilgi alanlarınıza göre turlar, transferler ve benzersiz deneyimler düzenleyebilir.",
-    "contactConcierge": "Konsiyerjle İletişime Geçin"
+    "contactConcierge": "Konsiyerjle İletişime Geçin",
+    "categories": {
+      "all": "Tümü",
+      "sightseeing": "Gezilecek Yerler",
+      "nature": "Doğa",
+      "culture": "Kültür",
+      "adventure": "Macera"
+    },
+    "duration": "Süre: {value}",
+    "onSite": "Otelde",
+    "items": {
+      "boulevard": {
+        "name": "Batumi Bulvarı",
+        "description": "Bahçeler, kafeler ve Karadeniz manzaralarıyla ünlü sahil yolunda yürüyüş yapın.",
+        "duration": "2–3 saat"
+      },
+      "oldBatumi": {
+        "name": "Eski Batumi",
+        "description": "19. yüzyıl mimarisi, sakin sokakları ve geleneksel restoranlarıyla tarihi bölgeyi keşfedin.",
+        "duration": "3–4 saat"
+      },
+      "botanical": {
+        "name": "Batumi Botanik Bahçesi",
+        "description": "Dünyanın dört bir yanından 5.000'den fazla bitki türüne ev sahipliği yapan ünlü bahçeyi gezin.",
+        "duration": "4–5 saat"
+      },
+      "gonio": {
+        "name": "Gonio Kalesi",
+        "description": "2.000 yılı aşkın tarihi ve arkeolojik mirası bulunan antik Roma kalesini ziyaret edin.",
+        "duration": "3–4 saat"
+      },
+      "mtirala": {
+        "name": "Mtirala Millî Parkı",
+        "description": "Koruma altındaki subtropikal ormanlarda, şelaleler ve zengin yaban hayatı arasında yürüyün.",
+        "duration": "Tam gün"
+      },
+      "wineTour": {
+        "name": "Şarap Tadım Turu",
+        "description": "Yerel bağlarda Gürcistan'ın 8.000 yıllık şarapçılık geleneğini deneyimleyin.",
+        "duration": "4–5 saat"
+      },
+      "boatTour": {
+        "name": "Karadeniz Tekne Turu",
+        "description": "Gün batımı manzaraları ve teknede taze deniz ürünleri eşliğinde kıyı boyunca gezinin.",
+        "duration": "2–3 saat"
+      },
+      "paragliding": {
+        "name": "Yamaç Paraşütü Macerası",
+        "description": "Batumi ve çevresindeki dağların geniş manzarası için kıyının üzerinde süzülün.",
+        "duration": "2–3 saat"
+      },
+      "cooking": {
+        "name": "Gürcü Mutfağı Dersi",
+        "description": "Şefimizle birlikte haçapuri, hinkali ve diğer Gürcü yemeklerini hazırlamayı öğrenin.",
+        "duration": "3 saat"
+      }
+    }
   },
   "about": {
     "ourStory": "Hikayemiz",
@@ -470,15 +1038,53 @@
     "luxuryRating": "Lüks Değerlendirmesi",
     "meetOurTeam": "Liderlik ekibimizle tanışın",
     "ourPhilosophy": "Felsefemiz",
-    "whatWeStandFor": "Ne İçin Duruyoruz",
+    "whatWeStandFor": "Değerlerimiz",
     "ourTeam": "Ekibimiz",
     "meetThePeople": "Deneyimin Arkasındaki İnsanlarla Tanışın",
     "architecture": "Mimari",
-    "modernDesign": "2026 Modern Tasarım"
+    "modernDesign": "2026 Modern Tasarım",
+    "heroSubtitle": "Gürcistan'ın etkileyici Karadeniz kıyısında modern mimarinin başyapıtı",
+    "story1": "Grand Boutique Hotel, Karadeniz kıyısında sıra dışı bir yer yaratma hayaliyle doğdu. 2026 çağdaş mimarisi, rafine zarafeti Gürcistan kıyılarının doğal güzelliğiyle buluşturuyor.",
+    "story2": "Denizden ilham alan koyu yeşil yüzeylerden Gürcü misafirperverliğinin sıcaklığını yansıtan pirinç detaylara kadar her unsur titiz bir işçiliği anlatıyor. Burası bir otelden fazlası; anıların yaratıldığı bir yer.",
+    "values": {
+      "hospitalityTitle": "Gürcü Misafirperverliği",
+      "hospitalityDescription": "Her misafiri sıcaklık ve içten bir özenle karşılayarak Gürcü misafirperverliği geleneğini yaşatıyoruz.",
+      "sustainabilityTitle": "Sürdürülebilir Lüks",
+      "sustainabilityDescription": "Çevresel sorumluluk ile özenli lüks, otelin her alanında uyum içinde bulunuyor.",
+      "excellenceTitle": "Modern Mükemmellik",
+      "excellenceDescription": "Çağdaş mimari, dinlenmek ve ilham almak için tasarlanan alanlarda zamansız zarafetle buluşuyor.",
+      "serviceTitle": "Kişiye Özel Hizmet",
+      "serviceDescription": "Gerçekten unutulmaz bir konaklama için her ayrıntıyı tercihlerinize göre şekillendiriyoruz."
+    },
+    "stats": {
+      "architecture": "Mimari",
+      "rooms": "Odalar ve Süitler",
+      "satisfaction": "Misafir Memnuniyeti",
+      "concierge": "Konsiyerj Hizmeti"
+    },
+    "roles": {
+      "generalManager": "Genel Müdür",
+      "guestRelations": "Misafir İlişkileri Müdürü",
+      "executiveChef": "Baş Aşçı"
+    },
+    "architectureDescription": "Yerden tavana uzanan pencereler Karadeniz manzarasını çerçevelerken sürdürülebilir malzemeler ve verimli iklim sistemleri çevresel etkiyi azaltarak konfor sağlıyor.",
+    "feature1": "Denizi yansıtan yerden tavana cam cephe",
+    "feature2": "Ortak alanlarda canlı yeşil duvarlar",
+    "feature3": "Entegre akıllı oda teknolojisi",
+    "feature4": "Verimli ısıtma ve soğutma",
+    "feature5": "Yağmur suyu toplama ve yeniden kullanım",
+    "experienceTitle": "{hotel} deneyimini yaşayın",
+    "experienceDescription": "Dünyanın dört bir yanından gelen misafirlerin Karadeniz tatili için neden otelimizi seçtiğini keşfedin.",
+    "exploreRooms": "Odaları Keşfedin",
+    "contactUs": "Bize Ulaşın"
   },
   "gallery": {
     "title": "Galeri",
     "subtitle": "Dünyamızın görsel yolculuğu",
+    "visualJourney": "Görsel yolculuk",
+    "stayKicker": "Bizimle konaklayın",
+    "stayTitle": "Atmosferi yerinde deneyimleyin.",
+    "imageAlt": "Otel galerisi fotoğrafı {number}",
     "categories": {
       "all": "Tümü",
       "hotel": "Otel",
@@ -518,6 +1124,11 @@
       "street": "Rustaveli Caddesi 123",
       "city": "Batumi, Gürcistan",
       "postal": "6000"
+    },
+    "page": {
+      "getInTouch": "Bize ulaşın",
+      "frontDesk247": "Resepsiyon 7/24 hizmetinizde",
+      "cityImageAlt": "Otelin yakınındaki Batum"
     }
   },
   "location": {
@@ -529,10 +1140,72 @@
       "airport": "Batumi Uluslararası Havalimanı",
       "center": "Şehir Merkezi",
       "beach": "Karadeniz Sahili"
+    },
+    "page": {
+      "findUs": "Bizi bulun",
+      "ourAddress": "Adresimiz",
+      "phone": "Telefon",
+      "frontDesk": "Resepsiyon",
+      "available247": "7/24 hizmetinizde",
+      "mapTitle": "Batumi Boutique Hotel konumu",
+      "explore": "Keşfedin",
+      "transferTitle": "Transfer hizmetine mi ihtiyacınız var?",
+      "transferDescription": "Havalimanı transferi ve özel şoför hizmeti sunuyoruz. Ulaşımınızı planlamak için bizimle iletişime geçin.",
+      "arrangeTransfer": "Transfer ayarlayın",
+      "callUs": "Bizi arayın",
+      "attractions": {
+        "beach": {
+          "name": "Karadeniz Plajı",
+          "time": "2 dakika yürüme mesafesinde",
+          "description": "Muhteşem gün batımlarına sahip temiz çakıl plajı"
+        },
+        "boulevard": {
+          "name": "Batum Bulvarı",
+          "time": "5 dakika yürüme mesafesinde",
+          "description": "Bahçeleri ve kafeleriyle ünlü sahil gezinti yolu"
+        },
+        "oldBatumi": {
+          "name": "Eski Batum",
+          "time": "15 dakika yürüme mesafesinde",
+          "description": "Geleneksel mimariye sahip tarihi bölge"
+        },
+        "piazza": {
+          "name": "Piazza Meydanı",
+          "time": "18 dakika yürüme mesafesinde",
+          "description": "Restoranları ve canlı müziğiyle hareketli meydan"
+        },
+        "botanical": {
+          "name": "Batum Botanik Bahçesi",
+          "time": "Arabayla 15 dakika",
+          "description": "Dünyaca ünlü botanik bahçesi"
+        },
+        "gonio": {
+          "name": "Gonio Kalesi",
+          "time": "Arabayla 20 dakika",
+          "description": "Zengin bir geçmişe sahip antik Roma kalesi"
+        }
+      },
+      "transport": {
+        "airport": {
+          "time": "Arabayla 10 dakika",
+          "details": "Batum Uluslararası Havalimanı (BUS)"
+        },
+        "center": {
+          "time": "12 dakika yürüme mesafesinde",
+          "details": "Alışveriş, yeme içme ve eğlence"
+        },
+        "station": {
+          "name": "Tren istasyonu",
+          "time": "Arabayla 8 dakika",
+          "details": "Tiflis'e doğrudan tren seferleri"
+        }
+      }
     }
   },
   "chatbot": {
     "name": "Mariam",
+    "concierge": "Konsiyerj",
+    "digitalConcierge": "Dijital konsiyerj",
     "greeting": "Merhaba! Ben Mariam, kişisel asistanınız. Size nasıl yardımcı olabilirim?",
     "placeholder": "Mesajınızı yazın...",
     "send": "Gönder",
@@ -544,6 +1217,7 @@
     "checkIn": "Giriş",
     "checkOut": "Çıkış",
     "guests": "Misafirler",
+    "flexible": "Esnek",
     "rooms": "Odalar",
     "adults": "Yetişkinler",
     "children": "Çocuklar",
@@ -553,7 +1227,112 @@
     "benefit1": "Ücretsiz kahvaltı",
     "benefit2": "Erken giriş ve geç çıkış",
     "benefit3": "Ücretsiz oda yükseltme (müsaitlik dahilinde)",
-    "benefit4": "Özel spa indirimi"
+    "benefit4": "Özel spa indirimi",
+    "page": {
+      "reservations": "Rezervasyon",
+      "directBooking": "Doğrudan rezervasyon",
+      "ourPromise": "Sözümüz",
+      "promiseDescription": "Şeffaf fiyat, rezervasyon ekibimizin doğrudan desteği ve varış ayrıntılarınızın öncelikli olarak ele alınması için otelle doğrudan rezervasyon yapın.",
+      "promises": {
+        "priceMatch": "Doğrudan rezervasyonlarda fiyat eşleştirme desteği",
+        "noHiddenFees": "Gizli rezervasyon ücreti yok",
+        "flexibleCancellation": "Esnek iptal koşulları hakkında rehberlik",
+        "priorityRoom": "Müsaitlik hâlinde öncelikli oda tahsisi",
+        "welcomeAmenity": "Varışta karşılama ikramı"
+      },
+      "imageAlt": "Misafirin varışına hazırlanmış lüks oda",
+      "directValue": "Doğrudan rezervasyon avantajı",
+      "reservationsTeam": "Rezervasyon ekibi",
+      "helpTitle": "Konaklamanız için yardıma mı ihtiyacınız var?",
+      "helpDescription": "Grup rezervasyonları, özel talepler, erişilebilirlik ihtiyaçları veya varış koordinasyonu için bizimle iletişime geçin.",
+      "emailUs": "E-posta gönderin"
+    }
+  },
+  "accessibility": {
+    "skipToMain": "Ana içeriğe geç",
+    "primaryNavigation": "Ana navigasyon",
+    "changeLanguage": "Dili değiştir",
+    "openNavigation": "Navigasyon menüsünü aç",
+    "closeNavigation": "Navigasyon menüsünü kapat",
+    "scrollToNext": "Sonraki bölüme geç",
+    "scroll": "Aşağı kaydır",
+    "contactWhatsApp": "Otel ile WhatsApp üzerinden iletişime geç",
+    "dismissBookingBanner": "Rezervasyon çubuğunu kapat",
+    "openChat": "Sohbeti aç",
+    "closeChat": "Sohbeti kapat",
+    "chatMessage": "Sohbet mesajı",
+    "imageGallery": "Fotoğraf galerisi",
+    "closeGallery": "Galeriyi kapat",
+    "previousImage": "Önceki fotoğraf",
+    "nextImage": "Sonraki fotoğraf",
+    "showGelPrice": "Fiyatı lari cinsinden göster",
+    "hideGelPrice": "Lari fiyatını gizle",
+    "showSlide": "{number}. slaytı göster",
+    "switchLanguageTo": "Dili {language} olarak değiştir",
+    "callUs": "Bizi arayın",
+    "whatsappMessage": "Merhaba! Grand Boutique Hotel hakkında bilgi almak istiyorum.",
+    "home": "{hotel} ana sayfası"
+  },
+  "promotion": {
+    "label": "Özel teklif",
+    "title": "Doğrudan rezervasyon yapın, %20 tasarruf edin",
+    "description": "Konaklamanızı doğrudan web sitemizden ayırtın; ücretsiz kahvaltı, müsaitlik durumuna göre ücretsiz oda yükseltme ve talep üzerine geç çıkış gibi ayrıcalıklardan yararlanın.",
+    "bookNow": "Şimdi rezervasyon yap",
+    "maybeLater": "Belki daha sonra",
+    "terms": "Yalnızca yeni rezervasyonlarda geçerlidir. Koşullar uygulanır.",
+    "close": "Özel teklifi kapat"
+  },
+  "errors": {
+    "generalTitle": "Bir hata oluştu",
+    "generalBody": "Sayfa yüklenirken bir hata oluştu.",
+    "errorId": "Hata kimliği:",
+    "retry": "Tekrar dene",
+    "restaurantTitle": "Restoran sayfası yüklenemedi",
+    "restaurantBody": "Restoran sayfası yüklenirken bir hata oluştu.",
+    "roomsTitle": "Odalar sayfası yüklenemedi",
+    "roomsBody": "Odalar sayfası yüklenirken bir hata oluştu.",
+    "wellnessTitle": "Wellness sayfası yüklenemedi",
+    "wellnessBody": "Wellness sayfası yüklenirken bir hata oluştu."
+  },
+  "legal": {
+    "label": "Yasal bilgiler",
+    "effectiveDate": "Yürürlük tarihi: Mart 2026",
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "intro": "{hotel} rezervasyonlar, konaklamalar ve otel hizmetleri için misafir bilgilerini nasıl işler.",
+      "collectTitle": "1. Topladığımız bilgiler",
+      "collectBody1": "Misafirlerin rezervasyon yaparken, giriş işlemleri sırasında, konsiyerjle iletişime geçerken veya otel hizmetlerinden yararlanırken bize doğrudan sağladığı bilgileri toplarız.",
+      "collectBody2": "Bu bilgiler iletişim bilgilerini, yasaların gerektirdiği kimlik bilgilerini, ödeme ve faturalandırma bilgilerini, konaklama tercihlerini ve özel talepleri içerebilir.",
+      "useTitle": "2. Bilgilerinizi nasıl kullanıyoruz",
+      "useBody1": "Kişisel veriler rezervasyonları işlemek, kişiye özel hizmet sunmak, güvenli ödemeleri gerçekleştirmek, yasal misafir kayıtlarını yönetmek ve {hotel} bünyesinde sorunsuz bir konaklama deneyimi sağlamak için kullanılır.",
+      "useBody2": "Gerekli rezervasyon onaylarını, varış öncesi bilgileri ve konaklamanızla ilgili hizmet güncellemelerini gönderebiliriz.",
+      "sharingTitle": "3. Bilgilerin paylaşılması",
+      "sharingBody": "Kişisel verileri satmayız. Bilgiler yalnızca otel hizmetlerini sağlamak için gereken güvenilir hizmet sağlayıcılarla; ödeme işleyicileri, rezervasyon sistemleri ve operasyon ortakları dâhil olmak üzere paylaşılır.",
+      "securityTitle": "4. Veri güvenliği",
+      "securityBody": "Kişisel bilgileri yetkisiz erişim, değişiklik, ifşa veya kayba karşı korumak için makul idari, teknik ve organizasyonel önlemler uygularız.",
+      "contactTitle": "5. Bize ulaşın",
+      "contactBody": "Gizlilikle ilgili soru veya talepleriniz için {email} adresinden bize ulaşabilirsiniz."
+    },
+    "terms": {
+      "title": "Hüküm ve Koşullar",
+      "intro": "{hotel} rezervasyon, konaklama ve misafir hizmetlerine ilişkin koşullar.",
+      "metadataDescription": "{hotel} rezervasyon, konaklama ve misafir hizmetlerine ilişkin hüküm ve koşullar.",
+      "reservationsTitle": "1. Rezervasyon ve ödeme",
+      "reservationsBody1": "Tüm rezervasyonlar müsaitliğe bağlıdır. Rezervasyonu onaylamak için geçerli bir kredi kartı veya onaylı bir ödeme yöntemi gerekebilir. Ödeme bilgilerinizi vererek {hotel} işletmesine seçilen fiyat koşullarına göre depozito, ön provizyon veya konaklama ücretinin tamamını tahsil etme yetkisi verirsiniz.",
+      "reservationsBody2": "Fiyatlar GEL veya USD cinsinden gösterilebilir ve rezervasyon kanalı ile fiyat koşullarına bağlı olarak vergi ya da hizmet bedellerini içerebilir.",
+      "checkInTitle": "2. Giriş ve çıkış",
+      "checkInBody1": "Giriş saati 15.00, çıkış saati 12.00'dir. Erken giriş ve geç çıkış müsaitliğe bağlıdır ve ek ücrete tabi olabilir.",
+      "checkInBody2": "Yasaların gerektirdiği durumlarda kayıtlı her misafir, giriş sırasında devlet tarafından düzenlenmiş geçerli fotoğraflı kimlik veya pasaport ibraz etmelidir.",
+      "cancellationTitle": "3. İptal politikası",
+      "cancellationBody": "Daha katı bir fiyat koşulu belirtilmediği sürece standart rezervasyonlar planlanan varıştan en az 48 saat önce cezasız iptal edilebilir veya değiştirilebilir. Geç iptal, gelmeme, iade edilemez fiyat, kampanyalı rezervasyon ve grup rezervasyonlarında onaylanan koşullara göre ücret alınabilir.",
+      "responsibilitiesTitle": "4. Misafirin sorumlulukları",
+      "responsibilitiesBody1": "Misafirlerin otel mülküne, diğer misafirlere ve yerel yasalara saygı göstermesi gerekir. Konaklama sırasında odaya, mobilyalara, ekipmanlara veya tesislere verilen zararlar için otel ücret talep edebilir.",
+      "responsibilitiesBody2": "Sigara kullanımı, sessizlik saatleri, evcil hayvanlar, etkinlikler ve diğer konulara ilişkin kurallar otel ekibi tarafından ayrıca bildirilebilir.",
+      "liabilityTitle": "5. Sorumluluğun sınırlandırılması",
+      "liabilityBody": "Otel, yürürlükteki Gürcistan yasalarının öngördüğü durumlar dışında kişisel eşyaların kaybından, zarar görmesinden veya çalınmasından sorumlu değildir. Değerli eşyalar için oda kasasını kullanmanızı öneririz.",
+      "contactTitle": "6. İletişim",
+      "contactBody": "Rezervasyon veya bu koşullarla ilgili sorularınız için {email} adresine yazabilir ya da {phone} numarasını arayabilirsiniz."
+    }
   },
   "footer": {
     "description": "Gürcistan'ın muhteşem Karadeniz kıyısında 2026 modern mimarisinin şaheseri. Batumi'nin önde gelen butik otelinde zarif lüks ve sıcak misafirperverliği deneyimleyin.",
@@ -581,6 +1360,28 @@
     "free": "Ücretsiz",
     "usd": "USD",
     "gel": "GEL",
-    "contact": "İletişim"
+    "contact": "İletişim",
+    "backTo": "Geri dön: {destination}",
+    "menuUnavailable": "Bu menü henüz seçilen dilde sunulmuyor. Güncel bilgiler için bizimle iletişime geçin.",
+    "untilTime": "{time} saatine kadar",
+    "opensAtTime": "{time} saatinde açılır"
+  },
+  "bookingCalendar": {
+    "bookSpa": "Spa bakımı rezervasyonu",
+    "reserveTable": "Masa ayırtın",
+    "selectDate": "Tarih seçin",
+    "selectTime": "Saat seçin",
+    "backToDate": "Tarihe dön",
+    "numberOfGuests": "Misafir sayısı",
+    "numberOfPeople": "Kişi sayısı",
+    "personCount": "Kişi: {count}",
+    "guestCount": "Misafir: {count}",
+    "date": "Tarih",
+    "time": "Saat",
+    "guests": "Misafirler",
+    "partySize": "Grup büyüklüğü",
+    "confirmWhatsApp": "WhatsApp ile onaylayın",
+    "backToTime": "Saate dön",
+    "whatsappMessage": "Rezervasyon talebi — {venue}\nTarih: {date}\nSaat: {time}\nMisafir: {guests}"
   }
 }

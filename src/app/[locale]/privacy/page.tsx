@@ -1,64 +1,57 @@
 import { type Locale } from '@/i18n/config';
+import { getTranslations } from 'next-intl/server';
 import { createLocalizedMetadata } from '@/lib/seo';
 import { hotel } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'legal.privacy' });
 
   return createLocalizedMetadata({
     locale,
     path: '/privacy',
     titleKey: 'footer.privacy',
+    description: t('intro', { hotel: hotel.name }),
   });
 }
 
-const sections = [
-  {
-    title: '1. Information We Collect',
-    body: [
-      'We collect information that guests provide directly when making a reservation, checking in, contacting the concierge team, or using hotel services.',
-      'This may include contact details, identification details required by law, payment and billing information, stay preferences, and special requests.',
-    ],
-  },
-  {
-    title: '2. How We Use Your Information',
-    body: [
-      `Personal data is used to process reservations, provide tailored service, process secure payments, manage required guest records, and support a seamless experience at ${hotel.name}.`,
-      'We may send essential booking confirmations, pre-arrival information, and service updates related to a guest stay.',
-    ],
-  },
-  {
-    title: '3. Information Sharing',
-    body: [
-      'We do not sell personal data. We only share necessary information with trusted providers such as payment processors, booking systems, and operational partners when needed to provide hotel services.',
-    ],
-  },
-  {
-    title: '4. Data Security',
-    body: [
-      'We use reasonable administrative, technical, and organizational safeguards to protect personal information from unauthorized access, alteration, disclosure, or loss.',
-    ],
-  },
-  {
-    title: '5. Contact Us',
-    body: [
-      `For privacy questions or requests, contact ${hotel.privacyEmail}.`,
-    ],
-  },
-];
+export default async function PrivacyPolicyPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'legal' });
+  const sections = [
+    {
+      title: t('privacy.collectTitle'),
+      body: [t('privacy.collectBody1'), t('privacy.collectBody2')],
+    },
+    {
+      title: t('privacy.useTitle'),
+      body: [t('privacy.useBody1', { hotel: hotel.name }), t('privacy.useBody2')],
+    },
+    {
+      title: t('privacy.sharingTitle'),
+      body: [t('privacy.sharingBody')],
+    },
+    {
+      title: t('privacy.securityTitle'),
+      body: [t('privacy.securityBody')],
+    },
+    {
+      title: t('privacy.contactTitle'),
+      body: [t('privacy.contactBody', { email: hotel.privacyEmail })],
+    },
+  ];
 
-export default function PrivacyPolicyPage() {
   return (
     <main className="luxury-page min-h-screen pt-20">
       <section className="bg-charcoal-950 py-24 text-cream-50 luxury-grain md:py-32">
         <div className="luxury-container">
-          <p className="luxury-kicker text-brass-300">Legal</p>
-          <h1 className="luxury-display mt-6 text-cream-50">Privacy Policy</h1>
+          <p className="luxury-kicker text-brass-300">{t('label')}</p>
+          <h1 className="luxury-display mt-6 text-cream-50">{t('privacy.title')}</h1>
           <p className="mt-8 max-w-3xl text-lg font-light leading-8 text-white/65">
-            How {hotel.name} handles guest information for reservations, stays, and hotel services.
+            {t('privacy.intro', { hotel: hotel.name })}
           </p>
           <p className="mt-6 text-xs uppercase tracking-[0.22em] text-white/40">
-            Effective date: March 2026
+            {t('effectiveDate')}
           </p>
         </div>
       </section>

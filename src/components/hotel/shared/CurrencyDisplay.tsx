@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 interface CurrencyDisplayProps {
   usdAmount: number;
@@ -18,6 +19,7 @@ export default function CurrencyDisplay({
   className = '',
   size = 'md'
 }: CurrencyDisplayProps) {
+  const tAccessibility = useTranslations('accessibility');
   const [showGel, setShowGel] = useState(false);
 
   const gelAmount = Math.round(usdAmount * USD_TO_GEL_RATE);
@@ -44,7 +46,7 @@ export default function CurrencyDisplay({
       </span>
       <button
         type="button"
-        aria-label={showGel ? 'Hide GEL price' : 'Show GEL price'}
+        aria-label={showGel ? tAccessibility('hideGelPrice') : tAccessibility('showGelPrice')}
         aria-pressed={showGel}
         onClick={() => setShowGel(!showGel)}
         className="text-xs text-forest-500 hover:text-brass-500 transition-colors underline decoration-dotted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
@@ -70,7 +72,6 @@ export function useCurrency() {
 
   return { convertToGel, formatPrice };
 }
-
 
 
 

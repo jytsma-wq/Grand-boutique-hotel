@@ -28,6 +28,7 @@ const fadeInUp = {
 };
 
 export default function BarPage({ locale }: BarPageProps) {
+  const t = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
 
   // Bar hours: 16:00 - 01:00
@@ -47,28 +48,28 @@ export default function BarPage({ locale }: BarPageProps) {
       name: 'Black Sea Sunset',
       price: '$14',
       priceGel: '39₾',
-      desc: 'Premium vodka, blackberry liqueur, citrus, and champagne',
+      desc: t('bar.page.cocktail1'),
       image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&q=80'
     },
     {
       name: 'Georgian Gold',
       price: '$16',
       priceGel: '44₾',
-      desc: 'Chacha, honey, saffron, and local herbs',
+      desc: t('bar.page.cocktail2'),
       image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&q=80'
     },
     {
       name: 'Batumi Breeze',
       price: '$15',
       priceGel: '41₾',
-      desc: 'Gin, cucumber, mint, and elderflower tonic',
+      desc: t('bar.page.cocktail3'),
       image: 'https://images.unsplash.com/photo-1575023782549-62ca0d244b39?w=400&q=80'
     },
     {
       name: 'Midnight Hour',
       price: '$18',
       priceGel: '50₾',
-      desc: 'Whiskey, green tea liqueur, lime, and honey syrup',
+      desc: t('bar.page.cocktail4'),
       image: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=80'
     },
   ];
@@ -78,17 +79,17 @@ export default function BarPage({ locale }: BarPageProps) {
     { region: 'Kakheti', type: 'Rkatsiteli', year: '2022', price: '$24', priceGel: '66₾' },
     { region: 'Imereti', type: 'Tsitska', year: '2022', price: '$26', priceGel: '72₾' },
     { region: 'Adjara', type: 'Chkhaveri', year: '2021', price: '$30', priceGel: '83₾' },
-    { region: 'Qvevri Aged', type: 'Amber Blend', year: '2019', price: '$45', priceGel: '124₾' },
-    { region: 'Qvevri Aged', type: 'Saperavi Reserve', year: '2018', price: '$55', priceGel: '152₾' },
+    { region: t('bar.page.agedQvevri'), type: 'Amber Blend', year: '2019', price: '$45', priceGel: '124₾' },
+    { region: t('bar.page.agedQvevri'), type: 'Saperavi Reserve', year: '2018', price: '$55', priceGel: '152₾' },
   ];
 
   const spirits = [
-    { category: 'Whiskey', brands: 'Macallan, Glenfiddich, Jameson, Jack Daniels' },
-    { category: 'Vodka', brands: 'Belvedere, Grey Goose, Stolichnaya, Tito\'s' },
-    { category: 'Gin', brands: 'Hendrick\'s, Tanqueray, Bombay Sapphire, Gordon\'s' },
-    { category: 'Rum', brands: 'Ron Zacapa, Diplomatico, Bacardi, Havana Club' },
-    { category: 'Tequila', brands: 'Don Julio, Patrón, Herradura, José Cuervo' },
-    { category: 'Cognac', brands: 'Hennessy, Remy Martin, Courvoisier, Martell' },
+    { category: t('bar.page.spiritCategories.whiskey'), brands: 'Macallan, Glenfiddich, Jameson, Jack Daniels' },
+    { category: t('bar.page.spiritCategories.vodka'), brands: 'Belvedere, Grey Goose, Stolichnaya, Tito\'s' },
+    { category: t('bar.page.spiritCategories.gin'), brands: 'Hendrick\'s, Tanqueray, Bombay Sapphire, Gordon\'s' },
+    { category: t('bar.page.spiritCategories.rum'), brands: 'Ron Zacapa, Diplomatico, Bacardi, Havana Club' },
+    { category: t('bar.page.spiritCategories.tequila'), brands: 'Don Julio, Patrón, Herradura, José Cuervo' },
+    { category: t('bar.page.spiritCategories.cognac'), brands: 'Hennessy, Remy Martin, Courvoisier, Martell' },
   ];
 
   return (
@@ -98,7 +99,7 @@ export default function BarPage({ locale }: BarPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1920&q=80"
-            alt="Lounge Bar"
+            alt={t('bar.name')}
             fill
             priority
             sizes="100vw"
@@ -109,12 +110,12 @@ export default function BarPage({ locale }: BarPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <div>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Lounge & Bar</span>
+            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('bar.name')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
-              Lounge Bar
+              {t('bar.name')}
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
-              Sophistication in every sip, where the Black Sea horizon meets refined luxury
+              {t('bar.subtitle')}
             </p>
             
             {/* Status Badge - Brutalist */}
@@ -122,7 +123,7 @@ export default function BarPage({ locale }: BarPageProps) {
               isOpen ? 'border-white text-white' : 'border-white/50 text-white/50'
             }`}>
               <div className={`w-2 h-2 ${isOpen ? 'bg-white' : 'bg-white/50'}`} />
-              <span className="uppercase tracking-wider text-sm font-medium">{isOpen ? 'Open Now' : 'Opens at 4:00 PM'}</span>
+              <span className="uppercase tracking-wider text-sm font-medium">{isOpen ? t('common.open') : t('bar.page.opensAt')}</span>
             </div>
           </div>
         </div>
@@ -135,22 +136,22 @@ export default function BarPage({ locale }: BarPageProps) {
             <div className="flex items-center gap-3">
               <Clock className="text-white/70" size={20} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light">Opening Hours</div>
-                <div className="font-medium tracking-wide">Daily: 4:00 PM - 1:00 AM</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider font-light">{t('bar.hours.title')}</div>
+                <div className="font-medium tracking-wide">{t('bar.hours.daily')}</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-white/20" />
             <div className="flex items-center gap-3">
               <Martini className="text-white/70" size={20} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light">Happy Hour</div>
-                <div className="font-medium tracking-wide">5:00 PM - 7:00 PM (50% off cocktails)</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider font-light">{t('bar.page.happyHour')}</div>
+                <div className="font-medium tracking-wide">{t('bar.page.happyHourHours')}</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-10 bg-white/20" />
             <Link href={`/${locale}/booking`}>
               <Button className="btn-boutique rounded-none">
-                Reserve Table
+                {t('bar.reserve')}
               </Button>
             </Link>
           </div>
@@ -162,31 +163,27 @@ export default function BarPage({ locale }: BarPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">The Experience</span>
-              <h2 className="section-title mt-4">An Intimate Haven</h2>
+              <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('bar.page.experience')}</span>
+              <h2 className="section-title mt-4">{t('bar.page.intimateTitle')}</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
-                The Lounge Bar is where sophistication meets relaxation. Our expert 
-                mixologists craft each cocktail as a work of art, using premium spirits, 
-                fresh ingredients, and techniques honed over decades of experience.
+                {t('bar.description')}
               </p>
               <p className="text-forest-600 mb-8 font-light leading-relaxed">
-                Watch the sunset over the Black Sea through our floor-to-ceiling windows, 
-                or settle into one of our intimate alcoves for a private evening. Our extensive 
-                wine list features Georgia's finest vintages, including rare qvevri-aged selections.
+                {t('bar.page.experienceDescription2')}
               </p>
               
               <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3 text-forest-700">
                   <Wine className="text-forest-900" size={18} />
-                  <span className="uppercase tracking-wide text-sm font-medium">200+ Wine Selection</span>
+                  <span className="uppercase tracking-wide text-sm font-medium">{t('bar.page.wineCount')}</span>
                 </div>
                 <div className="flex items-center gap-3 text-forest-700">
                   <Martini className="text-forest-900" size={18} />
-                  <span className="uppercase tracking-wide text-sm font-medium">Signature Cocktails</span>
+                  <span className="uppercase tracking-wide text-sm font-medium">{t('bar.signature.title')}</span>
                 </div>
                 <div className="flex items-center gap-3 text-forest-700">
                   <Sparkles className="text-forest-900" size={18} />
-                  <span className="uppercase tracking-wide text-sm font-medium">Premium Spirits</span>
+                  <span className="uppercase tracking-wide text-sm font-medium">{t('bar.page.premiumSpirits')}</span>
                 </div>
               </div>
             </div>
@@ -195,15 +192,15 @@ export default function BarPage({ locale }: BarPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80"
-                alt="Cocktails at Charcoal Bar"
+                alt={t('bar.signature.title')}
                 className="w-full aspect-4/3 object-cover"
               />
               <div className="absolute -bottom-6 -right-6 bg-forest-900 p-6 max-w-xs border-l-4 border-white">
                 <div className="flex items-center gap-3">
                   <Wine className="w-6 h-6 text-white" />
                   <div>
-                    <div className="text-xs text-white/70 uppercase tracking-wider font-light">Live Music</div>
-                    <div className="font-bold text-white uppercase tracking-wide">Thu - Sat, 8 PM</div>
+                    <div className="text-xs text-white/70 uppercase tracking-wider font-light">{t('bar.page.liveMusic')}</div>
+                    <div className="font-bold text-white uppercase tracking-wide">{t('bar.page.liveMusicHours')}</div>
                   </div>
                 </div>
               </div>
@@ -216,10 +213,10 @@ export default function BarPage({ locale }: BarPageProps) {
       <section className="py-24 bg-forest-900 text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">Crafted Exclusively</span>
-            <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">Signature Cocktails</h2>
+            <span className="text-white/50 text-xs tracking-[0.3em] uppercase font-light">{t('bar.page.crafted')}</span>
+            <h2 className="text-4xl md:text-6xl font-bold mt-4 uppercase tracking-tight">{t('bar.signature.title')}</h2>
             <p className="text-white/70 max-w-2xl mx-auto mt-6 font-light">
-              Each cocktail tells a story of Georgia's rich heritage and modern creativity
+              {t('bar.page.cocktailDescription')}
             </p>
           </div>
 
@@ -258,11 +255,10 @@ export default function BarPage({ locale }: BarPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Ancient Traditions</span>
-            <h2 className="section-title mt-4">Georgian Wine Selection</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('bar.page.ancientTraditions')}</span>
+            <h2 className="section-title mt-4">{t('bar.wines.title')}</h2>
             <p className="text-forest-600 max-w-2xl mx-auto mt-6 font-light leading-relaxed">
-              Georgia is the cradle of wine, with 8,000 years of winemaking heritage. 
-              Explore our curated selection of traditional and modern Georgian wines.
+              {t('bar.page.wineDescription')}
             </p>
           </div>
 
@@ -271,10 +267,10 @@ export default function BarPage({ locale }: BarPageProps) {
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-forest-900">
-                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Region</th>
-                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Wine</th>
-                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Year</th>
-                    <th className="text-right py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">Price</th>
+                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">{t('bar.page.region')}</th>
+                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">{t('bar.page.wine')}</th>
+                    <th className="text-left py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">{t('bar.page.year')}</th>
+                    <th className="text-right py-5 text-forest-900 font-bold uppercase tracking-wider text-sm">{t('bar.page.price')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -296,7 +292,7 @@ export default function BarPage({ locale }: BarPageProps) {
 
           <div className="text-center mt-16">
             <Link href={`/${locale}/bar/wine-list`} className="link-architectural text-base">
-              View Full Wine List
+              {t('bar.page.viewWineList')}
             </Link>
           </div>
         </div>
@@ -306,8 +302,8 @@ export default function BarPage({ locale }: BarPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Premium Selection</span>
-            <h2 className="section-title mt-4">Spirits & Liquors</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('bar.page.premiumSelection')}</span>
+            <h2 className="section-title mt-4">{t('bar.page.spiritsTitle')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -328,8 +324,8 @@ export default function BarPage({ locale }: BarPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Gallery</span>
-            <h2 className="section-title mt-4">Lounge Bar in Pictures</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('bar.page.gallery')}</span>
+            <h2 className="section-title mt-4">{t('bar.page.galleryTitle')}</h2>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
@@ -337,7 +333,7 @@ export default function BarPage({ locale }: BarPageProps) {
               <div key={i} className="relative aspect-square overflow-hidden group">
                 <img
                   src={`https://images.unsplash.com/photo-${1514362545857 + i * 12345678}?w=400&q=80`}
-                  alt={`Bar ${i}`}
+                  alt={t('bar.page.galleryAlt', { number: i })}
                   className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
                 />
               </div>
@@ -351,22 +347,21 @@ export default function BarPage({ locale }: BarPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
-              Reserve Your Evening
+              {t('bar.page.ctaTitle')}
             </h2>
             <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-              Book your table for sunset cocktails, wine tastings, or private events. 
-              VIP lounge available for special occasions.
+              {t('bar.page.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
                 <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-                  Reserve Table
+                  {t('bar.reserve')}
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   <Phone className="mr-2 w-5 h-5" />
-                  Call: +995 422 00 00 00
+                  {t('bar.page.call')}: +995 422 00 00 00
                 </Button>
               </a>
             </div>
@@ -376,7 +371,6 @@ export default function BarPage({ locale }: BarPageProps) {
     </main>
   );
 }
-
 
 
 

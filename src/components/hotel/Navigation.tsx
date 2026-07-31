@@ -20,6 +20,7 @@ interface NavigationProps {
 
 export default function Navigation({ locale, siteSettings }: NavigationProps) {
   const t = useTranslations('nav');
+  const tAccessibility = useTranslations('accessibility');
   const router = useRouter();
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,7 +87,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
             <Link
               href={`/${locale}`}
               className="group flex min-w-0 items-center gap-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
-              aria-label={`${hotel.name} home`}
+              aria-label={tAccessibility('home', { hotel: hotel.name })}
             >
               <span className={`hidden h-px w-12 transition-colors sm:block ${isTransparent ? 'bg-white/60' : 'bg-brass-500'}`} />
               <span className="min-w-0">
@@ -132,7 +133,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
 
             <button
               type="button"
-              aria-label={isMobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-label={isMobileMenuOpen ? tAccessibility('closeNavigation') : tAccessibility('openNavigation')}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-navigation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

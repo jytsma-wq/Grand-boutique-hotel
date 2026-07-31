@@ -351,13 +351,16 @@ export function selectMenuSections(
   sourceSections: SanityMenuSection[] | undefined,
   sectionKeys: readonly string[],
   fallbackSections: SanityMenuSection[],
+  locale: string = 'en',
 ): SanityMenuSection[] {
   const sourceByKey = new Map(
     sourceSections
       ?.filter((section) => section.sectionKey && section.items?.length)
       .map((section) => [section.sectionKey, section]),
   );
-  const fallbackByKey = new Map(fallbackSections.map((section) => [section.sectionKey, section]));
+  const fallbackByKey = new Map(
+    (locale === 'en' ? fallbackSections : []).map((section) => [section.sectionKey, section]),
+  );
 
   return sectionKeys.flatMap((key) => {
     const section = sourceByKey.get(key) ?? fallbackByKey.get(key);

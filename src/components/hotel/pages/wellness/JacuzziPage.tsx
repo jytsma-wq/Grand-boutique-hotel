@@ -18,6 +18,7 @@ const fadeInUp = {
 
 export default function JacuzziPage({ locale }: JacuzziPageProps) {
   const t = useTranslations('jacuzzi');
+  const tPage = useTranslations('wellnessPages');
   
   const features = [
     { icon: Waves, title: t('features.hydrotherapy'), desc: t('features.hydrotherapyDesc') },
@@ -51,7 +52,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
-            alt="Outdoor Jacuzzi"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -103,14 +104,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
                 {t('therapeuticRelaxation')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
-                Our premium outdoor jacuzzi is located on the rooftop terrace, offering breathtaking 180-degree 
-                views of the Black Sea. The therapeutic hydrotherapy jets provide targeted massage while you soak 
-                in the perfectly heated water (38-40°C).
-              </p>
-              <p className="text-forest-600 leading-relaxed mb-8">
-                Accommodating up to 6 guests, the jacuzzi features multiple jet configurations for customized 
-                massage experiences. Underwater LED lighting creates a magical ambiance for evening sessions. 
-                Perfect for romantic evenings or post-spa relaxation.
+                {tPage('jacuzzi.overview')}
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
@@ -123,7 +117,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80"
-                alt="Jacuzzi View"
+                alt={t('title')}
                 className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
             </div>
@@ -193,7 +187,7 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
               >
                 <img
                   src={image}
-                  alt={`Jacuzzi view ${index + 1}`}
+                  alt={tPage('galleryImage', { facility: t('title'), number: index + 1 })}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -207,21 +201,21 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Unwind in Our Rooftop Jacuzzi
+              {tPage('jacuzzi.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Complimentary access for all hotel guests. Towels and robes provided. Reservations recommended for evening sessions.
+              {tPage('jacuzzi.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  Explore All Wellness Facilities
+                  {tPage('exploreAll')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Reserve Your Session
+                  {tPage('reserveSession')}
                 </Button>
               </a>
             </div>
@@ -231,7 +225,6 @@ export default function JacuzziPage({ locale }: JacuzziPageProps) {
     </main>
   );
 }
-
 
 
 

@@ -18,6 +18,7 @@ const fadeInUp = {
 
 export default function RelaxationLoungePage({ locale }: RelaxationLoungePageProps) {
   const t = useTranslations('relaxationLounge');
+  const tPage = useTranslations('wellnessPages');
   
   const highlights = [
     { icon: Heart, title: t('features.quietZones'), desc: t('features.quietZonesDesc') },
@@ -32,7 +33,7 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
-            alt="Relaxation Lounge"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -78,20 +79,20 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">Continue Your Wellness Journey</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">{tPage('relaxation.ctaTitle')}</h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Explore all wellness areas or reserve your stay for full access to our facilities.
+              {tPage('relaxation.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  Back to Wellness
+                  {tPage('exploreAll')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href={`/${locale}/booking`}>
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Book Your Stay
+                  {t('bookYourStay')}
                 </Button>
               </Link>
             </div>
@@ -101,7 +102,6 @@ export default function RelaxationLoungePage({ locale }: RelaxationLoungePagePro
     </main>
   );
 }
-
 
 
 

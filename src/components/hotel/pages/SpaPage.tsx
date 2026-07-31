@@ -1,18 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { 
-  Sparkles, 
-  Droplets, 
-  Flame, 
-  Wind,
-  Clock,
-  Phone,
-  ArrowRight
-} from 'lucide-react';
+import { Clock, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
 
@@ -20,58 +11,51 @@ interface SpaPageProps {
   locale: Locale;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.4 }
-};
-
 export default function SpaPage({ locale }: SpaPageProps) {
   const t = useTranslations();
 
   const spaPackages = [
     {
-      name: 'Signature Spa Journey',
+      name: t('spa.page.packages.signature.name'),
       duration: 180,
       price: 280,
       priceGel: 770,
-      desc: 'Complete wellness experience: massage, facial, body scrub, and relaxation time',
-      includes: ['90-min Aromatherapy Massage', 'Anti-Aging Facial', 'Black Sea Salt Scrub', 'Champagne & Fresh Fruits']
+      desc: t('spa.page.packages.signature.description'),
+      includes: [t('spa.page.packages.signature.include1'), t('spa.page.packages.signature.include2'), t('spa.page.packages.signature.include3'), t('spa.page.packages.signature.include4')]
     },
     {
-      name: 'Deep Relaxation Ritual',
+      name: t('spa.page.packages.deep.name'),
       duration: 120,
       price: 195,
       priceGel: 537,
-      desc: 'Full body massage with hot stones and aromatherapy oils',
-      includes: ['Hot Stone Therapy', 'Aromatherapy Massage', 'Scalp Treatment', 'Herbal Tea Service']
+      desc: t('spa.page.packages.deep.description'),
+      includes: [t('spa.page.packages.deep.include1'), t('spa.page.packages.deep.include2'), t('spa.page.packages.deep.include3'), t('spa.page.packages.deep.include4')]
     },
     {
-      name: 'Detox & Rejuvenate',
+      name: t('spa.page.packages.detox.name'),
       duration: 150,
       price: 240,
       priceGel: 660,
-      desc: 'Purifying treatments to cleanse and revitalize body and mind',
-      includes: ['Georgian Wine Wrap', 'Lymphatic Drainage Massage', 'Detox Body Scrub', 'Sauna Access']
+      desc: t('spa.page.packages.detox.description'),
+      includes: [t('spa.page.packages.detox.include1'), t('spa.page.packages.detox.include2'), t('spa.page.packages.detox.include3'), t('spa.page.packages.detox.include4')]
     },
     {
-      name: 'Couples Sanctuary',
+      name: t('spa.page.packages.couples.name'),
       duration: 150,
       price: 450,
       priceGel: 1238,
-      desc: 'Private suite experience for two with side-by-side treatments',
-      includes: ['Couples Massage', 'Private Jacuzzi', 'Champagne & Chocolates', 'Rose Petal Bath']
+      desc: t('spa.page.packages.couples.description'),
+      includes: [t('spa.page.packages.couples.include1'), t('spa.page.packages.couples.include2'), t('spa.page.packages.couples.include3'), t('spa.page.packages.couples.include4')]
     }
   ];
 
   const addOnServices = [
-    { name: 'Extended Massage Time (+30 min)', price: 45, priceGel: 124 },
-    { name: 'Aromatherapy Upgrade', price: 25, priceGel: 69 },
-    { name: 'Hot Stone Add-On', price: 35, priceGel: 96 },
-    { name: 'Private Sauna Session (60 min)', price: 55, priceGel: 151 },
-    { name: 'Champagne Service', price: 40, priceGel: 110 },
-    { name: 'Fresh Fruit Platter', price: 30, priceGel: 83 }
+    { name: t('spa.page.addOns.massage'), price: 45, priceGel: 124 },
+    { name: t('spa.page.addOns.aromatherapy'), price: 25, priceGel: 69 },
+    { name: t('spa.page.addOns.hotStone'), price: 35, priceGel: 96 },
+    { name: t('spa.page.addOns.sauna'), price: 55, priceGel: 151 },
+    { name: t('spa.page.addOns.champagne'), price: 40, priceGel: 110 },
+    { name: t('spa.page.addOns.fruit'), price: 30, priceGel: 83 }
   ];
 
   return (
@@ -81,7 +65,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
-            alt="Luxury Spa"
+            alt={t('spa.title')}
             fill
             priority
             sizes="100vw"
@@ -97,7 +81,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
               {t('spa.title')}
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
-              Immerse yourself in a sanctuary of tranquility and rejuvenation
+              {t('spa.page.heroDescription')}
             </p>
           </div>
         </div>
@@ -111,12 +95,10 @@ export default function SpaPage({ locale }: SpaPageProps) {
               <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('spa.ourPhilosophy')}</span>
               <h2 className="section-title mt-4 mb-8">{t('spa.holisticWellness')}</h2>
               <p className="text-lg text-forest-700 mb-6 font-light leading-relaxed">
-                Our spa combines ancient Georgian wellness traditions with modern therapeutic techniques. 
-                Each treatment is designed to restore balance, promote healing, and nurture your well-being.
+                {t('spa.page.philosophy1')}
               </p>
               <p className="text-forest-600 font-light leading-relaxed">
-                Using premium organic products and mineral-rich ingredients from the Black Sea region, 
-                our expert therapists create personalized experiences that transcend ordinary spa treatments.
+                {t('spa.page.philosophy2')}
               </p>
             </div>
           </div>
@@ -132,7 +114,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            {spaPackages.map((pkg, index) => (
+            {spaPackages.map((pkg) => (
               <div
                 key={pkg.name} className="bg-white border-t-2 border-forest-900 first:border-t-0 py-10 px-10 hover:bg-forest-50 transition-colors"
               >
@@ -142,13 +124,13 @@ export default function SpaPage({ locale }: SpaPageProps) {
                       <h3 className="text-2xl font-bold text-forest-900 uppercase tracking-wide">{pkg.name}</h3>
                       <span className="text-sm text-forest-500 font-light flex items-center gap-1">
                         <Clock size={14} />
-                        {pkg.duration} min
+                        {t('spa.page.minutes', { count: pkg.duration })}
                       </span>
                     </div>
                     <p className="text-sm text-forest-600 font-light mb-6">{pkg.desc}</p>
                     
                     <div className="mb-6">
-                      <h4 className="text-xs text-forest-500 uppercase tracking-wider font-bold mb-3">Includes:</h4>
+                      <h4 className="text-xs text-forest-500 uppercase tracking-wider font-bold mb-3">{t('spa.page.includes')}:</h4>
                       <ul className="space-y-2">
                         {pkg.includes.map((item, i) => (
                           <li key={i} className="flex items-start gap-2 text-sm text-forest-700">
@@ -166,7 +148,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                       </div>
                       <Link href={`/${locale}/booking`}>
                         <Button className="btn-boutique-concrete rounded-none py-3 px-10">
-                          Book Now
+                          {t('spa.page.bookNow')}
                         </Button>
                       </Link>
                     </div>
@@ -188,7 +170,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
 
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {addOnServices.map((service, index) => (
+              {addOnServices.map((service) => (
                 <div
                   key={service.name} className="bg-white border-2 border-forest-900 p-6 hover:bg-forest-50 transition-colors"
                 >
@@ -239,7 +221,7 @@ export default function SpaPage({ locale }: SpaPageProps) {
                 <ul className="space-y-3 text-white/80 font-light">
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
-                    <span>24-hour cancellation policy applies</span>
+                    <span>{t('spa.cancellationPolicy')}</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <div className="w-1 h-1 bg-white mt-2" />
@@ -270,14 +252,14 @@ export default function SpaPage({ locale }: SpaPageProps) {
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&h=1000&fit=crop" 
-                  alt="Infinity Pool" 
+                  alt={t('spa.page.galleryAlt', { number: 1 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop" 
-                  alt="Treatment Room" 
+                  alt={t('spa.page.galleryAlt', { number: 2 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -288,14 +270,14 @@ export default function SpaPage({ locale }: SpaPageProps) {
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=600&fit=crop" 
-                  alt="Relaxation Lounge" 
+                  alt={t('spa.page.galleryAlt', { number: 3 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1596178060810-4dd9c3c0eb1e?w=800&h=1000&fit=crop" 
-                  alt="Spa Pool" 
+                  alt={t('spa.page.galleryAlt', { number: 4 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -306,14 +288,14 @@ export default function SpaPage({ locale }: SpaPageProps) {
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=800&h=1000&fit=crop" 
-                  alt="Massage Room" 
+                  alt={t('spa.page.galleryAlt', { number: 5 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=800&h=600&fit=crop" 
-                  alt="Sauna" 
+                  alt={t('spa.page.galleryAlt', { number: 6 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -324,14 +306,14 @@ export default function SpaPage({ locale }: SpaPageProps) {
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=800&h=600&fit=crop" 
-                  alt="Hydrotherapy Pool" 
+                  alt={t('spa.page.galleryAlt', { number: 7 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=800&h=1000&fit=crop" 
-                  alt="Spa Reception" 
+                  alt={t('spa.page.galleryAlt', { number: 8 })}
                   className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -345,21 +327,21 @@ export default function SpaPage({ locale }: SpaPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
-              Book Your Spa Experience
+              {t('spa.page.ctaTitle')}
             </h2>
             <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-              Reserve your sanctuary of peace and let our expert therapists guide you to complete relaxation.
+              {t('spa.page.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/booking`}>
                 <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-                  Make Reservation
+                  {t('spa.page.makeReservation')}
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   <Phone className="mr-2 w-5 h-5" />
-                  Call Spa: +995 422 00 00 00
+                  {t('spa.page.call')}: +995 422 00 00 00
                 </Button>
               </a>
             </div>
@@ -369,9 +351,6 @@ export default function SpaPage({ locale }: SpaPageProps) {
     </main>
   );
 }
-
-
-
 
 
 

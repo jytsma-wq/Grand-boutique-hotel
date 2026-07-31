@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ChevronLeft, Utensils, Wine, Coffee, type LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/config';
 import {
   formatGelPrice,
@@ -77,10 +78,12 @@ function MenuSection({ section, variant }: { section: SanityMenuSection; variant
 }
 
 export default function RestaurantMenuPage({ locale, menuSections }: RestaurantMenuPageProps) {
+  const t = useTranslations();
   const sections = selectMenuSections(
     menuSections,
     restaurantMenuSectionKeys,
     restaurantMenuFallbackSections,
+    locale,
   );
 
   return (
@@ -89,7 +92,7 @@ export default function RestaurantMenuPage({ locale, menuSections }: RestaurantM
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80"
-            alt="Restaurant Menu"
+            alt={t('restaurant.menuPage.title')}
             fill
             priority
             sizes="100vw"
@@ -102,17 +105,23 @@ export default function RestaurantMenuPage({ locale, menuSections }: RestaurantM
           <div>
             <Link href={`/${locale}/restaurant`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
-              <span className="uppercase tracking-wider text-sm">Back to Restaurant</span>
+              <span className="uppercase tracking-wider text-sm">{t('common.backTo', { destination: t('restaurant.title') })}</span>
             </Link>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
-              Our Menu
+              {t('restaurant.menuPage.title')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
-              A culinary journey through Georgian heritage and international excellence
+              {t('restaurant.menuPage.subtitle')}
             </p>
           </div>
         </div>
       </section>
+
+      {sections.length === 0 && (
+        <section className="bg-white py-20">
+          <p className="container mx-auto max-w-2xl px-6 text-center text-forest-700">{t('common.menuUnavailable')}</p>
+        </section>
+      )}
 
       {sections.map((section, index) => (
         <MenuSection
@@ -125,20 +134,20 @@ export default function RestaurantMenuPage({ locale, menuSections }: RestaurantM
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-            Reserve Your Table
+            {t('restaurant.menuPage.reserveTitle')}
           </h2>
           <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-            Experience our culinary excellence. Book your table today.
+            {t('restaurant.menuPage.reserveDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link href={`/${locale}/booking`}>
               <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-                Make Reservation
+                {t('restaurant.menuPage.makeReservation')}
               </Button>
             </Link>
             <Link href={`/${locale}/restaurant`}>
               <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                Back to Restaurant
+                {t('common.backTo', { destination: t('restaurant.title') })}
               </Button>
             </Link>
           </div>

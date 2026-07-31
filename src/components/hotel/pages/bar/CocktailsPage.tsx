@@ -12,6 +12,7 @@ import {
   selectMenuSections,
 } from '@/lib/menu-content';
 import { type SanityMenuItem, type SanityMenuSection } from '@/types/sanity';
+import { useTranslations } from 'next-intl';
 
 interface CocktailsPageProps {
   locale: Locale;
@@ -31,6 +32,8 @@ function PriceBlock({ item, light = false }: { item: SanityMenuItem; light?: boo
 }
 
 function SimpleCocktailGrid({ section, className }: { section?: SanityMenuSection; className: string }) {
+  if (!section) return null;
+
   return (
     <section className={className}>
       <div className="container mx-auto px-6">
@@ -64,11 +67,14 @@ function SimpleCocktailGrid({ section, className }: { section?: SanityMenuSectio
 }
 
 export default function CocktailsPage({ locale, menuSections }: CocktailsPageProps) {
-  const [signatureCocktails, classicCocktails, nonAlcoholic] = selectMenuSections(
+  const t = useTranslations();
+  const sections = selectMenuSections(
     menuSections,
     cocktailSectionKeys,
     barMenuFallbackSections,
+    locale,
   );
+  const [signatureCocktails, classicCocktails, nonAlcoholic] = sections;
 
   return (
     <main className="min-h-screen pt-20">
@@ -76,7 +82,7 @@ export default function CocktailsPage({ locale, menuSections }: CocktailsPagePro
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=1920&q=80"
-            alt="Cocktails"
+            alt={t('bar.menus.cocktailsTitle')}
             fill
             priority
             sizes="100vw"
@@ -89,20 +95,22 @@ export default function CocktailsPage({ locale, menuSections }: CocktailsPagePro
           <div>
             <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
-              <span className="uppercase tracking-wider text-sm">Back to Bar</span>
+              <span className="uppercase tracking-wider text-sm">{t('common.backTo', { destination: t('bar.name') })}</span>
             </Link>
             <Martini className="w-16 h-16 mx-auto mb-4" />
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
-              Cocktail Menu
+              {t('bar.menus.cocktailsTitle')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
-              Handcrafted cocktails blending Georgian traditions with modern mixology
+              {t('bar.menus.cocktailsSubtitle')}
             </p>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-forest-900 text-cream-50">
+      {sections.length === 0 && <section className="bg-white py-20"><p className="container mx-auto max-w-2xl px-6 text-center text-forest-700">{t('common.menuUnavailable')}</p></section>}
+
+      <section className={sections.length ? 'py-24 bg-forest-900 text-cream-50' : 'hidden'}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight mb-4">
@@ -144,20 +152,20 @@ export default function CocktailsPage({ locale, menuSections }: CocktailsPagePro
         </div>
       </section>
 
-      <SimpleCocktailGrid section={classicCocktails} className="py-24 bg-white" />
-      <SimpleCocktailGrid section={nonAlcoholic} className="py-24 bg-forest-50" />
+      <SimpleCocktailGrid section={classicCocktails} className={sections.length ? 'py-24 bg-white' : 'hidden'} />
+      <SimpleCocktailGrid section={nonAlcoholic} className={sections.length ? 'py-24 bg-forest-50' : 'hidden'} />
 
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-            Happy Hour Special
+            {t('bar.menus.happyHourTitle')}
           </h2>
           <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-            Join us daily from 5:00 PM to 7:00 PM for 50% off all cocktails
+            {t('bar.menus.happyHourDescription')}
           </p>
           <Link href={`/${locale}/booking`}>
             <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-              Reserve Your Table
+              {t('bar.reserve')}
             </Button>
           </Link>
         </div>

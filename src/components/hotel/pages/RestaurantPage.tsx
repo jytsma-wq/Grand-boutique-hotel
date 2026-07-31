@@ -131,9 +131,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="bg-charcoal-950 text-cream-50">
         <div className="luxury-container grid gap-6 py-7 md:grid-cols-[1fr_1fr_1fr_auto] md:items-center">
           {[
-            ['Breakfast', '7:00 AM - 11:00 AM'],
-            ['Lunch', '12:00 PM - 3:00 PM'],
-            ['Dinner', '6:00 PM - 11:00 PM'],
+            [t('restaurant.page.breakfastTitle'), t('restaurant.page.breakfastTime')],
+            [t('restaurant.hours.lunch'), '12:00–15:00'],
+            [t('restaurant.hours.dinner'), '18:00–23:00'],
           ].map(([label, value]) => (
             <div key={label} className="flex items-center gap-4 border-white/10 md:border-r md:last:border-r-0">
               <Clock className="h-5 w-5 text-brass-300" aria-hidden="true" />
@@ -153,16 +153,16 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
       <section className="luxury-section">
         <div className="luxury-container grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="luxury-kicker">Our philosophy</p>
-            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Farm to table, sea to table.</h2>
+            <p className="luxury-kicker">{t('restaurant.page.philosophy')}</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('restaurant.page.farmToTable')}</h2>
             <p className="luxury-lede mt-8">
-              At Azure Restaurant, Georgian culinary heritage is treated with a light modern hand. The kitchen works with local farmers, fishermen, and wine producers to build menus around the coast and the Adjara highlands.
+              {t('restaurant.page.philosophyDescription')}
             </p>
             <div className="mt-9 grid gap-4 text-sm uppercase tracking-[0.18em] text-forest-700 sm:grid-cols-3">
               {[
-                [Star, 'Fine dining'],
-                [Utensils, 'Georgian & international'],
-                [Wine, '500+ wine selection'],
+                [Star, t('restaurant.page.fineDining')],
+                [Utensils, t('restaurant.page.georgianInternational')],
+                [Wine, t('restaurant.page.wineCount')],
               ].map(([Icon, label]) => (
                 <div key={label as string} className="flex items-center gap-3 border-t border-brass-400/35 pt-4">
                   <Icon className="h-5 w-5 text-brass-600" aria-hidden="true" />
@@ -175,12 +175,12 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
           <div className="grid grid-cols-2 gap-4">
             {galleryImages.map((image, index) => (
               <div
-                key={image.alt}
+                key={image.src}
                 className={`luxury-image relative aspect-[4/5] ${index === 1 ? 'mt-10' : ''} ${index === 2 ? '-mt-10' : ''}`}
               >
                 <Image
                   src={image.src}
-                  alt={image.alt}
+                  alt={t('restaurant.page.galleryAlt', { number: index + 1 })}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover"
@@ -195,11 +195,11 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         <div className="luxury-container">
           <div className="mb-14 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="luxury-kicker">Explore</p>
-              <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Dining experiences</h2>
+              <p className="luxury-kicker">{t('restaurant.page.explore')}</p>
+              <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('restaurant.page.diningExperiences')}</h2>
             </div>
             <p className="max-w-xl text-sm font-light leading-7 text-forest-700">
-              From slow coastal breakfasts to candlelit dinners, each service is shaped for a different rhythm of the day.
+              {t('restaurant.page.diningDescription')}
             </p>
           </div>
 
@@ -207,16 +207,16 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             {[
               {
                 href: '/restaurant/breakfast',
-                title: 'Breakfast',
-                time: 'Daily 7:00 AM - 11:00 AM',
-                desc: 'Georgian morning dishes, seasonal fruit, pastries, and sea-facing coffee service.',
+                title: t('restaurant.page.breakfastTitle'),
+                time: t('restaurant.page.breakfastTime'),
+                desc: t('restaurant.page.breakfastDescription'),
                 image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80',
               },
               {
                 href: '/restaurant/lunch-dinner',
-                title: 'Lunch & Dinner',
-                time: 'Lunch 12:00 PM - 3:00 PM / Dinner 6:00 PM - 11:00 PM',
-                desc: 'Heritage recipes, Black Sea fish, refined classics, and cellar-led pairings.',
+                title: t('restaurant.page.lunchDinnerTitle'),
+                time: t('restaurant.page.lunchDinnerTime'),
+                desc: t('restaurant.page.lunchDinnerDescription'),
                 image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1200&q=80',
               },
             ].map((experience) => (
@@ -234,7 +234,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                   <h3 className="luxury-title mt-3 text-4xl">{experience.title}</h3>
                   <p className="mt-4 max-w-lg text-sm font-light leading-7 text-white/75">{experience.desc}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-all group-hover:gap-4">
-                    View experience <ChevronRight className="h-4 w-4" aria-hidden="true" />
+                    {t('restaurant.page.viewExperience')} <ChevronRight className="h-4 w-4" aria-hidden="true" />
                   </span>
                 </div>
               </Link>
@@ -243,7 +243,7 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
         </div>
       </section>
 
-      <section className="luxury-section">
+      {locale === 'en' && <section className="luxury-section">
         <div className="luxury-container">
           <div className="mb-14 text-center">
             <p className="luxury-kicker justify-center">Our menu</p>
@@ -288,9 +288,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
-      <section className="luxury-section bg-charcoal-950 text-cream-50 luxury-grain">
+      {locale === 'en' && <section className="luxury-section bg-charcoal-950 text-cream-50 luxury-grain">
         <div className="luxury-container">
           <div className="mb-14 text-center">
             <p className="luxury-kicker justify-center text-brass-300">Exclusive</p>
@@ -316,14 +316,14 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       <section className="luxury-section">
         <div className="luxury-container text-center">
-          <p className="luxury-kicker justify-center">Reservations</p>
-          <h2 className="luxury-title mx-auto mt-5 max-w-3xl text-5xl md:text-7xl">Reserve your table by the Black Sea.</h2>
+          <p className="luxury-kicker justify-center">{t('restaurant.page.reservations')}</p>
+          <h2 className="luxury-title mx-auto mt-5 max-w-3xl text-5xl md:text-7xl">{t('restaurant.page.reserveTitle')}</h2>
           <p className="luxury-lede mx-auto mt-7">
-            Private dining rooms are available for celebrations, business dinners, and wine-led evenings.
+            {t('restaurant.page.reserveDescription')}
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link href={`/${locale}/booking`} className="luxury-button">

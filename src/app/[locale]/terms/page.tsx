@@ -1,72 +1,61 @@
 import { type Locale } from '@/i18n/config';
+import { getTranslations } from 'next-intl/server';
 import { createLocalizedMetadata } from '@/lib/seo';
 import { hotel } from '@/lib/site';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'legal.terms' });
 
   return createLocalizedMetadata({
     locale,
     path: '/terms',
     titleKey: 'footer.terms',
-    description: `Terms and conditions for reservations, stays, and guest services at ${hotel.name}.`,
+    description: t('metadataDescription', { hotel: hotel.name }),
   });
 }
 
-const sections = [
-  {
-    title: '1. Reservations & Payment',
-    body: [
-      `All reservations are subject to availability. To secure your booking, a valid credit card or approved payment method may be required. By providing payment details, you authorize ${hotel.name} to charge the applicable deposit, pre-authorization, or full stay amount according to the selected rate.`,
-      'Rates may be quoted in GEL or USD and may include taxes or service charges depending on the booking channel and rate plan.',
-    ],
-  },
-  {
-    title: '2. Check-in & Check-out',
-    body: [
-      'Check-in is available from 15:00. Check-out is until 12:00 noon. Early check-in and late check-out are subject to availability and may incur an additional fee.',
-      'A valid government-issued photo ID or passport is required at check-in for each registered guest where required by law.',
-    ],
-  },
-  {
-    title: '3. Cancellation Policy',
-    body: [
-      "Standard reservations may be cancelled or modified without penalty up to 48 hours before scheduled arrival unless a stricter rate condition applies. Late cancellations, no-shows, non-refundable rates, promotional bookings, and group reservations may be charged according to the confirmed booking terms.",
-    ],
-  },
-  {
-    title: '4. Guest Responsibilities',
-    body: [
-      'Guests are responsible for respecting hotel property, other guests, and local laws. The hotel may charge for damage to rooms, furnishings, equipment, or facilities caused during a stay.',
-      'Smoking policies, quiet hours, pet policies, event use, and additional guest rules may be confirmed separately by the hotel team.',
-    ],
-  },
-  {
-    title: '5. Liability',
-    body: [
-      'The hotel is not responsible for loss, damage, or theft of personal property except where required by applicable Georgian law. Guests are encouraged to use the in-room safe for valuables.',
-    ],
-  },
-  {
-    title: '6. Contact',
-    body: [
-      `For reservation questions or clarification of these terms, contact ${hotel.reservationsEmail} or ${hotel.phone.display}.`,
-    ],
-  },
-];
+export default async function TermsPage({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'legal' });
+  const sections = [
+    {
+      title: t('terms.reservationsTitle'),
+      body: [t('terms.reservationsBody1', { hotel: hotel.name }), t('terms.reservationsBody2')],
+    },
+    {
+      title: t('terms.checkInTitle'),
+      body: [t('terms.checkInBody1'), t('terms.checkInBody2')],
+    },
+    {
+      title: t('terms.cancellationTitle'),
+      body: [t('terms.cancellationBody')],
+    },
+    {
+      title: t('terms.responsibilitiesTitle'),
+      body: [t('terms.responsibilitiesBody1'), t('terms.responsibilitiesBody2')],
+    },
+    {
+      title: t('terms.liabilityTitle'),
+      body: [t('terms.liabilityBody')],
+    },
+    {
+      title: t('terms.contactTitle'),
+      body: [t('terms.contactBody', { email: hotel.reservationsEmail, phone: hotel.phone.display })],
+    },
+  ];
 
-export default function TermsPage() {
   return (
     <main className="luxury-page min-h-screen pt-20">
       <section className="bg-charcoal-950 py-24 text-cream-50 luxury-grain md:py-32">
         <div className="luxury-container">
-          <p className="luxury-kicker text-brass-300">Legal</p>
-          <h1 className="luxury-display mt-6 text-cream-50">Terms & Conditions</h1>
+          <p className="luxury-kicker text-brass-300">{t('label')}</p>
+          <h1 className="luxury-display mt-6 text-cream-50">{t('terms.title')}</h1>
           <p className="mt-8 max-w-3xl text-lg font-light leading-8 text-white/65">
-            Reservation, stay, and guest service terms for {hotel.name}.
+            {t('terms.intro', { hotel: hotel.name })}
           </p>
           <p className="mt-6 text-xs uppercase tracking-[0.22em] text-white/40">
-            Effective date: March 2026
+            {t('effectiveDate')}
           </p>
         </div>
       </section>

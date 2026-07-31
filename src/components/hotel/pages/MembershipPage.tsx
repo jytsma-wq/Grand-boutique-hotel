@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl';
 import { 
   Waves, 
   Dumbbell, 
-  Wind, 
   Heart,
   Check,
   ArrowRight
@@ -16,37 +15,30 @@ interface MembershipPageProps {
   locale: Locale;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
-
 export default function MembershipPage({ locale }: MembershipPageProps) {
   const t = useTranslations();
 
   const membershipTiers = [
     {
-      name: 'Basic',
+      name: t('wellness.membership.tiers.basic.name'),
       price: 99,
       priceGel: 272,
-      benefits: ['Pool & gym access', '10% off treatments', 'Locker usage', 'Towel service'],
+      benefits: ['poolGym', 'discount10', 'locker', 'towels'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
       icon: Dumbbell,
     },
     {
-      name: 'Premium',
+      name: t('wellness.membership.tiers.premium.name'),
       price: 199,
       priceGel: 547,
-      benefits: ['All Basic benefits', 'Sauna & steam access', '20% off treatments', '2 guest passes/month', 'Priority booking'],
+      benefits: ['allBasic', 'saunaSteam', 'discount20', 'guestPasses', 'priority'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
       icon: Waves,
       featured: true,
     },
     {
-      name: 'VIP',
+      name: t('wellness.membership.tiers.vip.name'),
       price: 349,
       priceGel: 960,
-      benefits: ['All Premium benefits', 'Unlimited treatments', 'Private cabana', 'Personal trainer session', 'Complimentary beverages'],
+      benefits: ['allPremium', 'unlimitedTreatments', 'cabana', 'trainer', 'beverages'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
       icon: Heart,
     }
   ];
@@ -58,7 +50,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
-            alt="Wellness Membership"
+            alt={t('wellness.membership.title')}
             fill
             priority
             sizes="100vw"
@@ -69,12 +61,12 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <div>
-            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Exclusive Access</span>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">{t('wellness.exclusiveAccess')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
-              Membership
+              {t('wellness.membership.title')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl mt-6 font-light">
-              Join our wellness community and enjoy exclusive benefits
+              {t('wellness.membership.page.heroDescription')}
             </p>
           </div>
         </div>
@@ -84,8 +76,8 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Choose Your Plan</span>
-            <h2 className="section-title mt-4">Membership Tiers</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('wellness.membership.page.choosePlan')}</span>
+            <h2 className="section-title mt-4">{t('wellness.membership.page.tiers')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -100,7 +92,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                 <div className="flex items-baseline gap-2 mb-8 pb-6 border-b border-current/20">
                   <span className="text-4xl font-bold">${tier.price}</span>
                   <span className={`text-sm font-light ${tier.featured ? 'text-cream-50/60' : 'text-forest-500'}`}>
-                    /month
+                    {t('wellness.membership.page.perMonth')}
                   </span>
                 </div>
                 <ul className="space-y-4 mb-10">
@@ -117,7 +109,7 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
                   <Button 
                     className={`w-full ${tier.featured ? 'bg-white text-forest-900 hover:bg-white/90' : 'btn-boutique'}`}
                   >
-                    Join Now
+                    {t('wellness.membership.joinNow')}
                   </Button>
                 </Link>
               </div>
@@ -131,21 +123,21 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Questions About Membership?
+              {t('wellness.membership.page.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Our wellness team is happy to help you choose the right plan.
+              {t('wellness.membership.page.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/contact`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  <span>Contact Us</span>
+                  <span>{t('nav.contact')}</span>
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href={`/${locale}/wellness`}>
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white text-cream-50 hover:bg-white hover:text-forest-900 uppercase tracking-wider">
-                  Back to Wellness
+                  {t('wellness.membership.page.backToWellness')}
                 </Button>
               </Link>
             </div>
@@ -155,7 +147,6 @@ export default function MembershipPage({ locale }: MembershipPageProps) {
     </main>
   );
 }
-
 
 
 

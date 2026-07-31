@@ -8,15 +8,16 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 export default function WhatsAppButton() {
+  const tAccessibility = useTranslations('accessibility');
   const phoneNumber = '995422000000';
-  const message = encodeURIComponent('Hello! I would like to inquire about Batumi Boutique Hotel.');
+  const message = encodeURIComponent(tAccessibility('whatsappMessage'));
 
   return (
     <a
       href={`https://wa.me/${phoneNumber}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Contact the hotel on WhatsApp"
+      aria-label={tAccessibility('contactWhatsApp')}
       className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-2 group/wa"
     >
       <div className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full bg-[#25D366] border-2 border-[#25D366] shadow-xl flex items-center justify-center transition-all hover:bg-[#20BA5A]">
@@ -24,7 +25,7 @@ export default function WhatsAppButton() {
       </div>
       {/* Hover tooltip */}
       <div className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-forest-900 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/wa:opacity-100 transition-opacity duration-200 pointer-events-none">
-        Call us please
+        {tAccessibility('callUs')}
         <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-forest-900" />
       </div>
       <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-bold text-forest-900">
@@ -40,4 +41,5 @@ export default function WhatsAppButton() {
 
 
 
+import { useTranslations } from 'next-intl';
 

@@ -18,6 +18,7 @@ const fadeInUp = {
 
 export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
   const t = useTranslations('steamRoom');
+  const tPage = useTranslations('wellnessPages');
   
   const features = [
     { icon: Droplets, title: t('features.wetHeat'), desc: t('features.wetHeatDesc') },
@@ -53,7 +54,7 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=1920&q=80"
-            alt="Turkish Hammam Steam Room"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -105,14 +106,7 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
                 {t('traditionalTurkish')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
-                Our Turkish hammam-style steam room features beautiful mosaic tilework and maintains a perfect 
-                balance of 40-45°C temperature with 100% humidity. The eucalyptus-infused steam provides 
-                exceptional respiratory and skin benefits.
-              </p>
-              <p className="text-forest-600 leading-relaxed mb-8">
-                The wet heat opens pores deeply, promoting detoxification and leaving skin soft and hydrated. 
-                Marble benches provide comfortable seating while chromotherapy lighting enhances the relaxation 
-                experience. Perfect after a workout or before a spa treatment.
+                {tPage('steam.overview')}
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
@@ -125,7 +119,7 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
-                alt="Steam Room Interior"
+                alt={t('title')}
                 className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
             </div>
@@ -195,7 +189,7 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
               >
                 <img
                   src={image}
-                  alt={`Steam room view ${index + 1}`}
+                  alt={tPage('galleryImage', { facility: t('title'), number: index + 1 })}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -209,21 +203,21 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Rejuvenate in Our Turkish Hammam
+              {tPage('steam.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Complimentary access for all hotel guests. Eucalyptus steam and towels provided.
+              {tPage('steam.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  Explore All Wellness Facilities
+                  {tPage('exploreAll')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Reserve Your Session
+                  {tPage('reserveSession')}
                 </Button>
               </a>
             </div>
@@ -233,7 +227,6 @@ export default function SteamRoomPage({ locale }: SteamRoomPageProps) {
     </main>
   );
 }
-
 
 
 

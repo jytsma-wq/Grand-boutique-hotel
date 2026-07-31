@@ -2,6 +2,7 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { ChevronDown } from 'lucide-react';
 import { type Locale } from '@/i18n/config';
 import { type NavLink } from './types';
@@ -14,6 +15,7 @@ interface DesktopNavProps {
 }
 
 export default function DesktopNav({ locale, pathname, navLinks, isTransparent }: DesktopNavProps) {
+  const tAccessibility = useTranslations('accessibility');
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -27,7 +29,7 @@ export default function DesktopNav({ locale, pathname, navLinks, isTransparent }
   };
 
   return (
-    <nav className="hidden items-center justify-center gap-1 xl:flex" aria-label="Primary navigation">
+    <nav className="hidden items-center justify-center gap-1 xl:flex" aria-label={tAccessibility('primaryNavigation')}>
       {navLinks.map((link) => {
         const active = pathname.includes(link.href) && link.href !== '/';
 

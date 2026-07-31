@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Clock, Coffee, Croissant, Egg, Apple, Milk, type LucideIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTranslations } from 'next-intl';
 import { type Locale } from '@/i18n/config';
 import {
   breakfastSectionKeys,
@@ -27,10 +28,17 @@ const categoryIcons: Record<string, LucideIcon> = {
   'breakfast-beverages': Milk,
 };
 
-const dietaryTags = ['Vegetarian', 'Vegan', 'Gluten-Free', 'Halal', 'Dairy-Free', 'Nut-Free'] as const;
-
 export default function BreakfastPage({ locale, menuSections }: BreakfastPageProps) {
+  const t = useTranslations();
   const [isOpen, setIsOpen] = useState(false);
+  const dietaryTags = [
+    t('restaurant.breakfastPage.vegetarian'),
+    t('restaurant.breakfastPage.vegan'),
+    t('restaurant.breakfastPage.glutenFree'),
+    t('restaurant.breakfastPage.halal'),
+    t('restaurant.breakfastPage.dairyFree'),
+    t('restaurant.breakfastPage.nutFree'),
+  ];
 
   useEffect(() => {
     const checkOpen = () => {
@@ -47,6 +55,7 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
     menuSections,
     breakfastSectionKeys,
     restaurantMenuFallbackSections,
+    locale,
   );
 
   return (
@@ -55,7 +64,7 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=1920&q=80"
-            alt="Breakfast at Azure Restaurant"
+            alt={t('restaurant.page.breakfastTitle')}
             fill
             priority
             sizes="100vw"
@@ -66,12 +75,12 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
 
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-white px-6">
           <div>
-            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
+            <span className="text-white/60 text-sm tracking-[0.3em] uppercase font-light">{t('restaurant.title')}</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
-              Breakfast
+              {t('restaurant.page.breakfastTitle')}
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mb-8 font-light">
-              Start your day with a delightful selection of Georgian and international breakfast favorites
+              {t('restaurant.breakfastPage.heroDescription')}
             </p>
 
             <div className={`inline-flex items-center gap-3 px-6 py-3 border-2 ${
@@ -79,7 +88,7 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
             }`}>
               <div className={`w-2 h-2 ${isOpen ? 'bg-white' : 'bg-white/50'}`} />
               <span className="uppercase tracking-wider text-sm font-medium">
-                {isOpen ? 'Now Serving Breakfast' : 'Breakfast Hours: 7:00 AM - 11:00 AM'}
+                {isOpen ? t('restaurant.breakfastPage.nowServing') : t('restaurant.breakfastPage.hours')}
               </span>
             </div>
           </div>
@@ -92,22 +101,22 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
             <div className="flex items-center gap-4">
               <Clock className="text-white/70" size={28} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">Opening Time</div>
-                <div className="text-2xl font-bold tracking-wide">7:00 AM</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">{t('restaurant.breakfastPage.opening')}</div>
+                <div className="text-2xl font-bold tracking-wide">07:00</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <div className="flex items-center gap-4">
               <Clock className="text-white/70" size={28} />
               <div>
-                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">Closing Time</div>
-                <div className="text-2xl font-bold tracking-wide">11:00 AM</div>
+                <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">{t('restaurant.breakfastPage.closing')}</div>
+                <div className="text-2xl font-bold tracking-wide">11:00</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <div className="text-center md:text-left">
-              <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">Location</div>
-              <div className="text-lg font-medium tracking-wide">Azure Restaurant, Ground Floor</div>
+              <div className="text-xs text-white/50 uppercase tracking-wider font-light mb-1">{t('restaurant.breakfastPage.location')}</div>
+              <div className="text-lg font-medium tracking-wide">{t('restaurant.breakfastPage.locationValue')}</div>
             </div>
           </div>
         </div>
@@ -116,10 +125,10 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Complimentary</span>
-            <h2 className="section-title mt-4">Breakfast Included</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.breakfastPage.complimentary')}</span>
+            <h2 className="section-title mt-4">{t('restaurant.breakfastPage.included')}</h2>
             <p className="text-lg text-forest-600 font-light leading-relaxed">
-              All hotel guests enjoy our full breakfast buffet as part of their stay. Experience the finest Georgian and international morning cuisine with panoramic Black Sea views.
+              {t('restaurant.breakfastPage.includedDescription')}
             </p>
           </div>
         </div>
@@ -128,8 +137,8 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Selection</span>
-            <h2 className="section-title mt-4">Breakfast Menu</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.breakfastPage.selection')}</span>
+            <h2 className="section-title mt-4">{t('restaurant.breakfastPage.menu')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -179,10 +188,10 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Dietary Options</span>
-            <h2 className="section-title mt-4">Special Requirements</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.breakfastPage.dietaryOptions')}</span>
+            <h2 className="section-title mt-4">{t('restaurant.breakfastPage.requirements')}</h2>
             <p className="text-forest-600 font-light leading-relaxed mb-8">
-              We cater to all dietary requirements including vegetarian, vegan, gluten-free, and halal options. Please inform our staff of any allergies or special dietary needs.
+              {t('restaurant.breakfastPage.dietaryDescription')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               {dietaryTags.map((diet) => (
@@ -198,20 +207,20 @@ export default function BreakfastPage({ locale, menuSections }: BreakfastPagePro
       <section className="py-20 bg-forest-900 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-            Book Your Stay
+            {t('restaurant.breakfastPage.bookStay')}
           </h2>
           <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-            Enjoy complimentary breakfast with every room booking. Start your day with the best views of the Black Sea.
+            {t('restaurant.breakfastPage.ctaDescription')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={`/${locale}/booking`}>
               <Button className="btn-boutique px-12 py-5">
-                Book Now
+                {t('nav.bookNow')}
               </Button>
             </Link>
             <Link href={`/${locale}/restaurant`}>
               <Button variant="outline" className="px-12 py-5 border-2 border-white bg-transparent text-white hover:bg-white hover:text-forest-900 uppercase tracking-wider">
-                View Full Menu
+                {t('restaurant.downloadMenu')}
               </Button>
             </Link>
           </div>

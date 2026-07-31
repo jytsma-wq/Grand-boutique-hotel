@@ -18,6 +18,7 @@ const fadeInUp = {
 
 export default function SaunaPage({ locale }: SaunaPageProps) {
   const t = useTranslations('sauna');
+  const tPage = useTranslations('wellnessPages');
   
   const features = [
     { icon: Thermometer, title: t('features.dryHeat'), desc: t('features.dryHeatDesc') },
@@ -53,7 +54,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1920&q=80"
-            alt="Finnish Sauna"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -105,14 +106,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
                 {t('authenticFinnish')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
-                Our traditional Finnish sauna is constructed from premium Nordic cedar wood, creating an authentic 
-                and aromatic environment. The dry heat (80-90°C) promotes deep relaxation, detoxification, and 
-                numerous health benefits.
-              </p>
-              <p className="text-forest-600 leading-relaxed mb-8">
-                The sauna accommodates up to 6 people and features tiered seating for varying heat intensities. 
-                Aromatherapy essential oils are available to enhance your experience. A cold plunge pool is located 
-                adjacent for the traditional hot-cold contrast therapy.
+                {tPage('sauna.overview')}
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
@@ -125,7 +119,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1521143493539-5a7e0c0d7a3f?w=800&q=80"
-                alt="Sauna Interior"
+                alt={t('title')}
                 className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
             </div>
@@ -195,7 +189,7 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
               >
                 <img
                   src={image}
-                  alt={`Sauna view ${index + 1}`}
+                  alt={tPage('galleryImage', { facility: t('title'), number: index + 1 })}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -209,21 +203,21 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Experience Traditional Sauna Therapy
+              {tPage('sauna.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Complimentary access for all hotel guests. Aromatherapy oils and towels provided.
+              {tPage('sauna.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  Explore All Wellness Facilities
+                  {tPage('exploreAll')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Reserve Your Session
+                  {tPage('reserveSession')}
                 </Button>
               </a>
             </div>
@@ -233,7 +227,6 @@ export default function SaunaPage({ locale }: SaunaPageProps) {
     </main>
   );
 }
-
 
 
 

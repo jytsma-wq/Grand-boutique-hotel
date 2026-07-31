@@ -18,6 +18,7 @@ const fadeInUp = {
 
 export default function GymPage({ locale }: GymPageProps) {
   const t = useTranslations('gym');
+  const tPage = useTranslations('wellnessPages');
   
   const features = [
     { icon: Dumbbell, title: t('features.technogym'), desc: t('features.technogymDesc') },
@@ -53,7 +54,7 @@ export default function GymPage({ locale }: GymPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80"
-            alt="Fitness Center"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -87,8 +88,8 @@ export default function GymPage({ locale }: GymPageProps) {
             <div className="flex items-center gap-4">
               <Users className="w-8 h-8 text-brass-400" />
               <div>
-                <div className="text-sm uppercase tracking-wider text-cream-50/60">Personal Trainers</div>
-                <div className="text-2xl font-bold">7:00 AM - 9:00 PM</div>
+                <div className="text-sm uppercase tracking-wider text-cream-50/60">{t('features.personalTraining')}</div>
+                <div className="text-2xl font-bold">07:00–21:00</div>
               </div>
             </div>
           </div>
@@ -105,14 +106,7 @@ export default function GymPage({ locale }: GymPageProps) {
                 {t('premiumFitness')}
               </h2>
               <p className="text-forest-700 text-lg leading-relaxed mb-6">
-                Our 200 square meter fitness center features the latest Technogym equipment, offering everything 
-                from cardio machines to free weights. Floor-to-ceiling windows provide inspiring sea views while 
-                you work out.
-              </p>
-              <p className="text-forest-600 leading-relaxed mb-8">
-                Available 24/7 for hotel guests with keycard access. Personal trainers are available during daytime 
-                hours to help you achieve your fitness goals. Complimentary towels, water, and premium toiletries 
-                provided.
+                {tPage('gym.overview')}
               </p>
               <div className="flex gap-4">
                 <Link href={`/${locale}/booking`}>
@@ -125,7 +119,7 @@ export default function GymPage({ locale }: GymPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80"
-                alt="Gym Equipment"
+                alt={t('title')}
                 className="w-full aspect-[4/3] object-cover border-4 border-forest-900"
               />
             </div>
@@ -195,7 +189,7 @@ export default function GymPage({ locale }: GymPageProps) {
               >
                 <img
                   src={image}
-                  alt={`Gym view ${index + 1}`}
+                  alt={tPage('galleryImage', { facility: t('title'), number: index + 1 })}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -209,21 +203,21 @@ export default function GymPage({ locale }: GymPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-              Maintain Your Fitness Routine
+              {tPage('gym.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-10 max-w-2xl mx-auto font-light">
-              24/7 access for hotel guests. Personal training sessions available upon request.
+              {tPage('gym.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/wellness`}>
                 <Button className="btn-boutique px-12 py-6 text-base">
-                  Explore All Wellness Facilities
+                  {tPage('exploreAll')}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-12 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
-                  Book Personal Trainer
+                  {tPage('bookTrainer')}
                 </Button>
               </a>
             </div>
@@ -233,8 +227,6 @@ export default function GymPage({ locale }: GymPageProps) {
     </main>
   );
 }
-
-
 
 
 

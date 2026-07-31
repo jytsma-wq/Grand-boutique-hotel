@@ -13,6 +13,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Clock, Users, Phone } from 'lucide-react';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface BookingCalendarProps {
   locale: Locale;
@@ -20,7 +21,8 @@ interface BookingCalendarProps {
   venueName: string;
 }
 
-export default function BookingCalendar({ type, venueName }: BookingCalendarProps) {
+export default function BookingCalendar({ locale, type, venueName }: BookingCalendarProps) {
+  const t = useTranslations('bookingCalendar');
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [time, setTime] = useState<string>('');
   const [guests, setGuests] = useState<string>('2');
@@ -36,7 +38,12 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
 
   const handleSubmit = () => {
     // In production, this would submit to an API
-    const message = `Reservation request for ${venueName}:\nDate: ${date?.toLocaleDateString()}\nTime: ${time}\nGuests: ${guests}`;
+    const message = t('whatsappMessage', {
+      venue: venueName,
+      date: date?.toLocaleDateString(locale) ?? '',
+      time,
+      guests,
+    });
     const whatsappUrl = `https://wa.me/995422000000?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
@@ -44,7 +51,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
   return (
     <div className="glass-card rounded-2xl p-6">
       <h3 className="text-xl font-semibold text-forest-900 mb-6">
-        {type === 'spa' ? 'Book Spa Treatment' : 'Reserve a Table'}
+        {type === 'spa' ? t('bookSpa') : t('reserveTable')}
       </h3>
 
       {/* Step Indicator */}
@@ -62,7 +69,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
       {step === 1 && (
         <div >
           <Label className="text-sm font-medium text-forest-700 mb-3 block">
-            Select Date
+            {t('selectDate')}
           </Label>
           <Calendar
             mode="single"
@@ -83,7 +90,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           <div>
             <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
               <Clock size={16} />
-              Select Time
+              {t('selectTime')}
             </Label>
             <div className="grid grid-cols-4 gap-2">
               {timeSlots.map((slot) => (
@@ -111,7 +118,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
             onClick={() => setStep(1)}
             className="text-forest-600"
           >
-            ← Back to date
+            ← {t('backToDate')}
           </Button>
         </div>
       )}
@@ -122,7 +129,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           <div>
             <Label className="text-sm font-medium text-forest-700 mb-3 block flex items-center gap-2">
               <Users size={16} />
-              Number of {type === 'spa' ? 'Guests' : 'People'}
+              {type === 'spa' ? t('numberOfGuests') : t('numberOfPeople')}
             </Label>
             <Select value={guests} onValueChange={setGuests}>
               <SelectTrigger className="w-full">
@@ -131,7 +138,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
               <SelectContent>
                 {guestOptions.map((opt) => (
                   <SelectItem key={opt} value={opt}>
-                    {opt} {type === 'spa' ? 'person' : 'guests'}
+                    {type === 'spa' ? t('personCount', { count: Number(opt) }) : t('guestCount', { count: Number(opt) })}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -141,18 +148,18 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           {/* Summary */}
           <div className="bg-forest-50 rounded-xl p-4 space-y-2">
             <div className="flex justify-between text-sm">
-              <span className="text-forest-600">Date:</span>
+              <span className="text-forest-600">{t('date')}:</span>
               <span className="font-medium text-forest-900">
-                {date?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                {date?.toLocaleDateString(locale, { weekday: 'long', month: 'long', day: 'numeric' })}
               </span>
             </div>
             <div className="flex justify-between text-sm">
-              <span className="text-forest-600">Time:</span>
+              <span className="text-forest-600">{t('time')}:</span>
               <span className="font-medium text-forest-900">{time}</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-forest-600">
-                {type === 'spa' ? 'Guests:' : 'Party Size:'}
+                {type === 'spa' ? `${t('guests')}:` : `${t('partySize')}:`}
               </span>
               <span className="font-medium text-forest-900">{guests}</span>
             </div>
@@ -161,7 +168,7 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
           {/* Submit */}
           <Button onClick={handleSubmit} className="btn-boutique w-full">
             <Phone aria-hidden="true" className="w-4 h-4 mr-2" />
-            Confirm via WhatsApp
+            {t('confirmWhatsApp')}
           </Button>
 
           <Button
@@ -169,14 +176,13 @@ export default function BookingCalendar({ type, venueName }: BookingCalendarProp
             onClick={() => setStep(2)}
             className="w-full text-forest-600"
           >
-            ← Back to time
+            ← {t('backToTime')}
           </Button>
         </div>
       )}
     </div>
   );
 }
-
 
 
 
