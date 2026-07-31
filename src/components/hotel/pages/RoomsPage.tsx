@@ -11,6 +11,31 @@ interface RoomsPageProps {
   rooms?: HotelRoom[];
 }
 
+const fallbackTypeKeys: Record<string, string> = {
+  'standard-room': 'standard',
+  'superior-room': 'superior',
+  'deluxe-room': 'deluxe',
+  'junior-suite': 'juniorSuite',
+  'executive-suite': 'executiveSuite',
+  'presidential-suite': 'presidentialSuite',
+};
+
+const amenityKeys: Record<string, string> = {
+  wifi: 'wifi',
+  ac: 'ac',
+  minibar: 'minibar',
+  safe: 'safe',
+  tv: 'tv',
+  bath: 'bathtub',
+  balcony: 'balcony',
+  robes: 'robes',
+  coffee: 'coffee',
+  living: 'living',
+  dining: 'diningArea',
+  butler: 'butler',
+  jacuzzi: 'jacuzzi',
+};
+
 export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPageProps) {
   const t = useTranslations('rooms');
   const rooms = providedRooms?.length ? providedRooms : fallbackRooms;
@@ -22,7 +47,7 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1920&q=80"
-            alt="Rooms & Suites"
+            alt={t('title')}
             fill
             priority
             sizes="100vw"
@@ -58,7 +83,16 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
       <section className="luxury-section">
         <div className="luxury-container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {rooms.map((room) => (
+            {rooms.map((room) => {
+              const typeKey = fallbackTypeKeys[room.slug];
+              const isFallback = fallbackRooms.includes(room) && Boolean(typeKey);
+              const roomName = isFallback ? t(`types.${typeKey}.name`) : room.name;
+              const roomDescription = isFallback ? t(`types.${typeKey}.description`) : room.description;
+              const highlights = locale === 'en'
+                ? room.features.slice(0, 3)
+                : room.amenities.slice(0, 3).map((amenity) => t(`amenities.${amenityKeys[amenity] ?? amenity}`));
+
+              return (
               <div
                 key={room.id} className="group"
               >
@@ -67,7 +101,7 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
                   <div className="luxury-image relative aspect-[4/5] overflow-hidden">
                     <Image
                       src={room.images[0]}
-                      alt={room.name}
+                      alt={roomName}
                       width={800}
                       height={600}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -78,12 +112,12 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
 
                   {/* Content */}
                   <div className="flex flex-1 flex-col p-7">
-                    <h3 className="font-serif text-3xl text-forest-950 mb-3">{room.name}</h3>
-                    <p className="text-forest-800/70 text-sm leading-7 mb-5 line-clamp-3">{room.description}</p>
+                    <h3 className="font-serif text-3xl text-forest-950 mb-3">{roomName}</h3>
+                    <p className="text-forest-800/70 text-sm leading-7 mb-5 line-clamp-3">{roomDescription}</p>
                     
                     {/* Features */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      {room.features.slice(0, 3).map((feature, i) => (
+                      {highlights.map((feature, i) => (
                         <span key={i} className="border border-forest-200 px-3 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-forest-700">
                           {feature}
                         </span>
@@ -117,7 +151,8 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
                   </div>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -192,7 +227,6 @@ export default function RoomsPage({ locale, rooms: providedRooms }: RoomsPagePro
     </main>
   );
 }
-
 
 
 

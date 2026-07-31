@@ -23,45 +23,45 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
   const t = useTranslations();
 
   const facilities = [
-    { href: '/wellness/pool', icon: Waves, name: t('wellness.facilities.pool'), desc: 'Infinity pool with Black Sea views' },
-    { href: '/wellness/gym', icon: Dumbbell, name: t('wellness.facilities.gym'), desc: 'Technogym equipment and daily movement' },
-    { href: '/wellness/sauna', icon: Wind, name: t('wellness.facilities.sauna'), desc: 'Dry heat, cedar warmth, quiet ritual' },
-    { href: '/wellness/steam-room', icon: Flame, name: t('wellness.facilities.steam'), desc: 'Hammam-inspired steam and eucalyptus' },
-    { href: '/wellness/jacuzzi', icon: Waves, name: t('wellness.facilities.jacuzzi'), desc: 'Open-air hydrotherapy on the roof' },
-    { href: '/wellness/relaxation-lounge', icon: Heart, name: t('wellness.facilities.relaxation'), desc: 'Stillness before and after treatments' },
+    { href: '/wellness/pool', icon: Waves, name: t('wellness.facilities.pool'), desc: t('wellness.page.facilities.pool') },
+    { href: '/wellness/gym', icon: Dumbbell, name: t('wellness.facilities.gym'), desc: t('wellness.page.facilities.gym') },
+    { href: '/wellness/sauna', icon: Wind, name: t('wellness.facilities.sauna'), desc: t('wellness.page.facilities.sauna') },
+    { href: '/wellness/steam-room', icon: Flame, name: t('wellness.facilities.steam'), desc: t('wellness.page.facilities.steam') },
+    { href: '/wellness/jacuzzi', icon: Waves, name: t('wellness.facilities.jacuzzi'), desc: t('wellness.page.facilities.jacuzzi') },
+    { href: '/wellness/relaxation-lounge', icon: Heart, name: t('wellness.facilities.relaxation'), desc: t('wellness.page.facilities.relaxation') },
   ];
 
   const treatments = [
     {
-      name: 'Georgian Wine Wrap',
+      name: t('wellness.page.treatments.wine.name'),
       duration: 60,
       price: 85,
       priceGel: 234,
-      desc: 'Antioxidant-rich wine therapy for skin renewal and deep rest.',
+      desc: t('wellness.page.treatments.wine.description'),
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=700&q=80',
     },
     {
-      name: 'Black Sea Salt Scrub',
+      name: t('wellness.page.treatments.salt.name'),
       duration: 45,
       price: 65,
       priceGel: 179,
-      desc: 'A mineral exfoliation using sea salt and warm botanical oils.',
+      desc: t('wellness.page.treatments.salt.description'),
       image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=700&q=80',
     },
     {
-      name: 'Aromatherapy Massage',
+      name: t('wellness.page.treatments.aromatherapy.name'),
       duration: 90,
       price: 120,
       priceGel: 330,
-      desc: 'A full body massage with essential oils selected by your therapist.',
+      desc: t('wellness.page.treatments.aromatherapy.description'),
       image: 'https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=700&q=80',
     },
     {
-      name: 'Couples Retreat',
+      name: t('wellness.page.treatments.couples.name'),
       duration: 120,
       price: 220,
       priceGel: 605,
-      desc: 'Side-by-side massage, slow recovery time, and a private lounge moment.',
+      desc: t('wellness.page.treatments.couples.description'),
       image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=700&q=80',
     },
   ];
@@ -71,19 +71,19 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       name: t('wellness.membership.tiers.basic.name'),
       price: 99,
       priceGel: 272,
-      benefits: ['Pool and gym access', '10% off treatments', 'Locker usage', 'Towel service'],
+      benefits: ['poolGym', 'discount10', 'locker', 'towels'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
     },
     {
       name: t('wellness.membership.tiers.premium.name'),
       price: 199,
       priceGel: 547,
-      benefits: ['All Basic benefits', 'Sauna and steam access', '20% off treatments', '2 guest passes monthly', 'Priority booking'],
+      benefits: ['allBasic', 'saunaSteam', 'discount20', 'guestPasses', 'priority'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
     },
     {
       name: t('wellness.membership.tiers.vip.name'),
       price: 349,
       priceGel: 960,
-      benefits: ['All Premium benefits', 'Private cabana access', 'Personal trainer session', 'Complimentary beverages', 'Concierge scheduling'],
+      benefits: ['allPremium', 'cabana', 'trainer', 'beverages', 'concierge'].map((key) => t(`wellness.membership.page.benefits.${key}`)),
     },
   ];
 
@@ -130,7 +130,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
               <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('wellness.facilities.title')}</h2>
             </div>
             <p className="max-w-2xl text-sm font-light leading-7 text-forest-700">
-              A quiet wellness floor for movement, heat, water, and recovery, styled for guests who want calm rather than ceremony.
+              {t('wellness.page.facilitiesDescription')}
             </p>
           </div>
 
@@ -182,7 +182,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                       <h3 className="luxury-title text-3xl">{treatment.name}</h3>
                       <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-forest-500">
                         <Clock className="h-4 w-4" aria-hidden="true" />
-                        {treatment.duration} min
+                        {t('wellness.treatments.duration', { minutes: treatment.duration })}
                       </span>
                     </div>
                     <p className="text-sm font-light leading-7 text-forest-700">{treatment.desc}</p>
@@ -190,7 +190,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                   <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-2xl text-forest-900">${treatment.price}</p>
-                      <p className="text-xs uppercase tracking-[0.18em] text-forest-500">{treatment.priceGel} GEL</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-forest-500">{treatment.priceGel} {t('common.gel')}</p>
                     </div>
                     <Link href={`/${locale}/booking`} className="luxury-button">
                       <span>{t('wellness.treatments.bookNow')}</span>
@@ -222,7 +222,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                 }`}
               >
                 <p className={`text-xs uppercase tracking-[0.24em] ${index === 1 ? 'text-charcoal-950/65' : 'text-brass-300'}`}>
-                  Membership
+                  {t('wellness.membership.title')}
                 </p>
                 <h3 className="luxury-title mt-4 text-4xl">{tier.name}</h3>
                 <div className={`mt-7 border-b pb-7 ${index === 1 ? 'border-charcoal-950/20' : 'border-white/10'}`}>
@@ -231,7 +231,7 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
                     / {t('wellness.membership.tiers.basic.price')}
                   </span>
                   <p className={`mt-1 text-xs uppercase tracking-[0.18em] ${index === 1 ? 'text-charcoal-950/55' : 'text-white/40'}`}>
-                    {tier.priceGel} GEL
+                    {tier.priceGel} {t('common.gel')}
                   </p>
                 </div>
                 <ul className="mt-7 space-y-4">
@@ -257,10 +257,10 @@ export default function WellnessPage({ locale }: WellnessPageProps) {
       <section className="luxury-section">
         <div className="luxury-container grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="luxury-kicker">Wellness concierge</p>
-            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Begin your wellness journey.</h2>
+            <p className="luxury-kicker">{t('wellness.page.concierge')}</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('wellness.page.ctaTitle')}</h2>
             <p className="luxury-lede mt-7">
-              Our team can shape a simple treatment, a full day of recovery, or a membership plan around your rhythm.
+              {t('wellness.page.ctaDescription')}
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">

@@ -21,7 +21,7 @@ const localeFlags: Record<Locale, string> = {
 };
 
 export default function TopBar({ locale }: TopBarProps) {
-  const t = useTranslations('common');
+  const t = useTranslations();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -43,7 +43,7 @@ export default function TopBar({ locale }: TopBarProps) {
           className="flex items-center gap-2 hover:text-brass-400 transition-colors duration-300"
         >
           <MapPin size={14} className="text-brass-500" />
-          <span>Batumi, Georgia</span>
+          <span>{t('contact.batumiGeorgia')}</span>
         </Link>
 
         {/* Center: Language Bar */}
@@ -52,7 +52,7 @@ export default function TopBar({ locale }: TopBarProps) {
             <button
               key={loc}
               type="button"
-              aria-label={`Switch language to ${localeNames[loc]}`}
+              aria-label={t('accessibility.switchLanguageTo', { language: localeNames[loc] })}
               aria-pressed={loc === locale}
               onClick={() => switchLocale(loc)}
               className={`flex items-center gap-1.5 px-2 py-1 rounded transition-all duration-200 ${
@@ -83,7 +83,7 @@ export default function TopBar({ locale }: TopBarProps) {
             className="flex items-center gap-2 hover:text-brass-400 transition-colors duration-300"
           >
             <Mail size={14} className="text-brass-500" />
-            <span>{t('contact') || 'Contact'}</span>
+            <span>{t('nav.contact')}</span>
           </Link>
           
           <a 
@@ -98,7 +98,6 @@ export default function TopBar({ locale }: TopBarProps) {
     </div>
   );
 }
-
 
 
 

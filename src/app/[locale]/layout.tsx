@@ -62,6 +62,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!locales.includes(locale as Locale)) notFound();
   const messages = await getMessages();
+  const tAccessibility = await getTranslations({ locale, namespace: 'accessibility' });
   const dir = isRtlLocale(locale as Locale) ? 'rtl' : 'ltr';
 
   return (
@@ -73,7 +74,7 @@ export default async function LocaleLayout({
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
         >
-          Skip to main content
+          {tAccessibility('skipToMain')}
         </a>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navigation locale={locale as Locale} />

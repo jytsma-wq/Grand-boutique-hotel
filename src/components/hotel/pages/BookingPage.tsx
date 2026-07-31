@@ -62,7 +62,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
 
         <div className="luxury-container relative z-10 flex min-h-[66dvh] items-end pb-14 md:pb-20">
           <div className="max-w-4xl">
-            <p className="luxury-kicker text-brass-300">Reservations</p>
+            <p className="luxury-kicker text-brass-300">{t('booking.page.reservations')}</p>
             <h1 className="luxury-display mt-6 text-cream-50">{t('booking.title')}</h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
               {t('booking.bestPrice')}
@@ -147,7 +147,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
       <section className="luxury-section">
         <div className="luxury-container">
           <div className="mb-14 text-center">
-            <p className="luxury-kicker justify-center">Direct booking</p>
+            <p className="luxury-kicker justify-center">{t('booking.page.directBooking')}</p>
             <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('booking.benefits')}</h2>
           </div>
 
@@ -174,18 +174,18 @@ export default function BookingPage({ locale }: BookingPageProps) {
       <section className="luxury-section bg-cream-100">
         <div className="luxury-container grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="luxury-kicker">Our promise</p>
+            <p className="luxury-kicker">{t('booking.page.ourPromise')}</p>
             <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('booking.bestPrice')}</h2>
             <p className="luxury-lede mt-7">
-              Book directly with the hotel for the clearest rate, direct support from our reservations team, and priority handling of arrival details.
+              {t('booking.page.promiseDescription')}
             </p>
             <div className="mt-9 grid gap-4">
               {[
-                'Price match support for direct reservations',
-                'No hidden booking charges',
-                'Flexible cancellation guidance',
-                'Priority room assignment when available',
-                'Welcome amenity on arrival',
+                t('booking.page.promises.priceMatch'),
+                t('booking.page.promises.noHiddenFees'),
+                t('booking.page.promises.flexibleCancellation'),
+                t('booking.page.promises.priorityRoom'),
+                t('booking.page.promises.welcomeAmenity'),
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3 border-t border-brass-400/25 pt-4">
                   <Check className="mt-1 h-5 w-5 text-brass-600" aria-hidden="true" />
@@ -199,7 +199,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
             <div className="luxury-image relative aspect-[4/3]">
               <Image
                 src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80"
-                alt="Luxury room prepared for arrival"
+                alt={t('booking.page.imageAlt')}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
@@ -207,7 +207,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
             </div>
             <div className="absolute -bottom-6 left-6 border border-brass-400/35 bg-cream-50 p-6 shadow-2xl">
               <p className="text-4xl text-brass-700">20%</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-forest-600">Direct value</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-forest-600">{t('booking.page.directValue')}</p>
             </div>
           </div>
         </div>
@@ -216,10 +216,10 @@ export default function BookingPage({ locale }: BookingPageProps) {
       <section className="luxury-section bg-charcoal-950 text-cream-50 luxury-grain">
         <div className="luxury-container grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
           <div>
-            <p className="luxury-kicker text-brass-300">Reservations team</p>
-            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">Need help with your stay?</h2>
+            <p className="luxury-kicker text-brass-300">{t('booking.page.reservationsTeam')}</p>
+            <h2 className="luxury-title mt-5 text-5xl md:text-7xl">{t('booking.page.helpTitle')}</h2>
             <p className="mt-7 max-w-2xl font-light leading-7 text-white/65">
-              Contact us for group bookings, special requests, accessibility needs, or arrival coordination.
+              {t('booking.page.helpDescription')}
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row lg:justify-end">
@@ -229,7 +229,7 @@ export default function BookingPage({ locale }: BookingPageProps) {
             </a>
             <a href={`mailto:${hotel.reservationsEmail}`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
               <Mail className="h-4 w-4" aria-hidden="true" />
-              <span>Email us</span>
+              <span>{t('booking.page.emailUs')}</span>
             </a>
             <Link href={`/${locale}/contact`} className="luxury-button-outline luxury-button-outline-light text-cream-50">
               <span>{t('nav.contact')}</span>

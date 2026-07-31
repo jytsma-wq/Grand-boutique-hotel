@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { localeNames, locales, type Locale } from '@/i18n/config';
 import { flagImages } from './types';
 
@@ -17,6 +18,7 @@ interface MobileLanguageSwitcherProps {
 }
 
 export function LanguageSwitcher({ locale, isTransparent, onSwitchLocale }: LanguageSwitcherProps) {
+  const tAccessibility = useTranslations('accessibility');
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +37,7 @@ export function LanguageSwitcher({ locale, isTransparent, onSwitchLocale }: Lang
     <div className="relative" ref={langRef}>
       <button
         type="button"
-        aria-label="Change language"
+        aria-label={tAccessibility('changeLanguage')}
         aria-expanded={langOpen}
         aria-haspopup="menu"
         onClick={() => setLangOpen(!langOpen)}
@@ -54,7 +56,7 @@ export function LanguageSwitcher({ locale, isTransparent, onSwitchLocale }: Lang
               type="button"
               key={loc}
               role="menuitem"
-              aria-label={`Switch language to ${localeNames[loc]}`}
+              aria-label={tAccessibility('switchLanguageTo', { language: localeNames[loc] })}
               onClick={() => {
                 onSwitchLocale(loc);
                 setLangOpen(false);
@@ -74,13 +76,14 @@ export function LanguageSwitcher({ locale, isTransparent, onSwitchLocale }: Lang
 }
 
 export function MobileLanguageSwitcher({ locale, onSwitchLocale }: MobileLanguageSwitcherProps) {
+  const tAccessibility = useTranslations('accessibility');
   const [mobileLangOpen, setMobileLangOpen] = useState(false);
 
   return (
     <div className="mt-8 border-t border-white/12 pt-6">
       <button
         type="button"
-        aria-label="Change language"
+        aria-label={tAccessibility('changeLanguage')}
         aria-expanded={mobileLangOpen}
         aria-haspopup="menu"
         onClick={() => setMobileLangOpen(!mobileLangOpen)}
@@ -97,7 +100,7 @@ export function MobileLanguageSwitcher({ locale, onSwitchLocale }: MobileLanguag
                 type="button"
                 key={loc}
                 role="menuitem"
-                aria-label={`Switch language to ${localeNames[loc]}`}
+                aria-label={tAccessibility('switchLanguageTo', { language: localeNames[loc] })}
                 onClick={() => onSwitchLocale(loc)}
                 className={`flex items-center gap-3 border border-white/10 px-4 py-3 text-left text-xs uppercase tracking-[0.16em] transition-colors hover:border-brass-400 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 ${
                   loc === locale ? 'text-brass-300' : 'text-white/60'

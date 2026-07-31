@@ -18,79 +18,80 @@ const fadeInUp = {
 
 export default function OffersPage({ locale }: OffersPageProps) {
   const t = useTranslations();
+  const formatDate = (date: Date) => new Intl.DateTimeFormat(locale, { dateStyle: 'long' }).format(date);
 
   const offers = [
     {
       id: 1,
-      title: 'Early Bird Special',
-      subtitle: 'Book 30 days in advance and save 25%',
-      description: 'Plan ahead and enjoy significant savings on your stay. Includes breakfast and late checkout.',
+      title: t('offers.items.earlyBird.title'),
+      subtitle: t('offers.items.earlyBird.subtitle'),
+      description: t('offers.items.earlyBird.description'),
       image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80',
-      price: 'From $90/night',
-      originalPrice: '$120/night',
-      savings: '25% OFF',
-      validUntil: 'December 31, 2026',
-      includes: ['Daily breakfast for two', 'Late checkout until 2 PM', 'Free room upgrade', 'Welcome drink']
+      price: t('offers.fromPerNight', { price: '$90' }),
+      originalPrice: t('offers.fromPerNight', { price: '$120' }),
+      savings: '−25%',
+      validUntil: formatDate(new Date('2026-12-31T12:00:00Z')),
+      includes: [t('offers.items.earlyBird.include1'), t('offers.items.earlyBird.include2'), t('offers.items.earlyBird.include3'), t('offers.items.earlyBird.include4')]
     },
     {
       id: 2,
-      title: 'Romantic Escape',
-      subtitle: 'Perfect for couples',
-      description: 'Celebrate love with a romantic getaway including spa treatments, champagne, and more.',
+      title: t('offers.items.romantic.title'),
+      subtitle: t('offers.items.romantic.subtitle'),
+      description: t('offers.items.romantic.description'),
       image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
-      price: 'From $280/night',
-      originalPrice: '$380/night',
-      savings: 'Save $100',
-      validUntil: 'Ongoing',
-      includes: ['Champagne on arrival', 'Couples spa treatment', 'Candlelit dinner', 'Room decoration', 'Late checkout']
+      price: t('offers.fromPerNight', { price: '$280' }),
+      originalPrice: t('offers.fromPerNight', { price: '$380' }),
+      savings: t('offers.saveAmount', { amount: '$100' }),
+      validUntil: t('offers.ongoing'),
+      includes: [t('offers.items.romantic.include1'), t('offers.items.romantic.include2'), t('offers.items.romantic.include3'), t('offers.items.romantic.include4')]
     },
     {
       id: 3,
-      title: 'Family Fun Package',
-      subtitle: 'Memories for the whole family',
-      description: 'Create unforgettable family memories with our family-friendly package including kids activities.',
+      title: t('offers.items.family.title'),
+      subtitle: t('offers.items.family.subtitle'),
+      description: t('offers.items.family.description'),
       image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&q=80',
-      price: 'From $220/night',
-      originalPrice: '$300/night',
-      savings: 'Save $80',
-      validUntil: 'Ongoing',
-      includes: ['Connecting rooms available', 'Kids eat free', 'Family excursion', 'Kids club access', 'Pool toys']
+      price: t('offers.fromPerNight', { price: '$220' }),
+      originalPrice: t('offers.fromPerNight', { price: '$300' }),
+      savings: t('offers.saveAmount', { amount: '$80' }),
+      validUntil: t('offers.ongoing'),
+      includes: [t('offers.items.family.include1'), t('offers.items.family.include2'), t('offers.items.family.include3'), t('offers.items.family.include4')]
     },
     {
       id: 4,
-      title: 'Spa & Wellness Retreat',
-      subtitle: 'Rejuvenate your mind and body',
-      description: 'A complete wellness experience with daily spa treatments, healthy cuisine, and yoga sessions.',
+      title: t('offers.items.wellness.title'),
+      subtitle: t('offers.items.wellness.subtitle'),
+      description: t('offers.items.wellness.description'),
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80',
-      price: 'From $350/night',
-      originalPrice: '$480/night',
-      savings: 'Save $130',
-      validUntil: 'March 31, 2026',
-      includes: ['Daily spa treatment', 'Healthy breakfast', 'Yoga & meditation', 'Access to wellness facilities', 'Herbal tea service']
+      price: t('offers.fromPerNight', { price: '$350' }),
+      originalPrice: t('offers.fromPerNight', { price: '$480' }),
+      savings: t('offers.saveAmount', { amount: '$130' }),
+      validUntil: formatDate(new Date('2026-03-31T12:00:00Z')),
+      includes: [t('offers.items.wellness.include1'), t('offers.items.wellness.include2'), t('offers.items.wellness.include3'), t('offers.items.wellness.include4')]
     },
     {
       id: 5,
-      title: 'Extended Stay Offer',
-      subtitle: 'Stay longer, save more',
-      description: 'Stay 7 nights or more and enjoy 30% off plus exclusive benefits for long-term guests.',
+      title: t('offers.items.extended.title'),
+      subtitle: t('offers.items.extended.subtitle'),
+      description: t('offers.items.extended.description'),
       image: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=800&q=80',
-      price: 'From $85/night',
-      originalPrice: '$120/night',
-      savings: '30% OFF',
-      validUntil: 'Ongoing',
-      includes: ['Weekly room cleaning', 'Laundry service', 'Kitchen access', 'Workspace setup', 'Local SIM card']
+      price: t('offers.fromPerNight', { price: '$85' }),
+      originalPrice: t('offers.fromPerNight', { price: '$120' }),
+      savings: '−30%',
+      validUntil: t('offers.ongoing'),
+      includes: [t('offers.items.extended.include1'), t('offers.items.extended.include2'), t('offers.items.extended.include3'), t('offers.items.extended.include4')]
     },
     {
       id: 6,
-      title: 'Georgian Wine Experience',
-      subtitle: 'Taste the tradition',
-      description: 'Discover Georgia\'s 8,000-year-old winemaking heritage with exclusive tastings and tours.',
+      title: t('offers.items.wine.title'),
+      subtitle: t('offers.items.wine.subtitle'),
+      description: t('offers.items.wine.description'),
       image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80',
-      price: 'From $190/night',
-      originalPrice: '$250/night',
-      savings: 'Save $60',
-      validUntil: 'Ongoing',
-      includes: ['Wine tasting session', 'Vineyard tour', 'Wine pairing dinner', 'Souvenir wine bottle', 'Sommelier consultation']
+      price: t('offers.fromPerNight', { price: '$190' }),
+      originalPrice: t('offers.fromPerNight', { price: '$250' }),
+      savings: t('offers.saveAmount', { amount: '$60' }),
+      validUntil: t('offers.ongoing'),
+      includes: [t('offers.items.wine.include1'), t('offers.items.wine.include2'), t('offers.items.wine.include3'), t('offers.items.wine.include4')]
     }
   ];
 
@@ -101,7 +102,7 @@ export default function OffersPage({ locale }: OffersPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80"
-            alt="Special Offers"
+            alt={t('offers.title')}
             fill
             priority
             sizes="100vw"
@@ -112,7 +113,7 @@ export default function OffersPage({ locale }: OffersPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <div>
-            <span className="text-brass-400 text-sm tracking-widest uppercase">Exclusive</span>
+            <span className="text-brass-400 text-sm tracking-widest uppercase">{t('offers.exclusive')}</span>
             <h1 className="text-5xl md:text-7xl font-light mt-4 mb-4">{t('offers.title')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-cream-50/80 max-w-2xl mt-4">{t('offers.subtitle')}</p>
@@ -200,14 +201,14 @@ export default function OffersPage({ locale }: OffersPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-4xl font-light mb-6">
-              Get <span className="text-brass-400">Exclusive</span> Offers
+              {t('offers.newsletterTitle')}
             </h2>
             <p className="text-forest-200 mb-8">
-              Subscribe to our newsletter and be the first to know about special promotions and seasonal offers.
+              {t('offers.newsletterDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <label htmlFor="offers-email" className="sr-only">
-                Email address
+                {t('offers.emailLabel')}
               </label>
               <input
                 id="offers-email"
@@ -215,11 +216,11 @@ export default function OffersPage({ locale }: OffersPageProps) {
                 type="email"
                 autoComplete="email"
                 spellCheck={false}
-                placeholder="Enter your email…"
+                placeholder={t('offers.emailPlaceholder')}
                 className="px-6 py-4 rounded-lg bg-white/10 border border-white/20 text-cream-50 placeholder:text-forest-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
               />
               <Button className="btn-boutique px-8 py-4">
-                <span>Subscribe</span>
+                <span>{t('offers.subscribe')}</span>
               </Button>
             </div>
           </div>
@@ -228,7 +229,6 @@ export default function OffersPage({ locale }: OffersPageProps) {
     </main>
   );
 }
-
 
 
 

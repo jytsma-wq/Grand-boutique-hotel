@@ -61,7 +61,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
 
         <div className="luxury-container relative z-10 flex min-h-[62dvh] items-end pb-14 md:pb-20">
           <div className="max-w-4xl">
-            <p className="luxury-kicker text-brass-300">Get in touch</p>
+            <p className="luxury-kicker text-brass-300">{t('contact.page.getInTouch')}</p>
             <h1 className="luxury-display mt-6 text-cream-50">{t('contact.title')}</h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
               {t('contact.subtitle')}
@@ -158,7 +158,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
                   </p>
                   <p className="flex items-center gap-4">
                     <Clock className="h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
-                    <span>24/7 Front Desk</span>
+                    <span>{t('contact.page.frontDesk247')}</span>
                   </p>
                   <p className="flex items-center gap-4">
                     <Mail className="h-5 w-5 shrink-0 text-brass-300" aria-hidden="true" />
@@ -200,7 +200,7 @@ export default function ContactPage({ locale }: ContactPageProps) {
             <div className="relative min-h-80 overflow-hidden border border-brass-400/30 bg-charcoal-950 text-cream-50">
               <Image
                 src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1200&q=80"
-                alt="Batumi city near the hotel"
+                alt={t('contact.page.cityImageAlt')}
                 fill
                 sizes="(min-width: 1024px) 60vw, 100vw"
                 className="object-cover opacity-70"

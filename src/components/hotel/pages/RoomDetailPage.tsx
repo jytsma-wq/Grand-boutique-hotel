@@ -18,6 +18,7 @@ import {
   Calendar
 } from 'lucide-react';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 import { OTAPriceComparison, CurrencyDisplay } from '@/components/hotel/shared';
 import { fallbackRooms, getFallbackRoomBySlug, type HotelRoom } from '@/lib/rooms';
 
@@ -40,7 +41,41 @@ const amenityIcons: Record<string, React.ElementType> = {
   coffee: Coffee,
 };
 
+const fallbackTypeKeys: Record<string, string> = {
+  'standard-room': 'standard',
+  'superior-room': 'superior',
+  'deluxe-room': 'deluxe',
+  'junior-suite': 'juniorSuite',
+  'executive-suite': 'executiveSuite',
+  'presidential-suite': 'presidentialSuite',
+};
+
+const bedKeys: Record<string, string> = {
+  'standard-room': 'queen',
+  'superior-room': 'king',
+  'deluxe-room': 'kingSofa',
+  'junior-suite': 'king',
+  'executive-suite': 'king',
+  'presidential-suite': 'king',
+};
+
+const viewKeys: Record<string, string> = {
+  'standard-room': 'city',
+  'superior-room': 'partialSea',
+  'deluxe-room': 'fullSea',
+  'junior-suite': 'sea',
+  'executive-suite': 'panoramicSea',
+  'presidential-suite': 'panoramic360',
+};
+
+const amenityKeys: Record<string, string> = {
+  wifi: 'wifi', ac: 'ac', minibar: 'minibar', safe: 'safe', tv: 'tv', bath: 'bathtub',
+  balcony: 'balcony', robes: 'robes', coffee: 'coffee', living: 'living',
+  dining: 'diningArea', butler: 'butler', jacuzzi: 'jacuzzi',
+};
+
 export default function RoomDetailPage({ locale, slug, room: providedRoom, otherRooms }: RoomDetailPageProps) {
+  const t = useTranslations('rooms');
   const room = providedRoom || getFallbackRoomBySlug(slug);
   const rooms = otherRooms?.length ? otherRooms : fallbackRooms;
 
@@ -48,14 +83,22 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
     return (
       <main className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-4xl font-light text-forest-900 mb-4">Room Not Found</h1>
+          <h1 className="text-4xl font-light text-forest-900 mb-4">{t('detail.notFound')}</h1>
           <Link href={`/${locale}/rooms`}>
-            <Button className="btn-boutique">Back to Rooms</Button>
+            <Button className="btn-boutique">{t('detail.backToRooms')}</Button>
           </Link>
         </div>
       </main>
     );
   }
+
+  const typeKey = fallbackTypeKeys[room.slug];
+  const isFallback = fallbackRooms.includes(room) && Boolean(typeKey);
+  const roomName = isFallback ? t(`types.${typeKey}.name`) : room.name;
+  const roomDescription = isFallback ? t(`types.${typeKey}.description`) : room.description;
+  const roomLongDescription = isFallback && locale !== 'en' ? roomDescription : room.longDescription;
+  const roomBed = locale !== 'en' && bedKeys[room.slug] ? t(`detail.beds.${bedKeys[room.slug]}`) : room.bed;
+  const roomView = locale !== 'en' && viewKeys[room.slug] ? t(`detail.views.${viewKeys[room.slug]}`) : room.views;
 
   return (
     <main className="min-h-screen">
@@ -64,7 +107,7 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
         <div className="absolute inset-0">
           <img
             src={room.images[0]}
-            alt={room.name}
+            alt={roomName}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-forest-950/80 via-forest-950/20 to-transparent" />
@@ -74,16 +117,16 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
           <Link href={`/${locale}/rooms`}>
             <Button variant="outline" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
               <ArrowLeft className="w-4 h-4 mr-2" />
-              All Rooms
+              {t('detail.allRooms')}
             </Button>
           </Link>
         </div>
 
         <div className="absolute top-6 right-6 z-10 flex gap-2">
-          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
+          <Button aria-label={t('detail.saveRoom')} variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
             <Heart className="w-4 h-4" />
           </Button>
-          <Button variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
+          <Button aria-label={t('detail.shareRoom')} variant="outline" size="icon" className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white hover:text-forest-900">
             <Share2 className="w-4 h-4" />
           </Button>
         </div>
@@ -92,11 +135,11 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
           <div className="container mx-auto">
             <div >
               <div className="flex items-center gap-3 mb-4">
-                <Badge className="bg-brass-500 text-forest-950">{room.views}</Badge>
+                <Badge className="bg-brass-500 text-forest-950">{roomView}</Badge>
                 <Badge variant="outline" className="border-white/30 text-white">{room.size}</Badge>
               </div>
-              <h1 className="text-5xl md:text-7xl font-light mb-4">{room.name}</h1>
-              <p className="text-xl text-forest-200 max-w-2xl">{room.description}</p>
+              <h1 className="text-5xl md:text-7xl font-light mb-4">{roomName}</h1>
+              <p className="text-xl text-forest-200 max-w-2xl">{roomDescription}</p>
             </div>
           </div>
         </div>
@@ -109,7 +152,7 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2">
                 <Users size={20} className="text-brass-400" />
-                <span>{room.guests} Guests</span>
+                <span>{t('detail.guestCount', { count: room.guests })}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Maximize size={20} className="text-brass-400" />
@@ -117,18 +160,18 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
               </div>
               <div className="flex items-center gap-2">
                 <BedDouble size={20} className="text-brass-400" />
-                <span>{room.bed}</span>
+                <span>{roomBed}</span>
               </div>
             </div>
             <div className="flex items-center gap-4">
               <div className="text-2xl font-bold">
                 <CurrencyDisplay usdAmount={room.price} size="lg" />
-                <span className="text-forest-300 text-sm font-normal ml-2">/night</span>
+                <span className="text-forest-300 text-sm font-normal ml-2">/ {t('night')}</span>
               </div>
               <Link href={`/${locale}/booking?room=${room.id}`}>
                 <Button className="btn-boutique">
                   <Calendar className="w-4 h-4 mr-2" />
-                  Book Now
+                  {t('bookNow')}
                 </Button>
               </Link>
             </div>
@@ -144,19 +187,19 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
             <div className="lg:col-span-2 space-y-12">
               {/* Description */}
               <div>
-                <h2 className="text-2xl font-semibold text-forest-900 mb-4">About This Room</h2>
-                <p className="text-forest-700 leading-relaxed">{room.longDescription}</p>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">{t('detail.about')}</h2>
+                <p className="text-forest-700 leading-relaxed">{roomLongDescription}</p>
               </div>
 
               {/* Gallery */}
               <div>
-                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Gallery</h2>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">{t('detail.gallery')}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.images.map((img, index) => (
                     <div key={index} className="aspect-[4/3] rounded-xl overflow-hidden">
                       <img
                         src={img}
-                        alt={`${room.name} - ${index + 1}`}
+                        alt={t('detail.galleryImage', { name: roomName, number: index + 1 })}
                         className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                       />
                     </div>
@@ -166,29 +209,15 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
 
               {/* Amenities */}
               <div>
-                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Amenities</h2>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">{t('amenities.title')}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                   {room.amenities.map((amenity) => {
                     const Icon = amenityIcons[amenity];
-                    const labels: Record<string, string> = {
-                      wifi: 'High-Speed WiFi',
-                      ac: 'Climate Control',
-                      minibar: 'Premium Minibar',
-                      safe: 'In-Room Safe',
-                      tv: 'Smart TV',
-                      bath: 'Rain Shower & Bathtub',
-                      balcony: 'Private Balcony',
-                      robes: 'Luxury Robes & Slippers',
-                      coffee: 'Nespresso Machine',
-                      living: 'Living Area',
-                      dining: 'Dining Area',
-                      butler: 'Butler Service',
-                      jacuzzi: 'Private Jacuzzi'
-                    };
+                    const label = t(`amenities.${amenityKeys[amenity] ?? amenity}`);
                     return (
                       <div key={amenity} className="flex items-center gap-3 p-3 bg-forest-50 rounded-lg">
                         {Icon && <Icon size={20} className="text-forest-600" />}
-                        <span className="text-forest-700">{labels[amenity] || amenity}</span>
+                        <span className="text-forest-700">{label}</span>
                       </div>
                     );
                   })}
@@ -196,8 +225,8 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
               </div>
 
               {/* Features */}
-              <div>
-                <h2 className="text-2xl font-semibold text-forest-900 mb-4">Special Features</h2>
+              {locale === 'en' ? <div>
+                <h2 className="text-2xl font-semibold text-forest-900 mb-4">{t('detail.specialFeatures')}</h2>
                 <ul className="space-y-3">
                   {room.features.map((feature, index) => (
                     <li key={index} className="flex items-center gap-3 text-forest-700">
@@ -206,7 +235,7 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
                     </li>
                   ))}
                 </ul>
-              </div>
+              </div> : null}
             </div>
 
             {/* Right Column - Booking */}
@@ -220,52 +249,52 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
 
                 {/* Booking Card */}
                 <div className="glass-card rounded-2xl p-6">
-                  <h3 className="text-xl font-semibold text-forest-900 mb-4">Book This Room</h3>
+                  <h3 className="text-xl font-semibold text-forest-900 mb-4">{t('detail.bookThisRoom')}</h3>
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between">
-                      <span className="text-forest-600">Room Size:</span>
+                      <span className="text-forest-600">{t('detail.roomSize')}:</span>
                       <span className="font-medium text-forest-900">{room.size}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-forest-600">Max Guests:</span>
+                      <span className="text-forest-600">{t('detail.maxGuests')}:</span>
                       <span className="font-medium text-forest-900">{room.guests}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-forest-600">Bed Type:</span>
-                      <span className="font-medium text-forest-900">{room.bed}</span>
+                      <span className="text-forest-600">{t('detail.bedType')}:</span>
+                      <span className="font-medium text-forest-900">{roomBed}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-forest-600">View:</span>
-                      <span className="font-medium text-forest-900">{room.views}</span>
+                      <span className="text-forest-600">{t('detail.view')}:</span>
+                      <span className="font-medium text-forest-900">{roomView}</span>
                     </div>
                   </div>
                   
                   <Link href={`/${locale}/booking?room=${room.id}`} className="block">
                     <Button className="btn-boutique w-full">
-                      Check Availability
+                      {t('detail.checkAvailability')}
                     </Button>
                   </Link>
                 </div>
 
                 {/* Direct Booking Benefits */}
                 <div className="bg-gradient-to-br from-forest-800 to-forest-950 rounded-2xl p-6 text-white">
-                  <h4 className="font-semibold text-brass-400 mb-3">Book Direct Benefits</h4>
+                  <h4 className="font-semibold text-brass-400 mb-3">{t('detail.directBenefits')}</h4>
                   <ul className="space-y-2 text-sm text-forest-200">
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
-                      Complimentary breakfast
+                      {t('freeBreakfast')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
-                      Early check-in & late check-out
+                      {t('detail.earlyLate')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
-                      Free room upgrade (when available)
+                      {t('detail.freeUpgrade')}
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-brass-400 rounded-full" />
-                      10% spa discount
+                      {t('detail.spaDiscount10')}
                     </li>
                   </ul>
                 </div>
@@ -278,38 +307,43 @@ export default function RoomDetailPage({ locale, slug, room: providedRoom, other
       {/* Other Rooms */}
       <section className="py-16 bg-forest-50">
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl font-semibold text-forest-900 mb-8">Explore Other Rooms</h2>
+          <h2 className="text-2xl font-semibold text-forest-900 mb-8">{t('detail.exploreOtherRooms')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {rooms
               .filter(r => r.id !== room.id)
               .slice(0, 3)
-              .map((otherRoom) => (
+              .map((otherRoom) => {
+                const otherTypeKey = fallbackTypeKeys[otherRoom.slug];
+                const otherName = fallbackRooms.includes(otherRoom) && otherTypeKey
+                  ? t(`types.${otherTypeKey}.name`)
+                  : otherRoom.name;
+                return (
                 <Link key={otherRoom.id} href={`/${locale}/rooms/${otherRoom.id}`}>
                   <div className="glass-card rounded-xl overflow-hidden card-hover">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={otherRoom.images[0]}
-                        alt={otherRoom.name}
+                        alt={otherName}
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-forest-900">{otherRoom.name}</h3>
+                      <h3 className="font-semibold text-forest-900">{otherName}</h3>
                       <div className="flex justify-between items-center mt-2">
                         <span className="text-sm text-forest-600">{otherRoom.size}</span>
-                        <span className="text-brass-600 font-semibold">${otherRoom.price}/night</span>
+                        <span className="text-brass-600 font-semibold">${otherRoom.price}/{t('night')}</span>
                       </div>
                     </div>
                   </div>
                 </Link>
-              ))}
+                );
+              })}
           </div>
         </div>
       </section>
     </main>
   );
 }
-
 
 
 

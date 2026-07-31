@@ -8,7 +8,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: L
   return createLocalizedMetadata({
     locale,
     path: '/restaurant/lunch-dinner',
-    title: 'Lunch & Dinner',
+    titleKey: 'restaurant.page.lunchDinnerTitle',
     descriptionKey: 'restaurant.description',
   });
 }

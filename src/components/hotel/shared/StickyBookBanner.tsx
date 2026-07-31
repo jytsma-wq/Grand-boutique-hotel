@@ -13,6 +13,8 @@ interface StickyBookBannerProps {
 
 export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
   const tNav = useTranslations('nav');
+  const tBooking = useTranslations('booking');
+  const tAccessibility = useTranslations('accessibility');
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -36,9 +38,9 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
   };
 
   const benefits = [
-    { icon: Gift, text: 'Free Breakfast' },
-    { icon: Clock, text: 'Late Checkout' },
-    { icon: Shield, text: 'Best Price' },
+    { icon: Gift, text: tBooking('benefit1') },
+    { icon: Clock, text: tBooking('benefit2') },
+    { icon: Shield, text: tBooking('bestPrice') },
   ];
 
   return (
@@ -70,7 +72,7 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
               {/* Dismiss Button */}
               <button
                 type="button"
-                aria-label="Dismiss booking banner"
+                aria-label={tAccessibility('dismissBookingBanner')}
                 onClick={handleDismiss}
                 className="p-1 text-forest-400 hover:text-cream-50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400"
               >
@@ -83,7 +85,6 @@ export default function StickyBookBanner({ locale }: StickyBookBannerProps) {
     </div>
   );
 }
-
 
 
 

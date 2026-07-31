@@ -11,6 +11,7 @@ import {
   spiritSectionKeys,
 } from '@/lib/menu-content';
 import { type SanityMenuItem, type SanityMenuSection } from '@/types/sanity';
+import { useTranslations } from 'next-intl';
 
 interface SpiritsPageProps {
   locale: Locale;
@@ -31,6 +32,8 @@ function PriceBlock({ item, tone = 'dark' }: { item: SanityMenuItem; tone?: 'dar
 }
 
 function CardGridSection({ section, className }: { section?: SanityMenuSection; className: string }) {
+  if (!section) return null;
+
   return (
     <section className={className}>
       <div className="container mx-auto px-6">
@@ -69,6 +72,8 @@ function CardGridSection({ section, className }: { section?: SanityMenuSection; 
 }
 
 function CompactList({ section }: { section?: SanityMenuSection }) {
+  if (!section) return null;
+
   return (
     <div>
       <div className="mb-8">
@@ -92,6 +97,8 @@ function CompactList({ section }: { section?: SanityMenuSection }) {
 }
 
 function DarkList({ section }: { section?: SanityMenuSection }) {
+  if (!section) return null;
+
   return (
     <div>
       <div className="mb-8">
@@ -121,11 +128,14 @@ function DarkList({ section }: { section?: SanityMenuSection }) {
 }
 
 export default function SpiritsPage({ locale, menuSections }: SpiritsPageProps) {
-  const [whiskey, vodka, gin, rum, tequila, cognac, specialSpirits] = selectMenuSections(
+  const t = useTranslations();
+  const sections = selectMenuSections(
     menuSections,
     spiritSectionKeys,
     barMenuFallbackSections,
+    locale,
   );
+  const [whiskey, vodka, gin, rum, tequila, cognac, specialSpirits] = sections;
 
   return (
     <main className="min-h-screen pt-20">
@@ -133,7 +143,7 @@ export default function SpiritsPage({ locale, menuSections }: SpiritsPageProps) 
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=1920&q=80"
-            alt="Premium Spirits"
+            alt={t('bar.menus.spiritsTitle')}
             fill
             priority
             sizes="100vw"
@@ -146,23 +156,25 @@ export default function SpiritsPage({ locale, menuSections }: SpiritsPageProps) 
           <div>
             <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
-              <span className="uppercase tracking-wider text-sm">Back to Bar</span>
+              <span className="uppercase tracking-wider text-sm">{t('common.backTo', { destination: t('bar.name') })}</span>
             </Link>
             <Sparkles className="w-16 h-16 mx-auto mb-4" />
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
-              Premium Spirits
+              {t('bar.menus.spiritsTitle')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
-              A curated selection of the world's finest spirits and liqueurs
+              {t('bar.menus.spiritsSubtitle')}
             </p>
           </div>
         </div>
       </section>
 
-      <CardGridSection section={whiskey} className="py-24 bg-white" />
+      {sections.length === 0 && <section className="bg-white py-20"><p className="container mx-auto max-w-2xl px-6 text-center text-forest-700">{t('common.menuUnavailable')}</p></section>}
+
+      <CardGridSection section={whiskey} className={sections.length ? 'py-24 bg-white' : 'hidden'} />
       <CardGridSection section={vodka} className="py-24 bg-forest-50" />
 
-      <section className="py-24 bg-white">
+      <section className={sections.length ? 'py-24 bg-white' : 'hidden'}>
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <CompactList section={gin} />
@@ -172,7 +184,7 @@ export default function SpiritsPage({ locale, menuSections }: SpiritsPageProps) 
         </div>
       </section>
 
-      <section className="py-24 bg-forest-900 text-cream-50">
+      <section className={sections.length ? 'py-24 bg-forest-900 text-cream-50' : 'hidden'}>
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
             <DarkList section={cognac} />
@@ -184,14 +196,14 @@ export default function SpiritsPage({ locale, menuSections }: SpiritsPageProps) 
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
-            Explore Our Collection
+            {t('bar.menus.spiritsExploreTitle')}
           </h2>
           <p className="text-forest-600 text-lg mb-12 max-w-2xl mx-auto font-light">
-            Visit our bar to discover our full selection of premium spirits and expert recommendations
+            {t('bar.menus.spiritsExploreDescription')}
           </p>
           <Link href={`/${locale}/booking`}>
             <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-              Reserve Your Table
+              {t('bar.reserve')}
             </Button>
           </Link>
         </div>

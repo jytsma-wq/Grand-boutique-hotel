@@ -3,7 +3,6 @@
     "name": "Batumi Boutique Hotel",
     "tagline": "Where Modern Luxury Meets the Black Sea",
     "description": "Experience 2026 modern architecture at Batumi's premier boutique hotel. Refined luxury meets Georgian hospitality on the stunning Black Sea coast."
-    
   },
   "nav": {
     "about": "About",
@@ -50,37 +49,7 @@
     "rooms": {
       "title": "Exquisite Accommodations",
       "subtitle": "Each room a sanctuary of modern elegance",
-      "viewAll": "View All Rooms",
-      "accommodations": "Accommodations",
-      "description": "Experience unparalleled comfort in our meticulously designed rooms and suites",
-      "priceLabel": "Price",
-      "night": "night",
-      "viewDetails": "View Details",
-      "bookNow": "Book Now",
-      "inEveryRoom": "In Every Room",
-      "roomAmenities": "Room Amenities",
-      "highSpeedWifi": "High-Speed WiFi",
-      "climateControl": "Climate Control",
-      "smartTv": "Smart TV",
-      "nespressoMachine": "Nespresso Machine",
-      "inRoomSafe": "In-Room Safe",
-      "roomService": "24/7 Room Service",
-      "bookDirectTitle": "Book Direct &",
-      "saveMore": "Save More",
-      "bookDirectDescription": "Enjoy exclusive benefits when you book directly through our website",
-      "bestPrice": "Best Price Guarantee",
-      "bestPriceDesc": "Lowest rates available",
-      "freeBreakfast": "Free Breakfast",
-      "freeBreakfastDesc": "Daily gourmet breakfast",
-      "roomUpgrade": "Room Upgrade",
-      "roomUpgradeDesc": "Subject to availability",
-      "earlyCheckIn": "Early Check-In",
-      "earlyCheckInDesc": "When available",
-      "lateCheckOut": "Late Check-Out",
-      "lateCheckOutDesc": "Until 2 PM",
-      "spaDiscount": "Spa Discount",
-      "spaDiscountDesc": "15% off treatments",
-      "bookYourStay": "Book Your Stay"
+      "viewAll": "View All Rooms"
     },
     "dining": {
       "title": "Culinary Excellence",
@@ -164,7 +133,11 @@
       "balcony": "Private Balcony",
       "view": "Sea View",
       "robes": "Luxury Robes & Slippers",
-      "coffee": "Nespresso Machine"
+      "coffee": "Nespresso Machine",
+      "living": "Living area",
+      "diningArea": "Dining area",
+      "butler": "Butler service",
+      "jacuzzi": "Private jacuzzi"
     },
     "types": {
       "standard": {
@@ -191,6 +164,49 @@
         "name": "Presidential Suite",
         "description": "Our crown jewel - a palatial residence with 360° views, private terrace, personal butler, and the finest amenities."
       }
+    },
+    "priceComparison": {
+      "title": "Book direct and save",
+      "otaPrice": "OTA price",
+      "directPrice": "Direct price",
+      "save": "Save ${amount} ({percent}%)",
+      "guarantee": "Best price guaranteed when you book direct"
+    },
+    "detail": {
+      "notFound": "Room not found",
+      "backToRooms": "Back to rooms",
+      "allRooms": "All rooms",
+      "saveRoom": "Save this room",
+      "shareRoom": "Share this room",
+      "guestCount": "{count} guests",
+      "about": "About this room",
+      "gallery": "Gallery",
+      "galleryImage": "{name}, image {number}",
+      "specialFeatures": "Special features",
+      "bookThisRoom": "Book this room",
+      "roomSize": "Room size",
+      "maxGuests": "Maximum guests",
+      "bedType": "Bed type",
+      "view": "View",
+      "checkAvailability": "Check availability",
+      "directBenefits": "Direct-booking benefits",
+      "earlyLate": "Early check-in and late check-out",
+      "freeUpgrade": "Free room upgrade when available",
+      "spaDiscount10": "10% spa discount",
+      "exploreOtherRooms": "Explore other rooms",
+      "beds": {
+        "queen": "Queen bed",
+        "king": "King bed",
+        "kingSofa": "King bed and sofa bed"
+      },
+      "views": {
+        "city": "City view",
+        "partialSea": "Partial sea view",
+        "fullSea": "Full sea view",
+        "sea": "Sea view",
+        "panoramicSea": "Panoramic sea view",
+        "panoramic360": "360° panoramic view"
+      }
     }
   },
   "restaurant": {
@@ -210,7 +226,99 @@
       "seafood": "Fresh Black Sea seafood, caught daily"
     },
     "reserve": "Reserve a Table",
-    "downloadMenu": "Download Menu"
+    "downloadMenu": "Download Menu",
+    "lunchMenuTitle": "Lunch Menu",
+    "dinnerMenuTitle": "Dinner Menu",
+    "menuPage": {
+      "title": "Our Menu",
+      "subtitle": "A culinary journey through Georgian heritage and international excellence",
+      "reserveTitle": "Reserve Your Table",
+      "reserveDescription": "Experience our cuisine and reserve your table today.",
+      "makeReservation": "Make a Reservation"
+    },
+    "breakfastPage": {
+      "heroDescription": "Start the day with Georgian and international breakfast favorites.",
+      "nowServing": "Now serving breakfast",
+      "hours": "Breakfast hours: 7:00 AM–11:00 AM",
+      "opening": "Opening Time",
+      "closing": "Closing Time",
+      "location": "Location",
+      "locationValue": "Azure Restaurant, ground floor",
+      "complimentary": "Complimentary",
+      "included": "Breakfast Included",
+      "includedDescription": "Every hotel guest enjoys our full breakfast buffet, with Georgian and international morning dishes and panoramic Black Sea views.",
+      "selection": "Our Selection",
+      "menu": "Breakfast Menu",
+      "dietaryOptions": "Dietary Options",
+      "requirements": "Special Requirements",
+      "dietaryDescription": "Vegetarian, vegan, gluten-free, halal, dairy-free, and nut-free options are available. Please tell our team about allergies or dietary needs.",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan",
+      "glutenFree": "Gluten-free",
+      "halal": "Halal",
+      "dairyFree": "Dairy-free",
+      "nutFree": "Nut-free",
+      "bookStay": "Book Your Stay",
+      "ctaDescription": "Breakfast is included with every room booking, accompanied by views of the Black Sea."
+    },
+    "page": {
+      "philosophy": "Our Philosophy",
+      "farmToTable": "Farm to table, sea to table.",
+      "philosophyDescription": "At Azure Restaurant, Georgian culinary heritage is interpreted with a light modern touch. Local farmers, fishers, and winemakers shape menus inspired by the coast and Adjara highlands.",
+      "fineDining": "Fine dining",
+      "georgianInternational": "Georgian & international",
+      "wineCount": "500+ wines",
+      "galleryAlt": "Azure Restaurant photo {number}",
+      "explore": "Explore",
+      "diningExperiences": "Dining Experiences",
+      "diningDescription": "From relaxed coastal breakfasts to candlelit dinners, every service follows a different rhythm of the day.",
+      "breakfastTitle": "Breakfast",
+      "breakfastTime": "Daily, 7:00 AM–11:00 AM",
+      "breakfastDescription": "Georgian morning dishes, seasonal fruit, pastries, and coffee with a sea view.",
+      "lunchDinnerTitle": "Lunch & Dinner",
+      "lunchDinnerTime": "Lunch 12:00 PM–3:00 PM · Dinner 6:00 PM–11:00 PM",
+      "lunchDinnerDescription": "Heritage recipes, Black Sea fish, refined classics, and cellar-led pairings.",
+      "viewExperience": "View Experience",
+      "reservations": "Reservations",
+      "reserveTitle": "Reserve your table by the Black Sea.",
+      "reserveDescription": "Private dining rooms are available for celebrations, business dinners, and wine-focused evenings."
+    },
+    "lunchDinner": {
+      "heroDescription": "Experience carefully composed lunch and dinner menus at Azure Restaurant.",
+      "nowServingLunch": "Now serving lunch",
+      "nowServingDinner": "Now serving dinner",
+      "closed": "Currently closed",
+      "nowServing": "Now serving",
+      "lunchDescription": "A refined midday selection of salads, seafood, and Georgian specialties.",
+      "lunch1": "Three-course business lunch",
+      "lunch2": "Fresh Black Sea seafood",
+      "lunch3": "Georgian salads and appetizers",
+      "lunch4": "Light pasta and risotto",
+      "dinnerDescription": "An elegant evening of Georgian and international cuisine with premium wine pairings.",
+      "dinner1": "Seven-course chef tasting menu",
+      "dinner2": "Premium steaks and grills",
+      "dinner3": "Traditional Georgian feast",
+      "dinner4": "Sommelier wine pairings",
+      "ourMenus": "Our Menus",
+      "culinaryExcellence": "Culinary Excellence",
+      "signature": "Signature",
+      "featuredDishes": "Featured Dishes",
+      "seaBass": "Grilled Black Sea Bass",
+      "seafood": "Seafood",
+      "beef": "Beef Tenderloin",
+      "grill": "Grill",
+      "khachapuri": "Adjarian Khachapuri",
+      "georgian": "Georgian",
+      "risotto": "Lobster Risotto",
+      "italian": "Italian",
+      "sommelierSelection": "Sommelier Selection",
+      "winePairings": "Wine Pairings",
+      "wineDescription": "Our sommelier has selected more than 500 labels, with a focus on Georgian qvevri wines and thoughtful pairings for every dish.",
+      "qvevriWines": "Georgian Qvevri Wines",
+      "sommelierService": "Expert Sommelier Service",
+      "ctaDescription": "Enjoy refined dining in Batumi. Private rooms are available for special occasions.",
+      "makeReservation": "Make a Reservation"
+    }
   },
   "bar": {
     "name": "Lounge Bar",
@@ -229,7 +337,63 @@
       "subtitle": "From ancient qvevri traditions to modern vintages"
     },
     "reserve": "Reserve a Table",
-    "downloadMenu": "Download Drink Menu"
+    "downloadMenu": "Download Drink Menu",
+    "menus": {
+      "cocktailsTitle": "Cocktail Menu",
+      "cocktailsSubtitle": "Handcrafted cocktails combining Georgian tradition and modern mixology",
+      "happyHourTitle": "Happy Hour Special",
+      "happyHourDescription": "Join us daily from 5:00 PM to 7:00 PM for 50% off cocktails.",
+      "spiritsTitle": "Premium Spirits",
+      "spiritsSubtitle": "A considered selection of fine spirits and liqueurs from around the world",
+      "spiritsExploreTitle": "Explore Our Collection",
+      "spiritsExploreDescription": "Visit the bar to discover the full collection and receive recommendations from our team.",
+      "wineTitle": "Wine List",
+      "wineSubtitle": "8,000 years of Georgian winemaking alongside leading international selections",
+      "tastingTitle": "Wine Tasting Experience",
+      "tastingDescription": "Join a guided tasting through Georgian and international wines."
+    },
+    "page": {
+      "opensAt": "Opens at 4:00 PM",
+      "happyHour": "Happy Hour",
+      "happyHourHours": "5:00 PM–7:00 PM (50% off cocktails)",
+      "experience": "The Experience",
+      "intimateTitle": "An Intimate Haven",
+      "experienceDescription2": "Watch the sunset through floor-to-ceiling windows or settle into an intimate alcove. The wine list includes distinguished Georgian vintages and rare qvevri-aged selections.",
+      "wineCount": "200+ wines",
+      "premiumSpirits": "Premium Spirits",
+      "liveMusic": "Live Music",
+      "liveMusicHours": "Thursday–Saturday, 8:00 PM",
+      "crafted": "Crafted Exclusively",
+      "cocktailDescription": "Each cocktail reflects Georgia’s heritage and modern creativity.",
+      "cocktail1": "Premium vodka, blackberry liqueur, citrus, and champagne",
+      "cocktail2": "Chacha, honey, saffron, and local herbs",
+      "cocktail3": "Gin, cucumber, mint, and elderflower tonic",
+      "cocktail4": "Whiskey, green tea liqueur, lime, and honey syrup",
+      "ancientTraditions": "Ancient Traditions",
+      "wineDescription": "Georgia is the cradle of wine, with 8,000 years of winemaking heritage. Explore traditional and modern Georgian wines.",
+      "region": "Region",
+      "wine": "Wine",
+      "year": "Year",
+      "price": "Price",
+      "viewWineList": "View Full Wine List",
+      "premiumSelection": "Premium Selection",
+      "spiritsTitle": "Spirits & Liqueurs",
+      "gallery": "Gallery",
+      "galleryTitle": "Lounge Bar in Pictures",
+      "galleryAlt": "Lounge Bar photo {number}",
+      "ctaTitle": "Reserve Your Evening",
+      "ctaDescription": "Reserve a table for sunset cocktails, wine tastings, or a private event. A VIP lounge is available for special occasions.",
+      "call": "Call",
+      "agedQvevri": "Qvevri-aged",
+      "spiritCategories": {
+        "whiskey": "Whiskey",
+        "vodka": "Vodka",
+        "gin": "Gin",
+        "rum": "Rum",
+        "tequila": "Tequila",
+        "cognac": "Cognac"
+      }
+    }
   },
   "wellness": {
     "title": "Wellness & Spa",
@@ -264,7 +428,7 @@
           "price": "Monthly membership"
         },
         "premium": {
-          "name": "Premium", 
+          "name": "Premium",
           "price": "Monthly membership"
         },
         "vip": {
@@ -272,7 +436,65 @@
           "price": "Monthly membership"
         }
       },
-      "joinNow": "Join Now"
+      "joinNow": "Join Now",
+      "page": {
+        "heroDescription": "Join our wellness community and enjoy exclusive benefits",
+        "choosePlan": "Choose your plan",
+        "tiers": "Membership tiers",
+        "perMonth": "per month",
+        "ctaTitle": "Questions about membership?",
+        "ctaDescription": "Our wellness team will be happy to help you choose the right plan.",
+        "backToWellness": "Back to wellness",
+        "benefits": {
+          "poolGym": "Pool and gym access",
+          "discount10": "10% off treatments",
+          "locker": "Locker use",
+          "towels": "Towel service",
+          "allBasic": "All Basic benefits",
+          "saunaSteam": "Sauna and steam-room access",
+          "discount20": "20% off treatments",
+          "guestPasses": "Two guest passes per month",
+          "priority": "Priority booking",
+          "allPremium": "All Premium benefits",
+          "unlimitedTreatments": "Unlimited treatments",
+          "cabana": "Private cabana access",
+          "trainer": "Personal-training session",
+          "beverages": "Complimentary drinks",
+          "concierge": "Concierge scheduling"
+        }
+      }
+    },
+    "page": {
+      "facilitiesDescription": "A quiet wellness floor for movement, heat, water and recovery, designed for guests who prefer calm to ceremony.",
+      "facilities": {
+        "pool": "Infinity pool with Black Sea views",
+        "gym": "Technogym equipment for daily movement",
+        "sauna": "Dry heat, cedar warmth and a quiet ritual",
+        "steam": "Hammam-inspired steam with eucalyptus",
+        "jacuzzi": "Open-air rooftop hydrotherapy",
+        "relaxation": "Stillness before and after treatments"
+      },
+      "treatments": {
+        "wine": {
+          "name": "Georgian Wine Wrap",
+          "description": "Antioxidant-rich wine therapy for skin renewal and deep relaxation."
+        },
+        "salt": {
+          "name": "Black Sea Salt Scrub",
+          "description": "Mineral exfoliation with sea salt and warm botanical oils."
+        },
+        "aromatherapy": {
+          "name": "Aromatherapy Massage",
+          "description": "A full-body massage with essential oils selected by your therapist."
+        },
+        "couples": {
+          "name": "Couples' Retreat",
+          "description": "A side-by-side massage, unhurried recovery time and a private moment in the lounge."
+        }
+      },
+      "concierge": "Wellness concierge",
+      "ctaTitle": "Begin your wellness journey",
+      "ctaDescription": "Our team can tailor a simple treatment, a full recovery day or a membership plan to your rhythm."
     }
   },
   "steamRoom": {
@@ -482,14 +704,188 @@
       "day": "Day Conference Package",
       "residential": "Residential Conference Package"
     },
-    "inquire": "Inquire Now"
+    "inquire": "Inquire Now",
+    "page": {
+      "corporateEvents": "Corporate events",
+      "ourSpaces": "Our spaces",
+      "solutions": "Solutions",
+      "ctaTitle": "Plan your perfect event",
+      "ctaDescription": "Our dedicated events team is ready to help you create an unforgettable experience.",
+      "call": "Call",
+      "perPerson": "per person",
+      "perPersonNight": "per person per night",
+      "venues": {
+        "ballroom": {
+          "name": "Grand Ballroom",
+          "features": {
+            "setup": "Theatre and banquet setup",
+            "stage": "Stage and dance floor",
+            "av": "Built-in audiovisual system",
+            "light": "Natural light"
+          }
+        },
+        "conference": {
+          "name": "Conference Centre",
+          "features": {
+            "setup": "Boardroom setup",
+            "video": "Video conferencing",
+            "projection": "Projection system",
+            "soundproofing": "Soundproofing"
+          }
+        },
+        "boardroom": {
+          "name": "Executive Boardroom",
+          "features": {
+            "private": "Private meeting space",
+            "smartBoard": "Interactive board",
+            "furniture": "Premium furniture",
+            "catering": "Catering service"
+          }
+        },
+        "terrace": {
+          "name": "Rooftop Terrace",
+          "features": {
+            "outdoor": "Outdoor events",
+            "view": "Panoramic sea view",
+            "weather": "Indoor backup in bad weather",
+            "barbecue": "Barbecue facilities"
+          }
+        }
+      },
+      "packages": {
+        "day": {
+          "room": "Conference-room hire",
+          "coffee": "Morning and afternoon coffee breaks",
+          "lunch": "Buffet lunch",
+          "av": "Basic audiovisual equipment",
+          "wifi": "Wi-Fi access",
+          "stationery": "Notepads and pens"
+        },
+        "residential": {
+          "stay": "One night's accommodation",
+          "facilities": "All-day conference facilities",
+          "meals": "Breakfast, lunch and dinner",
+          "coffee": "Coffee breaks throughout the day",
+          "av": "Full audiovisual equipment",
+          "teamBuilding": "Team-building activity",
+          "transfer": "Airport transfer"
+        }
+      },
+      "amenities": {
+        "wifi": "High-speed Wi-Fi",
+        "av": "Audiovisual equipment",
+        "coffee": "Coffee service",
+        "catering": "Catering"
+      }
+    }
   },
   "offers": {
     "title": "Special Offers",
     "subtitle": "Exclusive packages for unforgettable experiences",
     "bookNow": "Book This Offer",
     "validUntil": "Valid until",
-    "includes": "Package Includes"
+    "includes": "Package Includes",
+    "exclusive": "Exclusive",
+    "fromPerNight": "From {price} per night",
+    "saveAmount": "Save {amount}",
+    "ongoing": "Ongoing",
+    "newsletterTitle": "Receive Exclusive Offers",
+    "newsletterDescription": "Subscribe to our newsletter for special promotions and seasonal offers.",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter your email…",
+    "subscribe": "Subscribe",
+    "items": {
+      "earlyBird": {
+        "title": "Early Bird Special",
+        "subtitle": "Book 30 days ahead and save 25%",
+        "description": "Plan ahead and enjoy a lower rate, breakfast, and late checkout.",
+        "include1": "Daily breakfast for two",
+        "include2": "Late checkout until 2 PM",
+        "include3": "Free room upgrade",
+        "include4": "Welcome drink"
+      },
+      "romantic": {
+        "title": "Romantic Escape",
+        "subtitle": "Designed for couples",
+        "description": "Celebrate together with a spa treatment, champagne, and thoughtful details.",
+        "include1": "Champagne on arrival",
+        "include2": "Couples spa treatment",
+        "include3": "Candlelit dinner",
+        "include4": "Room decoration"
+      },
+      "family": {
+        "title": "Family Fun Package",
+        "subtitle": "Memories for the whole family",
+        "description": "Enjoy a family stay with activities for children and flexible room options.",
+        "include1": "Connecting rooms when available",
+        "include2": "Children eat free",
+        "include3": "Family excursion",
+        "include4": "Kids club access"
+      },
+      "wellness": {
+        "title": "Spa & Wellness Retreat",
+        "subtitle": "Restore mind and body",
+        "description": "A complete wellness stay with daily treatments, balanced cuisine, and yoga.",
+        "include1": "Daily spa treatment",
+        "include2": "Healthy breakfast",
+        "include3": "Yoga and meditation",
+        "include4": "Wellness facilities access"
+      },
+      "extended": {
+        "title": "Extended Stay Offer",
+        "subtitle": "Stay longer, save more",
+        "description": "Stay seven nights or more and receive 30% off with long-stay benefits.",
+        "include1": "Weekly room cleaning",
+        "include2": "Laundry service",
+        "include3": "Kitchen access",
+        "include4": "Workspace setup"
+      },
+      "wine": {
+        "title": "Georgian Wine Experience",
+        "subtitle": "Taste the tradition",
+        "description": "Explore Georgia’s 8,000-year winemaking heritage through tastings and a vineyard visit.",
+        "include1": "Guided wine tasting",
+        "include2": "Vineyard tour",
+        "include3": "Wine-pairing dinner",
+        "include4": "Souvenir bottle"
+      }
+    }
+  },
+  "wellnessPages": {
+    "galleryImage": "{facility} photo {number}",
+    "exploreAll": "Explore All Wellness Facilities",
+    "reserveSession": "Reserve Your Session",
+    "dayPass": "Call for a Day Pass",
+    "bookTrainer": "Book a Personal Trainer",
+    "sauna": {
+      "overview": "Our Finnish sauna uses Nordic cedar and dry heat at 80–90°C for deep relaxation. Tiered seating, aromatherapy oils, and a nearby cold plunge support a traditional hot-cold ritual.",
+      "ctaTitle": "Experience Traditional Sauna Therapy",
+      "ctaDescription": "Access is complimentary for hotel guests; aromatherapy oils and towels are provided."
+    },
+    "steam": {
+      "overview": "The Turkish hammam combines mosaic surfaces, 40–45°C warmth, full humidity, and eucalyptus steam. Marble seating and chromotherapy create a comfortable place to breathe, recover, and unwind.",
+      "ctaTitle": "Rejuvenate in Our Turkish Hammam",
+      "ctaDescription": "Access is complimentary for hotel guests; eucalyptus steam and towels are provided."
+    },
+    "gym": {
+      "overview": "Our 200 m² fitness center offers modern Technogym cardio and strength equipment with inspiring sea views. Hotel guests have 24-hour keycard access; personal trainers are available during the day.",
+      "ctaTitle": "Maintain Your Fitness Routine",
+      "ctaDescription": "Hotel guests enjoy 24-hour access. Personal training is available on request."
+    },
+    "jacuzzi": {
+      "overview": "The rooftop jacuzzi combines 38–40°C water, hydrotherapy jets, and 180-degree Black Sea views. It accommodates up to six guests and offers a calm setting for evening or post-spa relaxation.",
+      "ctaTitle": "Unwind in Our Rooftop Jacuzzi",
+      "ctaDescription": "Access is complimentary for hotel guests. Towels and robes are provided; evening reservations are recommended."
+    },
+    "pool": {
+      "overview": "Our 25-meter rooftop infinity pool appears to merge with the Black Sea. Heated to 28°C year-round, it combines panoramic glass walls with underwater lighting for daytime and evening swims.",
+      "ctaTitle": "Experience Our Infinity Pool",
+      "ctaDescription": "Hotel guests enjoy complimentary access. Day passes are available for other visitors."
+    },
+    "relaxation": {
+      "ctaTitle": "Continue Your Wellness Journey",
+      "ctaDescription": "Explore every wellness area or reserve a stay for full access to the facilities."
+    }
   },
   "spa": {
     "title": "Luxury Spa",
@@ -511,7 +907,62 @@
     "gratuities": "Gratuities are appreciated but not required",
     "cancellationPolicy": "24-hour cancellation policy applies",
     "visualJourney": "Visual Journey",
-    "spaGallery": "Spa Gallery"
+    "spaGallery": "Spa Gallery",
+    "page": {
+      "heroDescription": "Enter a calm sanctuary for rest, recovery, and renewal.",
+      "philosophy1": "Our spa combines Georgian wellness traditions with modern therapeutic techniques. Every treatment is designed to restore balance and support well-being.",
+      "philosophy2": "Expert therapists use premium organic products and mineral-rich ingredients from the Black Sea region to shape a personal experience.",
+      "minutes": "{count} min",
+      "includes": "Includes",
+      "bookNow": "Book Now",
+      "galleryAlt": "Spa facility photo {number}",
+      "ctaTitle": "Book Your Spa Experience",
+      "ctaDescription": "Reserve a peaceful moment and let our therapists guide you toward complete relaxation.",
+      "makeReservation": "Make a Reservation",
+      "call": "Call the Spa",
+      "packages": {
+        "signature": {
+          "name": "Signature Spa Journey",
+          "description": "A complete experience with massage, facial, body scrub, and relaxation time.",
+          "include1": "90-minute aromatherapy massage",
+          "include2": "Anti-aging facial",
+          "include3": "Black Sea salt scrub",
+          "include4": "Champagne and fresh fruit"
+        },
+        "deep": {
+          "name": "Deep Relaxation Ritual",
+          "description": "A full-body ritual with hot stones and aromatherapy oils.",
+          "include1": "Hot-stone therapy",
+          "include2": "Aromatherapy massage",
+          "include3": "Scalp treatment",
+          "include4": "Herbal tea service"
+        },
+        "detox": {
+          "name": "Detox & Rejuvenate",
+          "description": "Purifying treatments created to refresh body and mind.",
+          "include1": "Georgian wine wrap",
+          "include2": "Lymphatic drainage massage",
+          "include3": "Detox body scrub",
+          "include4": "Sauna access"
+        },
+        "couples": {
+          "name": "Couples Sanctuary",
+          "description": "A private suite for two with side-by-side treatments.",
+          "include1": "Couples massage",
+          "include2": "Private jacuzzi",
+          "include3": "Champagne and chocolates",
+          "include4": "Rose-petal bath"
+        }
+      },
+      "addOns": {
+        "massage": "Extended massage (+30 min)",
+        "aromatherapy": "Aromatherapy upgrade",
+        "hotStone": "Hot-stone add-on",
+        "sauna": "Private sauna session (60 min)",
+        "champagne": "Champagne service",
+        "fruit": "Fresh fruit platter"
+      }
+    }
   },
   "experiences": {
     "title": "Things To Do",
@@ -521,7 +972,63 @@
     "learnMore": "Learn More",
     "conciergeTitle": "Let Our Concierge Help",
     "conciergeDescription": "Our concierge team can arrange tours, transfers, and unique experiences tailored to your interests.",
-    "contactConcierge": "Contact Concierge"
+    "contactConcierge": "Contact Concierge",
+    "categories": {
+      "all": "All",
+      "sightseeing": "Sightseeing",
+      "nature": "Nature",
+      "culture": "Culture",
+      "adventure": "Adventure"
+    },
+    "duration": "Duration: {value}",
+    "onSite": "On site",
+    "items": {
+      "boulevard": {
+        "name": "Batumi Boulevard",
+        "description": "Stroll along the famous seafront promenade with gardens, cafés, and Black Sea views.",
+        "duration": "2–3 hours"
+      },
+      "oldBatumi": {
+        "name": "Old Batumi",
+        "description": "Explore the historic quarter, its 19th-century architecture, quiet streets, and traditional restaurants.",
+        "duration": "3–4 hours"
+      },
+      "botanical": {
+        "name": "Batumi Botanical Garden",
+        "description": "Discover a celebrated botanical garden with more than 5,000 plant species from around the world.",
+        "duration": "4–5 hours"
+      },
+      "gonio": {
+        "name": "Gonio Fortress",
+        "description": "Visit an ancient Roman fortress with more than 2,000 years of history and archaeological heritage.",
+        "duration": "3–4 hours"
+      },
+      "mtirala": {
+        "name": "Mtirala National Park",
+        "description": "Hike through protected subtropical forest, waterfalls, and diverse wildlife.",
+        "duration": "Full day"
+      },
+      "wineTour": {
+        "name": "Wine Tasting Tour",
+        "description": "Experience Georgia’s 8,000-year winemaking tradition at local vineyards.",
+        "duration": "4–5 hours"
+      },
+      "boatTour": {
+        "name": "Black Sea Boat Tour",
+        "description": "Cruise along the coast with sunset views and fresh seafood on board.",
+        "duration": "2–3 hours"
+      },
+      "paragliding": {
+        "name": "Paragliding Adventure",
+        "description": "Fly above the coast for sweeping views of Batumi and the surrounding mountains.",
+        "duration": "2–3 hours"
+      },
+      "cooking": {
+        "name": "Georgian Cooking Class",
+        "description": "Learn to prepare khachapuri, khinkali, and other Georgian dishes with our chef.",
+        "duration": "3 hours"
+      }
+    }
   },
   "about": {
     "ourStory": "Our Story",
@@ -535,11 +1042,49 @@
     "ourTeam": "Our Team",
     "meetThePeople": "Meet the People Behind the Experience",
     "architecture": "Architecture",
-    "modernDesign": "2026 Modern Design"
+    "modernDesign": "2026 Modern Design",
+    "heroSubtitle": "A masterpiece of modern architecture on Georgia's stunning Black Sea coast",
+    "story1": "Grand Boutique Hotel was born from a dream to create something extraordinary on the shores of the Black Sea. Its contemporary 2026 architecture blends refined elegance with the natural beauty of Georgia's coast.",
+    "story2": "Every detail reflects meticulous craftsmanship, from forest-green surfaces inspired by the sea to brass accents that evoke the warmth of Georgian hospitality. This is more than a hotel: it is a place where memories are made.",
+    "values": {
+      "hospitalityTitle": "Georgian Hospitality",
+      "hospitalityDescription": "We honor Georgia's tradition of hospitality by welcoming every guest with warmth and genuine care.",
+      "sustainabilityTitle": "Sustainable Luxury",
+      "sustainabilityDescription": "Environmental responsibility and thoughtful luxury coexist throughout the hotel.",
+      "excellenceTitle": "Modern Excellence",
+      "excellenceDescription": "Contemporary architecture meets timeless elegance in spaces designed to restore and inspire.",
+      "serviceTitle": "Personalized Service",
+      "serviceDescription": "We tailor every detail to your preferences for a truly memorable stay."
+    },
+    "stats": {
+      "architecture": "Architecture",
+      "rooms": "Rooms & Suites",
+      "satisfaction": "Guest Satisfaction",
+      "concierge": "Concierge Service"
+    },
+    "roles": {
+      "generalManager": "General Manager",
+      "guestRelations": "Head of Guest Relations",
+      "executiveChef": "Executive Chef"
+    },
+    "architectureDescription": "Floor-to-ceiling windows frame Black Sea views, while sustainable materials and efficient climate systems provide comfort with a lighter environmental footprint.",
+    "feature1": "Floor-to-ceiling glass facade reflecting the sea",
+    "feature2": "Living green walls in public spaces",
+    "feature3": "Integrated smart-room technology",
+    "feature4": "Efficient heating and cooling",
+    "feature5": "Rainwater collection and reuse",
+    "experienceTitle": "Experience {hotel}",
+    "experienceDescription": "Discover why guests from around the world choose our hotel for a Black Sea stay.",
+    "exploreRooms": "Explore Rooms",
+    "contactUs": "Contact Us"
   },
   "gallery": {
     "title": "Gallery",
     "subtitle": "A visual journey through our world",
+    "visualJourney": "Visual journey",
+    "stayKicker": "Stay with us",
+    "stayTitle": "See the atmosphere in person.",
+    "imageAlt": "Hotel gallery photo {number}",
     "categories": {
       "all": "All",
       "hotel": "Hotel",
@@ -579,6 +1124,11 @@
       "street": "Rustaveli Avenue 123",
       "city": "Batumi, Georgia",
       "postal": "6000"
+    },
+    "page": {
+      "getInTouch": "Get in touch",
+      "frontDesk247": "Front desk available 24/7",
+      "cityImageAlt": "Batumi near the hotel"
     }
   },
   "location": {
@@ -590,10 +1140,72 @@
       "airport": "Batumi International Airport",
       "center": "City Center",
       "beach": "Black Sea Beach"
+    },
+    "page": {
+      "findUs": "Find us",
+      "ourAddress": "Our address",
+      "phone": "Phone",
+      "frontDesk": "Front desk",
+      "available247": "Available 24/7",
+      "mapTitle": "Location of Batumi Boutique Hotel",
+      "explore": "Explore",
+      "transferTitle": "Need a transfer service?",
+      "transferDescription": "We offer airport transfers and private chauffeur services. Contact us to arrange your transportation.",
+      "arrangeTransfer": "Arrange transfer",
+      "callUs": "Call us",
+      "attractions": {
+        "beach": {
+          "name": "Black Sea Beach",
+          "time": "2-minute walk",
+          "description": "A pristine pebble beach with spectacular sunsets"
+        },
+        "boulevard": {
+          "name": "Batumi Boulevard",
+          "time": "5-minute walk",
+          "description": "The famous seaside promenade with gardens and cafés"
+        },
+        "oldBatumi": {
+          "name": "Old Batumi",
+          "time": "15-minute walk",
+          "description": "The historic quarter with traditional architecture"
+        },
+        "piazza": {
+          "name": "Piazza Square",
+          "time": "18-minute walk",
+          "description": "A lively square with restaurants and live music"
+        },
+        "botanical": {
+          "name": "Batumi Botanical Garden",
+          "time": "15-minute drive",
+          "description": "A world-renowned botanical garden"
+        },
+        "gonio": {
+          "name": "Gonio Fortress",
+          "time": "20-minute drive",
+          "description": "An ancient Roman fortress with a rich history"
+        }
+      },
+      "transport": {
+        "airport": {
+          "time": "10-minute drive",
+          "details": "Batumi International Airport (BUS)"
+        },
+        "center": {
+          "time": "12-minute walk",
+          "details": "Shopping, dining and entertainment"
+        },
+        "station": {
+          "name": "Railway station",
+          "time": "8-minute drive",
+          "details": "Direct trains to Tbilisi"
+        }
+      }
     }
   },
   "chatbot": {
     "name": "Mariam",
+    "concierge": "Concierge",
+    "digitalConcierge": "Digital Concierge",
     "greeting": "Hello! I'm Mariam, your personal assistant. How may I help you today?",
     "placeholder": "Type your message...",
     "send": "Send",
@@ -605,6 +1217,7 @@
     "checkIn": "Check In",
     "checkOut": "Check Out",
     "guests": "Guests",
+    "flexible": "Flexible",
     "rooms": "Rooms",
     "adults": "Adults",
     "children": "Children",
@@ -614,7 +1227,112 @@
     "benefit1": "Complimentary breakfast",
     "benefit2": "Early check-in & late check-out",
     "benefit3": "Free room upgrade (subject to availability)",
-    "benefit4": "Exclusive spa discount"
+    "benefit4": "Exclusive spa discount",
+    "page": {
+      "reservations": "Reservations",
+      "directBooking": "Direct booking",
+      "ourPromise": "Our promise",
+      "promiseDescription": "Book directly with the hotel for a clear rate, direct support from our reservations team and priority handling of your arrival details.",
+      "promises": {
+        "priceMatch": "Price-match support for direct reservations",
+        "noHiddenFees": "No hidden booking charges",
+        "flexibleCancellation": "Flexible cancellation guidance",
+        "priorityRoom": "Priority room allocation when available",
+        "welcomeAmenity": "Welcome amenity on arrival"
+      },
+      "imageAlt": "Luxury room prepared for a guest's arrival",
+      "directValue": "Direct-booking value",
+      "reservationsTeam": "Reservations team",
+      "helpTitle": "Need help with your stay?",
+      "helpDescription": "Contact us for group bookings, special requests, accessibility needs or arrival coordination.",
+      "emailUs": "Email us"
+    }
+  },
+  "accessibility": {
+    "skipToMain": "Skip to main content",
+    "primaryNavigation": "Primary navigation",
+    "changeLanguage": "Change language",
+    "openNavigation": "Open navigation menu",
+    "closeNavigation": "Close navigation menu",
+    "scrollToNext": "Scroll to the next section",
+    "scroll": "Scroll",
+    "contactWhatsApp": "Contact the hotel on WhatsApp",
+    "dismissBookingBanner": "Dismiss booking banner",
+    "openChat": "Open chat",
+    "closeChat": "Close chat",
+    "chatMessage": "Chat message",
+    "imageGallery": "Image gallery",
+    "closeGallery": "Close gallery",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "showGelPrice": "Show GEL price",
+    "hideGelPrice": "Hide GEL price",
+    "showSlide": "Show slide {number}",
+    "switchLanguageTo": "Switch language to {language}",
+    "callUs": "Call us",
+    "whatsappMessage": "Hello! I would like to inquire about Grand Boutique Hotel.",
+    "home": "{hotel} home"
+  },
+  "promotion": {
+    "label": "Special Offer",
+    "title": "Book Direct & Save 20%",
+    "description": "Reserve your stay directly through our website and enjoy exclusive benefits: complimentary breakfast, a free room upgrade subject to availability, and late checkout on request.",
+    "bookNow": "Book Now",
+    "maybeLater": "Maybe Later",
+    "terms": "Valid for new bookings only. Terms apply.",
+    "close": "Close special offer"
+  },
+  "errors": {
+    "generalTitle": "Something went wrong",
+    "generalBody": "We encountered an error while loading this page.",
+    "errorId": "Error ID:",
+    "retry": "Try again",
+    "restaurantTitle": "Unable to load restaurant",
+    "restaurantBody": "We encountered an error while loading our restaurant page.",
+    "roomsTitle": "Unable to load rooms",
+    "roomsBody": "We encountered an error while loading our rooms.",
+    "wellnessTitle": "Unable to load wellness",
+    "wellnessBody": "We encountered an error while loading our wellness page."
+  },
+  "legal": {
+    "label": "Legal",
+    "effectiveDate": "Effective date: March 2026",
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "How {hotel} handles guest information for reservations, stays, and hotel services.",
+      "collectTitle": "1. Information We Collect",
+      "collectBody1": "We collect information that guests provide directly when making a reservation, checking in, contacting the concierge team, or using hotel services.",
+      "collectBody2": "This may include contact details, identification details required by law, payment and billing information, stay preferences, and special requests.",
+      "useTitle": "2. How We Use Your Information",
+      "useBody1": "Personal data is used to process reservations, provide tailored service, process secure payments, manage required guest records, and support a seamless experience at {hotel}.",
+      "useBody2": "We may send essential booking confirmations, pre-arrival information, and service updates related to a guest stay.",
+      "sharingTitle": "3. Information Sharing",
+      "sharingBody": "We do not sell personal data. We only share necessary information with trusted providers such as payment processors, booking systems, and operational partners when needed to provide hotel services.",
+      "securityTitle": "4. Data Security",
+      "securityBody": "We use reasonable administrative, technical, and organizational safeguards to protect personal information from unauthorized access, alteration, disclosure, or loss.",
+      "contactTitle": "5. Contact Us",
+      "contactBody": "For privacy questions or requests, contact {email}."
+    },
+    "terms": {
+      "title": "Terms & Conditions",
+      "intro": "Reservation, stay, and guest service terms for {hotel}.",
+      "metadataDescription": "Terms and conditions for reservations, stays, and guest services at {hotel}.",
+      "reservationsTitle": "1. Reservations & Payment",
+      "reservationsBody1": "All reservations are subject to availability. To secure your booking, a valid credit card or approved payment method may be required. By providing payment details, you authorize {hotel} to charge the applicable deposit, pre-authorization, or full stay amount according to the selected rate.",
+      "reservationsBody2": "Rates may be quoted in GEL or USD and may include taxes or service charges depending on the booking channel and rate plan.",
+      "checkInTitle": "2. Check-in & Check-out",
+      "checkInBody1": "Check-in is available from 15:00. Check-out is until 12:00 noon. Early check-in and late check-out are subject to availability and may incur an additional fee.",
+      "checkInBody2": "A valid government-issued photo ID or passport is required at check-in for each registered guest where required by law.",
+      "cancellationTitle": "3. Cancellation Policy",
+      "cancellationBody": "Standard reservations may be cancelled or modified without penalty up to 48 hours before scheduled arrival unless a stricter rate condition applies. Late cancellations, no-shows, non-refundable rates, promotional bookings, and group reservations may be charged according to the confirmed booking terms.",
+      "responsibilitiesTitle": "4. Guest Responsibilities",
+      "responsibilitiesBody1": "Guests are responsible for respecting hotel property, other guests, and local laws. The hotel may charge for damage to rooms, furnishings, equipment, or facilities caused during a stay.",
+      "responsibilitiesBody2": "Smoking policies, quiet hours, pet policies, event use, and additional guest rules may be confirmed separately by the hotel team.",
+      "liabilityTitle": "5. Liability",
+      "liabilityBody": "The hotel is not responsible for loss, damage, or theft of personal property except where required by applicable Georgian law. Guests are encouraged to use the in-room safe for valuables.",
+      "contactTitle": "6. Contact",
+      "contactBody": "For reservation questions or clarification of these terms, contact {email} or {phone}."
+    }
   },
   "footer": {
     "description": "A masterpiece of 2026 modern architecture on Georgia's stunning Black Sea coast. Experience refined luxury and warm hospitality at Batumi's premier boutique hotel.",
@@ -642,6 +1360,28 @@
     "free": "Free",
     "usd": "USD",
     "gel": "GEL",
-    "contact": "Contact"
+    "contact": "Contact",
+    "backTo": "Back to {destination}",
+    "menuUnavailable": "This menu is not yet available in the selected language. Please contact us for current details.",
+    "untilTime": "until {time}",
+    "opensAtTime": "opens at {time}"
+  },
+  "bookingCalendar": {
+    "bookSpa": "Book a spa treatment",
+    "reserveTable": "Reserve a table",
+    "selectDate": "Select a date",
+    "selectTime": "Select a time",
+    "backToDate": "Back to date",
+    "numberOfGuests": "Number of guests",
+    "numberOfPeople": "Number of people",
+    "personCount": "People: {count}",
+    "guestCount": "Guests: {count}",
+    "date": "Date",
+    "time": "Time",
+    "guests": "Guests",
+    "partySize": "Party size",
+    "confirmWhatsApp": "Confirm via WhatsApp",
+    "backToTime": "Back to time",
+    "whatsappMessage": "Reservation request for {venue}\nDate: {date}\nTime: {time}\nGuests: {guests}"
   }
 }

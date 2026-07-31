@@ -32,6 +32,7 @@ function reportChatError(message: string, error?: unknown) {
 
 export default function MariamChatbot({ locale }: MariamChatbotProps) {
   const t = useTranslations('chatbot');
+  const tAccessibility = useTranslations('accessibility');
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -120,7 +121,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? 'Close chat' : 'Open chat'}
+          aria-label={isOpen ? tAccessibility('closeChat') : tAccessibility('openChat')}
           className="w-14 h-14 md:w-16 md:h-16 rounded-full overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 relative"
           style={{ 
             border: `2px solid ${colors.primaryAlt}`,
@@ -136,7 +137,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
           ) : (
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&crop=face"
-              alt="Concierge"
+              alt=""
               width={200}
               height={200}
               className="w-full h-full object-cover"
@@ -152,7 +153,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
             className="absolute left-full ml-3 top-1/2 -translate-y-1/2 text-white text-xs px-4 py-2 whitespace-nowrap opacity-0 group-hover/chat:opacity-100 transition-opacity duration-200 pointer-events-none rounded-[20px_0_0_20px]"
             style={{ backgroundColor: colors.primary }}
           >
-            Hello, how can I help you?
+            {t('greeting')}
           </div>
         )}
         
@@ -161,7 +162,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
           className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] font-medium"
           style={{ color: colors.primary }}
         >
-          CONCIERGE
+          {t('concierge')}
         </span>
       </div>
 
@@ -190,7 +191,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
               >
                 <img 
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face"
-                  alt="Mariam"
+                  alt={t('name')}
                   width={100}
                   height={100}
                   className="w-full h-full object-cover"
@@ -200,7 +201,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
               </div>
               <div>
                 <div className="font-medium text-sm text-white tracking-wide">{t('name')}</div>
-                <div className="text-xs text-white/70 uppercase tracking-wider">Digital Concierge</div>
+                <div className="text-xs text-white/70 uppercase tracking-wider">{t('digitalConcierge')}</div>
               </div>
             </div>
           </div>
@@ -268,7 +269,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
             >
               <input
                 ref={inputRef}
-                aria-label="Chat message"
+                aria-label={tAccessibility('chatMessage')}
                 name="chat-message"
                 type="text"
                 value={input}
@@ -295,7 +296,7 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
                   backgroundColor: colors.primaryAlt,
                   color: colors.black,
                 }}
-                aria-label="Send message"
+                aria-label={t('send')}
               >
                 <Send className="w-4 h-4" />
               </button>
@@ -305,7 +306,6 @@ export default function MariamChatbot({ locale }: MariamChatbotProps) {
     </>
   );
 }
-
 
 
 

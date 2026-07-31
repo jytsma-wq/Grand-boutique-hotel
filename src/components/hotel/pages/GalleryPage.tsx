@@ -12,21 +12,21 @@ interface GalleryPageProps {
 }
 
 const images = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80', category: 'hotel', alt: 'Hotel exterior at dusk' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80', category: 'rooms', alt: 'Deluxe room with warm daylight' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80', category: 'dining', alt: 'Restaurant dining room' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1000&q=80', category: 'spa', alt: 'Wellness treatment room' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1000&q=80', category: 'events', alt: 'Elegant event space' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1000&q=80', category: 'batumi', alt: 'Batumi boulevard view' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&q=80', category: 'rooms', alt: 'Suite sitting area' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1000&q=80', category: 'dining', alt: 'Lounge bar counter' },
-  { id: 9, src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80', category: 'hotel', alt: 'Pool terrace atmosphere' },
-  { id: 10, src: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1000&q=80', category: 'batumi', alt: 'Old Batumi street detail' },
-  { id: 11, src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80', category: 'rooms', alt: 'Guest room with sea view' },
-  { id: 12, src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80', category: 'dining', alt: 'Georgian cuisine table' },
-  { id: 13, src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&q=80', category: 'hotel', alt: 'Hotel lobby seating' },
-  { id: 14, src: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=1000&q=80', category: 'rooms', alt: 'Junior suite bed' },
-  { id: 15, src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1000&q=80', category: 'events', alt: 'Conference room set for guests' },
+  { id: 1, src: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1000&q=80', category: 'hotel' },
+  { id: 2, src: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1000&q=80', category: 'rooms' },
+  { id: 3, src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1000&q=80', category: 'dining' },
+  { id: 4, src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1000&q=80', category: 'spa' },
+  { id: 5, src: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1000&q=80', category: 'events' },
+  { id: 6, src: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1000&q=80', category: 'batumi' },
+  { id: 7, src: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1000&q=80', category: 'rooms' },
+  { id: 8, src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1000&q=80', category: 'dining' },
+  { id: 9, src: 'https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1000&q=80', category: 'hotel' },
+  { id: 10, src: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=1000&q=80', category: 'batumi' },
+  { id: 11, src: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1000&q=80', category: 'rooms' },
+  { id: 12, src: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&q=80', category: 'dining' },
+  { id: 13, src: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1000&q=80', category: 'hotel' },
+  { id: 14, src: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=1000&q=80', category: 'rooms' },
+  { id: 15, src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=1000&q=80', category: 'events' },
 ];
 
 export default function GalleryPage({ locale }: GalleryPageProps) {
@@ -96,7 +96,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-charcoal-950/75 to-transparent" />
         <div className="luxury-container relative z-10 flex min-h-[62dvh] items-end pb-14 md:pb-20">
           <div className="max-w-4xl">
-            <p className="luxury-kicker text-brass-300">Visual journey</p>
+            <p className="luxury-kicker text-brass-300">{t('gallery.visualJourney')}</p>
             <h1 className="luxury-display mt-6 text-cream-50">{t('gallery.title')}</h1>
             <p className="mt-8 max-w-2xl text-lg font-light leading-8 text-white/75 md:text-xl">
               {t('gallery.subtitle')}
@@ -138,7 +138,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
               <button
                 type="button"
                 key={image.id}
-                aria-label={`Open ${image.alt} image`}
+                aria-label={t('gallery.imageAlt', { number: image.id })}
                 className={`luxury-image group relative overflow-hidden text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 ${
                   index % 7 === 0 ? 'col-span-2 row-span-2' : ''
                 } ${index % 5 === 2 ? 'row-span-2' : ''}`}
@@ -146,14 +146,14 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
               >
                 <Image
                   src={image.src}
-                  alt={image.alt}
+                  alt={t('gallery.imageAlt', { number: image.id })}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950/70 via-charcoal-950/0 to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
                 <div className="absolute inset-x-0 bottom-0 translate-y-2 p-5 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  <p className="text-sm font-light leading-6 text-cream-50">{image.alt}</p>
+                  <p className="text-sm font-light leading-6 text-cream-50">{t('gallery.imageAlt', { number: image.id })}</p>
                 </div>
               </button>
             ))}
@@ -164,8 +164,8 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
       <section className="bg-charcoal-950 py-14 text-cream-50">
         <div className="luxury-container flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="luxury-kicker text-brass-300">Stay with us</p>
-            <h2 className="luxury-title mt-4 text-4xl md:text-5xl">See the atmosphere in person.</h2>
+            <p className="luxury-kicker text-brass-300">{t('gallery.stayKicker')}</p>
+            <h2 className="luxury-title mt-4 text-4xl md:text-5xl">{t('gallery.stayTitle')}</h2>
           </div>
           <Link href={`/${locale}/booking`} className="luxury-button border-brass-400 bg-brass-400 text-charcoal-950">
             <span>{t('booking.title')}</span>
@@ -179,11 +179,11 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
           onClick={() => setLightboxOpen(false)}
           role="dialog"
           aria-modal="true"
-          aria-label="Image gallery"
+          aria-label={t('accessibility.imageGallery')}
         >
           <button
             type="button"
-            aria-label="Close gallery"
+            aria-label={t('accessibility.closeGallery')}
             onClick={() => setLightboxOpen(false)}
             className="absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center border border-white/15 text-cream-50 transition-colors hover:border-brass-300 hover:text-brass-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-400 md:right-8 md:top-8"
           >
@@ -192,7 +192,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
 
           <button
             type="button"
-            aria-label="Previous image"
+            aria-label={t('accessibility.previousImage')}
             onClick={(event) => {
               event.stopPropagation();
               navigateLightbox('prev');
@@ -203,7 +203,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
           </button>
           <button
             type="button"
-            aria-label="Next image"
+            aria-label={t('accessibility.nextImage')}
             onClick={(event) => {
               event.stopPropagation();
               navigateLightbox('next');
@@ -217,7 +217,7 @@ export default function GalleryPage({ locale }: GalleryPageProps) {
             <Image
               key={filteredImages[currentImage]?.id}
               src={filteredImages[currentImage]?.src}
-              alt={filteredImages[currentImage]?.alt}
+              alt={t('gallery.imageAlt', { number: filteredImages[currentImage]?.id })}
               fill
               sizes="86vw"
               className="object-contain"

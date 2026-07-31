@@ -11,6 +11,7 @@ import {
   wineSectionKeys,
 } from '@/lib/menu-content';
 import { type SanityMenuItem, type SanityMenuSection } from '@/types/sanity';
+import { useTranslations } from 'next-intl';
 
 interface WineListPageProps {
   locale: Locale;
@@ -30,6 +31,9 @@ function WinePrice({ item }: { item: SanityMenuItem }) {
 }
 
 function WineTable({ section, framed = false }: { section?: SanityMenuSection; framed?: boolean }) {
+  const t = useTranslations();
+  if (!section) return null;
+
   return (
     <section className={`py-24 ${framed ? 'bg-forest-50' : 'bg-white'}`}>
       <div className="container mx-auto px-6">
@@ -46,10 +50,10 @@ function WineTable({ section, framed = false }: { section?: SanityMenuSection; f
           <table className={`w-full ${framed ? 'bg-white border-2 border-forest-900' : ''}`}>
             <thead>
               <tr className={`border-b-2 border-forest-900 ${framed ? 'bg-forest-900 text-cream-50' : ''}`}>
-                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>Region</th>
-                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>Wine</th>
-                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>Year</th>
-                <th className={`text-right py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>Price</th>
+                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>{t('bar.page.region')}</th>
+                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>{t('bar.page.wine')}</th>
+                <th className={`text-left py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>{t('bar.page.year')}</th>
+                <th className={`text-right py-5 font-bold uppercase tracking-wider text-sm ${framed ? 'px-6' : 'text-forest-900'}`}>{t('bar.page.price')}</th>
               </tr>
             </thead>
             <tbody>
@@ -77,11 +81,14 @@ function WineTable({ section, framed = false }: { section?: SanityMenuSection; f
 }
 
 export default function WineListPage({ locale, menuSections }: WineListPageProps) {
-  const [georgianWines, internationalWines, sparklingWines] = selectMenuSections(
+  const t = useTranslations();
+  const sections = selectMenuSections(
     menuSections,
     wineSectionKeys,
     barMenuFallbackSections,
+    locale,
   );
+  const [georgianWines, internationalWines, sparklingWines] = sections;
 
   return (
     <main className="min-h-screen pt-20">
@@ -89,7 +96,7 @@ export default function WineListPage({ locale, menuSections }: WineListPageProps
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1920&q=80"
-            alt="Wine Collection"
+            alt={t('bar.menus.wineTitle')}
             fill
             priority
             sizes="100vw"
@@ -102,23 +109,25 @@ export default function WineListPage({ locale, menuSections }: WineListPageProps
           <div>
             <Link href={`/${locale}/bar`} className="inline-flex items-center gap-2 text-cream-50/70 hover:text-cream-50 mb-6 transition-colors">
               <ChevronLeft size={20} />
-              <span className="uppercase tracking-wider text-sm">Back to Bar</span>
+              <span className="uppercase tracking-wider text-sm">{t('common.backTo', { destination: t('bar.name') })}</span>
             </Link>
             <Wine className="w-16 h-16 mx-auto mb-4" />
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mb-4 leading-none">
-              Wine List
+              {t('bar.menus.wineTitle')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">
-              8,000 years of Georgian winemaking tradition meets world-class selections
+              {t('bar.menus.wineSubtitle')}
             </p>
           </div>
         </div>
       </section>
 
+      {sections.length === 0 && <section className="bg-white py-20"><p className="container mx-auto max-w-2xl px-6 text-center text-forest-700">{t('common.menuUnavailable')}</p></section>}
+
       <WineTable section={georgianWines} />
       <WineTable section={internationalWines} framed />
 
-      <section className="py-24 bg-white">
+      <section className={sparklingWines ? 'py-24 bg-white' : 'hidden'}>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight text-forest-900 mb-4">
@@ -149,14 +158,14 @@ export default function WineListPage({ locale, menuSections }: WineListPageProps
       <section className="py-24 bg-forest-900 text-cream-50">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 uppercase tracking-tight">
-            Wine Tasting Experience
+            {t('bar.menus.tastingTitle')}
           </h2>
           <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-            Join us for a guided wine tasting journey through Georgian and international selections
+            {t('bar.menus.tastingDescription')}
           </p>
           <Link href={`/${locale}/booking`}>
             <Button className="btn-boutique rounded-none px-14 py-6 text-base">
-              Reserve Your Table
+              {t('bar.reserve')}
             </Button>
           </Link>
         </div>

@@ -42,57 +42,57 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
 
   const menuSections = [
     {
-      title: 'Lunch Menu',
-      time: '12:00 PM - 3:00 PM',
-      description: 'A refined selection of light dishes perfect for midday dining. Fresh salads, seafood, and Georgian specialties.',
+      title: t('restaurant.lunchMenuTitle'),
+      time: '12:00–15:00',
+      description: t('restaurant.lunchDinner.lunchDescription'),
       image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
       highlights: [
-        'Business Lunch Special - 3 courses',
-        'Fresh Black Sea Seafood',
-        'Georgian Salads & Appetizers',
-        'Light Pasta & Risotto',
+        t('restaurant.lunchDinner.lunch1'),
+        t('restaurant.lunchDinner.lunch2'),
+        t('restaurant.lunchDinner.lunch3'),
+        t('restaurant.lunchDinner.lunch4'),
       ],
-      cmsLink: 'https://batumiboutique.sanity.studio/desk/menu;lunch',
+      cmsLink: `/${locale}/restaurant/menu`,
       active: currentMeal === 'lunch',
     },
     {
-      title: 'Dinner Menu',
-      time: '6:00 PM - 11:00 PM',
-      description: 'An elegant evening dining experience featuring our finest Georgian and international cuisine with premium wine pairings.',
+      title: t('restaurant.dinnerMenuTitle'),
+      time: '18:00–23:00',
+      description: t('restaurant.lunchDinner.dinnerDescription'),
       image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
       highlights: [
-        'Chef\'s Tasting Menu - 7 courses',
-        'Premium Steaks & Grills',
-        'Traditional Georgian Feast',
-        'Sommelier Wine Pairings',
+        t('restaurant.lunchDinner.dinner1'),
+        t('restaurant.lunchDinner.dinner2'),
+        t('restaurant.lunchDinner.dinner3'),
+        t('restaurant.lunchDinner.dinner4'),
       ],
-      cmsLink: 'https://batumiboutique.sanity.studio/desk/menu;dinner',
+      cmsLink: `/${locale}/restaurant/menu`,
       active: currentMeal === 'dinner',
     },
   ];
 
   const featuredDishes = [
     {
-      name: 'Grilled Black Sea Bass',
-      category: 'Seafood',
+      name: t('restaurant.lunchDinner.seaBass'),
+      category: t('restaurant.lunchDinner.seafood'),
       price: '$32',
       image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&q=80',
     },
     {
-      name: 'Beef Tenderloin',
-      category: 'Grill',
+      name: t('restaurant.lunchDinner.beef'),
+      category: t('restaurant.lunchDinner.grill'),
       price: '$45',
       image: 'https://images.unsplash.com/photo-1546833998-877b37c2e5c6?w=400&q=80',
     },
     {
-      name: 'Adjarian Khachapuri',
-      category: 'Georgian',
+      name: t('restaurant.lunchDinner.khachapuri'),
+      category: t('restaurant.lunchDinner.georgian'),
       price: '$18',
       image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=80',
     },
     {
-      name: 'Lobster Risotto',
-      category: 'Italian',
+      name: t('restaurant.lunchDinner.risotto'),
+      category: t('restaurant.lunchDinner.italian'),
       price: '$38',
       image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=400&q=80',
     },
@@ -105,7 +105,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80"
-            alt="Lunch & Dinner at Azure Restaurant"
+            alt={t('restaurant.page.lunchDinnerTitle')}
             fill
             priority
             sizes="100vw"
@@ -116,12 +116,12 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <div>
-            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Azure Restaurant</span>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">{t('restaurant.title')}</span>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">
-              Lunch & Dinner
+              {t('restaurant.page.lunchDinnerTitle')}
             </h1>
             <p className="text-xl text-cream-50/70 max-w-2xl mb-8 font-light">
-              Experience culinary excellence with our carefully curated lunch and dinner menus
+              {t('restaurant.lunchDinner.heroDescription')}
             </p>
             
             {/* Status Badge */}
@@ -130,9 +130,9 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
             }`}>
               <div className={`w-2 h-2 ${currentMeal !== 'closed' ? 'bg-white' : 'bg-white/50'}`} />
               <span className="uppercase tracking-wider text-sm font-medium">
-                {currentMeal === 'lunch' && 'Now Serving Lunch'}
-                {currentMeal === 'dinner' && 'Now Serving Dinner'}
-                {currentMeal === 'closed' && 'Currently Closed'}
+                {currentMeal === 'lunch' && t('restaurant.lunchDinner.nowServingLunch')}
+                {currentMeal === 'dinner' && t('restaurant.lunchDinner.nowServingDinner')}
+                {currentMeal === 'closed' && t('restaurant.lunchDinner.closed')}
               </span>
             </div>
           </div>
@@ -146,22 +146,22 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
             <div className="flex items-center gap-4">
               <Utensils className="text-cream-50/70" size={28} />
               <div>
-                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Lunch Service</div>
-                <div className="text-2xl font-bold tracking-wide">12:00 PM - 3:00 PM</div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">{t('restaurant.hours.lunch')}</div>
+                <div className="text-2xl font-bold tracking-wide">12:00–15:00</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <div className="flex items-center gap-4">
               <Wine className="text-cream-50/70" size={28} />
               <div>
-                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">Dinner Service</div>
-                <div className="text-2xl font-bold tracking-wide">6:00 PM - 11:00 PM</div>
+                <div className="text-xs text-cream-50/50 uppercase tracking-wider font-light mb-1">{t('restaurant.hours.dinner')}</div>
+                <div className="text-2xl font-bold tracking-wide">18:00–23:00</div>
               </div>
             </div>
             <div className="hidden md:block w-px h-16 bg-white/20" />
             <Link href={`/${locale}/booking`}>
               <Button className="btn-boutique">
-                Reserve Table
+                {t('restaurant.reserve')}
               </Button>
             </Link>
           </div>
@@ -172,8 +172,8 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Menus</span>
-            <h2 className="section-title mt-4">Culinary Excellence</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.lunchDinner.ourMenus')}</span>
+            <h2 className="section-title mt-4">{t('restaurant.lunchDinner.culinaryExcellence')}</h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -198,7 +198,7 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                     </h3>
                     {section.active && (
                       <span className="inline-block mt-2 px-3 py-1 bg-white text-forest-900 text-xs uppercase tracking-wider font-bold">
-                        Now Serving
+                        {t('restaurant.lunchDinner.nowServing')}
                       </span>
                     )}
                   </div>
@@ -213,15 +213,13 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
                       </li>
                     ))}
                   </ul>
-                  <a
+                  <Link
                     href={section.cmsLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-forest-900 font-medium uppercase tracking-wider text-sm hover:opacity-70 transition-opacity"
                   >
-                    View Full Menu
+                    {t('restaurant.downloadMenu')}
                     <ExternalLink size={16} />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -233,8 +231,8 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
       <section className="py-24 bg-forest-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Signature</span>
-            <h2 className="section-title mt-4">Featured Dishes</h2>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.lunchDinner.signature')}</span>
+            <h2 className="section-title mt-4">{t('restaurant.lunchDinner.featuredDishes')}</h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -267,37 +265,35 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-cream-50/50 text-xs tracking-[0.3em] uppercase font-light">Sommelier Selection</span>
-              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">Wine Pairings</h2>
+              <span className="text-cream-50/50 text-xs tracking-[0.3em] uppercase font-light">{t('restaurant.lunchDinner.sommelierSelection')}</span>
+              <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 uppercase tracking-tight">{t('restaurant.lunchDinner.winePairings')}</h2>
               <p className="text-cream-50/70 text-lg mb-8 font-light leading-relaxed">
-                Our sommelier has curated an exceptional wine list featuring over 500 labels, 
-                with a special focus on Georgian qvevri wines. Let us guide you through the 
-                perfect pairing for your meal.
+                {t('restaurant.lunchDinner.wineDescription')}
               </p>
               <div className="flex flex-col gap-4 mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-cream-50/80">500+ Wine Selection</span>
+                  <span className="text-cream-50/80">{t('restaurant.page.wineCount')}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-cream-50/80">Georgian Qvevri Wines</span>
+                  <span className="text-cream-50/80">{t('restaurant.lunchDinner.qvevriWines')}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-2 h-2 bg-white" />
-                  <span className="text-cream-50/80">Expert Sommelier Service</span>
+                  <span className="text-cream-50/80">{t('restaurant.lunchDinner.sommelierService')}</span>
                 </div>
               </div>
               <Link href={`/${locale}/bar/wine-list`}>
                 <Button className="btn-boutique">
-                  View Wine List
+                  {t('bar.page.viewWineList')}
                 </Button>
               </Link>
             </div>
             <div >
               <img
                 src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80"
-                alt="Wine Selection"
+                alt={t('restaurant.lunchDinner.winePairings')}
                 className="w-full aspect-square object-cover"
               />
             </div>
@@ -310,15 +306,15 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase tracking-tight text-forest-900">
-              Reserve Your Table
+              {t('restaurant.reserve')}
             </h2>
             <p className="text-forest-600 text-lg mb-10 max-w-2xl mx-auto font-light">
-              Experience the finest dining in Batumi. Private dining rooms available for special occasions.
+              {t('restaurant.lunchDinner.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/booking`}>
                 <Button className="btn-boutique px-12 py-5">
-                  Make Reservation
+                  {t('restaurant.lunchDinner.makeReservation')}
                 </Button>
               </Link>
               <a href="tel:+995422000000">
@@ -334,8 +330,6 @@ export default function LunchDinnerPage({ locale }: LunchDinnerPageProps) {
     </main>
   );
 }
-
-
 
 
 

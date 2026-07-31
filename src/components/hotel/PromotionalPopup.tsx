@@ -6,12 +6,14 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { type Locale } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface PromotionalPopupProps {
   locale: Locale;
 }
 
 export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
+  const t = useTranslations('promotion');
   const [isVisible, setIsVisible] = useState(false);
 
   const closePopup = () => {
@@ -65,7 +67,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
               {/* Close Button */}
               <button
                 type="button"
-                aria-label="Close special offer"
+                aria-label={t('close')}
                 onClick={closePopup}
                 className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-900/40"
               >
@@ -76,7 +78,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
               <div className="relative h-48 sm:h-56">
                 <Image
                   src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&q=80"
-                  alt="Special Offer"
+                  alt=""
                   fill
                   sizes="(min-width: 640px) 512px, calc(100vw - 32px)"
                   className="object-cover"
@@ -86,25 +88,23 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
                 {/* Badge */}
                 <div className="absolute top-4 left-4 flex items-center gap-2 bg-brass-500 text-emerald-950 px-4 py-2 rounded-full text-sm font-semibold">
                   <Gift className="w-4 h-4" />
-                  Special Offer
+                  {t('label')}
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-6 sm:p-8">
                 <h3 id="promotional-popup-title" className="text-2xl font-semibold text-emerald-900 mb-2">
-                  Book Direct & Save 20%
+                  {t('title')}
                 </h3>
                 <p className="text-emerald-600 mb-6">
-                  Reserve your stay directly through our website and enjoy exclusive benefits:
-                  complimentary breakfast, free room upgrade (subject to availability), 
-                  and late checkout on request.
+                  {t('description')}
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link href={`/${locale}/booking`} onClick={closePopup} className="flex-1">
                     <Button className="w-full btn-boutique">
-                      <span>Book Now</span>
+                      <span>{t('bookNow')}</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
                     </Button>
                   </Link>
@@ -113,12 +113,12 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
                     onClick={closePopup}
                     className="flex-1 border-emerald-200 text-emerald-700 hover:bg-emerald-50"
                   >
-                    Maybe Later
+                    {t('maybeLater')}
                   </Button>
                 </div>
 
                 <p className="text-center text-xs text-emerald-400 mt-4">
-                  *Valid for new bookings only. Terms apply.
+                  *{t('terms')}
                 </p>
               </div>
             </div>
@@ -128,7 +128,6 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
     </div>
   );
 }
-
 
 
 

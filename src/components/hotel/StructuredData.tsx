@@ -1,5 +1,6 @@
 import { absoluteUrl, hotel, localizedUrl } from '@/lib/site';
-import { defaultLocale, isValidLocale } from '@/i18n/config';
+import { defaultLocale, isValidLocale, locales } from '@/i18n/config';
+import { useTranslations } from 'next-intl';
 
 interface HotelSchemaProps {
   locale: string;
@@ -14,6 +15,7 @@ function getSchemaLocale(locale: string) {
 }
 
 export function HotelSchema({ locale }: HotelSchemaProps) {
+  const t = useTranslations();
   const schemaLocale = getSchemaLocale(locale);
   const pageUrl = localizedUrl(schemaLocale);
   const siteUrl = absoluteUrl();
@@ -21,12 +23,12 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
   const hotelData = {
     "@context": "https://schema.org",
     "@type": "Hotel",
-    "name": hotel.name,
-    "description": hotel.description,
+    "name": t('site.name'),
+    "description": t('site.description'),
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": hotel.address.streetAddress,
-      "addressLocality": hotel.address.locality,
+      "streetAddress": t('contact.address.street'),
+      "addressLocality": t('contact.address.city'),
       "addressRegion": hotel.address.region,
       "postalCode": hotel.address.postalCode,
       "addressCountry": hotel.address.countryCode
@@ -48,19 +50,19 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
     "image": `${siteUrl}/og-image.svg`,
     "inLanguage": schemaLocale,
     "amenityFeature": [
-      { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Pool", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Spa", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Fitness Center", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Bar", "value": true },
-      { "@type": "LocationFeatureSpecification", "name": "Room Service", "value": true }
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.wifi'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.parking'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.pool'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.spa'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.fitness'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.amenities.dining'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('nav.bar'), "value": true },
+      { "@type": "LocationFeatureSpecification", "name": t('rooms.roomService'), "value": true }
     ],
     "checkinTime": "15:00",
     "checkoutTime": "12:00",
     "numberOfRooms": 50,
-    "languages": ["English", "Georgian", "Russian", "Turkish", "Hebrew", "Arabic"]
+    "availableLanguage": locales
   };
 
   return (
@@ -73,6 +75,7 @@ export function HotelSchema({ locale }: HotelSchemaProps) {
 }
 
 export function LocalBusinessSchema({ locale }: HotelSchemaProps) {
+  const t = useTranslations();
   const schemaLocale = getSchemaLocale(locale);
   const pageUrl = localizedUrl(schemaLocale);
   const siteUrl = absoluteUrl();
@@ -80,12 +83,12 @@ export function LocalBusinessSchema({ locale }: HotelSchemaProps) {
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": hotel.name,
+    "name": t('site.name'),
     "image": `${siteUrl}/og-image.svg`,
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": hotel.address.streetAddress,
-      "addressLocality": hotel.address.locality,
+      "streetAddress": t('contact.address.street'),
+      "addressLocality": t('contact.address.city'),
       "addressRegion": hotel.address.region,
       "postalCode": hotel.address.postalCode,
       "addressCountry": hotel.address.countryCode
@@ -119,7 +122,6 @@ export function LocalBusinessSchema({ locale }: HotelSchemaProps) {
     />
   );
 }
-
 
 
 

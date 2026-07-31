@@ -19,89 +19,95 @@ const fadeInUp = {
 export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
   const t = useTranslations();
 
-  const categories = ['All', 'Sightseeing', 'Nature', 'Culture', 'Adventure'];
+  const categories = [
+    t('experiences.categories.all'),
+    t('experiences.categories.sightseeing'),
+    t('experiences.categories.nature'),
+    t('experiences.categories.culture'),
+    t('experiences.categories.adventure'),
+  ];
 
   const experiences = [
     {
       id: 1,
-      name: 'Batumi Boulevard',
-      category: 'Sightseeing',
+      name: t('experiences.items.boulevard.name'),
+      category: t('experiences.categories.sightseeing'),
       image: 'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=800&q=80',
-      distance: '0.5 km',
-      duration: '2-3 hours',
-      description: 'Stroll along the famous seaside promenade, featuring gardens, cafes, and stunning Black Sea views.'
+      distance: '0.5',
+      duration: t('experiences.items.boulevard.duration'),
+      description: t('experiences.items.boulevard.description')
     },
     {
       id: 2,
-      name: 'Old Batumi',
-      category: 'Culture',
+      name: t('experiences.items.oldBatumi.name'),
+      category: t('experiences.categories.culture'),
       image: 'https://images.unsplash.com/photo-1599946347371-68eb71b16afc?w=800&q=80',
-      distance: '1.2 km',
-      duration: '3-4 hours',
-      description: 'Explore the historic quarter with its 19th-century architecture, quaint streets, and traditional restaurants.'
+      distance: '1.2',
+      duration: t('experiences.items.oldBatumi.duration'),
+      description: t('experiences.items.oldBatumi.description')
     },
     {
       id: 3,
-      name: 'Batumi Botanical Garden',
-      category: 'Nature',
+      name: t('experiences.items.botanical.name'),
+      category: t('experiences.categories.nature'),
       image: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80',
-      distance: '8 km',
-      duration: '4-5 hours',
-      description: 'Discover one of the world\'s oldest botanical gardens with over 5,000 plant species from around the globe.'
+      distance: '8',
+      duration: t('experiences.items.botanical.duration'),
+      description: t('experiences.items.botanical.description')
     },
     {
       id: 4,
-      name: 'Gonio Fortress',
-      category: 'Culture',
+      name: t('experiences.items.gonio.name'),
+      category: t('experiences.categories.culture'),
       image: 'https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?w=800&q=80',
-      distance: '12 km',
-      duration: '3-4 hours',
-      description: 'Visit the ancient Roman fortress with over 2,000 years of history and archaeological treasures.'
+      distance: '12',
+      duration: t('experiences.items.gonio.duration'),
+      description: t('experiences.items.gonio.description')
     },
     {
       id: 5,
-      name: 'Mtirala National Park',
-      category: 'Nature',
+      name: t('experiences.items.mtirala.name'),
+      category: t('experiences.categories.nature'),
       image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80',
-      distance: '25 km',
-      duration: 'Full day',
-      description: 'Hike through pristine subtropical forests, waterfalls, and diverse wildlife in this protected area.'
+      distance: '25',
+      duration: t('experiences.items.mtirala.duration'),
+      description: t('experiences.items.mtirala.description')
     },
     {
       id: 6,
-      name: 'Wine Tasting Tour',
-      category: 'Culture',
+      name: t('experiences.items.wineTour.name'),
+      category: t('experiences.categories.culture'),
       image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&q=80',
-      distance: '15 km',
-      duration: '4-5 hours',
-      description: 'Experience Georgia\'s 8,000-year-old winemaking tradition at local vineyards with tastings.'
+      distance: '15',
+      duration: t('experiences.items.wineTour.duration'),
+      description: t('experiences.items.wineTour.description')
     },
     {
       id: 7,
-      name: 'Black Sea Boat Tour',
-      category: 'Adventure',
+      name: t('experiences.items.boatTour.name'),
+      category: t('experiences.categories.adventure'),
       image: 'https://images.unsplash.com/photo-1500514966906-fe245eea9344?w=800&q=80',
-      distance: '0.3 km',
-      duration: '2-3 hours',
-      description: 'Cruise along the Black Sea coast, enjoying sunset views and fresh seafood on board.'
+      distance: '0.3',
+      duration: t('experiences.items.boatTour.duration'),
+      description: t('experiences.items.boatTour.description')
     },
     {
       id: 8,
-      name: 'Paragliding Adventure',
-      category: 'Adventure',
+      name: t('experiences.items.paragliding.name'),
+      category: t('experiences.categories.adventure'),
       image: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80',
-      distance: '20 km',
-      duration: '2-3 hours',
-      description: 'Soar above the coastline with breathtaking aerial views of Batumi and the surrounding mountains.'
+      distance: '20',
+      duration: t('experiences.items.paragliding.duration'),
+      description: t('experiences.items.paragliding.description')
     },
     {
       id: 9,
-      name: 'Georgian Cuisine Class',
-      category: 'Culture',
+      name: t('experiences.items.cooking.name'),
+      category: t('experiences.categories.culture'),
       image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80',
-      distance: 'On-site',
-      duration: '3 hours',
-      description: 'Learn to prepare traditional Georgian dishes like khachapuri and khinkali with our chef.'
+      distance: null,
+      duration: t('experiences.items.cooking.duration'),
+      description: t('experiences.items.cooking.description')
     }
   ];
 
@@ -112,7 +118,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=1920&q=80"
-            alt="Things To Do"
+            alt={t('experiences.title')}
             fill
             priority
             sizes="100vw"
@@ -175,7 +181,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="flex items-center gap-2 text-brass-400 text-sm">
                         <MapPin size={14} />
-                        <span>{t('experiences.distance', { km: exp.distance.replace(' km', '').replace('On-site', '0') })}</span>
+                        <span>{exp.distance ? t('experiences.distance', { km: exp.distance }) : t('experiences.onSite')}</span>
                       </div>
                       <h3 className="text-xl font-semibold text-cream-50 mt-1">{exp.name}</h3>
                     </div>
@@ -188,7 +194,7 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
                     {/* Duration */}
                     <div className="flex items-center gap-2 text-sm text-forest-500 mb-4">
                       <Clock size={14} />
-                      <span>{exp.duration}</span>
+                      <span>{t('experiences.duration', { value: exp.duration })}</span>
                     </div>
 
                     {/* CTA */}
@@ -228,7 +234,6 @@ export default function ExperiencesPage({ locale }: ExperiencesPageProps) {
     </main>
   );
 }
-
 
 
 

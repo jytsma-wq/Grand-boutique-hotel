@@ -28,52 +28,52 @@ const fadeInUp = {
 export default function AboutPage({ locale }: AboutPageProps) {
   const tSite = useTranslations('site');
   const tNav = useTranslations('nav');
-  const t = useTranslations('about');
+  const t = useTranslations();
 
   const values = [
     {
       icon: Heart,
-      title: 'Georgian Hospitality',
-      description: 'We embrace the ancient tradition of Georgian hospitality, treating every guest like family with warmth and genuine care.'
+      title: t('about.values.hospitalityTitle'),
+      description: t('about.values.hospitalityDescription')
     },
     {
       icon: Leaf,
-      title: 'Sustainable Luxury',
-      description: 'Our commitment to environmental responsibility ensures that luxury and sustainability coexist harmoniously.'
+      title: t('about.values.sustainabilityTitle'),
+      description: t('about.values.sustainabilityDescription')
     },
     {
       icon: Sparkles,
-      title: 'Modern Excellence',
-      description: '2026 architecture meets timeless elegance, creating spaces that inspire and rejuvenate.'
+      title: t('about.values.excellenceTitle'),
+      description: t('about.values.excellenceDescription')
     },
     {
       icon: Target,
-      title: 'Personalized Service',
-      description: 'Every detail is tailored to your preferences, ensuring a uniquely memorable experience.'
+      title: t('about.values.serviceTitle'),
+      description: t('about.values.serviceDescription')
     }
   ];
 
   const stats = [
-    { value: '2026', label: 'Architecture' },
-    { value: '50+', label: 'Rooms & Suites' },
-    { value: '98%', label: 'Guest Satisfaction' },
-    { value: '24/7', label: 'Concierge Service' }
+    { value: '2026', label: t('about.stats.architecture') },
+    { value: '50+', label: t('about.stats.rooms') },
+    { value: '98%', label: t('about.stats.satisfaction') },
+    { value: '24/7', label: t('about.stats.concierge') }
   ];
 
   const team = [
     {
       name: 'Giorgi Beridze',
-      role: 'General Manager',
+      role: t('about.roles.generalManager'),
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face'
     },
     {
       name: 'Natia Gvelukashvili',
-      role: 'Head of Guest Relations',
+      role: t('about.roles.guestRelations'),
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face'
     },
     {
       name: 'Davit Kiknadze',
-      role: 'Executive Chef',
+      role: t('about.roles.executiveChef'),
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face'
     }
   ];
@@ -85,7 +85,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1920&q=80"
-            alt="About Batumi Boutique Hotel"
+            alt={tSite('name')}
             fill
             priority
             sizes="100vw"
@@ -100,7 +100,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
             <h1 className="text-5xl md:text-7xl font-light mb-4">{tNav('about')}</h1>
             <div className="brass-line" />
             <p className="text-xl text-forest-200 max-w-2xl mx-auto mt-6">
-              A masterpiece of modern architecture on Georgia&apos;s stunning Black Sea coast
+              {t('about.heroSubtitle')}
             </p>
           </div>
         </div>
@@ -115,14 +115,10 @@ export default function AboutPage({ locale }: AboutPageProps) {
               <h2 className="section-title mt-4">{t('about.whereVisionMeetsReality')}</h2>
               <div className="brass-line !mx-0" />
               <p className="text-forest-700 text-lg leading-relaxed mb-6 mt-6">
-                Batumi Boutique Hotel was born from a dream to create something extraordinary on the shores of the Black Sea. 
-                Our 2026 modern architecture design represents the pinnacle of contemporary elegance, seamlessly blending 
-                with the natural beauty of Georgia&apos;s coastal gem.
+                {t('about.story1')}
               </p>
               <p className="text-forest-600 leading-relaxed mb-6">
-                Every corner of our hotel tells a story of meticulous craftsmanship, from the forest green facades that 
-                mirror the sea to the golden accents that capture the warmth of Georgian hospitality. We&apos;ve created more 
-                than a hotel—we&apos;ve created a destination where memories are made.
+                {t('about.story2')}
               </p>
               <div className="flex items-center gap-4">
                 <div className="flex -space-x-3">
@@ -143,7 +139,7 @@ export default function AboutPage({ locale }: AboutPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80"
-                alt="Hotel Interior"
+                alt={t('about.architecture')}
                 className="rounded-3xl w-full aspect-[4/3] object-cover"
               />
               <div className="absolute -bottom-6 -left-6 glass-card rounded-2xl p-6">
@@ -242,24 +238,22 @@ export default function AboutPage({ locale }: AboutPageProps) {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="text-brass-400 text-sm tracking-widest uppercase">Architecture</span>
+              <span className="text-brass-400 text-sm tracking-widest uppercase">{t('about.architecture')}</span>
               <h2 className="text-4xl md:text-5xl font-light mt-4 mb-6">
-                2026 Modern Design
+                {t('about.modernDesign')}
               </h2>
               <div className="brass-line !mx-0" />
               <p className="text-forest-200 text-lg mb-8 mt-6">
-                Our building represents the future of hospitality design. Floor-to-ceiling windows frame 
-                breathtaking Black Sea views, while sustainable materials and innovative climate systems 
-                ensure comfort with minimal environmental impact.
+                {t('about.architectureDescription')}
               </p>
               
               <div className="space-y-4">
                 {[
-                  'Floor-to-ceiling glass facade reflecting the sea',
-                  'Living green walls throughout public spaces',
-                  'Smart room technology integration',
-                  'Geothermal heating and cooling',
-                  'Rainwater collection and recycling'
+                  t('about.feature1'),
+                  t('about.feature2'),
+                  t('about.feature3'),
+                  t('about.feature4'),
+                  t('about.feature5')
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-2 h-2 bg-brass-400 rounded-full" />
@@ -273,22 +267,22 @@ export default function AboutPage({ locale }: AboutPageProps) {
             >
               <img
                 src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=400&q=80"
-                alt="Modern architecture"
+                alt={t('about.architecture')}
                 className="rounded-2xl aspect-[4/3] object-cover"
               />
               <img
                 src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400&q=80"
-                alt="Interior design"
+                alt={t('about.architecture')}
                 className="rounded-2xl aspect-[4/3] object-cover mt-8"
               />
               <img
                 src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&q=80"
-                alt="Room view"
+                alt={t('about.architecture')}
                 className="rounded-2xl aspect-[4/3] object-cover"
               />
               <img
                 src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&q=80"
-                alt="Exterior view"
+                alt={t('about.architecture')}
                 className="rounded-2xl aspect-[4/3] object-cover mt-8"
               />
             </div>
@@ -307,21 +301,20 @@ export default function AboutPage({ locale }: AboutPageProps) {
           <div className="text-center max-w-3xl mx-auto">
             <Building2 className="w-16 h-16 text-brass-400 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-light mb-6">
-              Experience {tSite('name')}
+              {t('about.experienceTitle', { hotel: tSite('name') })}
             </h2>
             <p className="text-forest-200 text-lg mb-10">
-              Discover why guests from around the world choose Batumi Boutique Hotel 
-              for their Black Sea getaway.
+              {t('about.experienceDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href={`/${locale}/rooms`}>
                 <Button className="btn-boutique px-12 py-6 text-lg">
-                  Explore Rooms
+                  {t('about.exploreRooms')}
                 </Button>
               </Link>
               <Link href={`/${locale}/contact`}>
                 <Button variant="outline" className="px-12 py-6 text-lg border-white/30 text-white hover:bg-white hover:text-forest-900">
-                  Contact Us
+                  {t('about.contactUs')}
                 </Button>
               </Link>
             </div>
@@ -331,8 +324,6 @@ export default function AboutPage({ locale }: AboutPageProps) {
     </main>
   );
 }
-
-
 
 
 

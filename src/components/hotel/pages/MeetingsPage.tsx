@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Users, Wifi, Coffee, Utensils, Monitor, ArrowRight, Phone } from 'lucide-react';
+import { Users, Wifi, Coffee, Utensils, Monitor, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { type Locale } from '@/i18n/config';
 
@@ -9,82 +9,60 @@ interface MeetingsPageProps {
   locale: Locale;
 }
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 30 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.6 }
-};
-
 export default function MeetingsPage({ locale }: MeetingsPageProps) {
   const t = useTranslations();
 
   const venues = [
     {
-      name: 'Grand Ballroom',
+      name: t('meetings.page.venues.ballroom.name'),
       image: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80',
       capacity: 300,
       size: '450 m²',
-      features: ['Theater & Banquet Setup', 'Stage & Dance Floor', 'Built-in AV System', 'Natural Light']
+      features: ['setup', 'stage', 'av', 'light'].map((key) => t(`meetings.page.venues.ballroom.features.${key}`))
     },
     {
-      name: 'Conference Center',
+      name: t('meetings.page.venues.conference.name'),
       image: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=800&q=80',
       capacity: 100,
       size: '180 m²',
-      features: ['Boardroom Setup', 'Video Conferencing', 'Projection System', 'Soundproofing']
+      features: ['setup', 'video', 'projection', 'soundproofing'].map((key) => t(`meetings.page.venues.conference.features.${key}`))
     },
     {
-      name: 'Executive Boardroom',
+      name: t('meetings.page.venues.boardroom.name'),
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
       capacity: 20,
       size: '60 m²',
-      features: ['Private Meeting Space', 'Smart Board', 'Premium Furniture', 'Catering Service']
+      features: ['private', 'smartBoard', 'furniture', 'catering'].map((key) => t(`meetings.page.venues.boardroom.features.${key}`))
     },
     {
-      name: 'Rooftop Terrace',
+      name: t('meetings.page.venues.terrace.name'),
       image: 'https://images.unsplash.com/photo-1510076857177-7470076d4098?w=800&q=80',
       capacity: 150,
       size: '300 m²',
-      features: ['Outdoor Events', 'Panoramic Sea View', 'Weather Backup', 'BBQ Facilities']
+      features: ['outdoor', 'view', 'weather', 'barbecue'].map((key) => t(`meetings.page.venues.terrace.features.${key}`))
     }
   ];
 
   const packages = [
     {
-      name: 'Day Conference Package',
+      name: t('meetings.packages.day'),
       price: '$75',
-      pricePer: 'per person',
-      includes: [
-        'Conference room rental',
-        'Morning & afternoon coffee breaks',
-        'Buffet lunch',
-        'Basic AV equipment',
-        'Wi-Fi access',
-        'Notepads and pens'
-      ]
+      pricePer: t('meetings.page.perPerson'),
+      includes: ['room', 'coffee', 'lunch', 'av', 'wifi', 'stationery'].map((key) => t(`meetings.page.packages.day.${key}`))
     },
     {
-      name: 'Residential Conference Package',
+      name: t('meetings.packages.residential'),
       price: '$250',
-      pricePer: 'per person/night',
-      includes: [
-        'Accommodation for 1 night',
-        'All day conference facilities',
-        'Breakfast, lunch & dinner',
-        'Coffee breaks throughout',
-        'Full AV equipment',
-        'Team building activity',
-        'Airport transfer'
-      ]
+      pricePer: t('meetings.page.perPersonNight'),
+      includes: ['stay', 'facilities', 'meals', 'coffee', 'av', 'teamBuilding', 'transfer'].map((key) => t(`meetings.page.packages.residential.${key}`))
     }
   ];
 
   const amenities = [
-    { icon: Wifi, name: 'High-Speed Wi-Fi' },
-    { icon: Monitor, name: 'AV Equipment' },
-    { icon: Coffee, name: 'Coffee Service' },
-    { icon: Utensils, name: 'Catering' }
+    { icon: Wifi, name: t('meetings.page.amenities.wifi') },
+    { icon: Monitor, name: t('meetings.page.amenities.av') },
+    { icon: Coffee, name: t('meetings.page.amenities.coffee') },
+    { icon: Utensils, name: t('meetings.page.amenities.catering') }
   ];
 
   return (
@@ -94,7 +72,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
         <div className="absolute inset-0">
           <Image
             src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1920&q=80"
-            alt="Meetings & Events"
+            alt={t('meetings.title')}
             fill
             priority
             sizes="100vw"
@@ -105,7 +83,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
         
         <div className="relative z-10 h-full flex flex-col justify-center items-center text-center text-cream-50 px-6">
           <div>
-            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">Corporate Events</span>
+            <span className="text-cream-50/60 text-sm tracking-[0.3em] uppercase font-light">{t('meetings.page.corporateEvents')}</span>
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase mt-6 mb-6 leading-none">{t('meetings.title')}</h1>
             <p className="text-xl text-cream-50/70 max-w-2xl font-light">{t('meetings.subtitle')}</p>
           </div>
@@ -125,7 +103,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Our Spaces</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('meetings.page.ourSpaces')}</span>
             <h2 className="section-title mt-4">{t('meetings.venues.title')}</h2>
           </div>
 
@@ -189,7 +167,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">Solutions</span>
+            <span className="text-forest-500 text-xs tracking-[0.3em] uppercase font-light">{t('meetings.page.solutions')}</span>
             <h2 className="section-title mt-4">{t('meetings.packages.title')}</h2>
           </div>
 
@@ -234,10 +212,10 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
         <div className="container mx-auto px-6 text-center">
           <div>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 uppercase tracking-tight">
-              Plan Your Perfect Event
+              {t('meetings.page.ctaTitle')}
             </h2>
             <p className="text-cream-50/70 text-lg mb-12 max-w-2xl mx-auto font-light">
-              Our dedicated events team is ready to help you create an unforgettable experience.
+              {t('meetings.page.ctaDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Link href={`/${locale}/contact?department=events`}>
@@ -248,7 +226,7 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
               <a href="tel:+995422000000">
                 <Button variant="outline" className="px-14 py-6 text-base border-2 border-white bg-transparent text-cream-50 hover:bg-white hover:text-forest-900 transition-all uppercase tracking-wider">
                   <Phone className="mr-2 w-5 h-5" />
-                  Call: +995 422 00 00 00
+                  {t('meetings.page.call')}: +995 422 00 00 00
                 </Button>
               </a>
             </div>
@@ -258,7 +236,6 @@ export default function MeetingsPage({ locale }: MeetingsPageProps) {
     </main>
   );
 }
-
 
 
 
