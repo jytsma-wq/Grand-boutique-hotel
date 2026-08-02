@@ -269,6 +269,26 @@
       "georgianInternational": "Gürcü ve uluslararası",
       "wineCount": "500'den fazla şarap",
       "galleryAlt": "Azure Restaurant fotoğrafı {number}",
+      "menuDescriptions": {
+        "khachapuri": "Yumurta ile sunulan geleneksel peynir dolgulu ekmek kayığı",
+        "khinkali": "Baharatlı et, otlar ve et suyuyla hazırlanan sulu mantılar",
+        "badrijani": "Ceviz ezmesi ve narla hazırlanan patlıcan ruloları",
+        "chakapuli": "Tarhun, beyaz şarap ve otlarla pişirilen kuzu yahnisi",
+        "seaBass": "Otlu tereyağıyla taze Karadeniz levreği",
+        "mussels": "Pirinç, otlar ve sıcak baharatlarla midye",
+        "anchovies": "Tkemali ve limonla kızarmış hamsi",
+        "trout": "Gürcü ceviz sosuyla tavada pişirilmiş alabalık",
+        "beef": "Kırmızı şarap sosuyla seçkin dana eti",
+        "duck": "Fırınlanmış mevsim sebzeleriyle vişne glazürü",
+        "risotto": "Siyah trüflü kremalı Arborio pirinci",
+        "caesar": "Izgara tavuklu klasik Sezar salatası"
+      },
+      "chefSpecials": {
+        "tastingCourses": "7 servis",
+        "tastingDescription": "Gürcü ürünleri, kıyı deniz mahsulleri ve modern tekniklerle kurgulanan bir gastronomi yolculuğu.",
+        "pairingCourses": "5 servis + 5 şarap",
+        "pairingDescription": "Seçkin Gürcü şarapları, qvevri gelenekleri ve mevsimsel eşleşmeler etrafında şekillenen sakin bir akşam."
+      },
       "explore": "Keşfedin",
       "diningExperiences": "Yemek Deneyimleri",
       "diningDescription": "Sakin bir sahil kahvaltısından mum ışığında akşam yemeğine kadar her servis günün farklı bir ritmine uyum sağlar.",

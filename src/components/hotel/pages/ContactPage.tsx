@@ -26,15 +26,41 @@ export default function ContactPage({ locale }: ContactPageProps) {
   const t = useTranslations();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
-    setIsSubmitted(true);
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          subject: formData.get('subject'),
+          message: formData.get('message'),
+          locale,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Contact request failed');
+      }
+
+      setIsSubmitted(true);
+      form.reset();
+    } catch {
+      setSubmitError(t('common.error'));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const departments = [
@@ -86,28 +112,28 @@ export default function ContactPage({ locale }: ContactPageProps) {
               <form onSubmit={handleSubmit} className="mt-10 space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <ContactField label={t('contact.form.name')} htmlFor="contact-name">
-                    <Input id="contact-name" name="name" autoComplete="name" required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                    <Input id="contact-name" name="name" autoComplete="name" maxLength={100} required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
                   </ContactField>
                   <ContactField label={t('contact.form.email')} htmlFor="contact-email">
-                    <Input id="contact-email" name="email" type="email" autoComplete="email" spellCheck={false} required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                    <Input id="contact-email" name="email" type="email" autoComplete="email" maxLength={254} spellCheck={false} required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
                   </ContactField>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <ContactField label={t('contact.form.phone')} htmlFor="contact-phone">
-                    <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                    <Input id="contact-phone" name="phone" type="tel" autoComplete="tel" inputMode="tel" maxLength={40} className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
                   </ContactField>
                   <ContactField label={t('contact.form.subject')} htmlFor="contact-subject">
-                    <Input id="contact-subject" name="subject" autoComplete="off" required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                    <Input id="contact-subject" name="subject" autoComplete="off" maxLength={150} required className="h-12 rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
                   </ContactField>
                 </div>
 
                 <ContactField label={t('contact.form.message')} htmlFor="contact-message">
-                  <Textarea id="contact-message" name="message" autoComplete="off" required rows={6} className="rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
+                  <Textarea id="contact-message" name="message" autoComplete="off" maxLength={5000} required rows={6} className="rounded-none border-brass-400/30 bg-cream-50 focus-visible:ring-brass-400" />
                 </ContactField>
 
-                <div aria-live="polite" className="sr-only">
-                  {isSubmitting ? t('common.loading') : ''}
+                <div aria-live="polite" role="status" className={submitError ? 'text-sm text-red-700' : 'sr-only'}>
+                  {submitError ?? (isSubmitting ? t('common.loading') : '')}
                 </div>
                 <button type="submit" disabled={isSubmitting} className="luxury-button disabled:opacity-60">
                   <span>{isSubmitting ? t('common.loading') : t('contact.form.submit')}</span>

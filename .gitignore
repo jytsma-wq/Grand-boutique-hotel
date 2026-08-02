@@ -40,6 +40,11 @@ dist/
 !.env.example
 !.env.template
 
+# Legacy export/example paths have contained credentials in repository history.
+# Keep generated exports and ad-hoc env examples out of Git; use .env.example only.
+/download/
+/env.example.txt
+
 # ============================================
 # TYPESCRIPT
 # ============================================
