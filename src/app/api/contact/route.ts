@@ -150,6 +150,13 @@ export async function POST(request: NextRequest): Promise<NextResponse<ContactSu
 
     const data = parsed.data;
 
+    if (!process.env.DATABASE_URL) {
+      return NextResponse.json<ContactErrorResponse>(
+        { error: 'Contact service is temporarily unavailable.' },
+        { status: 503 }
+      );
+    }
+
     await db.contactSubmission.create({
       data: {
         name: data.name,

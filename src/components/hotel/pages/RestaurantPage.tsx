@@ -25,30 +25,30 @@ const menuCategories = [
     name: 'Georgian Classics',
     image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=80',
     items: [
-      { name: 'Khachapuri Adjarian', price: '$12', priceGel: '33 GEL', desc: 'Traditional cheese-filled bread boat with egg' },
-      { name: 'Khinkali', price: '$10', priceGel: '28 GEL', desc: 'Juicy dumplings with spiced meat, herbs, and broth' },
-      { name: 'Badrijani', price: '$9', priceGel: '25 GEL', desc: 'Eggplant rolls with walnut paste and pomegranate' },
-      { name: 'Chakapuli', price: '$18', priceGel: '50 GEL', desc: 'Lamb stew with tarragon, white wine, and greens' },
+      { name: 'Khachapuri Adjarian', price: '$12', priceGel: '33 GEL', descKey: 'khachapuri' },
+      { name: 'Khinkali', price: '$10', priceGel: '28 GEL', descKey: 'khinkali' },
+      { name: 'Badrijani', price: '$9', priceGel: '25 GEL', descKey: 'badrijani' },
+      { name: 'Chakapuli', price: '$18', priceGel: '50 GEL', descKey: 'chakapuli' },
     ],
   },
   {
     name: 'Black Sea Specialties',
     image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=900&q=80',
     items: [
-      { name: 'Grilled Sea Bass', price: '$24', priceGel: '66 GEL', desc: 'Fresh Black Sea bass with herb butter' },
-      { name: 'Stuffed Mussels', price: '$14', priceGel: '39 GEL', desc: 'Mussels with rice, herbs, and warm spices' },
-      { name: 'Crisp Anchovies', price: '$11', priceGel: '30 GEL', desc: 'Fried anchovies with tkemali and lemon' },
-      { name: 'Trout Walnut', price: '$22', priceGel: '61 GEL', desc: 'Pan-seared trout with Georgian walnut sauce' },
+      { name: 'Grilled Sea Bass', price: '$24', priceGel: '66 GEL', descKey: 'seaBass' },
+      { name: 'Stuffed Mussels', price: '$14', priceGel: '39 GEL', descKey: 'mussels' },
+      { name: 'Crisp Anchovies', price: '$11', priceGel: '30 GEL', descKey: 'anchovies' },
+      { name: 'Trout Walnut', price: '$22', priceGel: '61 GEL', descKey: 'trout' },
     ],
   },
   {
     name: 'International Cuisine',
     image: 'https://images.unsplash.com/photo-1546039907-7fa05f864c02?w=900&q=80',
     items: [
-      { name: 'Beef Tenderloin', price: '$32', priceGel: '88 GEL', desc: 'Premium beef with red wine reduction' },
-      { name: 'Duck Breast', price: '$28', priceGel: '77 GEL', desc: 'Cherry glaze with roasted seasonal vegetables' },
-      { name: 'Truffle Risotto', price: '$22', priceGel: '61 GEL', desc: 'Creamy Arborio rice with black truffle' },
-      { name: 'Caesar Salad', price: '$14', priceGel: '39 GEL', desc: 'Classic Caesar with grilled chicken' },
+      { name: 'Beef Tenderloin', price: '$32', priceGel: '88 GEL', descKey: 'beef' },
+      { name: 'Duck Breast', price: '$28', priceGel: '77 GEL', descKey: 'duck' },
+      { name: 'Truffle Risotto', price: '$22', priceGel: '61 GEL', descKey: 'risotto' },
+      { name: 'Caesar Salad', price: '$14', priceGel: '39 GEL', descKey: 'caesar' },
     ],
   },
 ];
@@ -58,23 +58,23 @@ const chefSpecials = [
     name: "Chef's Tasting Menu",
     price: '$75',
     priceGel: '207 GEL',
-    courses: '7 courses',
-    desc: 'A composed culinary journey through Georgian products, coastal seafood, and modern technique.',
+    coursesKey: 'tastingCourses',
+    descKey: 'tastingDescription',
   },
   {
     name: 'Wine Pairing Dinner',
     price: '$120',
     priceGel: '330 GEL',
-    courses: '5 courses + 5 wines',
-    desc: 'A slow evening built around premium Georgian wines, qvevri traditions, and seasonal pairings.',
+    coursesKey: 'pairingCourses',
+    descKey: 'pairingDescription',
   },
 ];
 
 const galleryImages = [
-  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80', alt: 'Refined restaurant dining room' },
-  { src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80', alt: 'Wine service at the restaurant' },
-  { src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80', alt: 'Elegant breakfast table' },
-  { src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80', alt: 'Lounge bar with warm lighting' },
+  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80' },
+  { src: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=900&q=80' },
+  { src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=900&q=80' },
+  { src: 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=900&q=80' },
 ];
 
 export default function RestaurantPage({ locale }: RestaurantPageProps) {
@@ -273,7 +273,9 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                         <div className="flex items-start justify-between gap-5">
                           <div>
                             <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-forest-900">{item.name}</h4>
-                            <p className="mt-2 text-sm font-light leading-6 text-forest-700">{item.desc}</p>
+                            <p className="mt-2 text-sm font-light leading-6 text-forest-700">
+                              {t(`restaurant.page.menuDescriptions.${item.descKey}`)}
+                            </p>
                           </div>
                           <div className="shrink-0 text-right">
                             <p className="text-sm font-semibold text-forest-900">{item.price}</p>
@@ -307,8 +309,12 @@ export default function RestaurantPage({ locale }: RestaurantPageProps) {
                     <p className="mt-1 text-xs uppercase tracking-[0.2em] text-white/45">{special.priceGel}</p>
                   </div>
                 </div>
-                <p className="mt-7 text-xs uppercase tracking-[0.24em] text-brass-300">{special.courses}</p>
-                <p className="mt-4 font-light leading-7 text-white/70">{special.desc}</p>
+                <p className="mt-7 text-xs uppercase tracking-[0.24em] text-brass-300">
+                  {t(`restaurant.page.chefSpecials.${special.coursesKey}`)}
+                </p>
+                <p className="mt-4 font-light leading-7 text-white/70">
+                  {t(`restaurant.page.chefSpecials.${special.descKey}`)}
+                </p>
                 <Link href={`/${locale}/booking`} className="luxury-button mt-8 w-full border-brass-400 bg-brass-400 text-charcoal-950">
                   <span>Reserve this experience</span>
                 </Link>

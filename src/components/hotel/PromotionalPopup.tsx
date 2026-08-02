@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { X, Gift, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -15,6 +15,7 @@ interface PromotionalPopupProps {
 export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
   const t = useTranslations('promotion');
   const [isVisible, setIsVisible] = useState(false);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const closePopup = () => {
     setIsVisible(false);
@@ -36,14 +37,26 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible) return undefined;
+
+    const previouslyFocused = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const previousOverflow = document.body.style.overflow;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsVisible(false);
     };
 
+    document.body.style.overflow = 'hidden';
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+      previouslyFocused?.focus();
+    };
   }, [isVisible]);
 
   return (
@@ -66,6 +79,7 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
             <div className="relative bg-white rounded-3xl overflow-hidden max-w-lg w-full shadow-2xl">
               {/* Close Button */}
               <button
+                ref={closeButtonRef}
                 type="button"
                 aria-label={t('close')}
                 onClick={closePopup}
@@ -102,12 +116,12 @@ export default function PromotionalPopup({ locale }: PromotionalPopupProps) {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link href={`/${locale}/booking`} onClick={closePopup} className="flex-1">
-                    <Button className="w-full btn-boutique">
+                  <Button asChild className="flex-1 btn-boutique">
+                    <Link href={`/${locale}/booking`} onClick={closePopup}>
                       <span>{t('bookNow')}</span>
                       <ArrowRight className="ml-2 w-4 h-4" />
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                   <Button 
                     variant="outline" 
                     onClick={closePopup}

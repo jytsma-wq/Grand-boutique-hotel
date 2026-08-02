@@ -13,6 +13,7 @@ interface MobileMenuProps {
   isOpen: boolean;
   bookNowLabel: string;
   contactLabel: string;
+  navigationLabel: string;
   onClose: () => void;
   onSwitchLocale: (locale: Locale) => void;
 }
@@ -24,6 +25,7 @@ export default function MobileMenu({
   isOpen,
   bookNowLabel,
   contactLabel,
+  navigationLabel,
   onClose,
   onSwitchLocale,
 }: MobileMenuProps) {
@@ -35,7 +37,8 @@ export default function MobileMenu({
   };
 
   return (
-    <div
+    <nav
+      aria-label={navigationLabel}
       className="fixed inset-0 z-40 overflow-y-auto bg-charcoal-950 px-6 pb-10 pt-28 text-white xl:hidden"
       id="mobile-navigation"
     >
@@ -87,6 +90,6 @@ export default function MobileMenu({
 
         <MobileLanguageSwitcher locale={locale} onSwitchLocale={switchAndClose} />
       </div>
-    </div>
+    </nav>
   );
 }

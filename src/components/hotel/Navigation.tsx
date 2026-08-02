@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -25,6 +25,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +35,25 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return undefined;
+
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      setIsMobileMenuOpen(false);
+      requestAnimationFrame(() => menuButtonRef.current?.focus());
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', closeOnEscape);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks: NavLink[] = [
     { href: '/about', label: t('about') },
@@ -132,6 +152,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
             </div>
 
             <button
+              ref={menuButtonRef}
               type="button"
               aria-label={isMobileMenuOpen ? tAccessibility('closeNavigation') : tAccessibility('openNavigation')}
               aria-expanded={isMobileMenuOpen}
@@ -154,6 +175,7 @@ export default function Navigation({ locale, siteSettings }: NavigationProps) {
         isOpen={isMobileMenuOpen}
         bookNowLabel={t('bookNow')}
         contactLabel={t('contact')}
+        navigationLabel={tAccessibility('primaryNavigation')}
         onClose={() => setIsMobileMenuOpen(false)}
         onSwitchLocale={switchLocale}
       />

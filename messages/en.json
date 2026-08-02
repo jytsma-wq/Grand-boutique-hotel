@@ -269,6 +269,26 @@
       "georgianInternational": "Georgian & international",
       "wineCount": "500+ wines",
       "galleryAlt": "Azure Restaurant photo {number}",
+      "menuDescriptions": {
+        "khachapuri": "Traditional cheese-filled bread boat with egg",
+        "khinkali": "Juicy dumplings with spiced meat, herbs, and broth",
+        "badrijani": "Eggplant rolls with walnut paste and pomegranate",
+        "chakapuli": "Lamb stew with tarragon, white wine, and greens",
+        "seaBass": "Fresh Black Sea bass with herb butter",
+        "mussels": "Mussels with rice, herbs, and warm spices",
+        "anchovies": "Fried anchovies with tkemali and lemon",
+        "trout": "Pan-seared trout with Georgian walnut sauce",
+        "beef": "Premium beef with red wine reduction",
+        "duck": "Cherry glaze with roasted seasonal vegetables",
+        "risotto": "Creamy Arborio rice with black truffle",
+        "caesar": "Classic Caesar with grilled chicken"
+      },
+      "chefSpecials": {
+        "tastingCourses": "7 courses",
+        "tastingDescription": "A composed culinary journey through Georgian products, coastal seafood, and modern technique.",
+        "pairingCourses": "5 courses + 5 wines",
+        "pairingDescription": "A slow evening built around premium Georgian wines, qvevri traditions, and seasonal pairings."
+      },
       "explore": "Explore",
       "diningExperiences": "Dining Experiences",
       "diningDescription": "From relaxed coastal breakfasts to candlelit dinners, every service follows a different rhythm of the day.",
